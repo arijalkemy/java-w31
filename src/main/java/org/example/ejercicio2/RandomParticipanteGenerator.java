@@ -13,8 +13,8 @@ public class RandomParticipanteGenerator {
         String apellido = APELLIDOS[random.nextInt(APELLIDOS.length)];
         int dni = 10000000 + random.nextInt(90000000);
         int edad = 12 + random.nextInt(48);
-        int celular = 1000000 + random.nextInt(9000000);
-        int numeroEmergencia = 1000000 + random.nextInt(9000000);
+        int celular = 10000000 + random.nextInt(90000000);
+        int numeroEmergencia = 10000000 + random.nextInt(90000000);
         String grupoSanguineo = GRUPOS_SANGUINEOS[random.nextInt(GRUPOS_SANGUINEOS.length)];
 
         return new Participante(nombre, apellido, dni, edad, celular, numeroEmergencia, grupoSanguineo);

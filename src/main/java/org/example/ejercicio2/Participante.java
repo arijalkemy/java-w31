@@ -22,6 +22,23 @@ public class Participante {
     public int getDni() {
         return dni;
     }
+
+    public int getEdad() {
+        return edad;
+    }
+
+    @Override
+    public String toString() {
+        return "Participante{" +
+                "nombre='" + nombre + '\'' +
+                ", apellido='" + apellido + '\'' +
+                ", dni=" + dni +
+                ", edad=" + edad +
+                ", telefono=" + telefono +
+                ", telefonoDeEmergencia=" + telefonoDeEmergencia +
+                ", grupoSanguineo='" + grupoSanguineo + '\'' +
+                '}';
+    }
 }
 
 

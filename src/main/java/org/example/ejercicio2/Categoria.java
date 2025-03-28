@@ -1,6 +1,7 @@
 package org.example.ejercicio2;
 
 public class Categoria {
+    private static final int EDAD_ADULTO = 18;
     TipoCategoria tipo;
     String categoriaNombre;
     int edadMinima;
@@ -20,7 +21,28 @@ public class Categoria {
     }
 
     public boolean admiteMenores() {
-        return this.edadMinima < 18;
+        return this.edadMinima < EDAD_ADULTO;
     }
 
+    public TipoCategoria getTipo() {
+        return tipo;
+    }
+
+    public int getCosto(int edad) {
+        if (edad >= EDAD_ADULTO) {
+            return costoMayores;
+        } else {
+            return costoMenores;
+        }
+    }
+
+    public String printTipo() {
+        if (this.tipo == TipoCategoria.MEDIANA) {
+            return "Mediana";
+        } else if (this.tipo == TipoCategoria.AVANZADA) {
+            return "Avanzada";
+        }
+
+        return "Chica";
+    }
 }

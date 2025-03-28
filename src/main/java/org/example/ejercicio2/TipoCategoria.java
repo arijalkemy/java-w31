@@ -5,3 +5,5 @@ public enum TipoCategoria {
     MEDIANA,
     AVANZADA,
 }
+
+
