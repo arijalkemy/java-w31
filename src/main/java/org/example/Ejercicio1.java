@@ -3,29 +3,29 @@ package org.example;
 import java.util.*;
 
 
-public class ejercicio1 {
+public class Ejercicio1 {
     private static String[] cities;
     private static int[] minTemps;
     private static int[] maxTemps;
 
     public void findCities() {
-        ejercicio1.cities = new String[]{"Londres", "Madrid", "Nueva York", "Buenos Aires", "Asunción", "São Paulo", "Lima", "Santiago de Chile", "Lisboa", "Tokio"};
-        ejercicio1.minTemps = new int[]{-2, -3, -8, 4, 6, 5, 0, -7, -1, -10};
-        ejercicio1.maxTemps = new int[]{33, 32, 27, 37, 42, 43, 39, 26, 31, 35};
+        Ejercicio1.cities = new String[]{"Londres", "Madrid", "Nueva York", "Buenos Aires", "Asunción", "São Paulo", "Lima", "Santiago de Chile", "Lisboa", "Tokio"};
+        Ejercicio1.minTemps = new int[]{-2, -3, -8, 4, 6, 5, 0, -7, -1, -10};
+        Ejercicio1.maxTemps = new int[]{33, 32, 27, 37, 42, 43, 39, 26, 31, 35};
 
         int min_temp_index = 0;
         int max_temp_index = 0;
         int min_temp = 0;
         int max_temp = 0;
 
-        for (int i = 0; i < ejercicio1.cities.length; i++) {
-            if (ejercicio1.minTemps[i] < min_temp) {
-                min_temp = ejercicio1.minTemps[i];
+        for (int i = 0; i < Ejercicio1.cities.length; i++) {
+            if (Ejercicio1.minTemps[i] < min_temp) {
+                min_temp = Ejercicio1.minTemps[i];
                 min_temp_index = i;
             }
 
-            if (ejercicio1.maxTemps[i] > max_temp) {
-                max_temp = ejercicio1.maxTemps[i];
+            if (Ejercicio1.maxTemps[i] > max_temp) {
+                max_temp = Ejercicio1.maxTemps[i];
                 max_temp_index = i;
             }
         }
@@ -35,15 +35,15 @@ public class ejercicio1 {
     }
 
     public void find_cities_streams() {
-        ejercicio1.cities = new String[]{"Londres", "Madrid", "Nueva York", "Buenos Aires", "Asunción", "São Paulo", "Lima", "Santiago de Chile", "Lisboa", "Tokio"};
-        ejercicio1.minTemps = new int[]{-2, -3, -8, 4, 6, 5, 0, -7, -1, -10};
-        ejercicio1.maxTemps = new int[]{33, 32, 27, 37, 42, 43, 39, 26, 31, 35};
+        Ejercicio1.cities = new String[]{"Londres", "Madrid", "Nueva York", "Buenos Aires", "Asunción", "São Paulo", "Lima", "Santiago de Chile", "Lisboa", "Tokio"};
+        Ejercicio1.minTemps = new int[]{-2, -3, -8, 4, 6, 5, 0, -7, -1, -10};
+        Ejercicio1.maxTemps = new int[]{33, 32, 27, 37, 42, 43, 39, 26, 31, 35};
 
-        CityStats[] citiesStats = new CityStats[ejercicio1.cities.length];
+        CityStats[] citiesStats = new CityStats[Ejercicio1.cities.length];
 
         // Creating objects for each city
-        for (int i = 0; i < ejercicio1.cities.length; i++) {
-            CityStats city = new CityStats(ejercicio1.cities[i], ejercicio1.minTemps[i], ejercicio1.maxTemps[i]);
+        for (int i = 0; i < Ejercicio1.cities.length; i++) {
+            CityStats city = new CityStats(Ejercicio1.cities[i], Ejercicio1.minTemps[i], Ejercicio1.maxTemps[i]);
             citiesStats[i] = city;
         }
 
