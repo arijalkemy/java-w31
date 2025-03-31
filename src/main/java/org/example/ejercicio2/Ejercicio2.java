@@ -1,12 +1,8 @@
-package org.example;
+package org.example.ejercicio2;
 
-import org.example.ejercicio2.*;
-
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 import static org.example.ejercicio2.TipoCategoria.*;
 

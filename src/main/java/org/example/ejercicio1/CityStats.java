@@ -1,4 +1,4 @@
-package org.example;
+package org.example.ejercicio1;
 
 public class CityStats {
     public String cityName;
