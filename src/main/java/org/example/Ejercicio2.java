@@ -13,9 +13,9 @@ import static org.example.ejercicio2.TipoCategoria.*;
 public class Ejercicio2 {
 
     public static void main(String[] args) {
-        Categoria catChica = new Categoria(CHICA, "Circuito Chico", 1500, 1300, 0, new String[]{"Selva" , "Arroyos"}, 2.0);
-        Categoria catMedia = new Categoria(MEDIANA, "Circuito Medio", 2300, 2000, 0, new String[]{"Selva", "Arroyos", "Barro"}, 5.0);
-        Categoria catAvanzada = new Categoria(AVANZADA, "Circuito Avanzado", 2800, 0, 18, new String[]{"Selva", "Arroyos", "Barro", "Escalada en piedra"}, 10.0);
+        Categoria catChica = new Categoria(CHICA, "Circuito Chico", 1500, 1300, false, new String[]{"Selva" , "Arroyos"}, 2.0);
+        Categoria catMedia = new Categoria(MEDIANA, "Circuito Medio", 2300, 2000, false, new String[]{"Selva", "Arroyos", "Barro"}, 5.0);
+        Categoria catAvanzada = new Categoria(AVANZADA, "Circuito Avanzado", 2800, 0, true, new String[]{"Selva", "Arroyos", "Barro", "Escalada en piedra"}, 10.0);
 
         Map<Integer, Inscripcion> inscripciones = new HashMap<>();
         Participante primerParticipante = new Participante("Carlos", "Ramirez", 12345678, 35, 11445566, 11554466, "B+");

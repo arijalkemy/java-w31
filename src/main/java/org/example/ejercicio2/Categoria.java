@@ -1,7 +1,7 @@
 package org.example.ejercicio2;
 
 public class Categoria {
-    private static final int EDAD_ADULTO = 18;
+    public static final int EDAD_ADULTO = 18;
     TipoCategoria tipo;
     String categoriaNombre;
     int edadMinima;
@@ -10,11 +10,15 @@ public class Categoria {
     String[] terrenos;
     double largo;
 
-    public Categoria(TipoCategoria tipo, String categoriaNombre, int costoMayores, int costoMenores, int edadMinima, String[] terrenos, double largo) {
+    public Categoria(TipoCategoria tipo, String categoriaNombre, int costoMayores, int costoMenores, boolean paraAdultos, String[] terrenos, double largo) {
         this.tipo = tipo;
         this.categoriaNombre = categoriaNombre;
         this.costoMayores = costoMayores;
-        this.edadMinima = edadMinima;
+        if (paraAdultos) {
+            this.edadMinima = EDAD_ADULTO;
+        } else {
+            this.edadMinima = 0;
+        }
         this.terrenos = terrenos;
         this.costoMenores = costoMenores;
         this.largo = largo;
