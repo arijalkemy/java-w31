@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$/.." vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Clas3EjercicioPOO" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Clase3ManejoExcepciones" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Clase4-EjercicioClaseAbstractaEInterfaz" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Clase4EjercicioInterfaz" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/EjercicioMatrices" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/PracticaClasesYObjetos" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/PracticaColecciones" vcs="Git" />
+  </component>
+</project>

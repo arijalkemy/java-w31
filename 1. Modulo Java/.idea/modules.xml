@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/1. Modulo Java.iml" filepath="$PROJECT_DIR$/.idea/1. Modulo Java.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Clas3EjercicioPOO/Clas3EjercicioPOO.iml" filepath="$PROJECT_DIR$/Clas3EjercicioPOO/Clas3EjercicioPOO.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Clase3ManejoExcepciones/Clase3ManejoExcepciones.iml" filepath="$PROJECT_DIR$/Clase3ManejoExcepciones/Clase3ManejoExcepciones.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Clase4-EjercicioClaseAbstractaEInterfaz/Clase4-EjercicioClaseAbstractaEInterfaz.iml" filepath="$PROJECT_DIR$/Clase4-EjercicioClaseAbstractaEInterfaz/Clase4-EjercicioClaseAbstractaEInterfaz.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Clase4EjercicioInterfaz/Clase4EjercicioInterfaz.iml" filepath="$PROJECT_DIR$/Clase4EjercicioInterfaz/Clase4EjercicioInterfaz.iml" />
+      <module fileurl="file://$PROJECT_DIR$/EjercicioMatrices/EjercicioMatrices.iml" filepath="$PROJECT_DIR$/EjercicioMatrices/EjercicioMatrices.iml" />
+      <module fileurl="file://$PROJECT_DIR$/EjercicioVehiculoGaraje/EjercicioVehiculoGaraje.iml" filepath="$PROJECT_DIR$/EjercicioVehiculoGaraje/EjercicioVehiculoGaraje.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PracticaClasesYObjetos/PracticaClasesYObjetos.iml" filepath="$PROJECT_DIR$/PracticaClasesYObjetos/PracticaClasesYObjetos.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PracticaColecciones/PracticaColecciones.iml" filepath="$PROJECT_DIR$/PracticaColecciones/PracticaColecciones.iml" />
+    </modules>
+  </component>
+</project>
