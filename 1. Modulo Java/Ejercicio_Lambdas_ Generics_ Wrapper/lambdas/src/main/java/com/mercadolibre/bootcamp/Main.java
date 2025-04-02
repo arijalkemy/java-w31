@@ -29,27 +29,31 @@ public class Main {
         garaje.mostrarVehiculos();
 
         List<Vehiculo> vehiculos = garaje.getVehiculos();
-
+        System.out.println("");
         System.out.println("========= Ordenar Por Precio ==========");
         garaje.getVehiculos().sort((v1, v2) -> v1.getCosto().compareTo(v2.getCosto()));
         garaje.mostrarVehiculos();
 
+        System.out.println("");
         System.out.println("========= Ordenar Por Marca y Precio ==========");
         garaje.getVehiculos().sort(Comparator.comparing(Vehiculo::getMarca).thenComparing(Vehiculo::getCosto));
         garaje.mostrarVehiculos();
 
+        System.out.println("");
         System.out.println("========= Vehículos con precio no mayor a 1000 ==========");
         List<Vehiculo> vehiculosEconomicos = garaje.getVehiculos().stream()
                 .filter(vehiculo -> vehiculo.getCosto() < 1000)
                 .collect(Collectors.toList());
         vehiculosEconomicos.forEach(System.out::println);
 
+        System.out.println("");
         System.out.println("========= Vehículos precio mayor o igual a 1000 ==========");
         List<Vehiculo> vehiculosCostosos = garaje.getVehiculos().stream()
                 .filter(vehiculo -> vehiculo.getCosto() >= 1000)
                 .collect(Collectors.toList());
         vehiculosCostosos.forEach(System.out::println);
-
+        
+        System.out.println("");
         System.out.println("========= Promedio Garaje ==========");
         Double promedio =  garaje.getVehiculos().stream()
                 .mapToDouble(Vehiculo::getCosto)
