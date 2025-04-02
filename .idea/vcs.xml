@@ -2,6 +2,13 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/1. Modulo Java/Clas3EjercicioPOO" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/1. Modulo Java/Clase3ManejoExcepciones" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/1. Modulo Java/Clase4-EjercicioClaseAbstractaEInterfaz" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/1. Modulo Java/Clase4EjercicioInterfaz" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/1. Modulo Java/Clase4EjercicioInterfazDos" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/1. Modulo Java/EjercicioMatrices" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/1. Modulo Java/PracticaClasesYObjetos" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/1. Modulo Java/PracticaColecciones" vcs="Git" />
   </component>
 </project>
