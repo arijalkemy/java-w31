@@ -1,4 +1,4 @@
-package E2;
+package ejercicio_productos;
 
 public class Producto {
     protected String nombre;

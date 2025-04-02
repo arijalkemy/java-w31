@@ -1,3 +1,5 @@
+package ejercicio_persona;
+
 public class Main {
     public static void main(String[] args) {
         Persona personaSinParametros = new Persona();

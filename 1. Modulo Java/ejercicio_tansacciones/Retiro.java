@@ -1,4 +1,4 @@
-package E1;
+package ejercicio_tansacciones;
 
 public class Retiro implements Transaccion {
 

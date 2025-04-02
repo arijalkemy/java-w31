@@ -1,4 +1,4 @@
-package E3;
+package ejercicio_animales;
 
 public class Main {
     public static void main(String[] args) {

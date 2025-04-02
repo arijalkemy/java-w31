@@ -1,3 +1,5 @@
+package ejercicio_temperaturas;
+
 public class Main {
     public static void main(String[] args) {
         TemperaturasGlobales TG = new TemperaturasGlobales();

@@ -1,4 +1,4 @@
-package E1;
+package ejercicio_excepciones;
 
 public class PracticaExcepciones {
     private Integer a = 0;

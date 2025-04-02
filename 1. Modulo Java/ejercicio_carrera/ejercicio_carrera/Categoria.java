@@ -1,3 +1,5 @@
+package ejercicio_carrera;
+
 public class Categoria {
     public int id;
     public String nombre;

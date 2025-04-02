@@ -1,4 +1,4 @@
-package E2;
+package ejercicio_productos;
 
 import java.util.ArrayList;
 import java.util.List;

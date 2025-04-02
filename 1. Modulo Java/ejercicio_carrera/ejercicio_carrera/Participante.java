@@ -1,3 +1,5 @@
+package ejercicio_carrera;
+
 public class Participante {
     public int numero;
     public int dni;

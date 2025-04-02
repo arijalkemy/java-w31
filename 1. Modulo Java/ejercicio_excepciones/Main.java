@@ -1,4 +1,4 @@
-package E1;
+package ejercicio_excepciones;
 
 public class Main {
     public static void main(String[] args) {

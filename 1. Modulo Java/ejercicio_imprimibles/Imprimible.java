@@ -1,4 +1,4 @@
-package E2;
+package ejercicio_imprimibles;
 
 public interface Imprimible {
 

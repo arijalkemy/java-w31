@@ -1,3 +1,5 @@
+package ejercicio_temperaturas;
+
 public class TemperaturasGlobales {
     public String[] ciudades = { "Londres", "Madrid", "Nueva York", "Buenos Aires", "Asunción", "Sao Paulo", "Lima",
             "Santiago de Chile", "Lisboa", "Tokio" };

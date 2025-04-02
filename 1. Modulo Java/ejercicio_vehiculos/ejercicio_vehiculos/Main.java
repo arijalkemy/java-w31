@@ -1,3 +1,5 @@
+package ejercicio_vehiculos;
+
 public class Main {
     public static void main(String[] args) {
         Garaje garage = new Garaje(1);

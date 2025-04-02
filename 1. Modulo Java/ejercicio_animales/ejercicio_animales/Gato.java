@@ -1,4 +1,4 @@
-package E3;
+package ejercicio_animales;
 
 public class Gato extends Animal implements Carnivoro {
 

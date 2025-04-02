@@ -1,3 +1,5 @@
+package ejercicio_carrera;
+
 public class Inscripcion {
     public int numeroInscripcion;
     public Categoria categoria;
