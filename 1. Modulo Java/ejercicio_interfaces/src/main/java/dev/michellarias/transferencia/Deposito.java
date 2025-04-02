@@ -11,6 +11,6 @@ public class Deposito extends Transaccion {
 
     @Override
     public String transaccionNoOk(Cliente cliente, Transaccion transaccion) {
-        return "Deposito NO OKx|";
+        return "Deposito no exitoso";
     }
 }

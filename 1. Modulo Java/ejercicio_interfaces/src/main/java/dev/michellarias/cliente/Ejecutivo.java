@@ -6,25 +6,17 @@ import dev.michellarias.transferencia.Transferencia;
 
 public class Ejecutivo extends Cliente {
 
+    public Ejecutivo(String nombre, Double saldo, String dni) {
+        super(nombre, saldo, dni);
+    }
+
     @Override
     public String ejecutarTransaccion(Cliente cliente, Transaccion transaccion) {
 
         return switch (transaccion){
-            case Deposito d-> transaccion.transaccionOk(cliente, transaccion);
-            case Transferencia t -> transaccion.transaccionOk(cliente, transaccion);
+            case Deposito deposito -> transaccion.transaccionOk(cliente, deposito);
+            case Transferencia transferencia -> transaccion.transaccionOk(cliente, transferencia);
             default -> transaccion.transaccionNoOk(cliente, transaccion);
         };
-
-//        if (transaccion instanceof Deposito) {
-//            Deposito deposito = (Deposito) transaccion;
-//            return deposito.transaccionOk(cliente, transaccion);
-//        }
-//
-//        if (transaccion instanceof Transferencia) {
-//            Transferencia transferencia = (Transferencia) transaccion;
-//            return transferencia.transaccionOk(cliente, transaccion);
-//        }
-//
-//        return transaccion.transaccionNoOk(cliente, transaccion);
     }
 }

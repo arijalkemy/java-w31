@@ -6,11 +6,11 @@ public class Transferencia extends Transaccion{
 
     @Override
     public String transaccionOk(Cliente cliente, Transaccion transaccion) {
-        return "";
+        return "Transferencia realizada con exito";
     }
 
     @Override
     public String transaccionNoOk(Cliente cliente, Transaccion transaccion) {
-        return "";
+        return "Transferencia fallida";
     }
 }
