@@ -16,4 +16,14 @@ public class Item {
     public double getTotal() {
         return cantidad*costoUnitario;
     }
+
+    @Override
+    public String toString() {
+        return "Item{" +
+                "costoUnitario=" + costoUnitario +
+                ", cantidad=" + cantidad +
+                ", codigo='" + codigo + '\'' +
+                ", nombre='" + nombre + '\'' +
+                '}';
+    }
 }

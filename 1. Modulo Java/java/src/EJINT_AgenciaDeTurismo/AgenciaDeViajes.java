@@ -1,4 +1,4 @@
-package AgenciaDeTurismo;
+package EJINT_AgenciaDeTurismo;
 
 public class AgenciaDeViajes {
     public static void main(String[] args){

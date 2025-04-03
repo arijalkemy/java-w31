@@ -1,4 +1,4 @@
-package AgenciaDeTurismo;
+package EJINT_AgenciaDeTurismo;
 
 public class Reserva {
     private String tipo;

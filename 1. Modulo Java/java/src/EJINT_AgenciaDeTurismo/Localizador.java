@@ -1,4 +1,4 @@
-package AgenciaDeTurismo;
+package EJINT_AgenciaDeTurismo;
 import java.util.ArrayList;
 import java.util.List;
 
