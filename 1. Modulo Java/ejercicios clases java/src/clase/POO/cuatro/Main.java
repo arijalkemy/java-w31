@@ -23,7 +23,36 @@ public class Main {
         garaje.getListaVehiculos().stream()
                 .sorted(Comparator.comparing(Vehiculo::getCosto))
                 .forEach(System.out::println);
+
+        System.out.println("\n Vehiculos ordenados por marca y costo:");
+
+        garaje.getListaVehiculos().stream()
+                .sorted(Comparator.comparing(Vehiculo::getMarca)
+                        .thenComparing(Vehiculo::getCosto))
+                .forEach(System.out::println);
+
+        List<Vehiculo> lista2 = new ArrayList<>();
+
+        System.out.println("\n vehículos con precio no mayor a 1000");
+        garaje.getListaVehiculos().stream()
+                .filter(v -> v.getCosto() < 1000)
+                .forEach(lista2::add);
+
+        lista2.forEach(System.out::println);
+
+        System.out.println("\n vehículos con precio mayor o igual a 1000");
+        List<Vehiculo> lista3 = new ArrayList<>();
+        garaje.getListaVehiculos().stream()
+                .filter(v -> v.getCosto() >= 1000)
+                .forEach(lista3::add);
+
+        lista3.forEach(System.out::println);
+
+        System.out.println("\n Promedio de precios");
+        garaje.getListaVehiculos()
+                .stream()
+                .mapToInt(Vehiculo::getCosto)
+                .average()
+                .ifPresent(System.out::println);
     }
-
-
 }
