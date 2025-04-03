@@ -65,7 +65,7 @@ public class Main {
         }
 
 
-        // TODO: HACER VALIDACIONES
+        // TODO: HACER VALIDACIONES y REPOSITORIO CRUD
         // Parte II
         System.out.println("---------------------------------------------");
         System.out.println(" -- CREACION DE FACTURAS --");
