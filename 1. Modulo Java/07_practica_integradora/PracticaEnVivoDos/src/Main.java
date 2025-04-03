@@ -1,5 +1,5 @@
-import clases.Guardaropa;
-import clases.Prenda;
+import ejercicio_guardaropa.Guardaropa;
+import ejercicio_guardaropa.Prenda;
 
 import java.util.ArrayList;
 import java.util.List;

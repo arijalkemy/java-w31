@@ -1,6 +1,5 @@
-package clases;
+package ejercicio_guardaropa;
 
-import java.util.Dictionary;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;

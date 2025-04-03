@@ -1,4 +1,4 @@
-package clases;
+package ejercicio_guardaropa;
 
 public class Prenda {
     String marca;
