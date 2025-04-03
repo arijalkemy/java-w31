@@ -56,5 +56,11 @@ public class Main {
 
         guardaRopa.guardarPrendas(prendaList3);
         guardaRopa.mostrarPrendas();
+
+        System.out.println("-----------------------------");
+        System.out.println("Elija un repositorio de prendas");
+        Integer id = scanner.nextInt();
+        prend = guardaRopa.devolverPrendas(id);
+        System.out.println(prend);
     }
 }
