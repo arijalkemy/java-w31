@@ -1,4 +1,4 @@
-package ClasesAbstractaseInterfaces.P1.Ejercicio3;
+package ClasesAbstractaseInterfaces.Ejercicio3;
 
 public abstract class Animal {
     private String nombre;

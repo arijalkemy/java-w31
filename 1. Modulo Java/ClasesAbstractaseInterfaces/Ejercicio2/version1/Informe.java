@@ -1,4 +1,4 @@
-package ClasesAbstractaseInterfaces.P1.Ejercicio2.version1;
+package ClasesAbstractaseInterfaces.Ejercicio2.version1;
 
 //*  - Informes: Incluyen un texto de n longitud, cantidad de páginas, autor, y revisor.
 

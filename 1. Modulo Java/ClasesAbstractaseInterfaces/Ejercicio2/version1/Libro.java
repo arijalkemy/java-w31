@@ -1,4 +1,4 @@
-package ClasesAbstractaseInterfaces.P1.Ejercicio2.version1;
+package ClasesAbstractaseInterfaces.Ejercicio2.version1;
 
 // Libros en PDF: Incluyen atributos como cantidad de páginas, nombre del autor, título y género.
 public class Libro implements Imprimible {

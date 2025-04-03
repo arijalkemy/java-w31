@@ -1,4 +1,4 @@
-package ClasesAbstractaseInterfaces.P1.Ejercicio2.version2;
+package ClasesAbstractaseInterfaces.Ejercicio2.version2;
 
 // Curriculums: incluye a una persona con todos sus atributos más una lista de sus habilidades.
 public class Curriculum extends Documento {

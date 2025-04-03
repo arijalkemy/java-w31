@@ -1,4 +1,4 @@
-package ClasesAbstractaseInterfaces.P1.Ejercicio3;
+package ClasesAbstractaseInterfaces.Ejercicio3;
 
 public class Perro extends Animal implements Carnivoro {
     public Perro(String nombre, int edad, String especie) {

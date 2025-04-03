@@ -1,4 +1,4 @@
-package ClasesAbstractaseInterfaces.P1.Ejercicio1;
+package ClasesAbstractaseInterfaces.Ejercicio1;
 
 public class Ejecutivo extends Cliente {
     public Ejecutivo(String nombre, String apellido) {

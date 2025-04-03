@@ -1,4 +1,4 @@
-package ClasesAbstractaseInterfaces.P1.Ejercicio3;
+package ClasesAbstractaseInterfaces.Ejercicio3;
 
 public class Vaca extends Animal implements Herviboro {
     public Vaca(String nombre, int edad, String especie) {

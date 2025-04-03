@@ -1,4 +1,4 @@
-package ClasesAbstractaseInterfaces.P1.Ejercicio1;
+package ClasesAbstractaseInterfaces.Ejercicio1;
 
 /*
  * Un banco tiene diferentes tipos de transacciones que puede llevar a cabo, entre

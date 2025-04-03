@@ -1,4 +1,4 @@
-package ClasesAbstractaseInterfaces.P1.Ejercicio2.version2;
+package ClasesAbstractaseInterfaces.Ejercicio2.version2;
 
 public class Main {
     public static void main(String[] args) {

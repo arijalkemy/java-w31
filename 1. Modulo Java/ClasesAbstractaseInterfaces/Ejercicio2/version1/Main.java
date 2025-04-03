@@ -1,4 +1,4 @@
-package ClasesAbstractaseInterfaces.P1.Ejercicio2.version1;
+package ClasesAbstractaseInterfaces.Ejercicio2.version1;
 
 /*
  * Se plantea desarrollar un programa que permita mediante una interfaz imprimir 

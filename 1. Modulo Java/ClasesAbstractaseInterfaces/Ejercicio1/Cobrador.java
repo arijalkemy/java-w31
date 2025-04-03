@@ -1,4 +1,4 @@
-package ClasesAbstractaseInterfaces.P1.Ejercicio1;
+package ClasesAbstractaseInterfaces.Ejercicio1;
 
 public class Cobrador extends Cliente {
     public Cobrador(String nombre, String apellido) {

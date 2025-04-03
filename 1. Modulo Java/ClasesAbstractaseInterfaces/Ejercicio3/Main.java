@@ -1,4 +1,4 @@
-package ClasesAbstractaseInterfaces.P1.Ejercicio3;
+package ClasesAbstractaseInterfaces.Ejercicio3;
 
 /*
  * Se solicita la creación de una clase abstracta denominada Animal, de la cual deriven

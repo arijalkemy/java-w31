@@ -1,4 +1,4 @@
-package ClasesAbstractaseInterfaces.P1.Ejercicio1;
+package ClasesAbstractaseInterfaces.Ejercicio1;
 
 public class RetiroEfectivo implements Transaccion {
     private boolean realizado;
