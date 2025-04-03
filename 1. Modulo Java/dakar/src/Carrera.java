@@ -4,9 +4,9 @@ import java.util.List;
 import java.util.Optional;
 
 public class Carrera {
+    private String nombre;
     private Double distancia;
     private Double premioEnDolares;
-    private String nombre;
     private Integer cantidadDeVehiculosPermitidos;
     private List<Vehiculo> vehiculos;
     private SocorristaAuto socorristaAuto;
@@ -20,6 +20,11 @@ public class Carrera {
         vehiculos = new ArrayList<Vehiculo>();
         socorristaAuto = new SocorristaAuto();
         socorristaMoto = new SocorristaMoto();
+    }
+
+    public String toString() {
+        return "Carrera " + nombre + ": [distancia = " + distancia + ", premio = U$S " + premioEnDolares +
+                ", vehículos permitidos = " + cantidadDeVehiculosPermitidos + ", lista de vehículos inscriptos = [" + vehiculos + "]]";
     }
 
     public void darDeAltaAuto(Integer velocidad, Integer aceleracion, Double anguloDeGiro, String patente) {
@@ -54,7 +59,7 @@ public class Carrera {
             vehiculos.remove(resultado.get());
         }
         else {
-            System.out.println("El vehiculo no existe");
+            System.out.println("El vehículo no existe");
         }
     }
 
@@ -63,10 +68,10 @@ public class Carrera {
                 .max(Comparator.comparingDouble(Vehiculo::getValorParaGanar));
 
         if (vehiculoGanador.isPresent()) {
-            System.out.println("El vehiculo ganador es: " + vehiculoGanador.get().getPatente());
+            System.out.println("El vehículo ganador es: " + vehiculoGanador.get().getPatente());
         }
         else {
-            System.out.println("El vehiculo ganador no existe");
+            System.out.println("El vehículo ganador no existe");
         }
     }
 
@@ -82,7 +87,7 @@ public class Carrera {
             }
         }
         else {
-            System.out.println("El vehiculo no existe");
+            System.out.println("El vehículo no existe");
         }
     }
 }
