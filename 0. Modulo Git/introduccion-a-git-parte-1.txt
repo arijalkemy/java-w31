@@ -1,0 +1,72 @@
+Introducción a Git - Parte 1
+
+Ejercicio 1
+
+1. Crear una carpeta llamada “archivos”
+mkdir archivos
+
+2. Situarse dentro de dicha carpeta
+cd archivos
+
+3. Crear un archivo llamado “prueba.txt” y otro llamado “hola.txt”
+touch prueba
+touch hola
+
+4. Utilizar el comando para ver los archivos que tenemos dentro de la carpeta.
+ls
+
+5. Cambiar el nombre de “hola.txt” a “prueba2.txt”
+mv hola prueba2
+
+6. Cambiar el nombre de “prueba.txt” a “prueba1.txt”
+mv prueba prueba1
+
+7. Utilizar nuevamente el comando para ver los archivos que tenemos dentro de la carpeta, para ver si se efectuaron los cambios.
+ls
+
+8. Eliminar el archivo “prueba2.txt”
+rm prueba2
+
+9. Utilizar el comando para subir un directorio arriba de la carpeta “archivos” donde estamos trabajando.
+cd ..
+
+10. Limpiar la pantalla de la terminal
+clear
+
+Ejercicio 2
+
+​​1. Abrir la terminal y realizar los siguientes comandos:
+
+a. Elegir una carpeta para crear nuestro repositorio local y situarse en ella.
+cd Repositorios
+
+b. Una vez dentro de la carpeta, iniciar un repositorio local de git.
+git init
+
+c. Una vez creado el repositorio, definir nuestra identidad (usuario y correo).
+git config user.name “caseoane_meli”
+git config user.email “carolina.seoane@mercadolibre.com”
+
+d. Crear un archivo llamado “lorem.txt” y colocar un texto “random” dentro de él.
+touch lorem
+
+e. Agregar el archivo creado al stage.
+git add .
+
+f. Confirmar definitivamente el archivo agregado a stage.
+git commit -m “add lorem.txt”
+
+2. Crear un repositorio en GitHub, obtener su URL y realizar las siguientes acciones:
+
+a. Configurar en el repositorio local la dirección al repositorio remoto para poder compartir luego los archivos.
+git remote add origin <url>
+
+b. Consultar el estado del repositorio local para ver en qué situación está el archivo “lorem.txt”.
+git status
+
+c. Si está todo ok, enviar el archivo “lorem.txt” al repositorio remoto.
+git push
+
+d. Entrar a GitHub y ver si el archivo llegó correctamente al repositorio remoto.
+ok
+
