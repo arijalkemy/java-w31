@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/1. Modulo Java.iml" filepath="$PROJECT_DIR$/.idea/1. Modulo Java.iml" />
+      <module fileurl="file://$PROJECT_DIR$/AgenciaDeTurismo/AgenciaDeTurismo.iml" filepath="$PROJECT_DIR$/AgenciaDeTurismo/AgenciaDeTurismo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Dakar/Dakar.iml" filepath="$PROJECT_DIR$/Dakar/Dakar.iml" />
+      <module fileurl="file://$PROJECT_DIR$/EjercicioCircuitos/EjercicioCircuitos1.iml" filepath="$PROJECT_DIR$/EjercicioCircuitos/EjercicioCircuitos1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/EjercicioIntegrador/EjercicioIntegrador.iml" filepath="$PROJECT_DIR$/EjercicioIntegrador/EjercicioIntegrador.iml" />
+      <module fileurl="file://$PROJECT_DIR$/EjercicioMatrices/EjercicioMatrices.iml" filepath="$PROJECT_DIR$/EjercicioMatrices/EjercicioMatrices.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Interfacesdos/Interfacesdos.iml" filepath="$PROJECT_DIR$/Interfacesdos/Interfacesdos.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Interfacestres/Interfacestres.iml" filepath="$PROJECT_DIR$/Interfacestres/Interfacestres.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Interfacesuno/Interfacesuno.iml" filepath="$PROJECT_DIR$/Interfacesuno/Interfacesuno.iml" />
+      <module fileurl="file://$PROJECT_DIR$/POOPartedos/POOPartedos.iml" filepath="$PROJECT_DIR$/POOPartedos/POOPartedos.iml" />
+      <module fileurl="file://$PROJECT_DIR$/POOPartetres/POOPartetres.iml" filepath="$PROJECT_DIR$/POOPartetres/POOPartetres.iml" />
+      <module fileurl="file://$PROJECT_DIR$/POOParteuno/POOParteuno.iml" filepath="$PROJECT_DIR$/POOParteuno/POOParteuno.iml" />
+      <module fileurl="file://$PROJECT_DIR$/RepasoJava/RepasoJava.iml" filepath="$PROJECT_DIR$/RepasoJava/RepasoJava.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SaveTheRopa/SaveTheRopa.iml" filepath="$PROJECT_DIR$/SaveTheRopa/SaveTheRopa.iml" />
+    </modules>
+  </component>
+</project>
