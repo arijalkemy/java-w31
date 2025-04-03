@@ -1,5 +1,5 @@
 package EjerciciosIntegradores.Dakar;
 
-public abstract class Socorrista {
-    public abstract void socorrer(Vehiculo vehiculo);
+public interface Socorrista<T> {
+    public abstract void socorrer(T t);
 }
