@@ -1,4 +1,7 @@
 package com.mercadolibre.bootcamp.model;
 
-public class Socorrista {
+public interface Socorrista<T extends  Vehiculo> {
+
+
+    void socorrer(T vehiculo);
 }
