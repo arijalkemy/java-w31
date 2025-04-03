@@ -1,6 +1,8 @@
 package supermercadoElEconomico;
 
-public class Item {
+import java.io.Serializable;
+
+public class Item implements Identificable<String> {
     private String nombre;
     private String codigo;
     private float costoUnitario;
@@ -11,6 +13,14 @@ public class Item {
         this.nombre = nombre;
         this.codigo = codigo;
         this.costoUnitario = costoUnitario;
+        this.cantidad = cantidad;
+    }
+
+    public int getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(int cantidad) {
         this.cantidad = cantidad;
     }
 
@@ -40,5 +50,20 @@ public class Item {
 
     public float getCostoTotal() {
         return costoUnitario * cantidad;
+    }
+
+    @Override
+    public String getID() {
+        return codigo;
+    }
+
+    @Override
+    public String toString() {
+        return "Item{" +
+                "nombre='" + nombre + '\'' +
+                ", codigo='" + codigo + '\'' +
+                ", costoUnitario=" + costoUnitario +
+                ", cantidad=" + cantidad +
+                '}';
     }
 }
