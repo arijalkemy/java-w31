@@ -1,4 +1,4 @@
-package EjerciciosIntegradores.SupermercadoElEconomico;
+package EjerciciosIntegradores.SupermercadoElEconomico.ParteIyII;
 
 import java.util.List;
 
@@ -22,5 +22,9 @@ public class Factura {
             total += producto.getPrecio();
         }
         return total;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
     }
 }

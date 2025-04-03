@@ -1,4 +1,4 @@
-package EjerciciosIntegradores.SupermercadoElEconomico;
+package EjerciciosIntegradores.SupermercadoElEconomico.Bonus;
 
 public class Item {
     private static Long contadorProductos = (long) 0;
