@@ -3,13 +3,14 @@ package com.company;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Carrera {
+public class Carrera{
     private Double distancia, precioEnDolar;
     private Integer cantidadVehiculosPermitidos;
     private String nombre;
     private List<Vehiculo> listaVehiculos;
     private SocorristaAuto socorristaAuto;
     private SocorristaMoto socorristaMoto;
+    private Integer cantidadPermitido;
 
     public void darDeAltaAuto(Integer velocidad,Integer aceleracion,Integer anguloDeGiro,String patente){
         Vehiculo auto = new Auto();
@@ -18,15 +19,22 @@ public class Carrera {
         auto.setPatente(patente);
         auto.setAnguloDeGiro(anguloDeGiro);
         listaVehiculos.add(auto);
+        this.cantidadPermitido = 0;
     }
 
     public void darDeAltaMoto(Integer velocidad,Integer aceleracion,Integer anguloDeGiro,String patente){
-        Vehiculo moto = new Moto();
-        moto.setVelocidad(velocidad);
-        moto.setAceleracion(aceleracion);
-        moto.setPatente(patente);
-        moto.setAnguloDeGiro(anguloDeGiro);
-        listaVehiculos.add(moto);
+        if(cantidadPermitido<=10){
+            Vehiculo moto = new Moto();
+            moto.setVelocidad(velocidad);
+            moto.setAceleracion(aceleracion);
+            moto.setPatente(patente);
+            moto.setAnguloDeGiro(anguloDeGiro);
+            listaVehiculos.add(moto);
+            cantidadPermitido++;
+        }
+        else{
+            System.out.println("No se puede admitir más corredores");
+        }
     }
 
     public void eliminarVehiculo(Vehiculo vehículo){
@@ -60,5 +68,4 @@ public class Carrera {
     public void socorrerMoto(Moto unaMoto){
         SocorristaMoto.socorrer(unaMoto);
     }
-
 }
