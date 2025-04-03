@@ -24,11 +24,23 @@ public class Main {
         reservas.add(reservaHotel);
 
         //Creamos un localizador completo
-        Localizador localizador = new Localizador(c1,reservas);
+        Localizador l1 = new Localizador(c1,reservas);
 
-        //Imprimimos el resultado
-        localizador.calcularDescuento();
+        RepositorioCliente repositorioCliente = new RepositorioCliente();
+        repositorioCliente.agregarLocalizador(l1);
 
+        //Agregando otro localizador al mismo cliente
+        Localizador l2 = new Localizador(c1,reservas);
+        repositorioCliente.agregarLocalizador(l2);
 
+        //Podemos mostrar el localizador
+        repositorioCliente.mostrarInfo();
+
+        //Consultamos cuantos localizadores tiene un cliente
+        if (repositorioCliente.consultarCantidadLocalizador(c1) >=2){
+            c1.setDescuentox2Localizadores(true);
+        }
+
+        //Antes de crear un nuevo localizador debo consultar si el cliente tiene algun descuento
     }
 }

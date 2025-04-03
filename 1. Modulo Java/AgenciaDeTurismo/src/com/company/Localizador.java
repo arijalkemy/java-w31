@@ -2,6 +2,8 @@ package com.company;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 public class Localizador {
     private Double totalConDescuento;
@@ -14,10 +16,30 @@ public class Localizador {
         this.reservas = reservas;
     }
 
-    public void calcularDescuento(){
-        Double subTotal = reservas.stream().mapToDouble(reserva -> reserva.precio()).sum();
+    public void calcularDescuento(Cliente c){
+        this.totalConDescuento = reservas.stream().mapToDouble(r -> r.precio()).sum();
 
-        if(reservas.size()>=4){
+        if(c.getDescuentox2Localizadores())
+        {
+            this.totalConDescuento = this.totalConDescuento * 0.95;
+        }else if (reservas.stream()
+                .map(Reserva::getClass) // Obtiene la clase de cada reserva
+                .collect(Collectors.toSet()) // Convierte en un conjunto de clases únicas
+                .containsAll(Set.of(ReservaHotel.class, ReservaComida.class, ReservaTransporte.class, ReservaBoleto.class))){
+
+            this.totalConDescuento = this.totalConDescuento * .90;
+        }else{
+
+            long countHotel = reservas.stream().filter(r -> r instanceof ReservaHotel).count();
+            long countBoleto = reservas.stream().filter(r -> r instanceof ReservaBoleto).count();
+
+            if (countHotel >= 2 || countBoleto >= 2) {
+                this.totalConDescuento -= reservas.stream()
+                        .filter(r -> (r instanceof ReservaHotel && countHotel >= 2) ||
+                                (r instanceof ReservaBoleto && countBoleto >= 2)) // Filtra las reservas con descuento
+                        .mapToDouble(Reserva::precio)
+                        .sum() * 0.05; // Aplica 5% de descuento solo a estas reservas
+            }
 
         }
 
