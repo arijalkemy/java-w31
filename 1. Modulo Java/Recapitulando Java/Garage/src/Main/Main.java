@@ -1,3 +1,5 @@
+package Main;
+
 import Clases.Garage;
 import Clases.Vehiculo;
 
