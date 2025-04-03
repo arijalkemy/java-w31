@@ -2,8 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ad1ec6bd-fe88-4b54-87c7-2b3a94de9aeb" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/EjercicioSupermercadoEconomico/com/mercadolibre/Cliente.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/EjercicioSupermercadoEconomico/com/mercadolibre/Cliente.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/EjercicioSupermercadoEconomico/com/mercadolibre/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/EjercicioSupermercadoEconomico/com/mercadolibre/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/EjercicioSupermercadoEconomico/com/mercadolibre/Supermercado.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/EjercicioSupermercadoEconomico/com/mercadolibre/Supermercado.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/mercadolibre/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/mercadolibre/Cliente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/mercadolibre/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/mercadolibre/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/mercadolibre/Supermercado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/mercadolibre/Supermercado.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -14,6 +19,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -31,6 +37,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -74,7 +81,9 @@
       <option name="presentableId" value="Default" />
       <updated>1743684671468</updated>
       <workItem from="1743684672615" duration="1279000" />
-      <workItem from="1743699322102" duration="2268000" />
+      <workItem from="1743699322102" duration="2610000" />
+      <workItem from="1743708404108" duration="136000" />
+      <workItem from="1743708572923" duration="1988000" />
     </task>
     <servers />
   </component>

@@ -1,11 +1,14 @@
 package com.mercadolibre;
 
 public class Cliente {
+    private static int contadorId = 1;
+    private Integer id;
     private String nombre;
     private String dni;
     private String apellido;
 
     public Cliente(String nombre, String apellido, String dni) {
+        this.id = contadorId++;
         this.nombre = nombre;
         this.dni = dni;
         this.apellido = apellido;
@@ -33,5 +36,13 @@ public class Cliente {
 
     public void setApellido(String apellido) {
         this.apellido = apellido;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 }

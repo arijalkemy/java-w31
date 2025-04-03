@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
-public class Supermercado {
+public class Supermercado implements CRUD<Cliente> {
     private LinkedList<Cliente> clientes = new LinkedList<>();
     private LinkedList<Factura> facturas = new LinkedList<>();
 
@@ -21,31 +21,9 @@ public class Supermercado {
         this.clientes = clientes;
     }
 
-    public void agregarCliente(Cliente cliente){
-        this.clientes.add(cliente);
-    }
-
-    public void recorrerListaClientes(){
-        this.clientes.stream().map(c -> c.getNombre() + " " +  c.getApellido() + ", DNI: " + c.getDni())
+    public void recorrerListaClientes() {
+        this.clientes.stream().map(c -> "ID: " + c.getId() + ", Nombre:" + c.getNombre() + " " + c.getApellido() + ", DNI: " + c.getDni())
                 .forEach(System.out::println);
-    }
-
-    public void elimiarCliente(Cliente cliente){
-        this.clientes.remove(cliente);
-    }
-
-    public void solicitarDniDeCliente(){
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Ingrese el DNI del usuario deseado a encontrar: ");
-        String dniABuscar = scanner.next();
-        Cliente clienteEncontrado = this.clientes.stream().filter(c -> c.getDni().equals(dniABuscar))
-                                   .findFirst()
-                                    .orElse(null);
-        if (clienteEncontrado != null) {
-            System.out.println("Cliente encontrado: " + clienteEncontrado.getNombre() + " " + clienteEncontrado.getApellido());
-        } else {
-            System.out.println("Cliente no encontrado.");
-        }
     }
 
     public LinkedList<Producto> obtenerProductosDeCliente() {
@@ -77,20 +55,100 @@ public class Supermercado {
     }
 
 
-
-    public void crearFactura(Cliente cliente){
+    public void crearFactura(Cliente cliente) {
         boolean existeCliente = this.clientes.stream().anyMatch(c -> c.getDni().equals(cliente.getDni()));
-        if(!existeCliente) {
+        if (!existeCliente) {
             Cliente c = new Cliente(cliente.getNombre(), cliente.getApellido(), cliente.getDni());
             this.clientes.add(c);
         }
 
-            LinkedList<Producto> productos = this.obtenerProductosDeCliente();
-            Factura f = new Factura(cliente, productos);
+        LinkedList<Producto> productos = this.obtenerProductosDeCliente();
+        Factura f = new Factura(cliente, productos);
 
 
-            System.out.println("Factura de: " + cliente.getNombre() + " " + cliente.getApellido() +
-                                " , con DNI: " + cliente.getDni() + ". Su factura tiene un total de: " +
-                                f.calcularTotal());
+        System.out.println("Factura de: " + cliente.getNombre() + " " + cliente.getApellido() +
+                " , con DNI: " + cliente.getDni() + ". Su factura tiene un total de: " +
+                f.calcularTotal());
+    }
+
+
+    @Override
+    public void realizarAlta(Cliente elemento) {
+        this.clientes.add(elemento);
+
+    }
+
+    @Override
+    public void eliminar(Cliente elemento) {
+        this.clientes.remove(elemento);
+    }
+
+    @Override
+    public void modificar(Cliente elemento) {
+        Scanner scanner = new Scanner (System.in);
+        Cliente clienteEncontrado = this.clientes.stream()
+                .filter(c -> c.getId() == elemento.getId())
+                .findFirst()
+                .orElse(null);
+
+        if (clienteEncontrado == null) {
+            System.out.println("Cliente no encontrado.");
+            return;
+        }
+
+        System.out.println("¿Qué deseas modificar del cliente? " + clienteEncontrado.getNombre() +
+                "\n 1: Nombre \n 2: Apellido \n 3: DNI");
+
+        Integer eleccion = scanner.nextInt();
+        scanner.nextLine(); // Limpiar buffer
+
+        switch (eleccion) {
+            case 1:
+                System.out.println("Ingrese el nuevo nombre:");
+                clienteEncontrado.setNombre(scanner.nextLine());
+                break;
+            case 2:
+                System.out.println("Ingrese el nuevo apellido:");
+                clienteEncontrado.setApellido(scanner.nextLine());
+                break;
+            case 3:
+                System.out.println("Ingrese el nuevo DNI:");
+                clienteEncontrado.setDni(scanner.nextLine());
+                break;
+            default:
+                System.out.println("Opción no válida.");
+                return;
+        }
+
+        System.out.println("Se ha modificado al cliente con éxito.");
+    }
+
+    @Override
+    public Cliente obtenerClientePorId(Integer id) {
+        Cliente clienteEncontrado = this.clientes.stream().filter(c -> c.getId() == id)
+                .findFirst()
+                .orElse(null);
+        if (clienteEncontrado != null) {
+            System.out.println("Cliente encontrado: " + clienteEncontrado.getNombre() + " " +
+                                 clienteEncontrado.getApellido());
+        } else {
+            System.out.println("Cliente no encontrado.");
+        }
+        return clienteEncontrado;
+    }
+
+
+    public void solicitarDniDeCliente() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Ingrese el DNI del usuario deseado a encontrar: ");
+        String dniABuscar = scanner.next();
+        Cliente clienteEncontrado = this.clientes.stream().filter(c -> c.getDni().equals(dniABuscar))
+                .findFirst()
+                .orElse(null);
+        if (clienteEncontrado != null) {
+            System.out.println("Cliente encontrado: " + clienteEncontrado.getNombre() + " " + clienteEncontrado.getApellido());
+        } else {
+            System.out.println("Cliente no encontrado.");
+        }
     }
 }
