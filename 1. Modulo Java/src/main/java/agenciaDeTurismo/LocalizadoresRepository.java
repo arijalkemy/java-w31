@@ -23,10 +23,6 @@ public class LocalizadoresRepository {
     }
 
     public void storeLocalizador(Localizadora localizadora) {
-        if(localizadores.stream().filter(l -> l.getCliente().getDni().equals(localizadora.getCliente().getDni())).count() >= 2) {
-            localizadora.aplicarDescuento(0.05);
-        }
-
         this.localizadores.add(localizadora);
     }
 }

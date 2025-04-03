@@ -10,12 +10,10 @@ public class Localizadora {
     private List<Reserva> reservas;
     private double precioTotal;
 
-    public Localizadora(Cliente cliente, List<Reserva> reservas) {
+    public Localizadora(Cliente cliente, List<Reserva> reservas, DescuentosService descuentosService) {
         this.cliente = cliente;
         this.reservas = reservas;
-        checkDescuentoReserva(TipoReserva.HOTEL);
-        checkDescuentoReserva(TipoReserva.VUELO);
-        this.precioTotal = reservas.stream().map(Reserva::getPrecioTotal).reduce(0.0, Double::sum);
+        this.precioTotal = descuentosService.aplicarDescuentos(cliente, reservas);
     }
 
     public Cliente getCliente() {
@@ -40,30 +38,7 @@ public class Localizadora {
 
     }
 
-    private void checkDescuentoReserva(TipoReserva tipoReserva) {
-        if (this.reservas.stream().filter(r -> r.getTipoReserva() == tipoReserva).count() >= 2) {
-            for (Reserva reserva : this.reservas) {
-                if (reserva.getTipoReserva() == tipoReserva) {
-                    reserva.aplicarDescuento(0.05);
-                }
-            }
-        }
-    }
-
     public double getPrecioTotal() {
-        Set<TipoReserva> tipoReservas = this.reservas.stream().map(Reserva::getTipoReserva).collect(Collectors.toSet());
-        if (tipoReservas.containsAll(Set.of(TipoReserva.values()))) {
-            return precioTotal * 0.90;
-        }
         return precioTotal;
-    }
-
-    public void aplicarDescuento(double descuento) {
-        double totalDescuento = this.precioTotal * descuento;
-        this.precioTotal -= totalDescuento;
-    }
-
-    public void setPrecioTotal(double precioTotal) {
-        this.precioTotal = precioTotal;
     }
 }

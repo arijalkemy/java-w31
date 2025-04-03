@@ -6,6 +6,7 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
         LocalizadoresRepository localizadoresRepository = new LocalizadoresRepository();
+        DescuentosService descuentosService = new DescuentosService(localizadoresRepository);
 
         Cliente client = new Cliente("Carlos", "Ramirez", "1234");
         Reserva reservaHotel = new Reserva(1000.0, TipoReserva.HOTEL);
@@ -14,7 +15,7 @@ public class Main {
         Reserva reservaTransporte = new Reserva(100.0, TipoReserva.TRANSPORTE);
 
         List<Reserva> reservasCarlos = List.of(reservaHotel, reservaVuelo, reservaComida, reservaTransporte);
-        Localizadora localizadoraCarlos1 = new Localizadora(client, reservasCarlos);
+        Localizadora localizadoraCarlos1 = new Localizadora(client, reservasCarlos, descuentosService);
         localizadoresRepository.storeLocalizador(localizadoraCarlos1);
         System.out.println("Precio total primera reserva: " + localizadoraCarlos1.getPrecioTotal());
 
@@ -24,14 +25,14 @@ public class Main {
         Reserva segundaReservaVuelo2 = new Reserva(400.0, TipoReserva.VUELO);
 
         List<Reserva> segundaReservaCarlos = List.of(segundaReservaHotel1, segundaReservaHotel2, segundaReservaVuelo1, segundaReservaVuelo2);
-        Localizadora localizadoraCarlos2 = new Localizadora(client, segundaReservaCarlos);
+        Localizadora localizadoraCarlos2 = new Localizadora(client, segundaReservaCarlos, descuentosService);
         localizadoresRepository.storeLocalizador(localizadoraCarlos2);
 
         System.out.println("Precio total segunda reserva: " + localizadoraCarlos2.getPrecioTotal());
 
         Reserva terceraReservaHotel = new Reserva(1000., TipoReserva.HOTEL);
         List<Reserva> terceraReservaCarlos = List.of(terceraReservaHotel);
-        Localizadora localizadoraCarlos3 = new Localizadora(client, terceraReservaCarlos);
+        Localizadora localizadoraCarlos3 = new Localizadora(client, terceraReservaCarlos, descuentosService);
         localizadoresRepository.storeLocalizador(localizadoraCarlos3);
         System.out.println("Precio total tercera reserva: " + localizadoraCarlos3.getPrecioTotal());
     }

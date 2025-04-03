@@ -6,7 +6,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 public class RepositorySearch {
-    private LocalizadoresRepository repository;
+    private final LocalizadoresRepository repository;
 
     public RepositorySearch(LocalizadoresRepository repository) {
         this.repository = repository;
