@@ -40,36 +40,49 @@ public class Localizador {
     }
 
     private double calcularPrecio() {
-        double precioHoteles = 0;
-        double precioBoletos = 0;
-        int cantHoteles = 0;
-        int cantBoletos = 0;
-        double costoRestante = 0;
-        for (Reserva reserva : this.reservas) {
-            if (reserva.getTipoReserva() == TipoReserva.HOTEL) {
-                precioHoteles += reserva.getPrecioTotal();
-                cantHoteles++;
-            } else if (reserva.getTipoReserva() == TipoReserva.VUELO) {
-                precioBoletos += reserva.getPrecioTotal();
-                cantBoletos++;
-            } else {
-                costoRestante += reserva.getPrecioTotal();
-            }
-        }
+        double precioHoteles = reservas.stream()
+                .filter(reserva -> reserva.getTipoReserva() == TipoReserva.HOTEL)
+                .mapToDouble(Reserva::getPrecioTotal)
+                .reduce(0, Double::sum);
+    
+        long cantHoteles = reservas.stream()
+                .filter(reserva -> reserva.getTipoReserva() == TipoReserva.HOTEL)
+                .count();
+    
+        double precioBoletos = reservas.stream()
+                .filter(reserva -> reserva.getTipoReserva() == TipoReserva.VUELO)
+                .mapToDouble(Reserva::getPrecioTotal)
+                .reduce(0, Double::sum);
+    
+        long cantBoletos = reservas.stream()
+                .filter(reserva -> reserva.getTipoReserva() == TipoReserva.VUELO)
+                .count();
+    
+        double costoRestante = reservas.stream()
+                .filter(reserva -> reserva.getTipoReserva() != TipoReserva.HOTEL && reserva.getTipoReserva() != TipoReserva.VUELO)
+                .mapToDouble(Reserva::getPrecioTotal)
+                .reduce(0, Double::sum);
+    
         if (cantHoteles >= 2) {
             precioHoteles *= 0.95;
         }
         if (cantBoletos >= 2) {
             precioBoletos *= 0.95;
         }
+    
         double precioTotal = precioHoteles + precioBoletos + costoRestante;
-        Set<TipoReserva> tipoReservas = this.reservas.stream().map(Reserva::getTipoReserva).collect(Collectors.toSet());
+    
+        Set<TipoReserva> tipoReservas = reservas.stream()
+                .map(Reserva::getTipoReserva)
+                .collect(Collectors.toSet());
+    
         if (tipoReservas.containsAll(Set.of(TipoReserva.values()))) {
             precioTotal *= 0.90;
         }
         if (aplicaDescuento) {
             precioTotal *= 0.95;
         }
+    
         return precioTotal;
     }
 
