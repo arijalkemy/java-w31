@@ -116,10 +116,7 @@ public class Localizador {
     }
 
     private void calcularTotal() {
-        total = 0.0;
-        for (Reserva reserva : reservas) {
-            total += reserva.getPrecio();
-        }
+        total = reservas.stream().mapToDouble(reserva -> reserva.getPrecio()).sum();
         total -= total * descuento;
     }
 
