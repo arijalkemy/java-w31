@@ -1,4 +1,4 @@
-package com.ejercicios.morse.Controller;
+package com.ejercicios.morse.service;
 
 import org.springframework.stereotype.Service;
 
@@ -7,7 +7,6 @@ import java.util.Map;
 
 @Service
 public class MorseService {
-
     private final Map<String, Character> morseToTextMap;
 
     public MorseService() {
@@ -26,6 +25,7 @@ public class MorseService {
                 result.append(" ");
             }
         }
+
 
         return result.toString();
     }

@@ -1,5 +1,6 @@
 package com.ejercicios.morse.Controller;
 
+import com.ejercicios.morse.service.MorseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -9,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api/translateMorse")
 public class MorseController {
-    private MorseService service;
+    private final MorseService service;
 
     @Autowired
     public MorseController(MorseService service) {
