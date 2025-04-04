@@ -1,15 +1,12 @@
-package org.codigo_morse.ejercicio_codigo_morse.controller;
+package org.codigo_morse.ejercicio_codigo_morse.service;
 
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
 
-@RestController
-public class CodigoMorse {
+@Service
+public class CodigoMorseService {
 
-    @GetMapping("{morse}")
     public String codeMorse(@PathVariable String morse) {
-
         StringBuilder textoMorse = new StringBuilder();
         String[] morseWords = morse.split(" {3}");
 
@@ -37,7 +34,6 @@ public class CodigoMorse {
             }
             textoMorse.append(" ");
         }
-
 
         return  textoMorse.toString();
     }
