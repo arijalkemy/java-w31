@@ -1,4 +1,4 @@
-package clase.POO.integrador2;
+package clase.POO.integrador2.ejercicio1;
 
 import java.util.HashMap;
 import java.util.List;
