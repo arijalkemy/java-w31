@@ -20,11 +20,11 @@ public class Perecedero extends Producto{
     public Double calcular(int cantidadDeProductos) {
         Double total= super.calcular(cantidadDeProductos);
         switch(this.diasPorCaducar){
-            case 1: total = total*0.25;
+            case 1: total = total/4;
                 break;
-            case 2: total = total*0.333;
+            case 2: total = total/3;
                 break;
-            case 3: total = total*0.50;
+            case 3: total = total/2;
                 break;
             default:
                 break;

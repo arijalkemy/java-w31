@@ -27,16 +27,16 @@ public class Main {
         //EJERCICIO 2 ---------------------------------------------------------------
 
         Distribuidora distribuidora = new Distribuidora();
-        Perecedero perecedero = new Perecedero("Chocorramo",3250D,2);
-        Perecedero perecedero2 = new Perecedero("Bom bom bum",500D,3);
-        Perecedero perecedero3 = new Perecedero("Detodito",4000D,2);
-        Perecedero perecedero4 = new Perecedero("Pony Malta",2000D,2);
-        Perecedero perecedero5 = new Perecedero("Coca Cola",2500D,1);
-        NoPerecedero noPerecedero1 = new NoPerecedero("Atún van camps",3250D,"Atún");
-        NoPerecedero noPerecedero2 = new NoPerecedero("new york steak",50000D,"Carne");
-        NoPerecedero noPerecedero3 = new NoPerecedero("Chicharron",10000D,"Cerdo");
-        NoPerecedero noPerecedero4 = new NoPerecedero("Pechuga",7500D,"Pollo");
-        NoPerecedero noPerecedero5 = new NoPerecedero("Huevo AAA",600D,"Huevo");
+        Perecedero perecedero = new Perecedero("Carne",3250D,2);
+        Perecedero perecedero2 = new Perecedero("Pescado",500D,3);
+        Perecedero perecedero3 = new Perecedero("Pechuga",4000D,2);
+        Perecedero perecedero4 = new Perecedero("Huevo",2000D,2);
+        Perecedero perecedero5 = new Perecedero("Piña",2500D,1);
+        NoPerecedero noPerecedero1 = new NoPerecedero("Arroz",3250D,"Granos");
+        NoPerecedero noPerecedero2 = new NoPerecedero("Lenteja",50000D,"Granos");
+        NoPerecedero noPerecedero3 = new NoPerecedero("Frijol",10000D,"Granos");
+        NoPerecedero noPerecedero4 = new NoPerecedero("Sal",7500D,"Condimentos");
+        NoPerecedero noPerecedero5 = new NoPerecedero("Azucar",600D,"Condimentos");
         ArrayList<Producto> productos = new ArrayList<>();
         productos.add(perecedero);
         productos.add(perecedero2);
@@ -48,10 +48,13 @@ public class Main {
         productos.add(noPerecedero3);
         productos.add(noPerecedero4);
         productos.add(noPerecedero5);
-
         distribuidora.setProductos(productos);
 
-        perecedero4.calcular(5);
-        System.out.println("Total alimento no perecedero: "+noPerecedero4.calcular(5));
+        double total = distribuidora.getProductos()
+                .stream()
+                .mapToDouble(producto -> producto.calcular(5))
+                .sum();
+
+        System.out.println("Precio total: "+total);
     }
 }
