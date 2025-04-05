@@ -31,4 +31,6 @@ public class Vehiculo {
     public void setCosto(Double costo) {
         this.costo = costo;
     }
+
+
 }
