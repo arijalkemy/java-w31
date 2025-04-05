@@ -9,8 +9,8 @@ public class Carrera {
     private String nombre;
     private Integer cantidadDeVehiculosPermitidos;
     private List<Vehiculo> listaDeVehiculos;
-    private SocorristaAuto socorristaAuto;
-    private SocorristaMoto socorristaMoto;
+    private Socorrista socorristaAuto;
+    private Socorrista socorristaMoto;
 
     public Carrera(Double distancia, Double premioEnDolares, String nombre, Integer cantidadDeVehiculosPermitidos) {
         this.distancia = distancia;
@@ -58,13 +58,13 @@ public class Carrera {
 
     public void socorrerAuto(String patente) {
         socorristaAuto.socorrer(
-                (Auto) listaDeVehiculos.stream().filter(vehiculo -> vehiculo.getPatente().equals(patente)).findFirst()
+                listaDeVehiculos.stream().filter(vehiculo -> vehiculo.getPatente().equals(patente)).findFirst()
                         .get());
     }
 
     public void socorrerMoto(String patente) {
         socorristaMoto.socorrer(
-                (Moto) listaDeVehiculos.stream().filter(vehiculo -> vehiculo.getPatente().equals(patente)).findFirst()
+                listaDeVehiculos.stream().filter(vehiculo -> vehiculo.getPatente().equals(patente)).findFirst()
                         .get());
     }
 
