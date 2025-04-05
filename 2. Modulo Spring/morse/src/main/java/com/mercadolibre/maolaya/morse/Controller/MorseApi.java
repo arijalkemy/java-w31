@@ -6,11 +6,18 @@ import com.mercadolibre.maolaya.morse.Model.Morse;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 @RestController
 public class MorseApi {
     @GetMapping("/v1/morse/{morseCode}")
     public String getTranslationFromMorse(@PathVariable String morseCode) {
+        return Morse.translateMorseCode(morseCode);
+    }
+
+    @PostMapping("/v1/morse")
+    public String postMethodName(@RequestBody String morseCode) {
         return Morse.translateMorseCode(morseCode);
     }
 
