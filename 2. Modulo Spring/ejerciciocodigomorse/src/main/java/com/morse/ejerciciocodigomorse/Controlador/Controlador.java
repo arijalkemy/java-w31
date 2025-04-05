@@ -11,27 +11,26 @@ import java.util.List;
 @RestController
 public class Controlador {
 
-    @GetMapping("{texto}")
+    @GetMapping("/{texto}")
     public String traducir(@PathVariable String texto){
-        return converir(splitDeCadenas(texto));
+        return convertir(splitDeCadenas(texto));
     }
 
     private List<String[]> splitDeCadenas(String s){
-        //Ahora hago una lista de palabras separadas por 3 espacios
-        String [] palabras = s.split("\\s{3}");
-
+        // Separar por palabras usando 3 espacios
+        String[] palabras = s.trim().split("\\s{3}");
         List<String[]> listaDeLetras = new ArrayList<>();
-        for (int i = 0; i<palabras.length;i++)
-        {
-            String [] letra = palabras[i].split(" ");
-            listaDeLetras.add(letra);
+
+        for (String palabra : palabras) {
+            String[] letras = palabra.trim().split("\\s+"); // uno o más espacios
+            listaDeLetras.add(letras);
         }
+
         return listaDeLetras;
     }
 
-    private String converir(List<String[]> lista){
-        //Creamos un mapa
-        HashMap<String,String> morseMap = new HashMap<>();
+    private String convertir(List<String[]> lista){
+        HashMap<String, String> morseMap = new HashMap<>();
         morseMap.put(".-", "A");
         morseMap.put("-...", "B");
         morseMap.put("-.-.", "C");
@@ -69,18 +68,19 @@ public class Controlador {
         morseMap.put("---..", "8");
         morseMap.put("----.", "9");
 
-        String resultado = "";
+        StringBuilder mensaje = new StringBuilder();
 
-        for(int i = 0; i<lista.size(); i++){
-            String [] arregloInterno = lista.get(i);
-            resultado = resultado + " ";
-            for(int j = 0;j< arregloInterno.length; j++){
-                if(morseMap.containsKey(arregloInterno[j])){
-                    resultado = resultado + morseMap.get(arregloInterno[j]);
-                }
+        for (int i = 0; i < lista.size(); i++) {
+            String[] palabra = lista.get(i);
+            for (String letraMorse : palabra) {
+                String letraTraducida = morseMap.getOrDefault(letraMorse, "?");
+                mensaje.append(letraTraducida);
+            }
+            if (i < lista.size() - 1) {
+                mensaje.append(" ");
             }
         }
 
-        return resultado;
+        return mensaje.toString();
     }
 }
