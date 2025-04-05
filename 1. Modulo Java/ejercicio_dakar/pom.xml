@@ -4,23 +4,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <developers>
-        <developer>
-            <name>Michell Arias</name>
-            <roles>
-                <role>Software Developer</role>
-            </roles>
-        </developer>
-        <developer>
-            <name>Felipe Gomez</name>
-            <roles>
-                <role>Software Developer</role>
-            </roles>
-        </developer>
-    </developers>
-
     <groupId>dev.michellarias</groupId>
-    <artifactId>ejercicio_interfaces</artifactId>
+    <artifactId>ejercicio_lambdas_generics</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
