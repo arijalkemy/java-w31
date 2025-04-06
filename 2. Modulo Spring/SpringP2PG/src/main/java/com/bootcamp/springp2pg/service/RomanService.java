@@ -2,49 +2,43 @@ package com.bootcamp.springp2pg.service;
 
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 @Service
 public class RomanService {
-    enum Numeral {
-        I(1),
-        IV(4),
-        V(5),
-        IX(9),
-        X(10),
-        XL(40),
-        L(50),
-        XC(90),
-        C(100),
-        CD(400),
-        D(500),
-        CM(900),
-        M(1000);
+    Map<Integer, String> values;
+    public RomanService() {
+        values = new HashMap<>();
+        values.put(1, "I");
+        values.put(5, "V");
+        values.put(10, "X");
+        values.put(50, "L");
+        values.put(100, "C");
+        values.put(500, "D");
+        values.put(1000, "M");
+    }
 
-        final int weight;
-
-        Numeral(int weight) {
-            this.weight = weight;
+    public String toRomanRecursivo(Integer n, String romano) {
+        if (Math.abs(n - obtenerMayorSiguiente(n)) == 1 || Math.abs(n - obtenerMayorSiguiente(n)) == 10 ||
+                Math.abs(n - obtenerMayorSiguiente(n)) == 100) {
+            String valorResto = values.get(Math.abs(n - obtenerMayorSiguiente(n)));
+            romano = valorResto + toRomanRecursivo(n + Math.abs(n - obtenerMayorSiguiente(n)), romano);
+        } else if (Math.abs(n - obtenerMayorSiguiente(n)) != 1 && Math.abs(n - obtenerMayorSiguiente(n)) != 10 &&
+                Math.abs(n - obtenerMayorSiguiente(n)) != 100 && Math.abs(n - obtenerMayorSiguiente(n)) != 0) {
+            romano += values.get(obtenerMenorSiguiente(n)) + toRomanRecursivo(n - obtenerMenorSiguiente(n), romano);
         }
-    };
-
-    public String toRoman(Integer n) {
-
-        if( n <= 0) {
-            throw new IllegalArgumentException("Only positive numbers are allowed");
+        else {
+            romano += values.get(n);
         }
+        return romano;
+    }
 
-        StringBuilder acc = new StringBuilder();
+    private Integer obtenerMayorSiguiente(Integer n) {
+        return values.keySet().stream().filter(p -> p >= n).min(Comparator.comparing(Integer::intValue)).orElse(1000);
+    }
 
-        final Numeral[] values = Numeral.values();
-        for (int i = values.length - 1; i >= 0; i--) {
-            while (n >= values[i].weight) {
-                acc.append(values[i]);
-                n -= values[i].weight;
-            }
-        }
-        return acc.toString();
+    private Integer obtenerMenorSiguiente(Integer n) {
+        return values.keySet().stream().filter(p -> p <= n).max(Comparator.comparing(Integer::intValue)).get();
     }
 
 }

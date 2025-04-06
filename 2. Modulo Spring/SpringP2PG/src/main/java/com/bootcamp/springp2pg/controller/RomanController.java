@@ -15,7 +15,7 @@ public class RomanController {
     }
     @GetMapping("/{param}")
     public String decimalToRoman(@PathVariable Integer param){
-        return romanService.toRoman(param);
+        return romanService.toRomanRecursivo(param, "");
         };
     }
 
