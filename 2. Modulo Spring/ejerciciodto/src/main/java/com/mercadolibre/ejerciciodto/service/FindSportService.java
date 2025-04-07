@@ -41,7 +41,7 @@ public class FindSportService {
     De existir, se deberá mostrar el nivel del mismo.
     Utilizar la clase ResponseEntity para devolver la respuesta.*/
     public String getSportLevel(String name){
-        Sport sport = this.sports.stream().filter(d -> d.getName().equals(name))
+        Sport sport = this.sports.stream().filter(d -> d.getName().equalsIgnoreCase(name))
                             .findFirst().orElse(null);
         return "El nivel del deporte " + name + " es: " + sport.getLevel();
     }
