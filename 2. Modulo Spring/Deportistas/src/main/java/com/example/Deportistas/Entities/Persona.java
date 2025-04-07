@@ -7,7 +7,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class Persona implements Serializable {
+public class Persona {
     private String nombre;
     private String apellido;
     private int edad;

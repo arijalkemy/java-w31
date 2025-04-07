@@ -5,7 +5,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class DeportistaDTO {
+public class DeportistaDTO implements Serializable {
     private String nombre;
     private String apellido;
     private String nombreDeporte;

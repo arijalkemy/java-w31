@@ -7,7 +7,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class Deporte implements Serializable {
+public class Deporte {
     private String nombre;
     private String nivel;
 
