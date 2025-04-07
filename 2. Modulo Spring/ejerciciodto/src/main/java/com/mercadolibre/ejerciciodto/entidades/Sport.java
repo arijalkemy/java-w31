@@ -10,8 +10,8 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 
-public class Deporte {
-    private String nombre;
-    private Integer nivel;
+public class Sport {
+    private String name;
+    private Integer level;
 
 }

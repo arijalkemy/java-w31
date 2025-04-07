@@ -11,8 +11,8 @@ import java.io.Serializable;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class PersonaDTO implements Serializable {
-    private String nombre;
-    private String apellido;
-    private Deporte deporte;
+public class PersonDTO implements Serializable {
+    private String name;
+    private String lastName;
+    private Sport sport;
 }
