@@ -7,10 +7,10 @@ public class Factura {
     private List<Item> items;
     private Double total;
 
-    public Factura(Cliente cliente, List<Item> items, Double total) {
+    public Factura(Cliente cliente, List<Item> items) {
         this.cliente = cliente;
         this.items = items;
-        this.total = total;
+        this.calcularTotal();
     }
 
     public Cliente getCliente() {
@@ -35,5 +35,11 @@ public class Factura {
 
     public void setTotal(Double total) {
         this.total = total;
+    }
+
+    public void calcularTotal(){
+        this.items.forEach(item-> {
+            this.total=this.total+(item.getPrecio()*item.getCantidad());
+        });
     }
 }
