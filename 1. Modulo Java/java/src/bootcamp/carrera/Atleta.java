@@ -1,14 +1,8 @@
 package bootcamp.carrera;
 
 public class Atleta {
-    private int id;
-    private int dni;
-    private String nombre;
-    private String apellido;
-    private int edad;
-    private String telefono;
-    private String telefonoEmergencia;
-    private String grupoSanguineo;
+    private int id,dni,edad;
+    private String nombre, apellido, telefono, telefonoEmergencia, grupoSanguineo;
 
     public int getId() {
         return id;
