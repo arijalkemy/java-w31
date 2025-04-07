@@ -20,7 +20,7 @@ public class AgeService {
         return period.getYears();
     }
 
-    public static boolean isValidDate(String d) {
+    public boolean isValidDate(String d) {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         try {
             LocalDate.parse(d, dtf);

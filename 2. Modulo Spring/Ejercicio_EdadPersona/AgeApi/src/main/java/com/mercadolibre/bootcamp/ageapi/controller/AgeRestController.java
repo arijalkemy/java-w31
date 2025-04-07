@@ -20,7 +20,7 @@ public class AgeRestController {
     @GetMapping("/{day}/{month}/{year}")
     public String age(@PathVariable String day, @PathVariable String month, @PathVariable String year) {
         String date = day + "/" + month + "/" + year;
-        if(AgeService.isValidDate(date)) {
+        if(ageService.isValidDate(date)) {
             return ageService.calculateAge(date).toString();
         }
         return "Invalid date";
