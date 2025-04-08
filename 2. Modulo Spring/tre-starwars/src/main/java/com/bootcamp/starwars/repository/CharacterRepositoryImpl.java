@@ -17,7 +17,6 @@ public class CharacterRepositoryImpl implements CharacterRepository {
     private List<Character> charactersList;
 
     public CharacterRepositoryImpl() {
-        System.out.println("Loading characters from file...");
         charactersList = loadDataBase();
     }
 
@@ -33,14 +32,14 @@ public class CharacterRepositoryImpl implements CharacterRepository {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
+        
         ObjectMapper objectMapper = new ObjectMapper();
-        TypeReference<List<Character>> typeRef = new TypeReference<>() {};
-        List<Character> priceDTOS = null;
+        List<Character> characters = null;
         try {
-            priceDTOS = objectMapper.readValue(file, typeRef);
+            characters = objectMapper.readValue(file, new TypeReference<>() {});
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return priceDTOS;
+        return characters;
     }
 }
