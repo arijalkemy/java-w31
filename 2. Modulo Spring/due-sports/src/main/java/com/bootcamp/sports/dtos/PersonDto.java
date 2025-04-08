@@ -1,9 +1,11 @@
 package com.bootcamp.sports.dtos;
 
 import com.bootcamp.sports.models.Person;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
 import java.io.Serializable;
 
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class PersonDto implements Serializable {
     private Long id;
     private String firstName;
@@ -69,8 +71,8 @@ public class PersonDto implements Serializable {
         return new PersonDto(person.getId(),
                 person.getFirstName(),
                 person.getLastName(),
-                person.getAge(),
+                null,
                 person.getSport().getName(),
-                person.getSport().getLevel());
+                null);
     }
 }

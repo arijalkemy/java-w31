@@ -1,15 +1,17 @@
 package com.bootcamp.sports.dtos;
 
 import com.bootcamp.sports.models.Sport;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
 import java.io.Serializable;
 
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class SportDto implements Serializable {
     private Long id;
     private String name;
     private Integer level;
 
-    private SportDto(Long id, String name, Integer level) {
+    public SportDto(Long id, String name, Integer level) {
         this.id = id;
         this.name = name;
         this.level = level;

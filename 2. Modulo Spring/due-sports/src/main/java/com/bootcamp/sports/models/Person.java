@@ -1,6 +1,7 @@
 package com.bootcamp.sports.models;
 
 import com.bootcamp.sports.dtos.PersonDto;
+import com.bootcamp.sports.dtos.SportDto;
 import com.bootcamp.sports.services.SportsService;
 
 public class Person {
@@ -57,13 +58,13 @@ public class Person {
     }
 
     public static Person buildFromDto(PersonDto personDto) {
-        Sport sport = SportsService.getSportByName(personDto.getSportName());
+        SportDto sport = SportsService.getSportByName(personDto.getSportName());
 
         if (sport != null) {
-            return new Person(personDto.getFirstName(), personDto.getLastName(), personDto.getAge(), sport);
+            return new Person(personDto.getFirstName(), personDto.getLastName(), personDto.getAge(), Sport.buildFromDto(sport));
         } else {
             Sport newSport = new Sport(personDto.getSportName(), personDto.getSportLevel());
-            SportsService.addSport(newSport);
+            SportsService.addSport(SportDto.buildFromSport(newSport));
             return new Person(personDto.getFirstName(),
                     personDto.getLastName(),
                     personDto.getAge(),
