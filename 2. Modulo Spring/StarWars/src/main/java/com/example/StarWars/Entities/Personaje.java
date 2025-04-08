@@ -1,10 +1,12 @@
 package com.example.StarWars.Entities;
+import javax.persistence.Entity;
 
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
+@Entity
 public class Personaje {
     private String name;
     private Integer height;
