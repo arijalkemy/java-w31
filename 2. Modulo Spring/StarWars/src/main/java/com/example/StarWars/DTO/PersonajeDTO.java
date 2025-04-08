@@ -1,6 +1,9 @@
 package com.example.StarWars.DTO;
 
 import java.io.Serializable;
+
+import com.example.StarWars.Entities.Personaje;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -21,5 +24,16 @@ public class PersonajeDTO implements Serializable {
         this.gender = gender;
         this.homeworld = homeworld;
         this.species = species;
+    }
+
+    public static PersonajeDTO convertToDTO(Personaje personaje) {
+        return new PersonajeDTO(
+            personaje.getName(),
+            personaje.getHeight(),
+            personaje.getMass(),
+            personaje.getGender(),
+            personaje.getHomeworld(),
+            personaje.getSpecies()
+        );
     }
 }

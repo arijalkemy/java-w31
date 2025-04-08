@@ -30,8 +30,7 @@ public class StarWarsService {
         List<PersonajeDTO> personajesDTO = new ArrayList<PersonajeDTO>();
         personajes.stream()
                   .filter(p -> p.getName().toLowerCase().contains(name.toLowerCase()))
-                  .forEach(p -> personajesDTO.add(new PersonajeDTO(p.getName(), p.getHeight(), p.getMass(), 
-                                                                   p.getGender(), p.getHomeworld(), p.getSpecies())));
+                  .forEach(p -> personajesDTO.add(PersonajeDTO.convertToDTO(p)));
         return personajesDTO;
     }
 }
