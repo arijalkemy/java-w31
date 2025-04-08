@@ -9,6 +9,7 @@ import org.springframework.util.ResourceUtils;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Repository
 public class PersonajeRepositoryImpl implements IPersonajeRepository {
@@ -20,6 +21,12 @@ public class PersonajeRepositoryImpl implements IPersonajeRepository {
     @Override
     public List<Personaje> findAll() {
         return listOfPersonajes;
+    }
+
+    public List<Personaje> findByName(String name) {
+        return listOfPersonajes.stream()
+                .filter(p -> p.getName().toLowerCase().contains(name.toLowerCase()))
+                .collect(Collectors.toList());
     }
 
     private void loadDataBase() throws IOException {

@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface IPersonajeRepository {
     List<Personaje> findAll();
+    List<Personaje> findByName(String name);
 }

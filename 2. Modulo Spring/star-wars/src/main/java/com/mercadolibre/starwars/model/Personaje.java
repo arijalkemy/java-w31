@@ -1,5 +1,6 @@
 package com.mercadolibre.starwars.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,6 +12,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 @Getter @Setter
 public class Personaje {
+    // @JsonProperty("hair_color") -> como se llama el atributo en el json
     private String name;
     private String height;
     private String mass;

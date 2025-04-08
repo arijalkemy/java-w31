@@ -1,5 +1,6 @@
 package com.mercadolibre.starwars.service;
 
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mercadolibre.starwars.exception.NotFoundException;
 import com.mercadolibre.starwars.model.Personaje;
@@ -23,7 +24,8 @@ public class PersonajeServiceImpl implements IPersonajeService {
     public List<PersonajeDTO> findAll() {
         ObjectMapper mapper = new ObjectMapper();
         List<Personaje> personajeList = personajeRepository.findAll();
-        if(personajeList.isEmpty()){
+
+        if (personajeList.isEmpty()) {
             throw new NotFoundException("No se encontró ningun personaje en el sistema.");
         }
         return personajeList.stream()
@@ -33,13 +35,12 @@ public class PersonajeServiceImpl implements IPersonajeService {
 
     public List<PersonajeDTO> findByName(String name) {
         ObjectMapper mapper = new ObjectMapper();
-        List<Personaje> personajeList = personajeRepository.findAll();
+        mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false); // hago que ignore los
+        // atributos desconocidos para el DTO
 
-        List<Personaje> personajesFound = personajeList.stream()
-                .filter(p -> p.getName().toLowerCase().contains(name.toLowerCase()))
-                .collect(Collectors.toList());
+        List<Personaje> personajesFound = personajeRepository.findByName(name);
 
-        if(personajesFound.isEmpty()){
+        if (personajesFound.isEmpty()) {
             throw new NotFoundException("No se encontró ningún personaje con ese nombre.");
         }
         return personajesFound.stream()
