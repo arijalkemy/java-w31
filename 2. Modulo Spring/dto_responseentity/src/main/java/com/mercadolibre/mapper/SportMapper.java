@@ -10,7 +10,7 @@ public class SportMapper {
     public static SportDto sportToSportDto(Sport sport){
         SportDto sportDto = new SportDto();
         sportDto.setLevel(sport.getLevel());
-        sport.setName(sport.getName());
+        sportDto.setName(sport.getName());
         return sportDto;
     }
 

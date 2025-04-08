@@ -11,6 +11,7 @@ import java.io.Serializable;
 @Setter
 @Getter
 @NoArgsConstructor
+@AllArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL) // No incluye campos null.
 public class SportDto implements Serializable {
 
