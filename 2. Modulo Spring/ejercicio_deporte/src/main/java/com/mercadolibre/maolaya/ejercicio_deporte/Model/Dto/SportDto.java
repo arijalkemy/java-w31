@@ -9,7 +9,7 @@ import lombok.ToString;
 @Setter
 @AllArgsConstructor
 @ToString
-public class SportDto {
+public class SportDto implements Serializable {
     private String name;
     private String level;
 }
