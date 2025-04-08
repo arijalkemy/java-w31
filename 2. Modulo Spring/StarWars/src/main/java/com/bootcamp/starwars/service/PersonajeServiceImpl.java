@@ -26,7 +26,7 @@ public class PersonajeServiceImpl implements PersonajeService{
                     p.getHomeworld(), p.getSpecies());
             listPersonajesDto.add(personajeDto);
         });
-        
+
         return listPersonajesDto;
     }
 }
