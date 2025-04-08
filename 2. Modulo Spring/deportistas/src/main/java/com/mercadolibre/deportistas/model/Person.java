@@ -3,13 +3,13 @@ package com.mercadolibre.deportistas.model;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Persona {
+public class Person {
     private String nombre;
     private String apellido;
     private Integer edad;
-    private List<Deporte> deportesPracticados;
+    private List<Sport> deportesPracticados;
 
-    public Persona(String nombre, String apellido, Integer edad) {
+    public Person(String nombre, String apellido, Integer edad) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.edad = edad;
@@ -40,15 +40,15 @@ public class Persona {
         this.edad = edad;
     }
 
-    public List<Deporte> getDeportesPracticados() {
+    public List<Sport> getDeportesPracticados() {
         return deportesPracticados;
     }
 
-    public void agregarDeporte(Deporte deporte) {
-        this.deportesPracticados.add(deporte);
+    public void agregarDeporte(Sport sport) {
+        this.deportesPracticados.add(sport);
     }
 
     public String[] deportesToString() {
-        return deportesPracticados.stream().map(Deporte::getNombre).toArray(String[]::new);
+        return deportesPracticados.stream().map(Sport::getNombre).toArray(String[]::new);
     }
 }

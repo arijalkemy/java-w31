@@ -1,12 +1,12 @@
-package com.mercadolibre.deportistas.model;
+package com.mercadolibre.deportistas.dto;
 
 import java.io.Serializable;
 
-public class PersonaDTO implements Serializable {
+public class PersonDTO implements Serializable {
     private String fullName;
     private String[] deportes;
 
-    public PersonaDTO(String fullName, String[] deportes) {
+    public PersonDTO(String fullName, String[] deportes) {
         this.fullName = fullName;
         this.deportes = deportes;
     }

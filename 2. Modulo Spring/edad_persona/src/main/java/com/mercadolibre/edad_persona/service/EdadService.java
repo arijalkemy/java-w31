@@ -1,5 +1,6 @@
 package com.mercadolibre.edad_persona.service;
 
+import java.time.DateTimeException;
 import java.time.LocalDate;
 import java.time.Period;
 
@@ -9,7 +10,7 @@ public class EdadService {
         try {
             fechaNacimiento = LocalDate.of(anio, mes, dia);
         }
-        catch (Exception e) {
+        catch (DateTimeException e) {
             throw new IllegalArgumentException(e.getMessage());
         }
         return Period.between(fechaNacimiento, LocalDate.now()).getYears();

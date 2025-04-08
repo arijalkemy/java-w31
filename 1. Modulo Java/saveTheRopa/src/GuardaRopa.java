@@ -11,8 +11,7 @@ public class GuardaRopa {
         identificador = 0;
     }
     public Integer guardarPrendas(List<Prenda> listaDePrenda) {
-        identificador++;
-        prendas.put(identificador, listaDePrenda);
+        prendas.put(identificador++, listaDePrenda);
         return identificador;
     }
 
@@ -25,6 +24,11 @@ public class GuardaRopa {
             for (Map.Entry<Integer, List<Prenda>> entry : prendas.entrySet()) {
                 System.out.println(entry.getKey() + ": " + entry.getValue().toString());
             }
+//            prendas.forEach( (id, listaPrendas) -> {
+//                listaPrendas.forEach(prenda -> {
+//                    System.out.println(prenda.toString());
+//                });
+//            });
         }
     }
 

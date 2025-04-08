@@ -1,8 +1,8 @@
 package com.mercadolibre.deportistas.controller;
 
-import com.mercadolibre.deportistas.model.Deporte;
-import com.mercadolibre.deportistas.model.Persona;
-import com.mercadolibre.deportistas.model.PersonaDTO;
+import com.mercadolibre.deportistas.model.Sport;
+import com.mercadolibre.deportistas.model.Person;
+import com.mercadolibre.deportistas.dto.PersonDTO;
 import com.mercadolibre.deportistas.repository.DeportistasRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,7 +19,7 @@ public class DeportistasController {
     DeportistasRepository deportistasRepository = new DeportistasRepository();
 
     @GetMapping(path = "/find-sports")
-    public ResponseEntity<List<Deporte>> findSports() {
+    public ResponseEntity<List<Sport>> findSports() {
         try {
             return new ResponseEntity<>(deportistasRepository.getDeportes(), HttpStatus.OK);
         }
@@ -39,13 +39,13 @@ public class DeportistasController {
     }
 
     @GetMapping(path = "/find-sports-persons")
-    public ResponseEntity<List<PersonaDTO>> findSportsPersons() {
+    public ResponseEntity<List<PersonDTO>> findSportsPersons() {
         try {
-            ArrayList <PersonaDTO> sportsPersons = new ArrayList<>();
-            for (Persona persona : deportistasRepository.getPersonas()) {
-                sportsPersons.add(new PersonaDTO(
-                        persona.getNombre() + " " + persona.getApellido(),
-                        persona.deportesToString()
+            ArrayList <PersonDTO> sportsPersons = new ArrayList<>();
+            for (Person person : deportistasRepository.getPersonas()) {
+                sportsPersons.add(new PersonDTO(
+                        person.getNombre() + " " + person.getApellido(),
+                        person.deportesToString()
                 ));
             }
             return new ResponseEntity<>(sportsPersons, HttpStatus.OK);

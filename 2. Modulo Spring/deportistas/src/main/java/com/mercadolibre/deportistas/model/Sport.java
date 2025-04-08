@@ -1,10 +1,10 @@
 package com.mercadolibre.deportistas.model;
 
-public class Deporte {
+public class Sport {
     private String nombre;
     private String nivel;
 
-    public Deporte(String nombre, String nivel) {
+    public Sport(String nombre, String nivel) {
         this.nombre = nombre;
         this.nivel = nivel;
     }
