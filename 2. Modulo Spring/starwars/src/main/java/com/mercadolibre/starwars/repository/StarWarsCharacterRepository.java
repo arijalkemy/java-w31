@@ -12,9 +12,9 @@ import java.util.Collections;
 import java.util.List;
 
 @Repository
-public class StarWarsRepository {
+public class StarWarsCharacterRepository {
     private final ObjectMapper mapper = new ObjectMapper();
-    public String cargarJsonComoTexto() {
+    public String convertJSONToText() {
         StringBuilder contenido = new StringBuilder();
         try (BufferedReader br = new BufferedReader(new FileReader("src/main/java/com/mercadolibre/starwars/repository/starwars.json"))) {
             String linea;
@@ -28,7 +28,7 @@ public class StarWarsRepository {
     }
 
     public List<StarWarsCharacter> getCharacters() {
-        String json = cargarJsonComoTexto();
+        String json = convertJSONToText();
         try {
             return mapper.readValue(json, new TypeReference<List<StarWarsCharacter>>() {});
         } catch (IOException e) {
