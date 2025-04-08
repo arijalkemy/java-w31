@@ -3,6 +3,7 @@ package com.personajesstarwars.personajesstarwars.controller;
 import com.personajesstarwars.personajesstarwars.dto.PersonajeDTO;
 import com.personajesstarwars.personajesstarwars.entity.Personaje;
 import com.personajesstarwars.personajesstarwars.service.PersonajeServiceImp;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,11 +17,16 @@ import java.util.List;
 public class PersonajeController {
 
     //Inyeccion de dependencia
+    /*
     private final PersonajeServiceImp personajeServiceImp;
 
     public PersonajeController(PersonajeServiceImp personajeServiceImp) {
         this.personajeServiceImp = personajeServiceImp;
-    }
+    }*/
+
+    //Lo anterior lo reemplazo con autowired
+    @Autowired
+    PersonajeServiceImp personajeServiceImp;
 
     @GetMapping("/{nombre}")
     public ResponseEntity<?> buscarPorNombre(@PathVariable String nombre){

@@ -3,6 +3,7 @@ package com.personajesstarwars.personajesstarwars.service;
 import com.personajesstarwars.personajesstarwars.dto.PersonajeDTO;
 import com.personajesstarwars.personajesstarwars.entity.Personaje;
 import com.personajesstarwars.personajesstarwars.repository.PersonajeRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,11 +14,16 @@ import java.util.stream.Collectors;
 public class PersonajeServiceImp implements PersonajeService{
 
     //Inyeccion de dependencia
+    /*
     private final PersonajeRepository personajeRepository;
 
     public PersonajeServiceImp(PersonajeRepository personajeRepository) {
         this.personajeRepository = personajeRepository;
-    }
+    }*/
+
+    //Lo anterior lo reemplazo con Autowired
+    @Autowired
+    PersonajeRepository personajeRepository;
 
     @Override
     public List<PersonajeDTO> buscarPorNombre(String nombre) {
