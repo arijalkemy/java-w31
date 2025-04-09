@@ -12,7 +12,6 @@ import lombok.RequiredArgsConstructor;
 import java.time.LocalDate;
 import java.util.List;
 
-import org.apache.catalina.connector.Response;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -43,9 +42,10 @@ public class VehicleController {
 
     @GetMapping("/prices")
     public ResponseEntity<List<GetVehicleResponseDTO>> getFromPrice(
-            @RequestParam Double priceMin,
-            @RequestParam Double priceMax) {
-        return ResponseEntity.ok(vehicleService.getFromPrices(priceMin, priceMax));
+            @RequestParam String priceMin,
+            @RequestParam String priceMax) {
+        return ResponseEntity
+                .ok(vehicleService.getFromPrices(Double.parseDouble(priceMin), Double.parseDouble(priceMax)));
     }
 
     @GetMapping("/dates")
