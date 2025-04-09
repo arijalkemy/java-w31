@@ -1,0 +1,67 @@
+[
+    {
+      "id": "7e3c62a0-1a6f-4f94-bd9b-9c3c0a5f5ad1",
+      "brand": "Chevrolet",
+      "model": "Corsa",
+      "manufacturingDate": "2000-11-20",
+      "numberOfKilometers": "115000",
+      "doors": "5",
+      "price": "90000",
+      "currency": "AR",
+      "services": [
+        {
+          "date": "2003-05-20",
+          "kilometers": "60000",
+          "descriptions": "Change air filters"
+        }
+      ],
+      "countOfOwners": "2"
+    },
+    {
+      "id": "d5a2f632-8b3c-4a94-b1e9-0f2f70c654e3",
+      "brand": "Toyota",
+      "model": "Corolla",
+      "manufacturingDate": "2015-06-10",
+      "numberOfKilometers": "85000",
+      "doors": "4",
+      "price": "1500000",
+      "currency": "AR",
+      "services": [
+        {
+          "date": "2018-03-10",
+          "kilometers": "30000",
+          "descriptions": "Oil and filter change"
+        },
+        {
+          "date": "2020-07-12",
+          "kilometers": "60000",
+          "descriptions": "Brake pads replaced"
+        }
+      ],
+      "countOfOwners": "1"
+    },
+    {
+      "id": "aef4a370-b379-4b58-ae94-3cda41e1b3a2",
+      "brand": "Ford",
+      "model": "Focus",
+      "manufacturingDate": "2012-09-15",
+      "numberOfKilometers": "125000",
+      "doors": "5",
+      "price": "1100000",
+      "currency": "AR",
+      "services": [
+        {
+          "date": "2015-01-20",
+          "kilometers": "40000",
+          "descriptions": "Battery replacement"
+        },
+        {
+          "date": "2018-08-05",
+          "kilometers": "90000",
+          "descriptions": "Tire rotation"
+        }
+      ],
+      "countOfOwners": "3"
+    }
+  ]
+  
