@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "brand": "Fiat",
+    "model": "Strada",
+    "manufacturingDate": "2016-11-20",
+    "numberOfKilometers": "68800",
+    "doors": "2",
+    "price": "13500000",
+    "currency": "AR",
+    "services": [
+      {
+        "date": "2024-05-01",
+        "kilometers": "70000",
+        "descriptions": "Change of filters and oil"
+      }
+    ],
+    "countOfOwner": "1"
+  },
+  {
+    "id": 2,
+    "brand": "Ford",
+    "model": "Ranger",
+    "manufacturingDate": "2016-11-20",
+    "numberOfKilometers": "235000",
+    "doors": "2",
+    "price": "21000000",
+    "currency": "AR",
+    "services": [
+      {
+        "date": "2024-05-01",
+        "kilometers": "240000",
+        "descriptions": "Change of filters and oil"
+      }
+    ],
+    "countOfOwner": "1"
+  }
+]
