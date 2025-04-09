@@ -23,6 +23,7 @@ public class PersonajeRepositoryImpl implements IPersonajeRepository {
         return listOfPersonajes;
     }
 
+    @Override
     public List<Personaje> findByName(String name) {
         return listOfPersonajes.stream()
                 .filter(p -> p.getName().toLowerCase().contains(name.toLowerCase()))

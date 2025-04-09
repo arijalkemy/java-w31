@@ -35,8 +35,9 @@ public class PersonajeServiceImpl implements IPersonajeService {
 
     public List<PersonajeDTO> findByName(String name) {
         ObjectMapper mapper = new ObjectMapper();
-        mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false); // hago que ignore los
-        // atributos desconocidos para el DTO
+
+        // hago que ignore los atributos desconocidos para el DTO
+        mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 
         List<Personaje> personajesFound = personajeRepository.findByName(name);
 
