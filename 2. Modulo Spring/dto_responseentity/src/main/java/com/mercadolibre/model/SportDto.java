@@ -1,4 +1,4 @@
-package com.mercadolibre.model.dto;
+package com.mercadolibre.model;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;

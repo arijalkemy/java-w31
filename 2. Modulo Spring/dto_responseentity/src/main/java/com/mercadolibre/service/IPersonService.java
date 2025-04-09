@@ -1,6 +1,6 @@
 package com.mercadolibre.service;
 
-import com.mercadolibre.model.dto.PersonDto;
+import com.mercadolibre.model.PersonDto;
 
 import java.util.List;
 

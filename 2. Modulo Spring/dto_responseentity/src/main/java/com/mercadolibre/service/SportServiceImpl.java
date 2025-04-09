@@ -4,9 +4,9 @@ import com.mercadolibre.mapper.PersonMapper;
 import com.mercadolibre.mapper.SportMapper;
 import com.mercadolibre.model.Person;
 import com.mercadolibre.model.Sport;
-import com.mercadolibre.model.dto.PersonDto;
-import com.mercadolibre.model.dto.SportDto;
-import com.mercadolibre.model.dto.SportsManDto;
+import com.mercadolibre.model.PersonDto;
+import com.mercadolibre.model.SportDto;
+import com.mercadolibre.model.SportsManDto;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

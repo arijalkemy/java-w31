@@ -1,7 +1,7 @@
 package com.mercadolibre.controller;
 
-import com.mercadolibre.model.dto.SportDto;
-import com.mercadolibre.model.dto.SportsManDto;
+import com.mercadolibre.model.SportDto;
+import com.mercadolibre.model.SportsManDto;
 import com.mercadolibre.service.ISportService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

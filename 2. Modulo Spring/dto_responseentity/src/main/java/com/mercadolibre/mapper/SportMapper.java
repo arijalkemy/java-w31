@@ -1,9 +1,7 @@
 package com.mercadolibre.mapper;
 
-import com.mercadolibre.model.Person;
 import com.mercadolibre.model.Sport;
-import com.mercadolibre.model.dto.PersonDto;
-import com.mercadolibre.model.dto.SportDto;
+import com.mercadolibre.model.SportDto;
 
 public class SportMapper {
 

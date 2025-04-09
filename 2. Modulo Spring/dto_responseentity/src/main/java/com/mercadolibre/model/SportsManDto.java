@@ -1,4 +1,5 @@
-package com.mercadolibre.model.dto;
+package com.mercadolibre.model;
+
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -6,13 +7,14 @@ import lombok.Setter;
 
 import java.io.Serializable;
 
-@Setter
 @Getter
+@Setter
 @AllArgsConstructor
-public class PersonDto implements Serializable {
+public class SportsManDto implements Serializable {
 
     private String name;
     private String lastName;
+    private String sportName;
 
 
 }

@@ -1,8 +1,7 @@
 package com.mercadolibre.service;
 
-import com.mercadolibre.model.dto.SportDto;
-import com.mercadolibre.model.dto.SportsManDto;
-import org.springframework.stereotype.Service;
+import com.mercadolibre.model.SportDto;
+import com.mercadolibre.model.SportsManDto;
 
 import java.util.List;
 

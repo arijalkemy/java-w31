@@ -1,7 +1,7 @@
 package com.mercadolibre.mapper;
 
 import com.mercadolibre.model.Person;
-import com.mercadolibre.model.dto.PersonDto;
+import com.mercadolibre.model.PersonDto;
 
 public class PersonMapper {
     public static PersonDto personToPersonDto(Person person){
