@@ -1,4 +1,4 @@
-package com.meli.blog;
+package com.meli.blog.exception;
 
 import java.util.NoSuchElementException;
 

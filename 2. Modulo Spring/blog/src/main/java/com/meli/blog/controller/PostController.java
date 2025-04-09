@@ -11,6 +11,7 @@ import lombok.RequiredArgsConstructor;
 
 import java.util.List;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,17 +24,18 @@ import org.springframework.web.bind.annotation.RequestBody;
 public class PostController {
     private final PostService postService;
 
-    @PostMapping("/post")
+    @PostMapping("/blog")
     public ResponseEntity<String> createPost(@RequestBody CreatePostRequestDTO body) {
-        return ResponseEntity.ok(postService.createPost(body));
+        return ResponseEntity.status(HttpStatus.CREATED)
+                .body(postService.createPost(body));
     }
 
-    @GetMapping("/post/{id}")
+    @GetMapping("/blog/{id}")
     public ResponseEntity<GetPostResponseDTO> getPostById(@PathVariable String id) {
         return ResponseEntity.ok(postService.getById(id));
     }
 
-    @GetMapping("/posts")
+    @GetMapping("/blogs")
     public ResponseEntity<List<GetPostResponseDTO>> getAllPosts() {
         return ResponseEntity.ok(postService.getAllPosts());
     }

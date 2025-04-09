@@ -5,7 +5,6 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.NoSuchElementException;
 
-import org.springframework.expression.spel.ast.BooleanLiteral;
 import org.springframework.stereotype.Service;
 
 import com.meli.blog.dto.CreatePostRequestDTO;
