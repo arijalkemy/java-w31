@@ -1,5 +1,7 @@
 package com.mercadolibre.maolaya.ejercicio_deporte.Model.Dto;
 
+import java.io.Serializable;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
