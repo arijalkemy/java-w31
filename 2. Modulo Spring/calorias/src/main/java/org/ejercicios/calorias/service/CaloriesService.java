@@ -3,6 +3,7 @@ package org.ejercicios.calorias.service;
 import org.ejercicios.calorias.entities.Food;
 import org.ejercicios.calorias.entities.Recipe;
 import org.ejercicios.calorias.entities.ResponseDTO;
+import org.ejercicios.calorias.exception.NotFoundException;
 import org.ejercicios.calorias.repository.CaloriesRepository;
 import org.springframework.stereotype.Service;
 
@@ -13,10 +14,24 @@ import java.util.Optional;
 
 @Service
 public class CaloriesService {
-    private CaloriesRepository repository;
+    private final CaloriesRepository repository;
 
     public CaloriesService(CaloriesRepository repo) {
         this.repository = repo;
+    }
+
+    public ResponseDTO getDataFromRecipe(String recipeName) {
+        Recipe r = getRecipeFromName(recipeName);
+        return getDishInfo(r);
+    }
+
+    private Recipe getRecipeFromName(String name) {
+        Optional<Recipe> recipe = repository.getRecipeFromName(name);
+        if (recipe.isPresent()) {
+            return recipe.get();
+        } else {
+            throw new NotFoundException("Recipe not found in recipes database");
+        }
     }
 
     private ResponseDTO getDishInfo(Recipe recipe) {
