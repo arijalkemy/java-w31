@@ -1,0 +1,10 @@
+[
+  {
+    "name": "Sopa verde",
+    "ingredients": ["Aceitunas negras", "Aceitunas verdes", "Acelgas"]
+  },
+  {
+    "name": "Ensalada de berenjenas",
+    "ingredients": ["Ajos", "Alcachofas", "Apio", "Berenjena"]
+  }
+]
