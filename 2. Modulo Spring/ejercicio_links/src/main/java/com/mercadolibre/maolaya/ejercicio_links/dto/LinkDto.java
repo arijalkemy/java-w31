@@ -2,7 +2,6 @@ package com.mercadolibre.maolaya.ejercicio_links.dto;
 
 import java.io.Serializable;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import lombok.Getter;
