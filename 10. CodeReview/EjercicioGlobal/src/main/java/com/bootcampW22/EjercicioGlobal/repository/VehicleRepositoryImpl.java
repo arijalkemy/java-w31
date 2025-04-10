@@ -1,7 +1,10 @@
 package com.bootcampW22.EjercicioGlobal.repository;
 
+import com.bootcampW22.EjercicioGlobal.dto.ExceptionDto;
 import com.bootcampW22.EjercicioGlobal.dto.VehicleDto;
 import com.bootcampW22.EjercicioGlobal.entity.Vehicle;
+import com.bootcampW22.EjercicioGlobal.exception.NotFoundException;
+import com.bootcampW22.EjercicioGlobal.utils.MapperPersonal;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.stereotype.Repository;
@@ -37,21 +40,8 @@ public class VehicleRepositoryImpl implements IVehicleRepository{
         listOfVehicles = vehicles;
     }
 
-    public void addVehicle(VehicleDto vehicleDto){
+    public void addVehicle(Vehicle vehicle){
         List<Vehicle> vehicleList = findAll();
-        Vehicle vehicle = new Vehicle(vehicleDto.getId(),
-                vehicleDto.getBrand(),
-                vehicleDto.getModel(),
-                vehicleDto.getRegistration(),
-                vehicleDto.getColor(),
-                vehicleDto.getYear(),
-                vehicleDto.getMax_speed(),
-                vehicleDto.getPassengers(),
-                vehicleDto.getFuel_type(),
-                vehicleDto.getTransmission(),
-                vehicleDto.getHeight(),
-                vehicleDto.getWidth(),
-                vehicleDto.getWeight());
         vehicleList.add(vehicle);
     }
 
@@ -70,41 +60,74 @@ public class VehicleRepositoryImpl implements IVehicleRepository{
     }
 
     @Override
-    public Double checkAverageSpeedByBrand(String brand){
+    public double[] checkAverageSpeedByBrand(String brand){
         List<Vehicle> vehicleList = findAll();
         return vehicleList.stream().filter(vehicle -> vehicle.getBrand().equals(brand)).
-                mapToDouble(vehicle->Double.parseDouble(vehicle.getMax_speed())).average().orElse(0.0);
+                mapToDouble(vehicle->Double.parseDouble(vehicle.getMax_speed())).toArray();
     };
 
     @Override
-    public List<Vehicle> addVehicleList(List<VehicleDto> vehicleDtoList){
+    public List<Vehicle> addVehicleList(List<Vehicle> vehicleListRequest){
         List<Vehicle> vehicleList = findAll();
-        List<Vehicle> vehicleDtoToEntity = vehicleDtoList.stream().map(vehicleDto ->
-                new Vehicle(
-                        vehicleDto.getId(),
-                        vehicleDto.getBrand(),
-                        vehicleDto.getModel(),
-                        vehicleDto.getRegistration(),
-                        vehicleDto.getColor(),
-                        vehicleDto.getYear(),
-                        vehicleDto.getMax_speed(),
-                        vehicleDto.getPassengers(),
-                        vehicleDto.getFuel_type(),
-                        vehicleDto.getTransmission(),
-                        vehicleDto.getHeight(),
-                        vehicleDto.getWidth(),
-                        vehicleDto.getWeight()
-                )).toList();
-
-        vehicleList.addAll(vehicleDtoToEntity);
+        vehicleList.addAll(vehicleListRequest);
         return vehicleList;
     };
 
     @Override
-    public List<Vehicle> updateSpeedByVehicle(int id, VehicleDto vehicleDto){
+    public List<Vehicle> updateSpeedByVehicle(int id, Vehicle vehicleRequest){
         List<Vehicle> vehicleList = findAll();
         vehicleList.stream().filter(vehicle -> vehicle.getId()==id).forEach(
-                vehicle -> vehicle.setMax_speed(vehicleDto.getMax_speed()));
+                vehicle -> vehicle.setMax_speed(vehicleRequest.getMax_speed()));
         return vehicleList;
+    }
+
+    @Override
+    public List<Vehicle> findAllByFuelType(String fuelType){
+        List<Vehicle> vehicleList= findAll();
+        return vehicleList.stream().filter(vehicle -> vehicle.getFuel_type().equals(fuelType)).toList();
+    }
+
+    @Override
+    public void deleteVehicle(int id){
+        List<Vehicle> vehicleList = findAll();
+        vehicleList.removeAll(vehicleList.stream().filter(vehicle -> vehicle.getId()==id).toList());
+    }
+
+    @Override
+    public List<Vehicle> findAllByTransmissionType(String transmissionType){
+        List<Vehicle> vehicleList = findAll();
+        return vehicleList.stream().filter(vehicle -> vehicle.getTransmission().equals(transmissionType)).toList();
+    }
+
+    @Override
+    public void updateFuelTypeByVehicle(int id, Vehicle vehicle){
+        List<Vehicle> vehicleList = findAll();
+        vehicleList.stream().filter(veh -> veh.getId()==id).
+                forEach(veh -> veh.setFuel_type(vehicle.getFuel_type()));
+    }
+
+    @Override
+    public Double getAverageCapacityPeoplePerBrand(String brand){
+       List<Vehicle> vehicleList = findAll();
+       return vehicleList.stream().filter(vehicle -> vehicle.getBrand().equals(brand)).
+               mapToDouble(Vehicle::getPassengers).average().orElse(0.);
+
+    }
+
+    @Override
+    public List<Vehicle> findVehiclesPerWidthAndLengthRange(Double min_length, Double max_length,
+                                            Double min_width, Double max_width){
+       List<Vehicle> vehicleList = findAll();
+
+       return vehicleList.stream().filter(vehicle -> vehicle.getWidth()<= max_width &&
+               vehicle.getWidth()>= min_width && vehicle.getHeight()<= max_length &&
+               vehicle.getHeight()>= min_length).toList();
+    }
+
+    @Override
+    public List<Vehicle> findVehiclesPerWeightRange(Double weightMin, Double weightMax){
+        List<Vehicle> vehicleList = findAll();
+        return vehicleList.stream().filter(vehicle -> vehicle.getWeight()>=weightMin &&
+                vehicle.getWeight()<=weightMax).toList();
     }
 }

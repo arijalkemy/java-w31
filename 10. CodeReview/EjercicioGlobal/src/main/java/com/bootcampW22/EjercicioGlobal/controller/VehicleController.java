@@ -1,5 +1,6 @@
 package com.bootcampW22.EjercicioGlobal.controller;
 
+import com.bootcampW22.EjercicioGlobal.dto.ExceptionDto;
 import com.bootcampW22.EjercicioGlobal.dto.VehicleDto;
 import com.bootcampW22.EjercicioGlobal.entity.Vehicle;
 import com.bootcampW22.EjercicioGlobal.service.IVehicleService;
@@ -57,5 +58,51 @@ public class VehicleController {
     @PutMapping("/vehicles/{id}/update_speed")
     public ResponseEntity<List<VehicleDto>> updateSpeedByVehicle(@PathVariable int id, @RequestBody VehicleDto vehicleDto){
         return new ResponseEntity<>(vehicleService.updateSpeedByVehicle(id,vehicleDto),HttpStatus.OK);
+    }
+
+    @GetMapping("/vehicles/fuel_type/{type}")
+    public ResponseEntity<List<VehicleDto>> findAllByFuelType(@PathVariable String type){
+        return new ResponseEntity<>(vehicleService.findAllByFuelType(type), HttpStatus.OK);
+    }
+
+    @DeleteMapping("/vehicles/{id}")
+    public ResponseEntity<String> deleteVehicle(@PathVariable int id){
+        vehicleService.deleteVehicle(id);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+    @GetMapping("/vehicles/transmission/{type}")
+    public ResponseEntity<List<VehicleDto>>  findAllByTransmissionType(@PathVariable String type){
+        return new ResponseEntity<>(vehicleService.findAllByTransmissionType(type),HttpStatus.OK);
+    }
+
+    @PutMapping("/vehicles/{id}/update_fuel")
+    public ResponseEntity<String> updateFuelTypeByVehicle(@PathVariable int id, @RequestBody VehicleDto vehicleDto){
+        vehicleService.updateFuelTypeByVehicle(id,vehicleDto);
+        return new ResponseEntity<>("Se ha actualizado correctamente el vehiculo con id: "+id,HttpStatus.OK);
+    }
+
+    @GetMapping("/vehicles/average_capacity/brand/{brand}")
+    public ResponseEntity<String> getAverageCapacityPeoplePerBrand(@PathVariable String brand){
+        return new ResponseEntity<>("El promedio de capacidad total de pasajeros de la marca "+brand+
+                " es "+vehicleService.getAverageCapacityPeoplePerBrand(brand),HttpStatus.OK);
+    }
+
+    @GetMapping("/vehicles/dimensions")
+    public ResponseEntity<List<VehicleDto>> findVehiclesPerWidthAndLengthRange(@RequestParam String length,
+                                                                               @RequestParam String width){
+            String[] lengthRange = length.split("-");
+            String[] widthRange = width.split("-");
+
+            return new ResponseEntity<>(vehicleService.findVehiclesPerWidthAndLengthRange(Double.parseDouble(lengthRange[0]),
+                    Double.parseDouble(lengthRange[1]),
+                    Double.parseDouble(widthRange[0]),
+                    Double.parseDouble(widthRange[1])),HttpStatus.OK) ;
+    }
+
+    @GetMapping("/vehicles/weight")
+    public ResponseEntity<List<VehicleDto>> findVehiclesPerWeightRange(@RequestParam Double weightMin,
+                                                       @RequestParam Double weightMax){
+        return new ResponseEntity<>(vehicleService.findVehiclesPerWeightRange(weightMin,weightMax),HttpStatus.OK);
     }
 }
