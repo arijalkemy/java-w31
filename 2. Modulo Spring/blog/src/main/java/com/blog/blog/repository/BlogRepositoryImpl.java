@@ -1,40 +1,46 @@
 package com.blog.blog.repository;
 
-import com.blog.blog.dto.EntradaBlogDTO;
+import com.blog.blog.model.EntradaBlog;
 import jakarta.annotation.PostConstruct;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
 
 @Repository
-public class BlogRepositoryImpl implements BlogRepository{
-    private List<EntradaBlogDTO> listaBlog = new ArrayList<>();
+public class BlogRepositoryImpl implements IBlogRepository {
+    private List<EntradaBlog> listaBlog = new ArrayList<>();
+    private AtomicInteger idContador = new AtomicInteger(0);
 
     @Override
     @PostConstruct
     public void init() {
-        EntradaBlogDTO e1 = new EntradaBlogDTO(1,"aa","aa", LocalDate.of(2025,05,05));
-        EntradaBlogDTO e2 = new EntradaBlogDTO(2,"bb","bb", LocalDate.of(2023,05,05));
-        EntradaBlogDTO e3 = new EntradaBlogDTO(3,"cc","cc", LocalDate.of(2020,05,05));
-        EntradaBlogDTO e4 = new EntradaBlogDTO(4,"dd","dd", LocalDate.of(2019,05,05));
-        EntradaBlogDTO e5 = new EntradaBlogDTO(5,"ee","ee", LocalDate.of(2014,05,05));
-
-        listaBlog.add(e1);
-        listaBlog.add(e2);
-        listaBlog.add(e3);
-        listaBlog.add(e4);
-        listaBlog.add(e5);
+        EntradaBlog e1 = new EntradaBlog("aa","aa", LocalDate.of(2025,05,05));
+        save(e1);
+        EntradaBlog e2 = new EntradaBlog("bb","bb", LocalDate.of(2000,05,05));
+        save(e2);
+        EntradaBlog e3 = new EntradaBlog("cc","cc", LocalDate.of(1994,05,05));
+        save(e3);
     }
 
     @Override
-    public List<EntradaBlogDTO> getAllEntradaBlog() {
+    public List<EntradaBlog> getAllEntradaBlog() {
         return listaBlog;
     }
 
     @Override
-    public void addEntradaBlog(EntradaBlogDTO e) {
+    public void save(EntradaBlog e) {
+        e.setId(idContador.incrementAndGet());
         listaBlog.add(e);
+    }
+
+    @Override
+    public EntradaBlog findById(Integer id) {
+        return listaBlog.stream()
+                .filter(a-> a.getId().equals(id))
+                .findFirst()
+                .orElse(null);
     }
 }
