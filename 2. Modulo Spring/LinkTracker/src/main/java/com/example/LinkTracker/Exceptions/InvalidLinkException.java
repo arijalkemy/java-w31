@@ -1,0 +1,11 @@
+package com.example.LinkTracker.Exceptions;
+
+public class InvalidLinkException extends RuntimeException {
+        
+    public InvalidLinkException() {
+    }
+
+    public InvalidLinkException(String message) {
+        super(message);
+    }
+}
