@@ -1,0 +1,10 @@
+[
+  {
+    "name": "Pizza",
+    "ingredients": ["Acelgas","Alcachofas"]
+  },
+  {
+    "name": "Hamburguesa",
+    "ingredients": ["Acelgas","Alcachofas","Apio"]
+  }
+]
