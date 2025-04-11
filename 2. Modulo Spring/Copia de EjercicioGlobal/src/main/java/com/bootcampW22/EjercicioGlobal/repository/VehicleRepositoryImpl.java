@@ -41,4 +41,11 @@ public class VehicleRepositoryImpl implements IVehicleRepository{
     public void save(Vehicle v){
         listOfVehicles.add(v);
     }
+
+    public Vehicle findById(int id){
+        return listOfVehicles.stream()
+                .filter(a-> a.getId() == id)
+                .findFirst()
+                .orElse(null);
+    }
 }
