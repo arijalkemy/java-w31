@@ -1,0 +1,101 @@
+[
+  {
+    "name": "Luke Skywalker",
+    "height": 172,
+    "mass": "77",
+    "hairColor": "blond",
+    "skinColor": "fair",
+    "eyeColor": "blue",
+    "birthYear": "19BBY",
+    "gender": "male",
+    "homeworld": "Tatooine"
+  },
+  {
+    "name": "Darth Vader",
+    "height": 202,
+    "mass": "136",
+    "hairColor": "none",
+    "skinColor": "white",
+    "eyeColor": "yellow",
+    "birthYear": "41.9BBY",
+    "gender": "male",
+    "homeworld": "Tatooine"
+  },
+  {
+    "name": "Darth Maul",
+    "height": 175,
+    "mass": "80",
+    "hairColor": "none",
+    "skinColor": "red",
+    "eyeColor": "yellow",
+    "birthYear": "54BBY",
+    "gender": "male",
+    "homeworld": "Dathomir"
+  },
+  {
+    "name": "Darth Sidious",
+    "height": 170,
+    "mass": "75",
+    "hairColor": "white",
+    "skinColor": "pale",
+    "eyeColor": "yellow",
+    "birthYear": "82BBY",
+    "gender": "male",
+    "homeworld": "Naboo"
+  },
+  {
+    "name": "Darth Tyranus",
+    "height": 193,
+    "mass": "80",
+    "hairColor": "white",
+    "skinColor": "light",
+    "eyeColor": "brown",
+    "birthYear": "102BBY",
+    "gender": "male",
+    "homeworld": "Serenno"
+  },
+  {
+    "name": "Darth Plagueis",
+    "height": 198,
+    "mass": "75",
+    "hairColor": "none",
+    "skinColor": "gray",
+    "eyeColor": "yellow",
+    "birthYear": "unknown",
+    "gender": "male",
+    "homeworld": "Mygeeto"
+  },
+  {
+    "name": "Grand Moff Tarkin",
+    "height": 180,
+    "mass": "unknown",
+    "hairColor": "auburn",
+    "skinColor": "fair",
+    "eyeColor": "blue",
+    "birthYear": "64BBY",
+    "gender": "male",
+    "homeworld": "Eriadu"
+  },
+  {
+    "name": "Darth Revan",
+    "height": 180,
+    "mass": "unknown",
+    "hairColor": "black",
+    "skinColor": "light",
+    "eyeColor": "brown",
+    "birthYear": "unknown",
+    "gender": "male",
+    "homeworld": "unknown"
+  },
+  {
+    "name": "Admiral Ackbar",
+    "height": 180,
+    "mass": "83",
+    "hairColor": "none",
+    "skinColor": "brown",
+    "eyeColor": "orange",
+    "birthYear": "41BBY",
+    "gender": "male",
+    "homeworld": "Mon Cala"
+  }
+]
