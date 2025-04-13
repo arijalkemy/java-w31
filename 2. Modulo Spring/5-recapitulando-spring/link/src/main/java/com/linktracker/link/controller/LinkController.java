@@ -2,22 +2,42 @@ package com.linktracker.link.controller;
 
 import com.linktracker.link.dto.LinkRequestDTO;
 import com.linktracker.link.dto.LinkResponseDTO;
+import com.linktracker.link.service.LinkService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.UUID;
 
 @RestController
 public class LinkController {
 
-    /*
-    Crear un link: Endpoint POST para crear link a partir de una URL válida
-    y tiene que devolver un JSON con el linkId para utilizar en la redirección.
-     */
+    @Autowired
+    private LinkService linkService;
 
-    @PostMapping
+    @PostMapping("/link")
     public ResponseEntity<LinkResponseDTO> postLink(@RequestBody LinkRequestDTO body) {
-        return new ResponseEntity<>(new LinkResponseDTO(), HttpStatus.CREATED);
+        LinkResponseDTO res = linkService.addLink(body);
+        return new ResponseEntity<>(res, HttpStatus.CREATED);
     }
+
+    @GetMapping("/link/{linkId}")
+    public ResponseEntity<UUID> redirectToLink(@PathVariable UUID linkId) {
+        linkService.redirectToLink(linkId);
+        return new ResponseEntity<>(linkId, HttpStatus.CREATED);
+    }
+
+    @GetMapping("/metrics/{linkId}")
+    public ResponseEntity<LinkResponseDTO> getMetrics(@PathVariable UUID linkId) {
+        LinkResponseDTO res = linkService.getMetrics(linkId);
+        return new ResponseEntity<>(res, HttpStatus.OK);
+    }
+
+    @GetMapping("/{linkId}")
+    public ResponseEntity<LinkResponseDTO> getMetrics(@PathVariable UUID linkId) {
+        LinkResponseDTO res = linkService.getMetrics(linkId);
+        return new ResponseEntity<>(res, HttpStatus.OK);
+    }
+
 }
