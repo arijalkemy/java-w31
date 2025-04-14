@@ -25,7 +25,8 @@ public class BlogServiceImpl implements BlogService {
             throw new BadRequestException("No se puede crear una entrada de blog vacía.");
         }
         if (repository.getEntry(entry.getId()) != null) {
-            throw new EntryAlreadyExistsException("No puede crearse la entrada. Ya existe una entrada con id " + entry.getId());
+            throw new EntryAlreadyExistsException(
+                    "No puede crearse la entrada. Ya existe una entrada con id " + entry.getId());
         }
         repository.newEntry(entry);
         return new ResponseEntity<>("Entrada id " + entry.getId() + " creada exitosamente.", HttpStatus.OK);
@@ -43,8 +44,8 @@ public class BlogServiceImpl implements BlogService {
     @Override
     public List<BlogEntryDTO> getAll() {
         return repository.getAll()
-                         .stream()
-                         .map(BlogEntryDTO::blogEntryToDTO)
-                         .collect(Collectors.toList());
+                .stream()
+                .map(BlogEntryDTO::blogEntryToDTO)
+                .collect(Collectors.toList());
     }
 }

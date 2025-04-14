@@ -50,12 +50,13 @@ public class GestorClientes implements CRUD<Cliente> {
 
     @Override
     public void imprimir() {
-        clientes.forEach(cliente -> System.out.println("Cliente: " + cliente.getDni() + ", Nombre: " + cliente.getNombre() + " " + cliente.getApellido()));
+        clientes.forEach(cliente -> System.out.println(
+                "Cliente: " + cliente.getDni() + ", Nombre: " + cliente.getNombre() + " " + cliente.getApellido()));
     }
 
     @Override
     public List<Cliente> getTodos() {
-       return clientes;
+        return clientes;
     }
 
 }

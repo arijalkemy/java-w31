@@ -15,7 +15,8 @@ public class Inscripcion {
         if (calcularMonto() != -1) {
             this.monto = calcularMonto();
         } else {
-            throw new IllegalArgumentException("La categoría no es válida o el participante no cumple con los requisitos de edad.");
+            throw new IllegalArgumentException(
+                    "La categoría no es válida o el participante no cumple con los requisitos de edad.");
         }
     }
 
@@ -53,12 +54,15 @@ public class Inscripcion {
     public int getId() {
         return this.id;
     }
+
     public Categoria getCategoria() {
         return this.categoria;
     }
+
     public Participante getParticipante() {
         return this.participante;
     }
+
     public int getMonto() {
         return this.monto;
     }

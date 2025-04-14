@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Guardaropas {
     private HashMap<Integer, List<Prenda>> guardaropas;
-    private static Integer contador =  0;
+    private static Integer contador = 0;
 
     public Guardaropas() {
         this.guardaropas = new HashMap<>();
@@ -20,7 +20,8 @@ public class Guardaropas {
     public void mostrarPrendas() {
         for (Integer key : guardaropas.keySet()) {
             System.out.print("Número: " + key + ", Prendas: ");
-            guardaropas.get(key).forEach(p -> System.out.print("Modelo: " + p.getModelo() + ", Marca: " + p.getMarca()));
+            guardaropas.get(key)
+                    .forEach(p -> System.out.print("Modelo: " + p.getModelo() + ", Marca: " + p.getMarca()));
             System.out.println();
         }
     }

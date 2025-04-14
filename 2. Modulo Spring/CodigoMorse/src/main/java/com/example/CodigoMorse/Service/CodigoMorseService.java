@@ -17,7 +17,7 @@ public class CodigoMorseService {
         morseCodeMap.put("-.-.", "C");
         morseCodeMap.put("-..", "D");
         morseCodeMap.put(".", "E");
-        morseCodeMap.put("..-.","F");
+        morseCodeMap.put("..-.", "F");
         morseCodeMap.put("--.", "G");
         morseCodeMap.put("....", "H");
         morseCodeMap.put("..", "I");
@@ -56,7 +56,7 @@ public class CodigoMorseService {
 
     public String decodificar(String codigo) {
         StringBuilder resultado = new StringBuilder();
-        
+
         String[] palabrasMorse = codigo.split("   ");
 
         for (String palabra : palabrasMorse) {

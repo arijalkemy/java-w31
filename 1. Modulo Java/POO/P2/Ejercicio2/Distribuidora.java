@@ -16,7 +16,7 @@ public class Distribuidora {
         productos.add(new Producto("Alfombra", 1000.0));
         productos.add(new Producto("Cuchillo", 60.0));
         productos.add(new Producto("Mesa", 1100.0));
-        productos.add(new Producto("Tenedor",50.0));
+        productos.add(new Producto("Tenedor", 50.0));
         productos.add(new Producto("Cortina", 900.0));
 
         productos.add(new Perecedero(5, "Leche", 20.0));
@@ -43,4 +43,3 @@ public class Distribuidora {
         System.out.println("Total a pagar por todos los productos: $" + precioTotal);
     }
 }
-

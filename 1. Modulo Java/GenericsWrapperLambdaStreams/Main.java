@@ -33,17 +33,17 @@ public class Main {
         Garage garage = new Garage();
 
         String[][] datosVehiculos = {
-            {"Ford", "Fiesta", "1000"},
-            {"Ford", "Focus", "1200"},
-            {"Ford", "Explorer", "2500"},
-            {"Fiat", "Uno", "500"},
-            {"Fiat", "Cronos", "1000"},
-            {"Fiat", "Torino", "1250"},
-            {"Chevrolet", "Aveo", "1250"},
-            {"Chevrolet", "Spin", "2500"},
-            {"Toyota", "Corola", "1200"},
-            {"Toyota", "Fortuner", "3000"},
-            {"Renault", "Logan", "950"}
+                { "Ford", "Fiesta", "1000" },
+                { "Ford", "Focus", "1200" },
+                { "Ford", "Explorer", "2500" },
+                { "Fiat", "Uno", "500" },
+                { "Fiat", "Cronos", "1000" },
+                { "Fiat", "Torino", "1250" },
+                { "Chevrolet", "Aveo", "1250" },
+                { "Chevrolet", "Spin", "2500" },
+                { "Toyota", "Corola", "1200" },
+                { "Toyota", "Fortuner", "3000" },
+                { "Renault", "Logan", "950" }
         };
 
         for (String[] datos : datosVehiculos) {
@@ -59,7 +59,8 @@ public class Main {
 
         System.out.println("Vehículos ordenados por precio (menor a mayor):");
         for (Vehiculo vehiculo : vehiculos) {
-            System.out.println("Vehículo: " + vehiculo.getMarca() + " " + vehiculo.getModelo() + ", Precio: " + vehiculo.getCosto());
+            System.out.println("Vehículo: " + vehiculo.getMarca() + " " + vehiculo.getModelo() + ", Precio: "
+                    + vehiculo.getCosto());
         }
 
         // Ejercicio 4
@@ -71,28 +72,32 @@ public class Main {
             }
             return comparacionMarca;
         });
-    
+
         System.out.println("Vehículos ordenados por marca y luego por precio (menor a mayor):");
         for (Vehiculo vehiculo : vehiculos) {
-            System.out.println("Vehículo: " + vehiculo.getMarca() + " " + vehiculo.getModelo() + ", Precio: " + vehiculo.getCosto());
+            System.out.println("Vehículo: " + vehiculo.getMarca() + " " + vehiculo.getModelo() + ", Precio: "
+                    + vehiculo.getCosto());
         }
 
         // Ejercicio 5
         ArrayList<Vehiculo> vehiculos3 = garage.getVehiculos();
         List<Vehiculo> vehiculosMenores1000 = vehiculos3.stream()
-                                                    .filter(v -> v.getCosto() < 1000)
-                                                    .collect(Collectors.toList());
+                .filter(v -> v.getCosto() < 1000)
+                .collect(Collectors.toList());
         List<Vehiculo> vehiculosMayoresOIgual1000 = vehiculos3.stream()
-                                                    .filter(v -> v.getCosto() >= 1000)
-                                                    .collect(Collectors.toList());
+                .filter(v -> v.getCosto() >= 1000)
+                .collect(Collectors.toList());
 
         double suma1 = vehiculosMenores1000.stream().mapToDouble(v -> v.getCosto()).sum();
         double promedioMenores1000 = vehiculosMenores1000.isEmpty() ? 0 : (double) suma1 / vehiculosMenores1000.size();
 
         double suma2 = vehiculosMayoresOIgual1000.stream().mapToDouble(v -> v.getCosto()).sum();
-        double promedioMayoresOIgual1000 = vehiculosMayoresOIgual1000.isEmpty() ? 0 : (double) suma2 / vehiculosMayoresOIgual1000.size();
-    
-        System.out.println("El promedio de los costos de vehículos cuyo valor es menor a 1000 es: " + promedioMenores1000);
-        System.out.println("El promedio de los costos de vehículos cuyo valor es mayor o igual a 1000 es: " + promedioMayoresOIgual1000);
+        double promedioMayoresOIgual1000 = vehiculosMayoresOIgual1000.isEmpty() ? 0
+                : (double) suma2 / vehiculosMayoresOIgual1000.size();
+
+        System.out.println(
+                "El promedio de los costos de vehículos cuyo valor es menor a 1000 es: " + promedioMenores1000);
+        System.out.println("El promedio de los costos de vehículos cuyo valor es mayor o igual a 1000 es: "
+                + promedioMayoresOIgual1000);
     }
 }

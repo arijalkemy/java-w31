@@ -17,18 +17,16 @@ public class CovidService {
 
     public CovidService() {
         this.symptoms = List.of(
-            new Symptom("Fiebre", "Alto"),
-            new Symptom("Tos", "Medio"),
-            new Symptom("Fatiga", "Bajo"),
-            new Symptom("Falta de aire", "Alto"),
-            new Symptom("Pérdida de gusto", "Medio")
-            );
+                new Symptom("Fiebre", "Alto"),
+                new Symptom("Tos", "Medio"),
+                new Symptom("Fatiga", "Bajo"),
+                new Symptom("Falta de aire", "Alto"),
+                new Symptom("Pérdida de gusto", "Medio"));
         this.persons = List.of(
-            new Person("John", "Doe", 65),
-            new Person("Jane", "Smith", 55),
-            new Person("Alice", "Johnson", 70),
-            new Person("Bob", "Brown", 45)
-        );
+                new Person("John", "Doe", 65),
+                new Person("Jane", "Smith", 55),
+                new Person("Alice", "Johnson", 70),
+                new Person("Bob", "Brown", 45));
 
         this.personsSymptoms = new HashMap<>();
         personsSymptoms.put(persons.get(0).getId(), List.of(symptoms.get(0), symptoms.get(1)));
@@ -40,15 +38,16 @@ public class CovidService {
     public List<Symptom> getSymptoms() {
         return symptoms;
     }
+
     public List<Person> getPersons() {
         return persons;
     }
 
     public Symptom getSymptomByName(String name) {
         return symptoms.stream()
-                        .filter(s -> s.getName().equalsIgnoreCase(name))
-                        .findFirst()
-                        .orElse(null);
+                .filter(s -> s.getName().equalsIgnoreCase(name))
+                .findFirst()
+                .orElse(null);
     }
 
     public List<RiskPersonDTO> getRiskPersons() {

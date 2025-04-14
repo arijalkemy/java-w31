@@ -1,6 +1,6 @@
 package ClasesAbstractaseInterfaces.Ejercicio1;
 
-public class PagoServicios implements Transaccion{
+public class PagoServicios implements Transaccion {
     private double monto;
     private boolean realizado;
 
@@ -12,10 +12,12 @@ public class PagoServicios implements Transaccion{
     public void realizarPago(Cliente cliente) {
         if (cliente.getDineroEnCuenta() >= monto) {
             cliente.setDineroEnCuenta(cliente.getDineroEnCuenta() - monto);
-            System.out.println("Pago de servicios realizado por " + cliente.getNombre() + " " + cliente.getApellido() + " por un monto de " + monto);
+            System.out.println("Pago de servicios realizado por " + cliente.getNombre() + " " + cliente.getApellido()
+                    + " por un monto de " + monto);
             realizado = true;
         } else {
-            System.out.println("Cliente " + cliente.getNombre() + " " + cliente.getApellido() + " no tiene suficiente dinero en la cuenta para realizar el pago de los servicios.");
+            System.out.println("Cliente " + cliente.getNombre() + " " + cliente.getApellido()
+                    + " no tiene suficiente dinero en la cuenta para realizar el pago de los servicios.");
         }
     }
 

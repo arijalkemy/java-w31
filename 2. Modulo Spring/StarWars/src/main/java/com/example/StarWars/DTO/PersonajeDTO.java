@@ -17,7 +17,7 @@ public class PersonajeDTO implements Serializable {
     private String homeworld;
     private String species;
 
-    public PersonajeDTO (String name, Integer height, Integer mass, String gender, String homeworld, String species) {
+    public PersonajeDTO(String name, Integer height, Integer mass, String gender, String homeworld, String species) {
         this.name = name;
         this.height = height;
         this.mass = mass;
@@ -28,12 +28,11 @@ public class PersonajeDTO implements Serializable {
 
     public static PersonajeDTO convertToDTO(Personaje personaje) {
         return new PersonajeDTO(
-            personaje.getName(),
-            personaje.getHeight(),
-            personaje.getMass(),
-            personaje.getGender(),
-            personaje.getHomeworld(),
-            personaje.getSpecies()
-        );
+                personaje.getName(),
+                personaje.getHeight(),
+                personaje.getMass(),
+                personaje.getGender(),
+                personaje.getHomeworld(),
+                personaje.getSpecies());
     }
 }

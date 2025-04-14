@@ -29,5 +29,5 @@ public class EdadPersonaController {
     public String getEdadPersona(@PathVariable Integer dia, @PathVariable Integer mes, @PathVariable Integer anio) {
         return edadPersonaService.calcularEdad(dia, mes, anio);
     }
-    
+
 }

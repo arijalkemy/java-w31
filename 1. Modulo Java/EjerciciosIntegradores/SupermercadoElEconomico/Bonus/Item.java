@@ -17,15 +17,19 @@ public class Item {
     public Long getCodigo() {
         return codigo;
     }
+
     public String getNombre() {
         return nombre;
     }
+
     public int getCantidadComprada() {
         return cantidadComprada;
     }
+
     public double getCostoUnitario() {
         return costoUnitario;
     }
+
     public double getPrecio() {
         return costoUnitario * cantidadComprada;
     }

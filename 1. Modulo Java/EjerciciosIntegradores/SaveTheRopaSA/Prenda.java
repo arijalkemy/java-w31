@@ -12,6 +12,7 @@ public class Prenda {
     public String getMarca() {
         return marca;
     }
+
     public String getModelo() {
         return modelo;
     }

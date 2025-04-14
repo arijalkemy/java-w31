@@ -34,7 +34,7 @@ public class Garage {
     public void agregarVehiculo(Vehiculo vehiculo) {
         this.vehiculos.add(vehiculo);
     }
-    
+
     public void eliminarVehiculo(Vehiculo vehiculo) {
         this.vehiculos.remove(vehiculo);
     }

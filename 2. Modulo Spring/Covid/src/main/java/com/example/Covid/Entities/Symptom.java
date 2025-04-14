@@ -11,7 +11,6 @@ public class Symptom {
     private String gravityLevel;
     private static int counter = 0;
 
-
     public Symptom(String name, String gravityLevel) {
         this.id = ++counter;
         this.name = name;

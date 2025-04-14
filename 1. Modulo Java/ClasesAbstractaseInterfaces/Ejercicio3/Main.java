@@ -39,5 +39,5 @@ public class Main {
         perro.comerAnimal(vaca);
         vaca.emitirSonido();
     }
-    
+
 }

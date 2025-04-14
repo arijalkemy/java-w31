@@ -50,7 +50,9 @@ public class GestorFacturas implements CRUD<Factura> {
 
     @Override
     public void imprimir() {
-        facturas.forEach(factura -> System.out.println("Factura: " + factura.getId() + ", Cliente: " + factura.getCliente().getNombre() + " " + factura.getCliente().getApellido() + ", Total: " + factura.getTotal()));
+        facturas.forEach(factura -> System.out
+                .println("Factura: " + factura.getId() + ", Cliente: " + factura.getCliente().getNombre() + " "
+                        + factura.getCliente().getApellido() + ", Total: " + factura.getTotal()));
     }
 
     @Override

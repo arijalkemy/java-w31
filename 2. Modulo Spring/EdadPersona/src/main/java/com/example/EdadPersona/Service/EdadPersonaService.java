@@ -11,9 +11,9 @@ public class EdadPersonaService {
         }
 
         LocalDate hoy = LocalDate.now();
-        if ((anio == hoy.getYear() && mes == hoy.getMonthValue() && dia >= hoy.getDayOfMonth()) 
-            || (anio == hoy.getYear() && mes >= hoy.getMonthValue()) 
-            || (anio > hoy.getYear())) {
+        if ((anio == hoy.getYear() && mes == hoy.getMonthValue() && dia >= hoy.getDayOfMonth())
+                || (anio == hoy.getYear() && mes >= hoy.getMonthValue())
+                || (anio > hoy.getYear())) {
             return "No nació todavía.";
         }
 

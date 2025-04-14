@@ -59,7 +59,7 @@ public class Main {
         gestorClientes.baja((long) 12345678);
         System.out.println("\nClientes restantes:");
         gestorClientes.imprimir();
-    
+
         Scanner scanner = new Scanner(System.in);
         System.out.print("\nIngrese el DNI del cliente a buscar: ");
         Long dniBuscado = scanner.nextLong();
@@ -67,11 +67,12 @@ public class Main {
         if (clienteBuscado.equals(null)) {
             System.out.println("Cliente no encontrado.");
         } else {
-            System.out.println("Cliente encontrado: " + clienteBuscado.getNombre() + " " + clienteBuscado.getApellido());
+            System.out
+                    .println("Cliente encontrado: " + clienteBuscado.getNombre() + " " + clienteBuscado.getApellido());
         }
         scanner.close();
 
-        gestorItems.alta(new Item("Leche", 2, 1.50)); 
+        gestorItems.alta(new Item("Leche", 2, 1.50));
         gestorItems.alta(new Item("Pan", 1, 0.80));
         gestorItems.alta(new Item("Huevos", 12, 0.10));
         gestorItems.alta(new Item("Carne", 1, 5.00));

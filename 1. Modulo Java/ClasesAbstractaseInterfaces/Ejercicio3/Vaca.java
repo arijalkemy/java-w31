@@ -13,6 +13,7 @@ public class Vaca extends Animal implements Herviboro {
         }
         System.out.println("Muu");
     }
+
     @Override
     public void comerHierba() {
         if (this.animalComido()) {

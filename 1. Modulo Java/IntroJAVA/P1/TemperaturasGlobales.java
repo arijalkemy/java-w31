@@ -22,15 +22,16 @@ package IntroJAVA.P1;
 
 public class TemperaturasGlobales {
     private static final int CANT_CIUDADES = 10;
+
     /*
-    * Crea un vector de strings y guarda nombres de ciudades
-    * en cada una de sus posiciones.
-    * 
-    * Return:
-    * Vector de strings, con CANT_CIUDADES posiciones.
-    */
+     * Crea un vector de strings y guarda nombres de ciudades
+     * en cada una de sus posiciones.
+     * 
+     * Return:
+     * Vector de strings, con CANT_CIUDADES posiciones.
+     */
     private static String[] hardcodearCiudades() {
-        String ciudades [] = new String [CANT_CIUDADES];
+        String ciudades[] = new String[CANT_CIUDADES];
         ciudades[0] = "Londres";
         ciudades[1] = "Madrid";
         ciudades[2] = "Nueva York";
@@ -45,14 +46,14 @@ public class TemperaturasGlobales {
     }
 
     /*
-    * Crea una matriz de enteros y guarda temperaturas máximas
-    * y mínimas correspondientes a una ciudad diferente en cada fila
-    * 
-    * Return:
-    * Matriz de enteros, donde hay CANT_CIUDADES filas y 2 columnas
-    */
+     * Crea una matriz de enteros y guarda temperaturas máximas
+     * y mínimas correspondientes a una ciudad diferente en cada fila
+     * 
+     * Return:
+     * Matriz de enteros, donde hay CANT_CIUDADES filas y 2 columnas
+     */
     private static int[][] harcodearMatriz() {
-        int matriz[][] = new int[CANT_CIUDADES][2]; 
+        int matriz[][] = new int[CANT_CIUDADES][2];
         matriz[0][0] = -2;
         matriz[1][0] = -3;
         matriz[2][0] = -8;
@@ -77,15 +78,15 @@ public class TemperaturasGlobales {
     }
 
     public static void main(String[] args) {
-        String ciudades [] = hardcodearCiudades();
-        int matrizTemperaturas [][] = harcodearMatriz();
+        String ciudades[] = hardcodearCiudades();
+        int matrizTemperaturas[][] = harcodearMatriz();
 
         int indiceMin = -1;
         int indiceMax = -1;
         int tempMax = Integer.MIN_VALUE;
         int tempMin = Integer.MAX_VALUE;
-        for (int i=0; i<CANT_CIUDADES; i++) {
-            for (int j=0; j<2; j++) {
+        for (int i = 0; i < CANT_CIUDADES; i++) {
+            for (int j = 0; j < 2; j++) {
                 int elemento = matrizTemperaturas[i][j];
                 if (elemento < tempMin) {
                     tempMin = elemento;
@@ -98,7 +99,9 @@ public class TemperaturasGlobales {
             }
         }
 
-        System.err.println("La temperatura mínima se registró en " + ciudades[indiceMin] + " y fue de " + tempMin + " grados.");
-        System.err.println("La temperatura máxima se registró en " + ciudades[indiceMax] + " y fue de " + tempMax + " grados.");
+        System.err.println(
+                "La temperatura mínima se registró en " + ciudades[indiceMin] + " y fue de " + tempMin + " grados.");
+        System.err.println(
+                "La temperatura máxima se registró en " + ciudades[indiceMax] + " y fue de " + tempMax + " grados.");
     }
 }

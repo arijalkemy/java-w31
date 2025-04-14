@@ -14,12 +14,15 @@ public abstract class Prototipo {
     public void reiniciarSerie() {
         this.valorActual = this.valorInicial;
     }
+
     public void establecerValorInicial(Number valor) {
         this.valorInicial = valor;
     }
+
     public Number getValorActual() {
         return valorActual;
     }
+
     public void setValorActual(Number valor) {
         this.valorActual = valor;
     }

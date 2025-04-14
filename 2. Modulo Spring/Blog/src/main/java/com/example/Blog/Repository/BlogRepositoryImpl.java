@@ -22,14 +22,14 @@ public class BlogRepositoryImpl implements BlogRepository {
     @Override
     public BlogEntry getEntry(String id) {
         return blogEntries.stream()
-                          .filter(b -> b.getId().equals(id))
-                          .findFirst()
-                          .orElse(null);
+                .filter(b -> b.getId().equals(id))
+                .findFirst()
+                .orElse(null);
     }
 
     @Override
     public List<BlogEntry> getAll() {
         return blogEntries;
     }
-    
+
 }

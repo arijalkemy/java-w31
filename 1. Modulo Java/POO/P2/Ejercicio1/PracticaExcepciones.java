@@ -14,6 +14,7 @@ package P2.Ejercicio1;
 public class PracticaExcepciones {
     int a;
     int b;
+
     public PracticaExcepciones() {
         this.a = 0;
         this.b = 300;
@@ -24,8 +25,8 @@ public class PracticaExcepciones {
             int cociente = this.b / this.a;
             return cociente;
         } catch (Exception e) {
-            //System.out.println("Se ha producido un error: " + e.getMessage());
-            //return 0;
+            // System.out.println("Se ha producido un error: " + e.getMessage());
+            // return 0;
             throw new IllegalArgumentException("No se puede dividir por cero");
         } finally {
             System.out.println("Programa finalizado");

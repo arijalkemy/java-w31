@@ -22,6 +22,7 @@ public class RiskPersonDTO implements Serializable {
     public void addSymptom(Symptom symptom) {
         this.symptoms.add(symptom);
     }
+
     public void removeSymptom(Symptom symptom) {
         this.symptoms.remove(symptom);
     }

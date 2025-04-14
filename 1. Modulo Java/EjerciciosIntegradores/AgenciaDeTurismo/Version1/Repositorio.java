@@ -23,7 +23,8 @@ public class Repositorio {
     }
 
     public void storeLocalizador(Localizador localizadora) {
-        if(localizadores.stream().filter(l -> l.getCliente().getDni().equals(localizadora.getCliente().getDni())).count() >= 2) {
+        if (localizadores.stream().filter(l -> l.getCliente().getDni().equals(localizadora.getCliente().getDni()))
+                .count() >= 2) {
             localizadora.aplicarDescuento(0.05);
         }
 

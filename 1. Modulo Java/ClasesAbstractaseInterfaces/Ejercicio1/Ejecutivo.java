@@ -16,5 +16,5 @@ public class Ejecutivo extends Cliente {
         transferencia.realizarTransferencia(this, cliente);
         return transferencia.transaccionOk();
     }
-    
+
 }

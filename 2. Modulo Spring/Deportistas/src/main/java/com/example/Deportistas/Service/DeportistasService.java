@@ -47,7 +47,8 @@ public class DeportistasService {
             if (i >= deportes.size()) {
                 i = 0;
             }
-            DeportistaDTO dto = new DeportistaDTO(persona.getNombre(), persona.getApellido(), deportes.get(i).getNombre());
+            DeportistaDTO dto = new DeportistaDTO(persona.getNombre(), persona.getApellido(),
+                    deportes.get(i).getNombre());
             dtos.add(dto);
             i++;
         }

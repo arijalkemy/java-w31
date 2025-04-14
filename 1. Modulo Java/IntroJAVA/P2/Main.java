@@ -51,12 +51,12 @@ public class Main {
         ArrayList<Categoria> categorias = new ArrayList<>();
         ArrayList<Participante> participantes = new ArrayList<>();
         ArrayList<Inscripcion> inscripciones = new ArrayList<>();
-    
+
         System.out.println("Bienvenido al sistema de gestión de la Carrera de la Selva.");
         System.out.println("===============================================================================");
-            
+
         Scanner scanner = new Scanner(System.in);
-            
+
         while (true) {
             System.out.println("Por favor, introduzca el número correspondiente a la acción que desea realizar:");
             System.out.println("1. Crear categorías.");
@@ -66,7 +66,7 @@ public class Main {
             System.out.println("5. Desinscribir participante.");
             System.out.println("6. Calcular monto total recaudado.");
             System.out.println("7. Salir.");
-    
+
             int opcion = scanner.nextInt();
             switch (opcion) {
                 case 1:
@@ -100,13 +100,13 @@ public class Main {
 
     private static void crearCategoria(Scanner scanner, List<Categoria> categorias) {
         System.out.println("Por favor, introduzca el nombre de la categoría:");
-        
+
         String nombre = scanner.nextLine().trim();
         if (nombre.isEmpty()) {
             System.out.println("El nombre de la categoría no puede estar vacío. Inténtalo de nuevo.");
             return;
         }
-        
+
         System.out.println("Por favor, introduzca una breve descripción para la categoría:");
         String descripcion = scanner.nextLine().trim();
         if (descripcion.isEmpty()) {
@@ -116,7 +116,7 @@ public class Main {
 
         Categoria categoria = new Categoria(nombre, descripcion);
         categorias.add(categoria);
-        
+
         System.out.println("Categoría creada con éxito: " + categoria.getNombre() + " - " + categoria.getDescripcion());
         System.out.println("===============================================================================");
     }
@@ -139,18 +139,21 @@ public class Main {
         System.out.println("Por favor, introduzca el grupo sanguíneo del participante:");
         String grupoSanguíneo = scannerStrings.nextLine();
 
-        Participante participante = new Participante(dni, nombre, apellido, edad, celular, númeroEmergencia, grupoSanguíneo);
+        Participante participante = new Participante(dni, nombre, apellido, edad, celular, númeroEmergencia,
+                grupoSanguíneo);
         participantes.add(participante);
-        System.out.println("Participante registrado con éxito: " + participante.getNombre() + " " + participante.getApellido());
+        System.out.println(
+                "Participante registrado con éxito: " + participante.getNombre() + " " + participante.getApellido());
         System.out.println("===============================================================================");
         scannerInts.close();
         scannerStrings.close();
         return participante;
     }
 
-    private static void inscribirParticipante(ArrayList<Categoria> categorias, ArrayList<Participante> participantes, ArrayList<Inscripcion> inscripciones) {
+    private static void inscribirParticipante(ArrayList<Categoria> categorias, ArrayList<Participante> participantes,
+            ArrayList<Inscripcion> inscripciones) {
         Participante participante = crearParticipante(participantes);
-        
+
         System.out.println("Por favor, introduzca el número de la categoría a la que desea inscribir al participante:");
         for (Categoria categoria : categorias) {
             System.out.println(categoria.getId() + ". " + categoria.getNombre());
@@ -172,17 +175,20 @@ public class Main {
         scanner.close();
     }
 
-    private static void inscribirParticipantesAzar(ArrayList<Categoria> categorias, ArrayList<Participante> participantes, ArrayList<Inscripcion> inscripciones) {
+    private static void inscribirParticipantesAzar(ArrayList<Categoria> categorias,
+            ArrayList<Participante> participantes, ArrayList<Inscripcion> inscripciones) {
         Random random = new Random();
         int cantidadParticipantes = random.nextInt(10) + 1;
         for (int i = 0; i < cantidadParticipantes; i++) {
             int edad = random.nextInt(100) + 1;
-            Participante participante = new Participante(random.nextInt(1000000000), "Participante " + i, "Apellido " + i, edad, random.nextInt(1000000000), random.nextInt(1000000000), "O+");
+            Participante participante = new Participante(random.nextInt(1000000000), "Participante " + i,
+                    "Apellido " + i, edad, random.nextInt(1000000000), random.nextInt(1000000000), "O+");
             int idCategoria = random.nextInt(categorias.size());
             Inscripcion inscripcion = new Inscripcion(categorias.get(idCategoria), participante);
             inscripciones.add(inscripcion);
             participantes.add(participante);
-            System.out.println("Participante aleatorio inscripto con éxito en la categoría: " + categorias.get(idCategoria).getNombre());
+            System.out.println("Participante aleatorio inscripto con éxito en la categoría: "
+                    + categorias.get(idCategoria).getNombre());
             System.out.println("Monto a abonar: $" + inscripcion.getMonto());
         }
     }
@@ -191,7 +197,8 @@ public class Main {
         for (Inscripcion inscripcion : inscripciones) {
             if (inscripcion.getCategoria().getId() == categoria.getId()) {
                 System.out.println("Número de inscripción: " + inscripcion.getId());
-                System.out.println("Nombre: " + inscripcion.getParticipante().getNombre() + " " + inscripcion.getParticipante().getApellido());
+                System.out.println("Nombre: " + inscripcion.getParticipante().getNombre() + " "
+                        + inscripcion.getParticipante().getApellido());
                 System.out.println("DNI: " + inscripcion.getParticipante().getDni());
                 System.out.println("Edad: " + inscripcion.getParticipante().getEdad());
                 System.out.println("Celular: " + inscripcion.getParticipante().getCelular());
@@ -203,7 +210,8 @@ public class Main {
         }
     }
 
-    private static void mostrarInscriptosCategoria(ArrayList<Categoria> categorias, ArrayList<Inscripcion> inscripciones) {
+    private static void mostrarInscriptosCategoria(ArrayList<Categoria> categorias,
+            ArrayList<Inscripcion> inscripciones) {
         System.out.println("Por favor, introduzca el número de la categoría de la que desea ver los inscriptos:");
         for (Categoria categoria : categorias) {
             System.out.println(categoria.getId() + ". " + categoria.getNombre());
@@ -220,17 +228,19 @@ public class Main {
         scanner.close();
     }
 
-    private static void desinscribirParticipante(ArrayList<Participante> participantes, ArrayList<Inscripcion> inscripciones) {
+    private static void desinscribirParticipante(ArrayList<Participante> participantes,
+            ArrayList<Inscripcion> inscripciones) {
         System.out.println("Por favor, introduzca el DNI del participante que desea desinscribir:");
         Scanner scanner = new Scanner(System.in);
         int dniParticipante = scanner.nextInt();
-        for (Participante participante: participantes) {
+        for (Participante participante : participantes) {
             if (participante.getDni() == dniParticipante) {
-                for (Inscripcion inscripcion: inscripciones) {
+                for (Inscripcion inscripcion : inscripciones) {
                     if (inscripcion.getParticipante().getDni() == dniParticipante) {
                         inscripciones.remove(inscripcion);
                         System.out.println("Participante desinscripto con éxito.");
-                        System.out.println("===============================================================================");
+                        System.out.println(
+                                "===============================================================================");
                         scanner.close();
                         return;
                     }
@@ -242,20 +252,21 @@ public class Main {
         scanner.close();
     }
 
-    private static void calcularMontoTotalRecaudado(ArrayList<Inscripcion> inscripciones, ArrayList<Categoria> categorias) {
+    private static void calcularMontoTotalRecaudado(ArrayList<Inscripcion> inscripciones,
+            ArrayList<Categoria> categorias) {
         int montoTotal = 0;
-        for (Categoria categoria: categorias) {
+        for (Categoria categoria : categorias) {
             int montoCategoria = 0;
-            for (Inscripcion inscripcion: inscripciones) {
+            for (Inscripcion inscripcion : inscripciones) {
                 if (inscripcion.getCategoria().getId() == categoria.getId()) {
                     montoCategoria += inscripcion.getMonto();
                 }
             }
-            System.out.println("Monto total recaudado por la categoría " + categoria.getNombre() + ": $" + montoCategoria);
+            System.out.println(
+                    "Monto total recaudado por la categoría " + categoria.getNombre() + ": $" + montoCategoria);
             montoTotal += montoCategoria;
         }
         System.out.println("Monto total recaudado por toda la carrera: $" + montoTotal);
         System.out.println("===============================================================================");
     }
 }
-

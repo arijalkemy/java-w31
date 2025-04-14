@@ -50,12 +50,13 @@ public class GestorItems implements CRUD<Item> {
 
     @Override
     public void imprimir() {
-        items.forEach(item -> System.out.println("Item: " + item.getCodigo() + ", Nombre: " + item.getNombre() + ", Precio: " + item.getPrecio() + ", Cantidad: " + item.getCantidadComprada()));
+        items.forEach(item -> System.out.println("Item: " + item.getCodigo() + ", Nombre: " + item.getNombre()
+                + ", Precio: " + item.getPrecio() + ", Cantidad: " + item.getCantidadComprada()));
     }
 
     @Override
     public List<Item> getTodos() {
         return items;
     }
-    
+
 }

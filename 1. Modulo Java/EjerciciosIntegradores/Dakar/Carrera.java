@@ -50,16 +50,17 @@ public class Carrera {
 
     public void eliminarVehiculoConPatente(String unaPatente) {
         listaDeVehiculos.stream()
-                        .filter(vehiculo -> vehiculo.getPatente().equals(unaPatente))
-                        .findFirst()
-                        .ifPresentOrElse(vehiculo -> {
-                            listaDeVehiculos.remove(vehiculo);
-                            System.out.println("Vehículo eliminado.");
-                        }, () -> System.out.println("No se pudo eliminar el vehículo, no se encuentra anotado en la carrera."));
+                .filter(vehiculo -> vehiculo.getPatente().equals(unaPatente))
+                .findFirst()
+                .ifPresentOrElse(vehiculo -> {
+                    listaDeVehiculos.remove(vehiculo);
+                    System.out.println("Vehículo eliminado.");
+                }, () -> System.out.println("No se pudo eliminar el vehículo, no se encuentra anotado en la carrera."));
     }
 
-    private int calcularPuntaje (Vehiculo vehiculo) {
-        return (int) ((vehiculo.getVelocidad() * (vehiculo.getAceleracion() / 2)) / (vehiculo.getAnguloDeGiro() * (vehiculo.getPeso() - vehiculo.getCantRuedas() * 100)));
+    private int calcularPuntaje(Vehiculo vehiculo) {
+        return (int) ((vehiculo.getVelocidad() * (vehiculo.getAceleracion() / 2))
+                / (vehiculo.getAnguloDeGiro() * (vehiculo.getPeso() - vehiculo.getCantRuedas() * 100)));
     }
 
     public Vehiculo definirGanador() {

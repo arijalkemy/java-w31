@@ -12,7 +12,8 @@ public class Participante {
     private int númeroEmergencia;
     private String grupoSanguíneo;
 
-    public Participante(int dni, String nombre, String apellido, int edad, int celular, int númeroEmergencia, String grupoSanguíneo) {
+    public Participante(int dni, String nombre, String apellido, int edad, int celular, int númeroEmergencia,
+            String grupoSanguíneo) {
         this.id = contadorParticipantes++;
         this.dni = dni;
         this.nombre = nombre;
@@ -50,7 +51,7 @@ public class Participante {
     public int getNúmeroEmergencia() {
         return this.númeroEmergencia;
     }
-    
+
     public String getGrupoSanguíneo() {
         return this.grupoSanguíneo;
     }

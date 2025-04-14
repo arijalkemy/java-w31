@@ -28,7 +28,7 @@ public class Factura {
         productos.add(producto);
         total += producto.getPrecio();
     }
-    
+
     public void eliminarProducto(Item producto) {
         productos.remove(producto);
         total -= producto.getPrecio();
@@ -37,18 +37,23 @@ public class Factura {
     public Cliente getCliente() {
         return cliente;
     }
+
     public List<Item> getProductos() {
         return productos;
     }
+
     public double getTotal() {
         return total;
     }
+
     public Long getId() {
         return id;
     }
+
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
     }
+
     public void setProductos(List<Item> productos) {
         this.productos = productos;
         this.total = calcularTotal();

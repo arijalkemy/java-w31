@@ -27,11 +27,13 @@ public class CovidController {
         return covidService.getSymptoms();
     }
 
-    @GetMapping("/findSymptom/{name}") 
+    @GetMapping("/findSymptom/{name}")
     public ResponseEntity<String> getSymptomGravityByName(@PathVariable String name) {
         Symptom symptom = covidService.getSymptomByName(name);
         if (symptom != null) {
-            return new ResponseEntity<>("El síntoma " + symptom.getName() + " tiene un nivel de gravedad " + symptom.getGravityLevel(), HttpStatus.OK);
+            return new ResponseEntity<>(
+                    "El síntoma " + symptom.getName() + " tiene un nivel de gravedad " + symptom.getGravityLevel(),
+                    HttpStatus.OK);
         } else {
             return new ResponseEntity<>("Síntoma no encontrado", HttpStatus.NOT_FOUND);
         }

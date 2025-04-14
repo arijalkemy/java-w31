@@ -55,17 +55,19 @@ public class Main {
         clientes.add(new Cliente((long) 11223344, "Pedro", "López"));
 
         System.out.println("Lista de clientes:");
-        clientes.forEach(cliente -> System.out.println(cliente.getNombre() + " " + cliente.getApellido() + ", DNI: " + cliente.getDni()));
+        clientes.forEach(cliente -> System.out
+                .println(cliente.getNombre() + " " + cliente.getApellido() + ", DNI: " + cliente.getDni()));
 
         clientes.removeIf(cliente -> cliente.getDni().equals((long) 12345678));
         System.out.println("\nLista de clientes después de eliminar a Juan Pérez:");
-        clientes.forEach(cliente -> System.out.println(cliente.getNombre() + " " + cliente.getApellido() + ", DNI: " + cliente.getDni()));
+        clientes.forEach(cliente -> System.out
+                .println(cliente.getNombre() + " " + cliente.getApellido() + ", DNI: " + cliente.getDni()));
 
         Scanner scanner = new Scanner(System.in);
         System.out.print("\nIngrese el DNI del cliente a buscar: ");
         Long dniBuscado = scanner.nextLong();
         boolean encontrado = false;
-        for (Cliente cliente: clientes) {
+        for (Cliente cliente : clientes) {
             if (cliente.getDni().equals(dniBuscado)) {
                 System.out.println("Cliente encontrado: " + cliente.getNombre() + " " + cliente.getApellido());
                 encontrado = true;
@@ -81,22 +83,24 @@ public class Main {
         // Parte II
         List<Factura> facturas = new ArrayList<>();
         List<Item> items = new ArrayList<>();
-        items.add(new Item("Leche", 2, 1.50)); 
+        items.add(new Item("Leche", 2, 1.50));
         items.add(new Item("Pan", 1, 0.80));
         items.add(new Item("Huevos", 12, 0.10));
         items.add(new Item("Carne", 1, 5.00));
-        
+
         System.out.println("\nCreando una factura...");
         Factura factura1 = new Factura(new Cliente((long) 84729234, "Mariana", "Sanchez"), items);
-        
+
         if (clientes.contains(factura1.getCliente())) {
             facturas.add(factura1);
-            System.out.println("\nFactura 1 creada para el cliente " + factura1.getCliente().getNombre() + " " + factura1.getCliente().getApellido());
+            System.out.println("\nFactura 1 creada para el cliente " + factura1.getCliente().getNombre() + " "
+                    + factura1.getCliente().getApellido());
         } else {
             System.out.println("\nEl cliente no se encuentra registrado. Creando nuevo cliente...");
             clientes.add(factura1.getCliente());
             facturas.add(factura1);
-            System.out.println("Factura 1 creada para el nuevo cliente " + factura1.getCliente().getNombre() + " " + factura1.getCliente().getApellido());
+            System.out.println("Factura 1 creada para el nuevo cliente " + factura1.getCliente().getNombre() + " "
+                    + factura1.getCliente().getApellido());
         }
 
     }

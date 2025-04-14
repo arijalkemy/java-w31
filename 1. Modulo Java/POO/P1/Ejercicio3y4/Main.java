@@ -25,7 +25,8 @@ public class Main {
         Persona persona3 = new Persona("Juan", 30, "87654321", 70.5, 1.75);
 
         // Creando un objeto de tipo Persona con solo nombre y edad
-        // Esto no es posible ya que la clase Persona no tiene un constructor que acepte solo nombre y edad
+        // Esto no es posible ya que la clase Persona no tiene un constructor que acepte
+        // solo nombre y edad
         // Persona persona4 = new Persona("Pedro", 40); // Esto generará un error
     }
 }

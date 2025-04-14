@@ -20,7 +20,8 @@ public class RepositorySearch {
     }
 
     public Map<TipoReserva, List<Reserva>> getReservasByType() {
-        return this.repository.getLocalizadores().stream().map(Localizador::getReservas).flatMap(List::stream).collect(Collectors.groupingBy(Reserva::getTipoReserva));
+        return this.repository.getLocalizadores().stream().map(Localizador::getReservas).flatMap(List::stream)
+                .collect(Collectors.groupingBy(Reserva::getTipoReserva));
     }
 
     public double getTotaldeVentas() {

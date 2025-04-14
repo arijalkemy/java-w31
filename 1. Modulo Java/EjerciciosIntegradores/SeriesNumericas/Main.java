@@ -32,12 +32,11 @@ package EjerciciosIntegradores.SeriesNumericas;
  * Así sucesivamente cada vez que se llama al método.
  */
 
-
 public class Main {
     public static void main(String[] args) {
         SerieDeDouble serieDeTresFloat = new SerieDeDouble(3.2, 0.0);
         SerieDeInt serieDeDosInt = new SerieDeInt(2, 0);
-        
+
         System.out.println("Ejecutando serie de 3.2 con valor inicial 0:");
         for (int i = 0; i < 5; i++) {
             System.out.println("Iteración " + (i + 1) + ": " + serieDeTresFloat.devolverValorSiguiente());

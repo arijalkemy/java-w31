@@ -9,6 +9,8 @@ import com.example.Blog.Entities.BlogEntry;
 
 public interface BlogService {
     public ResponseEntity<String> newEntry(BlogEntry entry);
+
     public BlogEntryDTO getEntry(String id);
+
     public List<BlogEntryDTO> getAll();
 }

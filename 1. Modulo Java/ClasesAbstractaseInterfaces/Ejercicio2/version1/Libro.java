@@ -26,24 +26,31 @@ public class Libro implements Imprimible {
     public int getCantidadPaginas() {
         return cantidadPaginas;
     }
+
     public void setCantidadPaginas(int cantidadPaginas) {
         this.cantidadPaginas = cantidadPaginas;
     }
+
     public String getNombreAutor() {
         return nombreAutor;
     }
+
     public void setNombreAutor(String nombreAutor) {
         this.nombreAutor = nombreAutor;
     }
+
     public String getTitulo() {
         return titulo;
     }
+
     public void setTitulo(String titulo) {
         this.titulo = titulo;
     }
+
     public String getGenero() {
         return genero;
     }
+
     public void setGenero(String genero) {
         this.genero = genero;
     }

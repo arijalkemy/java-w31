@@ -23,6 +23,7 @@ public class Perecedero extends Producto {
     public int getDiasPorCaducar() {
         return diasPorCaducar;
     }
+
     public void setDiasPorCaducar(int diasPorCaducar) {
         this.diasPorCaducar = diasPorCaducar;
     }

@@ -6,7 +6,7 @@ package P1.Ejercicio2;
  * uno sin parámetros, el segundo debe recibir como parámetro
  * nombre, edad y dni; por último creamos un tercero que reciba
  * todos los atributos de la clase como parámetros.
- */ 
+ */
 public class Persona {
     String nombre;
     int edad;

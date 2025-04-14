@@ -1,4 +1,5 @@
 package com.example.StarWars.Entities;
+
 import javax.persistence.Entity;
 
 import lombok.Getter;
@@ -20,11 +21,11 @@ public class Personaje {
     private String species;
 
     public Personaje(String name, Integer height, Integer mass, String hairColor, String skinColor,
-        String eyeColor, String birthYear, String gender, String homeworld, String species) {
+            String eyeColor, String birthYear, String gender, String homeworld, String species) {
         this.name = name;
         this.height = height;
         this.mass = mass;
-        this.hairColor = hairColor; 
+        this.hairColor = hairColor;
         this.skinColor = skinColor;
         this.eyeColor = eyeColor;
         this.birthYear = birthYear;

@@ -43,5 +43,5 @@ public class Main {
             System.out.println("Marca: " + prenda.getMarca() + ", Modelo: " + prenda.getModelo());
         }
     }
-    
+
 }

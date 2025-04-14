@@ -14,9 +14,11 @@ public class Cliente {
     public Long getDni() {
         return dni;
     }
+
     public String getNombre() {
         return nombre;
     }
+
     public String getApellido() {
         return apellido;
     }

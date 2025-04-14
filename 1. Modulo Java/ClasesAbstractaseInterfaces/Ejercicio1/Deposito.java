@@ -1,6 +1,6 @@
 package ClasesAbstractaseInterfaces.Ejercicio1;
 
-public class Deposito implements Transaccion{
+public class Deposito implements Transaccion {
     double monto;
     boolean realizado;
 
@@ -11,7 +11,8 @@ public class Deposito implements Transaccion{
 
     public void realizarDeposito(Cliente cliente) {
         cliente.setDineroEnCuenta(cliente.getDineroEnCuenta() + monto);
-        System.out.println("Realizándose depósito de " + monto + " a la cuenta de " + cliente.getNombre() + " " + cliente.getApellido());
+        System.out.println("Realizándose depósito de " + monto + " a la cuenta de " + cliente.getNombre() + " "
+                + cliente.getApellido());
         realizado = true;
     }
 

@@ -31,7 +31,6 @@ public class Main {
         Basico basico = new Basico("Julián", "González");
         Cobrador cobrador = new Cobrador("Lucía", "Martínez");
 
-
         // Ejecutando transacciones de acuerdo a los tipos de clientes
         System.out.println("\n--- Transacciones del Cliente Ejecutivo ---");
         ejecutivo.realizarDeposito(1000.0);

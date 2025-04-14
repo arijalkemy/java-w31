@@ -42,28 +42,31 @@ import java.util.List;
  */
 public class Main {
     public static void main(String[] args) {
-        //Parte I
+        // Parte I
         Repositorio localizadoresRepository = new Repositorio();
-        
-        //Crear un localizador con un paquete completo para un cliente, almacenar e imprimir el resultado
+
+        // Crear un localizador con un paquete completo para un cliente, almacenar e
+        // imprimir el resultado
         Cliente client = new Cliente("Carlos", "Ramirez", "1234");
         Reserva reservaHotel = new Reserva(1000.0, TipoReserva.HOTEL);
         Reserva reservaVuelo = new Reserva(500.0, TipoReserva.VUELO);
         Reserva reservaComida = new Reserva(200.0, TipoReserva.COMIDA);
         Reserva reservaTransporte = new Reserva(100.0, TipoReserva.TRANSPORTE);
-        
+
         List<Reserva> reservasCarlos = List.of(reservaHotel, reservaVuelo, reservaComida, reservaTransporte);
         Localizador localizadoraCarlos1 = new Localizador(client, reservasCarlos);
         localizadoresRepository.storeLocalizador(localizadoraCarlos1);
         System.out.println("Precio total primera reserva: " + localizadoraCarlos1.getPrecioTotal());
 
-        //Crear un localizador con 2 reservas de hotel y 2 de boletos para el mismo cliente anterior, almacenar e imprimir el resultado.
+        // Crear un localizador con 2 reservas de hotel y 2 de boletos para el mismo
+        // cliente anterior, almacenar e imprimir el resultado.
         Reserva segundaReservaHotel1 = new Reserva(700.0, TipoReserva.HOTEL);
         Reserva segundaReservaHotel2 = new Reserva(800.0, TipoReserva.HOTEL);
         Reserva segundaReservaVuelo1 = new Reserva(600.0, TipoReserva.VUELO);
         Reserva segundaReservaVuelo2 = new Reserva(400.0, TipoReserva.VUELO);
 
-        List<Reserva> segundaReservaCarlos = List.of(segundaReservaHotel1, segundaReservaHotel2, segundaReservaVuelo1, segundaReservaVuelo2);
+        List<Reserva> segundaReservaCarlos = List.of(segundaReservaHotel1, segundaReservaHotel2, segundaReservaVuelo1,
+                segundaReservaVuelo2);
         Localizador localizadoraCarlos2 = new Localizador(client, segundaReservaCarlos);
         localizadoresRepository.storeLocalizador(localizadoraCarlos2);
         System.out.println("Precio total segunda reserva: " + localizadoraCarlos2.getPrecioTotal());
