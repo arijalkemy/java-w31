@@ -11,15 +11,21 @@
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.36/lombok-1.18.36.jar" />
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.36/lombok-1.18.36.jar" />
         </processorPath>
+        <module name="calcularCalorias" />
         <module name="starWars" />
+        <module name="blogYoutuber" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="linkTracker" target="21" />
       <module name="starWarsEjercitacion" target="21" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="blogYoutuber" options="-parameters" />
+      <module name="calcularCalorias" options="-parameters" />
+      <module name="linkTracker" options="-parameters" />
       <module name="starWars" options="-parameters" />
       <module name="starWarsEjercitacion" options="-parameters" />
     </option>
