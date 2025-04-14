@@ -3,5 +3,10 @@
         "2. Modulo Spring/pruebaSpring/src/main/java"
     ],
     "java.project.referencedLibraries": [],
-    "java.compile.nullAnalysis.mode": "automatic"
+    "java.compile.nullAnalysis.mode": "automatic",
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true,
+    "[java]": {
+        "editor.defaultFormatter": "redhat.java"
+    },
 }

@@ -21,7 +21,7 @@ public class LinkTrackerRepositoryImpl implements LinkTrackerRepository {
 
     @Override
     public boolean isLinkPresent(Link link) {
-        for (Link l: links) {
+        for (Link l : links) {
             if (l.getId() == link.getId() || l.getUrl().equals(link.getUrl())) {
                 return true;
             }
@@ -32,9 +32,9 @@ public class LinkTrackerRepositoryImpl implements LinkTrackerRepository {
     @Override
     public Link findLinkById(Integer id) {
         return links.stream()
-                    .filter(l -> l.getId() == id)
-                    .findFirst()
-                    .orElse(null);
+                .filter(l -> l.getId() == id)
+                .findFirst()
+                .orElse(null);
     }
 
     @Override

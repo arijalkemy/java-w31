@@ -22,18 +22,18 @@ public class LinkTrackerController {
     LinkTrackerService linkTrackerService;
 
     @PostMapping("/newLink")
-    public ResponseEntity<?> postNewLink(@RequestBody Link newLink) {        
+    public ResponseEntity<?> postNewLink(@RequestBody Link newLink) {
         return new ResponseEntity<>(linkTrackerService.newLink(newLink), HttpStatus.OK);
     }
-    
+
     @GetMapping("/link/{linkId}")
     public ResponseEntity<?> getRedirection(@PathVariable Integer linkId) {
         String url = linkTrackerService.getRedirection(linkId);
         return ResponseEntity.status(HttpStatus.FOUND)
-                            .location(URI.create(url))
-                            .build();
+                .location(URI.create(url))
+                .build();
     }
-    
+
     @GetMapping("/metrics/{linkID}")
     public ResponseEntity<?> getNumberOfRedirections(@PathVariable Integer linkID) {
         return new ResponseEntity<>(linkTrackerService.getNumberOfRedirections(linkID), HttpStatus.OK);

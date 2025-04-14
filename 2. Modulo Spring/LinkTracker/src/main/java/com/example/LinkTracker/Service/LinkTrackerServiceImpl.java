@@ -9,7 +9,7 @@ import com.example.LinkTracker.Exceptions.*;
 import com.example.LinkTracker.Repository.LinkTrackerRepository;
 
 @Service
-public class LinkTrackerServiceImpl implements LinkTrackerService{
+public class LinkTrackerServiceImpl implements LinkTrackerService {
     @Autowired
     LinkTrackerRepository linkTrackerRepository;
 
@@ -18,11 +18,11 @@ public class LinkTrackerServiceImpl implements LinkTrackerService{
         if (url == null || url.isEmpty()) {
             return false;
         }
-    
+
         if (url.length() < expectedPrefix.length()) {
             return false;
         }
-    
+
         String prefix = url.substring(0, expectedPrefix.length());
         return prefix.equals(expectedPrefix);
     }
@@ -36,7 +36,7 @@ public class LinkTrackerServiceImpl implements LinkTrackerService{
         if (linkTrackerRepository.isLinkPresent(link)) {
             throw new EntryAlreadyExistsException("El link que se intenta agregar ya existe.");
         }
-        
+
         linkTrackerRepository.newLink(link);
         return LinkDTO.linkToDTO(link);
     }

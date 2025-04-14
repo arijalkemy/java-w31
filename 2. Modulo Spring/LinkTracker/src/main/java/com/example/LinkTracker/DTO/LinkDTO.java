@@ -7,7 +7,8 @@ import com.example.LinkTracker.Entities.Link;
 import lombok.Getter;
 import lombok.Setter;
 
-@Getter @Setter
+@Getter
+@Setter
 public class LinkDTO implements Serializable {
     private Integer id;
 

@@ -5,7 +5,9 @@ import javax.persistence.Entity;
 import lombok.Getter;
 import lombok.Setter;
 
-@Getter @Setter @Entity
+@Getter
+@Setter
+@Entity
 public class Link {
     private Integer id;
     private String url;

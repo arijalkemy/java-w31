@@ -5,7 +5,9 @@ import java.io.Serializable;
 import lombok.Getter;
 import lombok.Setter;
 
-@Getter @Setter
+// Asumo que la cantidad de calorias es por 100 gramos del ingrediente.
+@Getter
+@Setter
 public class IngredientDTO implements Serializable {
     private String name;
     private Integer calories;

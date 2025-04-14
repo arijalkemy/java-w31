@@ -1,7 +1,7 @@
 package com.example.LinkTracker.Exceptions;
 
 public class InvalidLinkException extends RuntimeException {
-        
+
     public InvalidLinkException() {
     }
 

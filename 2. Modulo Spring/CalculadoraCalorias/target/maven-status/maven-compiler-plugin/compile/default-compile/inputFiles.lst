@@ -1,0 +1,12 @@
+/Users/ebercellini/Desktop/CalculadoraCalorias/src/main/java/com/example/CalculadoraCalorias/Repository/CalculadoraCaloriasRepository.java
+/Users/ebercellini/Desktop/CalculadoraCalorias/src/main/java/com/example/CalculadoraCalorias/Exceptions/GlobalExceptionHandler.java
+/Users/ebercellini/Desktop/CalculadoraCalorias/src/main/java/com/example/CalculadoraCalorias/Service/CalculadoraCaloriasServiceImpl.java
+/Users/ebercellini/Desktop/CalculadoraCalorias/src/main/java/com/example/CalculadoraCalorias/DTO/IngredientDTO.java
+/Users/ebercellini/Desktop/CalculadoraCalorias/src/main/java/com/example/CalculadoraCalorias/Controller/CalculadoraCaloriasController.java
+/Users/ebercellini/Desktop/CalculadoraCalorias/src/main/java/com/example/CalculadoraCalorias/Exceptions/EntityAlreadyExistsException.java
+/Users/ebercellini/Desktop/CalculadoraCalorias/src/main/java/com/example/CalculadoraCalorias/Exceptions/InvalidEntityException.java
+/Users/ebercellini/Desktop/CalculadoraCalorias/src/main/java/com/example/CalculadoraCalorias/CalculadoraCaloriasApplication.java
+/Users/ebercellini/Desktop/CalculadoraCalorias/src/main/java/com/example/CalculadoraCalorias/Repository/CalculadoraCaloriasRepositoryImpl.java
+/Users/ebercellini/Desktop/CalculadoraCalorias/src/main/java/com/example/CalculadoraCalorias/DTO/DishDTO.java
+/Users/ebercellini/Desktop/CalculadoraCalorias/src/main/java/com/example/CalculadoraCalorias/Exceptions/NotFoundException.java
+/Users/ebercellini/Desktop/CalculadoraCalorias/src/main/java/com/example/CalculadoraCalorias/Service/CalculadoraCaloriasService.java
