@@ -17,6 +17,19 @@ public class LinkMapper {
         return link;
     }
 
+    public static LinkDto linkToLinkDto(Link link){
+        LinkDto linkReturn = new LinkDto();
+
+        linkReturn.setUrl(link.getUrl());
+        linkReturn.setRedirects(link.getRedirects());
+
+        if (link.getPassword() != null){
+            linkReturn.setPassword(link.getPassword());
+        }
+
+        return linkReturn;
+    }
+
 
 
 }
