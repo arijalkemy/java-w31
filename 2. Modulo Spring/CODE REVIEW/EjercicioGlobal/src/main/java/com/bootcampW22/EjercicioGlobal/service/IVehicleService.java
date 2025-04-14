@@ -6,17 +6,17 @@ import java.util.List;
 
 public interface IVehicleService {
     List<VehicleDto> searchAllVehicles();
-    VehicleDto addVehicle(VehicleDto vehicleDto);
-    List<VehicleDto> getVehiclesByColorAndYear(String color, int year);
-    List<VehicleDto> getVehiclesByBrandAndYearRange(String brand, int start_year, int end_year);
-    Double getAvgSpeedByBrand(String brand);
-    void updateSpeed(Long id, String newSpeed);
-    List<VehicleDto> addVehicles(List<VehicleDto> vehicleDto);
-    List<VehicleDto> getVehiclesByFuelType(String type);
     void deleteVehicle(Long id);
-    List<VehicleDto> getVehiclesByTransmissionType(String type);
-    Double getAvgCapacityByBrand(String brand);
+    void addVehicle(VehicleDto vehicleDto);
+    void addVehicles(List<VehicleDto> vehicleDtos);
+    void updateSpeed(Long id, String newSpeed);
     void updateFuel(Long id, String newFuel);
-    List<VehicleDto> getByDimensionsRange(double minLength, double maxLength, double minWidth, double maxWidth);
-    List<VehicleDto> getByWeightRange(double min, double max);
+    List<VehicleDto> getByColorAndYear(String color, int year);
+    List<VehicleDto> getByFuelType(String fuelType);
+    List<VehicleDto> getByTransmission(String transmission);
+    List<VehicleDto> getByDimensions(double minLength, double maxLength, double minWidth, double maxWidth);
+    List<VehicleDto> getByWeight(double min, double max);
+    List<VehicleDto> getByBrandAndYears(String brand, int startYear, int endYear);
+    Double getAvgSpeedByBrand(String brand);
+    Double getAvgCapacityByBrand(String brand);
 }

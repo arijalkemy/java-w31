@@ -9,6 +9,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.OptionalDouble;
 import java.util.stream.Collectors;
 
 @Service
@@ -19,7 +20,6 @@ public class VehicleServiceImpl implements IVehicleService{
     public VehicleServiceImpl(VehicleRepositoryImpl vehicleRepository){
         this.vehicleRepository = vehicleRepository;
     }
-
     @Override
     public List<VehicleDto> searchAllVehicles() {
         ObjectMapper mapper = new ObjectMapper();
@@ -32,149 +32,111 @@ public class VehicleServiceImpl implements IVehicleService{
                 .collect(Collectors.toList());
     }
 
+    /* Punto 8 */
+    @Override
+    public void deleteVehicle(Long id) {
+        boolean vehicleWasRemoved = vehicleRepository.deleteVehicle(id);
+        if (!vehicleWasRemoved) {
+            throw new NotFoundException("No se encontró ningun auto en el sistema.");
+        }
+    }
+
     /* Punto 1 */
     @Override
-    public VehicleDto addVehicle(VehicleDto vehicleDto) {
+    public void addVehicle(VehicleDto vehicleDto) {
         ObjectMapper mapper = new ObjectMapper();
-        Vehicle vehicle = mapper.convertValue(vehicleDto, Vehicle.class);
+        Vehicle vehicle = mapper.convertValue(vehicleDto,Vehicle.class);
         vehicleRepository.addVehicle(vehicle);
-        return vehicleDto;
+    }
+
+    /* Punto 5 */
+    @Override
+    public void addVehicles(List<VehicleDto> vehicleDtos) {
+        ObjectMapper mapper = new ObjectMapper();
+        List<Vehicle> vehicles = vehicleDtos.stream()
+                .map(vehicle -> mapper.convertValue(vehicle, Vehicle.class))
+                .toList();
+        vehicleRepository.addVehicles(vehicles);
+    }
+
+    /* Punto 6 */
+    @Override
+    public void updateSpeed(Long id, String newSpeed) {
+        vehicleRepository.updateSpeed(id, newSpeed);
+    }
+
+    /* Punto 10 */
+    @Override
+    public void updateFuel(Long id, String newFuel) {
+        vehicleRepository.updateFuel(id, newFuel);
     }
 
     /* Punto 2 */
     @Override
-    public List<VehicleDto> getVehiclesByColorAndYear(String color, int year) {
-        List<Vehicle> vehicleList = vehicleRepository.getVehiclesByColorAndYear(color, year);
-        if(vehicleList.isEmpty()){
-            throw new NotFoundException("No se encontró ningún auto con el color y año especificados.");
-        }
-
+    public List<VehicleDto> getByColorAndYear(String color, int year) {
+        List<Vehicle> vehicles = vehicleRepository.getByColorAndYear(color, year);
         ObjectMapper mapper = new ObjectMapper();
-        return vehicleList.stream()
-                .map(v -> mapper.convertValue(v,VehicleDto.class))
-                .collect(Collectors.toList());
+        return vehicles.stream().map(v -> mapper.convertValue(v, VehicleDto.class)).toList();
+    }
+
+    /* Punto 7 */
+    @Override
+    public List<VehicleDto> getByFuelType(String fuelType) {
+        List<Vehicle> vehicles = vehicleRepository.getByFuelType(fuelType);
+        ObjectMapper mapper = new ObjectMapper();
+        return vehicles.stream().map(v -> mapper.convertValue(v, VehicleDto.class)).toList();
+    }
+
+    /* Punto 9 */
+    @Override
+    public List<VehicleDto> getByTransmission(String transmission) {
+        List<Vehicle> vehicles = vehicleRepository.getByTransmission(transmission);
+        ObjectMapper mapper = new ObjectMapper();
+        return vehicles.stream().map(v -> mapper.convertValue(v, VehicleDto.class)).toList();
+    }
+
+    /* Punto 12 */
+    @Override
+    public List<VehicleDto> getByDimensions(double minLength, double maxLength, double minWidth, double maxWidth) {
+        List<Vehicle> vehicles = vehicleRepository.getByDimensions(minLength, maxLength, minWidth, maxWidth);
+        ObjectMapper mapper = new ObjectMapper();
+        return vehicles.stream().map(v -> mapper.convertValue(v, VehicleDto.class)).toList();
+    }
+
+    /* Punto 13 */
+    @Override
+    public List<VehicleDto> getByWeight(double min, double max) {
+        List<Vehicle> vehicles = vehicleRepository.getByWeight(min, max);
+        ObjectMapper mapper = new ObjectMapper();
+        return vehicles.stream().map(v -> mapper.convertValue(v, VehicleDto.class)).toList();
     }
 
     /* Punto 3 */
     @Override
-    public List<VehicleDto> getVehiclesByBrandAndYearRange(String brand, int startYear, int endYear) {
-        List<Vehicle> vehicleList = vehicleRepository.getVehiclesByBrandAndYearRange(brand, startYear, endYear);
-        if(vehicleList.isEmpty()){
-            throw new NotFoundException("No se encontró ningún auto con la marca y años especificados.");
-        }
-
+    public List<VehicleDto> getByBrandAndYears(String brand, int startYear, int endYear) {
+        List<Vehicle> vehicles = vehicleRepository.getByBrandAndYears(brand, startYear, endYear);
         ObjectMapper mapper = new ObjectMapper();
-        return vehicleList.stream()
-                .map(v -> mapper.convertValue(v,VehicleDto.class))
-                .collect(Collectors.toList());
+        return vehicles.stream().map(vehicle -> mapper.convertValue(vehicle, VehicleDto.class)).toList();
     }
 
     /* Punto 4 */
     @Override
     public Double getAvgSpeedByBrand(String brand) {
-        Double avgSpeed = vehicleRepository.getAvgSpeedByBrand(brand);
-        if(avgSpeed == -1) {
+        OptionalDouble avgSpeed = vehicleRepository.getAvgSpeedByBrand(brand);
+        if(avgSpeed.isEmpty()) {
             throw new NotFoundException("No se encontraron vehiculos para la marca " + brand);
         }
-        return avgSpeed;
-    }
-
-    /* Punto 5 */
-    public List<VehicleDto> addVehicles(List<VehicleDto> vehiclesDtos) {
-        ObjectMapper mapper = new ObjectMapper();
-        List<Vehicle> vehicleList = vehiclesDtos.stream()
-                .map(v -> mapper.convertValue(v,Vehicle.class))
-                .collect(Collectors.toList());
-        vehicleRepository.addVehicles(vehicleList);
-        return vehiclesDtos;
-    }
-
-    /* Punto 6 */
-    public void updateSpeed(Long id, String newSpeed) {
-        boolean updateOk = vehicleRepository.updateSpeed(id, newSpeed);
-        if(!updateOk) {
-            throw new NotFoundException("No se encontró ningun auto en el sistema.");
-        }
-    }
-
-    /* Punto 7 */
-    @Override
-    public List<VehicleDto> getVehiclesByFuelType(String type) {
-        List<Vehicle> vehicleList = vehicleRepository.getVehiclesByFuelType(type);
-
-        ObjectMapper mapper = new ObjectMapper();
-
-        if(vehicleList.isEmpty()){
-            throw new NotFoundException("No se encontró ningun auto en el sistema.");
-        }
-        return vehicleList.stream()
-                .map(v -> mapper.convertValue(v,VehicleDto.class))
-                .collect(Collectors.toList());
-    }
-
-    /* Punto 8 */
-    public void deleteVehicle(Long id) {
-        boolean anItemWasDeleted = vehicleRepository.deleteVehicle(id);
-        if (!anItemWasDeleted) {
-            throw new NotFoundException("No se encontró ningun auto en el sistema para eliminar.");
-        }
-    }
-
-    /* Punto 9 */
-    @Override
-    public List<VehicleDto> getVehiclesByTransmissionType(String type) {
-        List<Vehicle> vehicleList = vehicleRepository.getVehiclesByTransmissionType(type);
-
-        ObjectMapper mapper = new ObjectMapper();
-
-        if(vehicleList.isEmpty()){
-            throw new NotFoundException("No se encontró ningun auto en el sistema.");
-        }
-        return vehicleList.stream()
-                .map(v -> mapper.convertValue(v,VehicleDto.class))
-                .collect(Collectors.toList());
-    }
-
-    /* Punto 10 */
-    public void updateFuel(Long id, String newFuel) {
-        boolean updateOk = vehicleRepository.updateFuel(id, newFuel);
-        if(!updateOk) {
-            throw new NotFoundException("No se encontró ningun auto en el sistema.");
-        }
+        return avgSpeed.getAsDouble();
     }
 
     /* Punto 11 */
     @Override
     public Double getAvgCapacityByBrand(String brand) {
-        Double avgCapacity = vehicleRepository.getAvgCapacityByBrand(brand);
-        if(avgCapacity == -1) {
+        OptionalDouble avgCapacity = vehicleRepository.getAvgCapacityByBrand(brand);
+        if(avgCapacity.isEmpty()) {
             throw new NotFoundException("No se encontraron vehiculos para la marca " + brand);
         }
-        return avgCapacity;
-    }
-
-    /* Punto 12 */
-    @Override
-    public List<VehicleDto> getByDimensionsRange(double minLength, double maxLength, double minWidth, double maxWidth) {
-        List<Vehicle> vehicleList = vehicleRepository.getByDimensionsRange(minLength, maxLength, minWidth, maxWidth);
-        if(vehicleList.isEmpty()){
-            throw new NotFoundException("No se encontró ningun auto en el sistema.");
-        }
-        ObjectMapper mapper = new ObjectMapper();
-        return vehicleList.stream()
-                .map(v -> mapper.convertValue(v,VehicleDto.class))
-                .collect(Collectors.toList());
-    }
-
-    /* Punto 13 */
-    public List<VehicleDto> getByWeightRange(double min, double max) {
-        List<Vehicle> vehicleList = vehicleRepository.getByWeightRange(min, max);
-        if(vehicleList.isEmpty()){
-            throw new NotFoundException("No se encontró ningun auto en el sistema.");
-        }
-        ObjectMapper mapper = new ObjectMapper();
-        return vehicleList.stream()
-                .map(v -> mapper.convertValue(v,VehicleDto.class))
-                .collect(Collectors.toList());
+        return avgCapacity.getAsDouble();
     }
 }
+
