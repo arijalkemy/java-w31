@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="7a03f2e5-29ae-4244-bd16-a1db9edbfd76" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../Práctica Integradora - POO - P2/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Práctica Integradora - POO - P2/.idea/description.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Práctica Integradora - POO - P2/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Práctica Integradora - POO - P2/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Práctica Integradora - POO - P2/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Práctica Integradora - POO - P2/.idea/project-template.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Práctica Integradora - POO - P2/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Práctica Integradora - POO - P2/Práctica Integradora - POO - P2 - Distribuidora.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Práctica Integradora - POO - P2/out/production/Práctica Integradora - POO - P2/com/mercadoLibre/Main.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Práctica Integradora - POO - P2/out/production/Práctica Integradora - POO - P2/com/mercadoLibre/NoPerecedero.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Práctica Integradora - POO - P2/out/production/Práctica Integradora - POO - P2/com/mercadoLibre/Perecedero.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Práctica Integradora - POO - P2/out/production/Práctica Integradora - POO - P2/com/mercadoLibre/Producto.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Práctica Integradora - POO - P2/src/com/mercadoLibre/Distribuidora.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Práctica Integradora - POO - P2/src/com/mercadoLibre/NoPerecedero.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Práctica Integradora - POO - P2/src/com/mercadoLibre/Perecedero.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Práctica Integradora - POO - P2/src/com/mercadoLibre/Producto.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
+  <component name="ProjectId" id="2v5p04Ep46T0oLTtUk9bgtGOPJ6" />
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="untitled104" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="untitled104" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="untitled104" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="untitled104" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="untitled104" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="company" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "belcasino__francesca",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/fbelcasino/Documents/java-w31/1. Modulo Java/Práctica Integradora - POO - P2",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="com.mercadoLibre.Distribuidora" />
+      <module name="Práctica Integradora - POO - P2 - Distribuidora" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="Práctica Integradora - POO - P2 - Distribuidora" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="Práctica Integradora - POO - P2 - Distribuidora" />
+      <option name="filePath" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-a94e463ab2e7-intellij.indexing.shared.core-IU-243.26053.27" />
+        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-IU-243.26053.27" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7a03f2e5-29ae-4244-bd16-a1db9edbfd76" name="Default Changelist" comment="" />
+      <created>1743444566078</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1743444566078</updated>
+      <workItem from="1743444567345" duration="10337000" />
+      <workItem from="1743968681478" duration="1880000" />
+      <workItem from="1743971192929" duration="71000" />
+      <workItem from="1744202640653" duration="5000" />
+      <workItem from="1744641447454" duration="442000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
