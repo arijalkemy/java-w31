@@ -41,7 +41,7 @@ public class Curriculum extends Document {
         this.edad = edad;
     }
 
-    public ArrayList getListhabilidades() {
+    public List getListhabilidades() {
         return listhabilidades;
     }
 
