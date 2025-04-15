@@ -24,7 +24,7 @@ public class InputBlogRepository implements IInputBlogRepository {
 
     @Override
     public InputBlog findById(Integer id) {
-        InputBlog inputBlog1 = inputBlogs.stream().filter(inputBlog -> Objects.equals(inputBlog.getId(), id)).findFirst().orElse(null);
+        InputBlog inputBlog1 = inputBlogs.stream().filter(i -> id.equals(i.getId())).findFirst().orElse(null);
         if(inputBlog1 == null) {
             throw new NotFoundException("El blog no existe");
         }
