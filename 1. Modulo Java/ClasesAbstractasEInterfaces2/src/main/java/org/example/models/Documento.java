@@ -1,5 +1,5 @@
-package org.example.clasesdos;
+package org.example.models;
 
 public interface Documento {
-    public String imprimir(String identificacion);
+     void imprimir();
 }

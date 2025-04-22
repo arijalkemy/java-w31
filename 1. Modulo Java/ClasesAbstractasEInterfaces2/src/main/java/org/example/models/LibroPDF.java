@@ -1,4 +1,4 @@
-package org.example.clasesdos;
+package org.example.models;
 
 public class LibroPDF implements Documento {
 
@@ -15,7 +15,7 @@ public class LibroPDF implements Documento {
     }
 
     @Override
-    public String imprimir(String identificacion) {
-        return "cantidadPaginas: " + cantidadPaginas+" nombreAutor: "+nombreAutor+" titulo: "+titulo+" genero: "+genero;
+    public void imprimir() {
+        System.out.println("cantidadPaginas: " + cantidadPaginas+" nombreAutor: "+nombreAutor+" titulo: "+titulo+" genero: "+genero);
     }
 }

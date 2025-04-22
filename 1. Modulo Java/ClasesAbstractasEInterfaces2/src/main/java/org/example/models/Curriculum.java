@@ -1,4 +1,4 @@
-package org.example.clasesdos;
+package org.example.models;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,8 +20,8 @@ public class Curriculum implements Documento {
     }
 
     @Override
-    public String imprimir(String identificacion) {
-        return "nombre: "+this.nombre+" apellido: "+this.apellido+" celular: "+this.celular+" email: "+this.email +" habilidades: "+this.habilidades;
+    public void imprimir() {
+        System.out.println("nombre: "+this.nombre+" apellido: "+this.apellido+" celular: "+this.celular+" email: "+this.email +" habilidades: "+this.habilidades);
     }
 
     public void setHabilidades(List<String> habilidades) {

@@ -2,12 +2,14 @@ package org.example.arquitecturamulticapap1.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
 @AllArgsConstructor
-public class Character {
+@NoArgsConstructor
+public class CharacterEntity {
     private String name;
     private int height;
     private int mass;

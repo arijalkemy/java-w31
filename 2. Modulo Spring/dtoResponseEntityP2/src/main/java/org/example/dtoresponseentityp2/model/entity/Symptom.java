@@ -8,7 +8,7 @@ import org.example.dtoresponseentityp2.utilities.NIVEL_DE_GRAVEDAD;
 @Getter
 @Setter
 @AllArgsConstructor
-public class Sintoma {
+public class Symptom {
     private String codigo;
     private String nombre;
     private NIVEL_DE_GRAVEDAD nivelDeGravedad;

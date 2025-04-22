@@ -1,4 +1,4 @@
-package org.example.clasesdos;
+package org.example.models;
 
 public class Informe implements Documento {
     String texto;
@@ -13,7 +13,7 @@ public class Informe implements Documento {
     }
 
     @Override
-    public String imprimir(String identificacion) {
-        return "texto: "+this.texto+"cantidadPaginas: "+this.cantidadPaginas+ " nombreAutor: "+this.nombreAutor+" nombreRevisor: "+this.nombreRevisor;
+    public void imprimir() {
+        System.out.println("texto: "+this.texto+"cantidadPaginas: "+this.cantidadPaginas+ " nombreAutor: "+this.nombreAutor+" nombreRevisor: "+this.nombreRevisor);
     }
 }
