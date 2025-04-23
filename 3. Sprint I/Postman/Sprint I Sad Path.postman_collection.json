@@ -1,0 +1,623 @@
+{
+	"info": {
+		"_postman_id": "87e90363-56ac-4b0d-b5a5-01fe59673529",
+		"name": "Sprint I Sad Path",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "43326327",
+		"_collection_link": "https://speeding-shadow-39920.postman.co/workspace/My-Workspace~6e7bb37d-fe58-449f-8035-e9e37ed523b4/collection/43763982-87e90363-56ac-4b0d-b5a5-01fe59673529?action=share&source=collection_link&creator=43326327"
+	},
+	"item": [
+		{
+			"name": "US 01 - Usuario inexistente",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/users/200/follow/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"200",
+						"follow",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "US 01 - Vendedor Inexistente",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/users/1/follow/20",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"1",
+						"follow",
+						"20"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "US 01 - Reseguir usuario",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/users/1/follow/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"1",
+						"follow",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "US 01 - Seguirse a si mismo",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/users/1/follow/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"1",
+						"follow",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "US 02 - GET followers count",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/users/200/followers/count",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"200",
+						"followers",
+						"count"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "US 03 - GET followers list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/users/200/followers/list",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"200",
+						"followers",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "US 04 - GET following list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/users/200/followed/list",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"200",
+						"followed",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "US 05 - POST product already exists",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\n    \"userId\": 1,\n\n    \"date\": \"2021-04-29\",\n\n    \"product\": {\n\n        \"productId\": 30,\n\n        \"productName\": \"Silla Gamer\",\n\n        \"type\": \"Gamer\",\n\n        \"brand\": \"Racer\",\n\n        \"color\": \"Red & Black\",\n\n        \"notes\": \"Special Edition\"\n\n    },\n\n    \"category\": 100,\n\n    \"price\": 1500.50\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/products/post",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"products",
+						"post"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "US 06 - Get posts by followed sellers in last two weeks",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/products/followed/100/list",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"products",
+						"followed",
+						"100",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "US 07 - Unfollow user",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/users/1/unfollow/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"1",
+						"unfollow",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "US 07 - Unfollow user",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/users/1/unfollow/333",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"1",
+						"unfollow",
+						"333"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "US 08 - GET ordered followed user lists",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/users/4/followed/list?order=name_nom",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"4",
+						"followed",
+						"list"
+					],
+					"query": [
+						{
+							"key": "order",
+							"value": "name_nom"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "US 08 - GET ordered followers user lists",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/users/2/followers/list?order=name_descentiente",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"2",
+						"followers",
+						"list"
+					],
+					"query": [
+						{
+							"key": "order",
+							"value": "name_descentiente"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "US 09 - GET ordered posts by dates",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/products/followed/1/list?order=date_fecha",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"products",
+						"followed",
+						"1",
+						"list"
+					],
+					"query": [
+						{
+							"key": "order",
+							"value": "date_fecha"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "US 010 - INDIVIDUAL POST promo product product already exist",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\n    \"userId\": 1,\n\n    \"date\": \"29-04-2021\",\n\n    \"product\": {\n\n        \"productId\": 11,\n\n        \"productName\": \"Silla Gamer\",\n\n        \"type\": \"Gamer\",\n\n        \"brand\": \"Racer\",\n\n        \"color\": \"Red & Black\",\n\n        \"notes\": \"Special Edition\"\n\n    },\n\n    \"category\": 100,\n\n    \"price\": 1500.50,\n\n    \"has_promo\": true,\n\n    \"discount\": 0.25\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/products/promo-post",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"products",
+						"promo-post"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "US 010 - INDIVIDUAL POST promo product user not found",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\n    \"userId\": 120,\n\n    \"date\": \"29-04-2021\",\n\n    \"product\": {\n\n        \"productId\": 20,\n\n        \"productName\": \"Silla Gamer\",\n\n        \"type\": \"Gamer\",\n\n        \"brand\": \"Racer\",\n\n        \"color\": \"Red & Black\",\n\n        \"notes\": \"Special Edition\"\n\n    },\n\n    \"category\": 100,\n\n    \"price\": 1500.50,\n\n    \"has_promo\": true,\n\n    \"discount\": 0.25\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/products/promo-post",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"products",
+						"promo-post"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "US 011 - INDIVIDUAL GET promo products count by seller",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/products/promo-post/count?user_id=5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"products",
+						"promo-post",
+						"count"
+					],
+					"query": [
+						{
+							"key": "user_id",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "US 012 - INDIVIDUAL GET promo products lists by seller",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/products/promo-post/list?userId=5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"products",
+						"promo-post",
+						"list"
+					],
+					"query": [
+						{
+							"key": "userId",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "US 012 - INDIVIDUAL GET promo products lists by seller Copy",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/products/promo-post/list?userId=2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"products",
+						"promo-post",
+						"list"
+					],
+					"query": [
+						{
+							"key": "userId",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "US 013 - GET posts by Keyword",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/products/followed/1/filterByKeyword?keyword=futbol",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"products",
+						"followed",
+						"1",
+						"filterByKeyword"
+					],
+					"query": [
+						{
+							"key": "keyword",
+							"value": "futbol"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "US 013 - GET posts by Keyword II",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/products/followed/7/filterByKeyword?keyword=sneakers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"products",
+						"followed",
+						"7",
+						"filterByKeyword"
+					],
+					"query": [
+						{
+							"key": "keyword",
+							"value": "sneakers"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "US 014 - GET posts by category",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/products/followed/1/filterByCategory?filterCategory=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"products",
+						"followed",
+						"1",
+						"filterByCategory"
+					],
+					"query": [
+						{
+							"key": "filterCategory",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "US 014 - GET posts by category II",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/products/followed/1/filterByCategory?filterCategory=0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"products",
+						"followed",
+						"1",
+						"filterByCategory"
+					],
+					"query": [
+						{
+							"key": "filterCategory",
+							"value": "0"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "US 014 - GET posts by category III",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/products/followed/1/filterByCategory?filterCategory=0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"products",
+						"followed",
+						"1",
+						"filterByCategory"
+					],
+					"query": [
+						{
+							"key": "filterCategory",
+							"value": "0"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
