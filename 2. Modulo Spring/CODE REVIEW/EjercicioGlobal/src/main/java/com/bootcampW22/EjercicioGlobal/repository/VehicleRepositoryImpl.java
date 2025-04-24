@@ -11,6 +11,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.OptionalDouble;
 
 @Repository
@@ -38,10 +39,15 @@ public class VehicleRepositoryImpl implements IVehicleRepository{
         listOfVehicles = vehicles;
     }
 
+    @Override
+    public Optional<Vehicle> getVehicleById(Long id) {
+        return listOfVehicles.stream().filter(v -> v.getId().equals(id)).findFirst();
+    }
+
     /* Punto 8 */
     @Override
-    public boolean deleteVehicle(Long id) {
-        return listOfVehicles.removeIf(vehicle -> vehicle.getId().equals(id));
+    public void deleteVehicle(Vehicle vehicle) {
+        listOfVehicles.remove(vehicle);
     }
 
     /* Punto 1 */
@@ -58,117 +64,73 @@ public class VehicleRepositoryImpl implements IVehicleRepository{
 
     /* Punto 6 */
     @Override
-    public void updateSpeed(Long id, String newSpeed) {
-        try {
-            listOfVehicles.stream()
-                    .filter(vehicle -> vehicle.getId().equals(id))
-                    .findFirst().get().setMax_speed(newSpeed);
-        } catch (Exception e) {
-            throw new NotFoundException("No se encontró ningun auto en el sistema.");
-        }
+    public void updateSpeed(Vehicle vehicle, String newSpeed) {
+        vehicle.setMax_speed(newSpeed);
     }
 
     /* Punto 10 */
     @Override
-    public void updateFuel(Long id, String newFuel) {
-        try {
-            listOfVehicles.stream()
-                    .filter(vehicle -> vehicle.getId().equals(id))
-                    .findFirst().get().setFuel_type(newFuel);
-        } catch (Exception e) {
-            throw new NotFoundException("No se encontró ningun auto en el sistema.");
-        }
+    public void updateFuel(Vehicle vehicle, String newFuel) {
+        vehicle.setFuel_type(newFuel);
     }
 
     /* Punto 2 */
     @Override
     public List<Vehicle> getByColorAndYear(String color, int year) {
-        List<Vehicle> vehicles = listOfVehicles.stream()
+        return listOfVehicles.stream()
                 .filter(vehicle -> vehicle.getColor().equalsIgnoreCase(color) && vehicle.getYear() == year)
                 .toList();
-        if (vehicles.isEmpty()) {
-            throw new NotFoundException("No se encontró ningun auto en el sistema.");
-        }
-        return vehicles;
     }
 
     /* Punto 7 */
     @Override
     public List<Vehicle> getByFuelType(String fuelType) {
-        List<Vehicle> vehicles = listOfVehicles.stream()
+        return listOfVehicles.stream()
                 .filter(vehicle -> vehicle.getFuel_type().equalsIgnoreCase(fuelType))
                 .toList();
-        if (vehicles.isEmpty()) {
-            throw new NotFoundException("No se encontró ningun auto en el sistema.");
-        }
-        return vehicles;
     }
 
     /* Punto 9 */
     @Override
     public List<Vehicle> getByTransmission(String transmission) {
-        List<Vehicle> vehicles = listOfVehicles.stream()
+        return listOfVehicles.stream()
                 .filter(vehicle -> vehicle.getTransmission().equalsIgnoreCase(transmission))
                 .toList();
-        if (vehicles.isEmpty()) {
-            throw new NotFoundException("No se encontró ningun auto en el sistema.");
-        }
-        return vehicles;
     }
 
     /* Punto 12 */
     @Override
     public List<Vehicle> getByDimensions(double minLength, double maxLength, double minWidth, double maxWidth) {
-        List<Vehicle> vehicles = listOfVehicles.stream()
+        return listOfVehicles.stream()
                 .filter(vehicle -> vehicle.getHeight() >= minLength && vehicle.getHeight() <= maxLength
                         && vehicle.getWidth() >= minWidth && vehicle.getWidth() <= maxWidth)
                 .toList();
-        if (vehicles.isEmpty()) {
-            throw new NotFoundException("No se encontró ningun auto en el sistema.");
-        }
-        return vehicles;
     }
 
     /* Punto 13 */
     @Override
     public List<Vehicle> getByWeight(double minWeight, double maxWeight) {
-        List<Vehicle> vehicles = listOfVehicles.stream()
+        return listOfVehicles.stream()
                 .filter(vehicle -> vehicle.getWeight() >= minWeight && vehicle.getWeight() <= maxWeight)
                 .toList();
-        if (vehicles.isEmpty()) {
-            throw new NotFoundException("No se encontró ningun auto en el sistema.");
-        }
-        return vehicles;
     }
 
     /* Punto 3 */
     @Override
     public List<Vehicle> getByBrandAndYears(String brand, int startYear, int endYear) {
-        List<Vehicle> vehicles = listOfVehicles.stream()
+        return listOfVehicles.stream()
                 .filter(vehicle -> vehicle.getBrand().equalsIgnoreCase(brand)
                         && vehicle.getYear() >= startYear && vehicle.getYear() <= endYear)
                 .toList();
-        if (vehicles.isEmpty()) {
-            throw new NotFoundException("No se encontró ningun auto en el sistema.");
-        }
-        return vehicles;
     }
 
     /* Punto 4 */
     @Override
-    public OptionalDouble getAvgSpeedByBrand(String brand) {
+    public List<Vehicle> getByBrand(String brand) {
         return listOfVehicles.stream()
-                .filter(v -> v.getBrand().equalsIgnoreCase(brand))
-                .mapToDouble(v -> Double.parseDouble(v.getMax_speed()))
-                .average();
+                .filter(v -> v.getBrand().equalsIgnoreCase(brand)).toList();
     }
 
     /* Punto 11 */
-    @Override
-    public OptionalDouble getAvgCapacityByBrand(String brand) {
-        return listOfVehicles.stream()
-                .filter(v -> v.getBrand().equalsIgnoreCase(brand))
-                .mapToInt(Vehicle::getPassengers)
-                .average();
-    }
+    // Same as 4
 }
