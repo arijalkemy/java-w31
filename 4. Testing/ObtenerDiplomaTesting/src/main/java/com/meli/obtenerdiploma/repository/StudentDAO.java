@@ -11,9 +11,8 @@ import org.springframework.util.ResourceUtils;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.HashSet;
-import java.util.Properties;
-import java.util.Set;
+import java.util.*;
+import java.util.stream.Collectors;
 
 @Repository
 public class StudentDAO implements IStudentDAO {
@@ -80,7 +79,11 @@ public class StudentDAO implements IStudentDAO {
                 .findFirst().orElseThrow(() -> new StudentNotFoundException(id));
     }
 
-    private void loadData() {
+    public List<StudentDTO> findAll() {
+        return new ArrayList<>(students);
+    }
+
+    void loadData() {
         Set<StudentDTO> loadedData = new HashSet<>();
 
         ObjectMapper objectMapper = new ObjectMapper();
@@ -99,7 +102,7 @@ public class StudentDAO implements IStudentDAO {
         this.students = loadedData;
     }
 
-    private void saveData() {
+    void saveData() {
         ObjectMapper objectMapper = new ObjectMapper();
         try {
             File file = ResourceUtils.getFile("./src/" + SCOPE + "/resources/users.json");
