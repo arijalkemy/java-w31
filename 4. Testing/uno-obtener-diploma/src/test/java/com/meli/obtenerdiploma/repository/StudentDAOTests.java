@@ -3,7 +3,10 @@ package com.meli.obtenerdiploma.repository;
 import com.meli.obtenerdiploma.exception.StudentNotFoundException;
 import com.meli.obtenerdiploma.model.StudentDTO;
 import com.meli.obtenerdiploma.model.SubjectDTO;
+import com.meli.obtenerdiploma.utils.TestUtilsGenerator;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -16,7 +19,7 @@ public class StudentDAOTests {
     @Test
     public void givenStudent_whenSaveStudent_thenExists() {
         // Arrange - Given
-        StudentDTO studentDTO = new StudentDTO(0L, "Laura", "", 0D,
+        StudentDTO studentDTO = new StudentDTO(0L, "Laura",
                 List.of(new SubjectDTO("Italian", 10D),
                         new SubjectDTO("English", 10D)));
 
@@ -31,7 +34,7 @@ public class StudentDAOTests {
     @Test
     public void givenExistingIdAndDifferentData_whenSaveStudent_thenUpdatesStudent() {
         // Arrange - Given
-        StudentDTO studentDTO = new StudentDTO(3L, "Laura", "", 0D,
+        StudentDTO studentDTO = new StudentDTO(3L, "Laura",
                 List.of(new SubjectDTO("Italian", 7D),
                         new SubjectDTO("English", 9D),
                         new SubjectDTO("Spanish", 10D)
@@ -47,7 +50,7 @@ public class StudentDAOTests {
     @Test
     public void givenExistingId_whenDeleteStudent_thenReturnsTrue() {
         // Arrange - Given
-        StudentDTO studentDTO = new StudentDTO(10L, "Juan", "", 0D,
+        StudentDTO studentDTO = new StudentDTO(10L, "Juan",
                 List.of(new SubjectDTO("Matemática", 9D),
                         new SubjectDTO("Física", 7D),
                         new SubjectDTO("Química", 6D)
@@ -77,7 +80,7 @@ public class StudentDAOTests {
     @Test
     public void givenExistingId_whenFindById_thenReturnStudent() {
         // Arrange - Given
-        StudentDTO expectedStudentDTO = new StudentDTO(3L, "Laura", "", 0D,
+        StudentDTO expectedStudentDTO = new StudentDTO(3L, "Laura",
                 List.of(new SubjectDTO("Italian", 7D),
                         new SubjectDTO("English", 9D),
                         new SubjectDTO("Spanish", 10D)
@@ -102,7 +105,7 @@ public class StudentDAOTests {
     @Test
     public void givenExistingId_whenExists_thenReturnsTrue() {
         // Arrange - Given
-        StudentDTO studentDTO = new StudentDTO(3L, "Laura", "", 0D,
+        StudentDTO studentDTO = new StudentDTO(3L, "Laura",
                 List.of(new SubjectDTO("Italian", 10D), new SubjectDTO("English", 10D)));
 
         // Act - When
@@ -115,7 +118,7 @@ public class StudentDAOTests {
     @Test
     public void givenNotExistingId_whenExists_thenReturnsFalse() {
         // Arrange - Given
-        StudentDTO studentDTO = new StudentDTO(100L, "Laura", "", 0D,
+        StudentDTO studentDTO = new StudentDTO(100L, "Laura",
                 List.of(new SubjectDTO("Italian", 10D), new SubjectDTO("English", 10D)));
 
         // Act - When

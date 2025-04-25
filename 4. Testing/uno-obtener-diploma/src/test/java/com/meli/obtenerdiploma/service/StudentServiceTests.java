@@ -5,6 +5,7 @@ import com.meli.obtenerdiploma.model.StudentDTO;
 import com.meli.obtenerdiploma.model.SubjectDTO;
 import com.meli.obtenerdiploma.repository.IStudentDAO;
 import com.meli.obtenerdiploma.repository.IStudentRepository;
+import com.meli.obtenerdiploma.utils.TestUtilsGenerator;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -13,7 +14,6 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -107,7 +107,7 @@ public class StudentServiceTests {
     @Test
     public void whenGetAllStudents_thenGetAllStudents() {
         // Arrange - Given
-        Set<StudentDTO> expectedStudents = createStudentsList();
+        Set<StudentDTO> expectedStudents = TestUtilsGenerator.getStudentsSet();
         Mockito.when(studentRepository.findAll()).thenReturn(expectedStudents);
 
         // Act - When
@@ -116,22 +116,5 @@ public class StudentServiceTests {
         // Assert - Then
         Mockito.verify(studentRepository, Mockito.atMostOnce()).findAll();
         Assertions.assertEquals(expectedStudents, students);
-    }
-
-    private Set<StudentDTO> createStudentsList(){
-        return new HashSet<StudentDTO>() {{
-            new StudentDTO(1L, "Mario",
-                    List.of(new SubjectDTO("Italian", 2D),
-                            new SubjectDTO("English", 9D)
-                    ));
-            new StudentDTO(2L, "Carlos",
-                    List.of(new SubjectDTO("Italian", 5D),
-                            new SubjectDTO("English", 8D)
-                    ));
-            new StudentDTO(3L, "Marta",
-                    List.of(new SubjectDTO("Italian", 6D),
-                            new SubjectDTO("English", 10D)
-                    ));
-        }};
     }
 }
