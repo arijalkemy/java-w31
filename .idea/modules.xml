@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/1. Modulo Java/java/java.iml" filepath="$PROJECT_DIR$/1. Modulo Java/java/java.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/java-w31.iml" filepath="$PROJECT_DIR$/.idea/java-w31.iml" />
       <module fileurl="file://$PROJECT_DIR$/2. Modulo Spring/spring/spring.iml" filepath="$PROJECT_DIR$/2. Modulo Spring/spring/spring.iml" />
+      <module fileurl="file://$PROJECT_DIR$/4. Testing/test/test.iml" filepath="$PROJECT_DIR$/4. Testing/test/test.iml" />
     </modules>
   </component>
 </project>

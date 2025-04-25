@@ -3,30 +3,33 @@
   <component name="CompilerConfiguration">
     <annotationProcessing>
       <profile default="true" name="Default" enabled="true" />
-      <profile name="Annotation profile for starWars" enabled="true">
+      <profile name="Annotation profile for ObtenerDiploma" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="false">
-          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.36/lombok-1.18.36.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.38/lombok-1.18.38.jar" />
         </processorPath>
         <module name="calcularCalorias" />
-        <module name="starWars" />
+        <module name="ObtenerDiploma" />
         <module name="blogYoutuber" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="linkTracker" target="21" />
       <module name="starWarsEjercitacion" target="21" />
+      <module name="testing" target="21" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="ObtenerDiploma" options="-parameters" />
       <module name="blogYoutuber" options="-parameters" />
       <module name="calcularCalorias" options="-parameters" />
       <module name="linkTracker" options="-parameters" />
       <module name="starWars" options="-parameters" />
       <module name="starWarsEjercitacion" options="-parameters" />
+      <module name="testing" options="-parameters" />
     </option>
   </component>
 </project>
