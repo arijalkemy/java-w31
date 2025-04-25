@@ -21,6 +21,7 @@ public class StudentDAO implements IStudentDAO {
     private String SCOPE;
 
     private Set<StudentDTO> students;
+    private Long idsCounter;
 
 
     public StudentDAO() {
@@ -30,20 +31,22 @@ public class StudentDAO implements IStudentDAO {
             properties.load(new ClassPathResource("application.properties").getInputStream());
             this.SCOPE = properties.getProperty("api.scope");
             this.loadData();
+            idsCounter = (long)students.size();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
     @Override
-    public void save(StudentDTO stu) {
+    public StudentDTO save(StudentDTO stu) {
         boolean removed = this.delete(stu.getId());
 
-        if (!removed) stu.setId((this.students.size() + 1L));
+        if (!removed) stu.setId(++idsCounter);
 
         students.add(stu);
 
         this.saveData();
+        return stu;
     }
 
     @Override
