@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface IVehicleRepository {
     public List<Vehicle> findAll();
+    public Vehicle findById(long id);
+    public void save(Vehicle vehicle);
 }

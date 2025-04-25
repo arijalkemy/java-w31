@@ -19,4 +19,12 @@ public class VehicleController {
     public ResponseEntity<?> getVechiles(){
         return new ResponseEntity<>(service.searchAllVehicles(), HttpStatus.OK);
     }
+
+    @PostMapping("/vehicles")
+    public ResponseEntity<?> addVehicle(@RequestBody VehicleDto vehicleDto){
+        service.addVehicle(vehicleDto);
+        return new ResponseEntity<>("SE CREO EXISTOSAMENTE",HttpStatus.CREATED);
+
+        //Mensaje de exito
+    }
 }

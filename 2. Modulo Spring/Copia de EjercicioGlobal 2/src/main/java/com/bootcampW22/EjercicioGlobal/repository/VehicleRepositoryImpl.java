@@ -38,7 +38,24 @@ public class VehicleRepositoryImpl implements IVehicleRepository{
     public List<Vehicle> findAll() {
         return listOfVehicles;
     }
-    public void save(Vehicle v){
-        listOfVehicles.add(v);
+
+    //Find By Id
+    @Override
+    public Vehicle findById(long id){
+        return listOfVehicles.stream()
+                .filter(a-> a.getId() == id)
+                .findFirst()
+                .orElse(null);
     }
+
+    //Save
+    public void save(Vehicle vehicle){
+        listOfVehicles.add(vehicle);
+    }
+
+    //delte
+    public void delete(Vehicle vehicle){
+        listOfVehicles.remove(vehicle);
+    }
+
 }

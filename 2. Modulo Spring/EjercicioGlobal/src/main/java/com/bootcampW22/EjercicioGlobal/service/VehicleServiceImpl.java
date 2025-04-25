@@ -2,13 +2,16 @@ package com.bootcampW22.EjercicioGlobal.service;
 
 import com.bootcampW22.EjercicioGlobal.dto.VehicleDto;
 import com.bootcampW22.EjercicioGlobal.entity.Vehicle;
+import com.bootcampW22.EjercicioGlobal.exception.IdDuplecateException;
 import com.bootcampW22.EjercicioGlobal.exception.NotFoundException;
+import com.bootcampW22.EjercicioGlobal.mapper.IMapper;
 import com.bootcampW22.EjercicioGlobal.repository.IVehicleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 @Service
@@ -16,6 +19,9 @@ public class VehicleServiceImpl implements IVehicleService{
 
     @Autowired
     IVehicleRepository repository;
+
+    @Autowired
+    IMapper mapper;
 
     @Override
     public List<VehicleDto> searchAllVehicles() {
@@ -46,6 +52,20 @@ public class VehicleServiceImpl implements IVehicleService{
         }
 
         return vehicleDtoList;
+    }
+
+    @Override
+    public void addVehicle(VehicleDto vehicledto){
+        Vehicle vehicle = repository.findById(vehicledto.getId());
+        if(vehicle != null){
+            throw new IdDuplecateException("YA EXISTE ESTE ID: "+ vehicle.getId() + " EN LA BASE DE DATOS");
+        }
+
+        Vehicle vehicle1 = mapper.vehicleDtoToVehicle(vehicledto);
+        repository.save(vehicle1);
+
+        //Solo declarar una variable si se usa mas de una ve
+        //Objects.nonNull(vehicle) Utilizar objects
     }
 
 }

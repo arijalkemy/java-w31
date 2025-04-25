@@ -14,4 +14,9 @@ public class ExceptionController {
     public ResponseEntity<?> notFound(NotFoundException e){
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
     }
+
+    @ExceptionHandler(IdDuplecateException.class)
+    public ResponseEntity<?> idDuplicate(IdDuplecateException e){
+        return ResponseEntity.status(HttpStatus.CONFLICT).body(e.getMessage());
+    }
 }
