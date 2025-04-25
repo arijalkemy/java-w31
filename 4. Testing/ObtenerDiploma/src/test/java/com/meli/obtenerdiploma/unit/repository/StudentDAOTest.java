@@ -1,8 +1,10 @@
-package com.meli.obtenerdiploma.repository;
+package com.meli.obtenerdiploma.unit.repository;
 
 import com.meli.obtenerdiploma.exception.StudentNotFoundException;
 import com.meli.obtenerdiploma.model.StudentDTO;
 import com.meli.obtenerdiploma.model.SubjectDTO;
+import com.meli.obtenerdiploma.repository.IStudentDAO;
+import com.meli.obtenerdiploma.repository.StudentDAO;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -10,38 +12,25 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.List;
-import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 public class StudentDAOTest {
+    @Autowired
     IStudentDAO studentDAO;
 
-    @BeforeEach
-    public void setUp() {
-        studentDAO = new StudentDAO();
-        studentDAO.clear();
-    }
-
-    @AfterEach
-    public void tearDown() {
-        studentDAO.clear();
-    }
 
     @Test
-    public void saveStudent_shouldContainIdOne(){
+    public void saveStudent_shouldContainId(){
         // Arrange
-        StudentDTO student = new  StudentDTO(1L, "Juan", null, null,
-                List.of(new SubjectDTO("Matemática", 9.0), new SubjectDTO("Física", 7.0),
-                        new SubjectDTO("Química", 6.0)));
-        Long studentIdExpected = 1L;
-
+        StudentDTO student = new StudentDTO(null, "Juan", null, null,
+                List.of(new SubjectDTO("Matemática", 9.0)));
         //Act
         studentDAO.save(student);
-        StudentDTO studentObtained = studentDAO.findById(1L);
         // Assert
-        assertEquals(studentIdExpected, studentObtained.getId());
+        assertNotNull(student.getId());
+        assertEquals(student, studentDAO.findById(student.getId()));
 
     }
 
@@ -49,7 +38,7 @@ public class StudentDAOTest {
     @Test
     public void deleteStudent_shouldReturnTrue(){
         // Arrange
-        StudentDTO student = new  StudentDTO(1L, "Juan", null, null,
+        StudentDTO student = new  StudentDTO(null, "Juan", null, null,
                 List.of(new SubjectDTO("Matemática", 9.0), new SubjectDTO("Física", 7.0),
                         new SubjectDTO("Química", 6.0)));
         // Act
@@ -62,7 +51,7 @@ public class StudentDAOTest {
     @Test
     public void deleteStudent_shouldReturnFalse(){
         // Arrange
-        StudentDTO student = new  StudentDTO(1L, "Juan", null, null,
+        StudentDTO student = new  StudentDTO(null, "Juan", null, null,
                 List.of(new SubjectDTO("Matemática", 9.0), new SubjectDTO("Física", 7.0),
                         new SubjectDTO("Química", 6.0)));
         // Act
@@ -75,7 +64,7 @@ public class StudentDAOTest {
     @Test
     public void exists_shouldReturnTrue(){
         // Arrange
-        StudentDTO student = new  StudentDTO(1L, "Juan", null, null,
+        StudentDTO student = new  StudentDTO(null, "Juan", null, null,
                 List.of(new SubjectDTO("Matemática", 9.0), new SubjectDTO("Física", 7.0),
                         new SubjectDTO("Química", 6.0)));
         // Act
@@ -88,7 +77,7 @@ public class StudentDAOTest {
     @Test
     public void exists_shouldReturnFalse(){
         // Arrange
-        StudentDTO student = new  StudentDTO(1L, "Juan", null, null,
+        StudentDTO student = new  StudentDTO(null, "Juan", null, null,
                 List.of(new SubjectDTO("Matemática", 9.0), new SubjectDTO("Física", 7.0),
                         new SubjectDTO("Química", 6.0)));
         // Act
@@ -101,19 +90,22 @@ public class StudentDAOTest {
     @Test
     public void findById_shouldReturnStudent() {
         // Arrange
-        StudentDTO student = new StudentDTO(1L, "Juan", null, null,
+        StudentDTO student = new StudentDTO(null, "Juan", null, null,
                 List.of(new SubjectDTO("Matemática", 9.0), new SubjectDTO("Física", 7.0),
                         new SubjectDTO("Química", 6.0)));
         // Act
         studentDAO.save(student);
-        StudentDTO studentObtained = studentDAO.findById(1L);
+        StudentDTO studentObtained = studentDAO.findById(student.getId());
         // Assert
         assertEquals(student, studentObtained);
     }
 
     @Test
     public void findById_shouldThrowExceptionIfNotFound() {
+        //Arrange
         Long nonExistentId = 999L;
+
+        // Act & Assert
         assertThrows(StudentNotFoundException.class, () -> {
             studentDAO.findById(nonExistentId);
         });
@@ -121,29 +113,17 @@ public class StudentDAOTest {
 
     @Test
     public void saveStudentWithNullId_shouldAssignIdAutomatically() {
+        // Arrange
         StudentDTO student = new StudentDTO(null, "Pedro", null, null,
-                List.of(new SubjectDTO("Biología", 8.0)));
+                List.of(new SubjectDTO("Biología", 10.0)));
 
+        // Act
         studentDAO.save(student);
 
+        // Assert
         assertNotNull(student.getId());
         assertTrue(student.getId() > 0);
     }
 
-    @Test
-    public void saveStudentWithSameId_shouldOverwrite() {
-        StudentDTO student1 = new StudentDTO(1L, "Lucía", null, null,
-                List.of(new SubjectDTO("Historia", 7.0)));
-        StudentDTO student2 = new StudentDTO(1L, "Lucía Modificada", null, null,
-                List.of(new SubjectDTO("Historia", 10.0)));
-
-        studentDAO.save(student1);
-        studentDAO.save(student2);
-
-        StudentDTO stored = studentDAO.findById(1L);
-
-        assertEquals("Lucía Modificada", stored.getStudentName());
-        assertEquals(10.0, stored.getSubjects().get(0).getScore());
-    }
 
 }

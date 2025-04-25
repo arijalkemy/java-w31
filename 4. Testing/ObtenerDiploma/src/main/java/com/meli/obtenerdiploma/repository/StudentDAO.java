@@ -100,11 +100,6 @@ public class StudentDAO implements IStudentDAO {
         this.students = loadedData;
     }
 
-    @Override
-    public void clear() {
-        this.students.clear();
-        this.saveData();
-    }
 
     private void saveData() {
         ObjectMapper objectMapper = new ObjectMapper();

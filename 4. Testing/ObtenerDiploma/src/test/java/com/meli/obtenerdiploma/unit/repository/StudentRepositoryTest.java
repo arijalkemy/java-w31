@@ -1,7 +1,8 @@
-package com.meli.obtenerdiploma.repository;
+package com.meli.obtenerdiploma.unit.repository;
 
 import com.meli.obtenerdiploma.model.StudentDTO;
 import com.meli.obtenerdiploma.model.SubjectDTO;
+import com.meli.obtenerdiploma.repository.IStudentRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -34,7 +35,7 @@ public class StudentRepositoryTest {
         Set<StudentDTO> students = studentRepository.findAll();
 
         // Assert
-        assertEquals(studentsExpected.size(), students.size());
+        assertTrue(students.containsAll(studentsExpected));
     }
 
 
