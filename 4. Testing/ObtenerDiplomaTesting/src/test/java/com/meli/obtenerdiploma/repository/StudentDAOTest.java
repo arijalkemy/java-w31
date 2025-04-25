@@ -4,6 +4,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.meli.obtenerdiploma.exception.StudentNotFoundException;
 import com.meli.obtenerdiploma.model.StudentDTO;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -11,6 +12,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.test.util.ReflectionTestUtils;
 
@@ -19,6 +21,9 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -29,44 +34,27 @@ import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 class StudentDAOTest {
-
-    @Mock
-    private ClassPathResource classPathResource;
-
-    @Mock
-    private ObjectMapper objectMapper;
-
-    @Mock
-    private File mockFile;
+    private static final String TEST_RESOURCES_PATH = "./src/test/resources";
+    private static final String TEST_JSON_FILE = TEST_RESOURCES_PATH + "/users.json";
+    private static final String ORIGINAL_JSON_FILE = TEST_RESOURCES_PATH + "/original_users.json";
 
     private StudentDAO studentDAO;
+    private ObjectMapper objectMapper = new ObjectMapper();
 
     @BeforeEach
     void setUp() throws IOException {
-        studentDAO = new StudentDAO() {
-            @Override
-            void loadData() {
-            }
+        File originalFile = new File(ORIGINAL_JSON_FILE);
+        if(!originalFile.exists()) {
+            Files.copy(Paths.get(TEST_JSON_FILE), Paths.get(ORIGINAL_JSON_FILE), StandardCopyOption.REPLACE_EXISTING);
+        }
 
-            @Override
-            void saveData() {
-            }
-        };
+        studentDAO = new StudentDAO();
+    }
 
-        Set<StudentDTO> mockStudents = new HashSet<>();
-        StudentDTO student1 = new StudentDTO();
-        student1.setId(1L);
-        student1.setStudentName("Carlos");
-
-        StudentDTO student2 = new StudentDTO();
-        student2.setId(2L);
-        student2.setStudentName("Martin");
-
-        mockStudents.add(student1);
-        mockStudents.add(student2);
-
-        ReflectionTestUtils.setField(studentDAO, "students", mockStudents);
-        ReflectionTestUtils.setField(studentDAO, "SCOPE", "test");
+    @AfterEach
+    void tearDown() throws IOException {
+        File jsonFile = new File(TEST_JSON_FILE);
+        Files.copy(Paths.get(ORIGINAL_JSON_FILE), Paths.get(TEST_JSON_FILE), StandardCopyOption.REPLACE_EXISTING);
     }
 
     @Test
@@ -138,7 +126,7 @@ class StudentDAOTest {
         StudentDTO student = studentDAO.findById(1L);
 
         assertNotNull(student);
-        assertEquals("Carlos", student.getStudentName());
+        assertEquals("Juan", student.getStudentName());
     }
 
     @Test
