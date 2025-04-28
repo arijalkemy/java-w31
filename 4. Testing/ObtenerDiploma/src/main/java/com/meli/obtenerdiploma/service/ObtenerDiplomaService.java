@@ -2,8 +2,6 @@ package com.meli.obtenerdiploma.service;
 
 import com.meli.obtenerdiploma.model.StudentDTO;
 import com.meli.obtenerdiploma.model.SubjectDTO;
-import com.meli.obtenerdiploma.repository.IStudentDAO;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.text.DecimalFormat;
@@ -12,17 +10,12 @@ import java.util.List;
 @Service
 public class ObtenerDiplomaService implements IObtenerDiplomaService {
 
-    @Autowired
-    IStudentDAO studentDAO;
-
     @Override
-    public StudentDTO analyzeScores(Long studentId) {
-        StudentDTO stu = studentDAO.findById(studentId);
+    public StudentDTO analyzeScores(StudentDTO rq) {
+        rq.setAverageScore(calculateAverage(rq.getSubjects()));
+        rq.setMessage(getGreetingMessage(rq.getStudentName(), rq.getAverageScore()));
 
-        stu.setAverageScore(calculateAverage(stu.getSubjects()));
-        stu.setMessage(getGreetingMessage(stu.getStudentName(), stu.getAverageScore()));
-
-        return stu;
+        return rq;
     }
 
     private String getGreetingMessage(String studentName, Double average) {

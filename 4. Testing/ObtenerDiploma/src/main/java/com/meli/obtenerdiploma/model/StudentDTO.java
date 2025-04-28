@@ -1,30 +1,31 @@
 package com.meli.obtenerdiploma.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.validation.Valid;
-import javax.validation.constraints.*;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
+@Valid
 @Getter @Setter
-@AllArgsConstructor
-@NoArgsConstructor
 public class StudentDTO {
-
-    Long id;
-
-    @NotBlank(message = "El nombre del estudiante no puede estar vacío.")
-    @Pattern(regexp="([A-Z]|[0-9])[\\s|[0-9]|A-Z|a-z|ñ|ó|í|á|é|ú|Á|Ó|É|Í|Ú]*$", message = "El nombre del estudiante debe comenzar con mayúscula.")
-    @Size(max = 50, message = "La longitud del nombre del estudiante no puede superar los 50 caracteres.")
+    @NotNull(message = "Por favor ingrese el nombre del estudiante.")
+            @NotEmpty(message = "El nombre del estudiante no puede ser vacío.")
     String studentName;
-
+    @NotNull(message = "La propiedad mensaje no puede ser nula.")
+            @NotEmpty(message = "La propiedad mensaje no puede estar vacía.")
     String message;
+
+    @Min(value = 0, message = "El promedio no puede ser menor que 0.")
+    @Max(value = 100, message = "El promedio no puede ser mayor que 100.")
     Double averageScore;
 
-    @NotEmpty(message = "La lista de materias no puede estar vacía.")
-    List<@Valid SubjectDTO> subjects;
+    @NotEmpty(message = "La lista de asignaturas no puede estar vacía.")
+            @NotNull(message = "La lista de asignaturas no puede ser nula.")
+    List<SubjectDTO> subjects;
 }
