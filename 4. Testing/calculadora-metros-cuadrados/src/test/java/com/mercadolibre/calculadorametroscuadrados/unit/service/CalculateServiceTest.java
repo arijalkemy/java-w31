@@ -53,4 +53,26 @@ public class CalculateServiceTest {
         assertNull(responseObtained.getBiggest());
         assertEquals(0, responseObtained.getPrice());
     }
+
+    @Test
+    public void calculate_shouldReturnBiggestRoomBasedOnArea() {
+        // Arrange
+        HouseDTO house = new HouseDTO("Casa test", "Calle Falsa 123",
+                List.of(
+                        new RoomDTO("Cocina", 5, 5),       // Área = 25
+                        new RoomDTO("Sala", 10, 8),         // Área = 80
+                        new RoomDTO("Baño", 3, 4)           // Área = 12
+                )
+        );
+
+        // Act
+        HouseResponseDTO responseObtained = service.calculate(house);
+
+        // Assert
+        assertNotNull(responseObtained.getBiggest());
+        assertEquals("Sala", responseObtained.getBiggest().getName());
+        assertEquals(10, responseObtained.getBiggest().getWidth());
+        assertEquals(8, responseObtained.getBiggest().getLength());
+    }
 }
+
