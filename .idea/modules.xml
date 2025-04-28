@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/1. Modulo Java/Ejercicios Integradores P2/Dakar/Dakar.iml" filepath="$PROJECT_DIR$/1. Modulo Java/Ejercicios Integradores P2/Dakar/Dakar.iml" />
+      <module fileurl="file://$PROJECT_DIR$/1. Modulo Java/Recapitulando Java/Recapitulando Java.iml" filepath="$PROJECT_DIR$/1. Modulo Java/Recapitulando Java/Recapitulando Java.iml" />
+      <module fileurl="file://$PROJECT_DIR$/1. Modulo Java/Ejercicios Integradores P2/SaveTheRopa/SaveTheRopa.iml" filepath="$PROJECT_DIR$/1. Modulo Java/Ejercicios Integradores P2/SaveTheRopa/SaveTheRopa.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/java-w31.iml" filepath="$PROJECT_DIR$/.idea/java-w31.iml" />
+    </modules>
+  </component>
+</project>
