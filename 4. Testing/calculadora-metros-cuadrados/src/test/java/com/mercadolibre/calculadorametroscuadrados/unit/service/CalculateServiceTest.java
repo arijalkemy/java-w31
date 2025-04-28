@@ -59,9 +59,9 @@ public class CalculateServiceTest {
         // Arrange
         HouseDTO house = new HouseDTO("Casa test", "Calle Falsa 123",
                 List.of(
-                        new RoomDTO("Cocina", 5, 5),       // Área = 25
-                        new RoomDTO("Sala", 10, 8),         // Área = 80
-                        new RoomDTO("Baño", 3, 4)           // Área = 12
+                        new RoomDTO("Cocina", 5, 5),
+                        new RoomDTO("Sala", 10, 8),
+                        new RoomDTO("Baño", 3, 4)
                 )
         );
 
