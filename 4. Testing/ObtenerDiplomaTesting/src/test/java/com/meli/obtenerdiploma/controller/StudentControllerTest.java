@@ -15,5 +15,4 @@ class StudentControllerTest {
 
     @InjectMocks
     private StudentController controller;
-
 }
