@@ -1,0 +1,22 @@
+[
+    {
+        "id": 2,
+        "studentName": "Sofía Rojas",
+        "message": null,
+        "averageScore": null,
+        "subjects": [
+            {
+                "name": "History",
+                "score": 7.5
+            },
+            {
+                "name": "English",
+                "score": 8.0
+            },
+            {
+                "name": "Art",
+                "score": 7.5
+            }
+        ]
+    }
+]
