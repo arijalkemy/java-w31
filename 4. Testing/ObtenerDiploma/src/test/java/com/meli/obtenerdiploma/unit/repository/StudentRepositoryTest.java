@@ -18,19 +18,22 @@ public class StudentRepositoryTest {
     IStudentRepository studentRepository;
 
     @Test
-    public void findAllStudents_shouldReturnStudentsSameSize(){
+    public void findAllStudents_shouldcontaintStudents(){
         // Arrange
         Set<StudentDTO> studentsExpected = new HashSet<>();
-        studentsExpected.add(new StudentDTO(1L, "Juan", null, null,
-                List.of(new SubjectDTO("Matemática", 9.0), new SubjectDTO("Física", 7.0),
-                        new SubjectDTO("Química", 6.0))
+
+        // Crear los objetos StudentDTO con los valores que coinciden con el JSON
+        studentsExpected.add(new StudentDTO(18L, "Juan", null, null,
+                List.of(
+                        new SubjectDTO("Matemática", 9.0),
+                        new SubjectDTO("Física", 7.0),
+                        new SubjectDTO("Química", 6.0)
+                )
         ));
 
-        studentsExpected.add(new StudentDTO(2L, "Pedro", null, null,
-                List.of(new SubjectDTO("Matemática", 10.0), new SubjectDTO("Física", 8.0),
-                        new SubjectDTO("Química", 4.0))
+        studentsExpected.add(new StudentDTO(31L, "Pedro", null, null,
+                List.of(new SubjectDTO("Biología", 10.0))
         ));
-
         // Act
         Set<StudentDTO> students = studentRepository.findAll();
 
