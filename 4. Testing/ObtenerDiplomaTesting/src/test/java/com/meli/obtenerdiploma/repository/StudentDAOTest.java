@@ -39,7 +39,6 @@ class StudentDAOTest {
     private static final String ORIGINAL_JSON_FILE = TEST_RESOURCES_PATH + "/original_users.json";
 
     private StudentDAO studentDAO;
-    private ObjectMapper objectMapper = new ObjectMapper();
 
     @BeforeEach
     void setUp() throws IOException {
@@ -47,7 +46,6 @@ class StudentDAOTest {
         if(!originalFile.exists()) {
             Files.copy(Paths.get(TEST_JSON_FILE), Paths.get(ORIGINAL_JSON_FILE), StandardCopyOption.REPLACE_EXISTING);
         }
-
         studentDAO = new StudentDAO();
     }
 
