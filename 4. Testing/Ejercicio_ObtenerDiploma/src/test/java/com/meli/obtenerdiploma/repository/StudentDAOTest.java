@@ -17,9 +17,7 @@ public class StudentDAOTest {
 
     @BeforeEach
     void setup() throws IOException {
-        dao = new StudentDAO();
-        createdStudent = null;
-    }
+        dao = new StudentDAO();}
 
     @AfterEach
     void cleanup() {
@@ -31,7 +29,7 @@ public class StudentDAOTest {
     @Test
     public void testSaveStudent(){
         //Arrange
-        createdStudent = new StudentDTO(1L, "Camilo", "StudentDtoTest", 4.6, List.of(new SubjectDTO("Math", 3.5)));
+        createdStudent = new StudentDTO(null, "Camilo", "StudentDtoTest", 4.6, List.of(new SubjectDTO("Math", 3.5)));
         //Act
         dao.save(createdStudent);
         //Assert
@@ -74,7 +72,7 @@ public class StudentDAOTest {
     @Test
     void testDelete_shouldNotRemoveNotExistingStudent() {
         //Arrange
-        Long student = 1000L;
+        Long student = Long.MAX_VALUE;
         // Act
         boolean deleted = dao.delete(student);
         //Assert
@@ -84,31 +82,42 @@ public class StudentDAOTest {
 
     @Test
     void testExists_shouldReturnTrueWhenStudentExists() {
-        //Arrange
-        createdStudent = new StudentDTO();
+        // Arrange
+        createdStudent =  new StudentDTO();
+        createdStudent.setStudentName("Test Student");
+        createdStudent.setId(null); // aseguramos que dao.save() le asigne ID
         dao.save(createdStudent);
-        // Act Assert
-        assertTrue(dao.exists(createdStudent));
+
+        // Act
+        boolean exists = dao.exists(createdStudent);
+
+        // Assert
+        assertTrue(exists, "Expected the student to exist after being saved.");
     }
 
     @Test
     void testExists_shouldReturnFalseWhenStudentNotExists() {
+        // Arrange
+        StudentDTO nonExistentStudent = new StudentDTO();
+        nonExistentStudent.setId(Long.MAX_VALUE); // ID que sabemos no existe
+        nonExistentStudent.setStudentName("Ghost Student");
+
         // Act
-        StudentDTO student = new StudentDTO();
-        student.setId(Long.MAX_VALUE);
-        // Act Assert
-        assertFalse(dao.exists(student));
+        boolean exists = dao.exists(nonExistentStudent);
+
+        // Assert
+        assertFalse(exists, "Expected the student not to exist.");
     }
 
     @Test
     public void testUpdateStudent() {
         // Arrange
-        createdStudent= new StudentDTO(1L, "Juan Pérez", "Estudiante aplicado", 4.5, List.of(new SubjectDTO("Matemáticas", 5.0)));
+        createdStudent= new StudentDTO(null, "Juan Pérez", "Estudiante aplicado", 4.5, List.of(new SubjectDTO("Matemáticas", 5.0)));
         dao.save(createdStudent);
         // Act
-        StudentDTO modified = new StudentDTO(1L, "Juan P. Rodríguez", "Estudiante mejorado", 4.8, List.of(new SubjectDTO("Física", 4.9)));
+        StudentDTO modified = new StudentDTO(createdStudent.getId(), "Juan P. Rodríguez", "Estudiante mejorado", 4.8, List.of(new SubjectDTO("Física", 4.9)));
         dao.save(modified);
-        StudentDTO updated = dao.findById(1L);
+        StudentDTO updated = dao.findById(createdStudent.getId());
         // Assert
         assertEquals("Juan P. Rodríguez", updated.getStudentName());
         assertEquals("Estudiante mejorado", updated.getMessage());
@@ -120,7 +129,7 @@ public class StudentDAOTest {
     @Test
     public void testFindById_NonExistentStudent_shouldThrowException() {
         // Arrange
-        Long nonExistingId = 12345L;
+        Long nonExistingId = Long.MAX_VALUE;
         // Act & Assert
         assertThrows(StudentNotFoundException.class, () -> dao.findById(nonExistingId));
     }

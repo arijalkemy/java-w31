@@ -25,10 +25,10 @@ public class StudentRepositoryTest {
     void setup() {
         dao = new StudentDAO();
         repo = new StudentRepository();
-        ReflectionTestUtils.setField(repo, "SCOPE", "main");
+        ReflectionTestUtils.setField(repo, "SCOPE", "test");
 
-        student1 = new StudentDTO(1L, "Ana", "Estudiante destacada", 4.7, List.of(new SubjectDTO("Lengua", 4.5)));
-        student2 = new StudentDTO(2L, "Carlos", "Nuevo estudiante", 3.9, List.of(new SubjectDTO("Ciencias", 3.8)));
+        student1 = new StudentDTO(null, "Ana", "Estudiante destacada", 4.7, List.of(new SubjectDTO("Lengua", 4.5)));
+        student2 = new StudentDTO(null, "Carlos", "Nuevo estudiante", 3.9, List.of(new SubjectDTO("Ciencias", 3.8)));
         dao.save(student1);
         dao.save(student2);
     }
@@ -44,8 +44,8 @@ public class StudentRepositoryTest {
         Set<StudentDTO> students = repo.findAll();
 
         assertNotNull(students);
-        assertEquals(2, students.size());
-        assertTrue(students.stream().anyMatch(s -> s.getStudentName().equals("Ana")));
-        assertTrue(students.stream().anyMatch(s -> s.getStudentName().equals("Carlos")));
+        assertEquals(5, students.size());
+        assertTrue(students.stream().anyMatch(s -> s.getStudentName().equals("Andrés")));
+        assertTrue(students.stream().anyMatch(s -> s.getStudentName().equals("Sofia")));
     }
 }
