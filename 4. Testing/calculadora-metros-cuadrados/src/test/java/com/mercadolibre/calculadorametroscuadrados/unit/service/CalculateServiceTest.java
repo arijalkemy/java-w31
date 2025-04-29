@@ -5,6 +5,7 @@ import com.mercadolibre.calculadorametroscuadrados.dto.HouseDTO;
 import com.mercadolibre.calculadorametroscuadrados.dto.HouseResponseDTO;
 import com.mercadolibre.calculadorametroscuadrados.dto.RoomDTO;
 import com.mercadolibre.calculadorametroscuadrados.service.CalculateService;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -17,19 +18,30 @@ import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest
 public class CalculateServiceTest {
 
-    private final CalculateService service = new CalculateService();
+        private CalculateService service;
+        private HouseDTO barbieHouse;
+
+        @BeforeEach
+        void init(){
+            service = new CalculateService();
+            barbieHouse = new HouseDTO(
+                    "La casa de barbie",
+                    "barbieland 123",
+                    List.of(
+                            new RoomDTO("Baño", 130, 150),
+                            new RoomDTO("Habitacion", 400, 400)
+                    )
+            );
+        }
+
 
     @Test
     public void calculate_shouldReturnAHouseResponseDTO(){
         // Arrange
-        HouseDTO house = new HouseDTO("La casa de barbie", "barbieland 123",
-                                        List.of(new RoomDTO("Baño", 130, 150),
-                                                 new RoomDTO("Habitacion", 400, 400)));
-
-        HouseResponseDTO response = new HouseResponseDTO(house);
+        HouseResponseDTO response = new HouseResponseDTO(barbieHouse);
 
         // Act
-        HouseResponseDTO responseObtained = service.calculate(house);
+        HouseResponseDTO responseObtained = service.calculate(barbieHouse);
 
         // Assert
         assertEquals("La casa de barbie", responseObtained.getName());
@@ -56,23 +68,14 @@ public class CalculateServiceTest {
 
     @Test
     public void calculate_shouldReturnBiggestRoomBasedOnArea() {
-        // Arrange
-        HouseDTO house = new HouseDTO("Casa test", "Calle Falsa 123",
-                List.of(
-                        new RoomDTO("Cocina", 5, 5),
-                        new RoomDTO("Sala", 10, 8),
-                        new RoomDTO("Baño", 3, 4)
-                )
-        );
-
         // Act
-        HouseResponseDTO responseObtained = service.calculate(house);
+        HouseResponseDTO responseObtained = service.calculate(barbieHouse);
 
         // Assert
         assertNotNull(responseObtained.getBiggest());
-        assertEquals("Sala", responseObtained.getBiggest().getName());
-        assertEquals(10, responseObtained.getBiggest().getWidth());
-        assertEquals(8, responseObtained.getBiggest().getLength());
+        assertEquals("Habitacion", responseObtained.getBiggest().getName());
+        assertEquals(400, responseObtained.getBiggest().getWidth());
+        assertEquals(400, responseObtained.getBiggest().getLength());
     }
 }
 
