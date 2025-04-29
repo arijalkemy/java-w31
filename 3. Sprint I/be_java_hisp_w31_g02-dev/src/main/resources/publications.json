@@ -1,0 +1,422 @@
+[
+  {
+    "postId": 101,
+    "publishDate": "2025-04-22",
+    "category": 1,
+    "price": 19.99,
+    "product": {
+      "productId": 501,
+      "productName": "Wireless Mouse",
+      "type": "Accessories",
+      "brand": "TechBrand",
+      "color": "Black",
+      "notes": "Ergonomic design with long battery life."
+    }
+  },
+  {
+    "postId": 102,
+    "publishDate": "2023-09-02",
+    "category": 2,
+    "price": 59.99,
+    "product": {
+      "productId": 502,
+      "productName": "Gaming Keyboard",
+      "type": "Accessories",
+      "brand": "GamerChoice",
+      "color": "RGB",
+      "notes": "Mechanical keyboard with customizable backlighting."
+    }
+  },
+  {
+    "postId": 103,
+    "publishDate": "2023-09-03",
+    "category": 3,
+    "price": 299.99,
+    "product": {
+      "productId": 503,
+      "productName": "Noise Cancelling Headphones",
+      "type": "Audio",
+      "brand": "SoundMaster",
+      "color": "Blue",
+      "notes": "Over-ear headphones with superior sound quality."
+    }
+  },
+  {
+    "postId": 104,
+    "publishDate": "2023-09-04",
+    "category": 4,
+    "price": 149.99,
+    "product": {
+      "productId": 504,
+      "productName": "Smart Speaker",
+      "type": "Home Automation",
+      "brand": "HomeTech",
+      "color": "White",
+      "notes": "Voice-activated speaker with multi-room capability."
+    }
+  },
+  {
+    "postId": 105,
+    "publishDate": "2023-09-05",
+    "category": 5,
+    "price": 499.99,
+    "product": {
+      "productId": 505,
+      "productName": "4K Smart TV",
+      "type": "Electronics",
+      "brand": "VisionPlus",
+      "color": "Black",
+      "notes": "Ultra HD Smart TV with streaming apps support."
+    }
+  },
+  {
+    "postId": 106,
+    "publishDate": "2023-09-06",
+    "category": 1,
+    "price": 79.99,
+    "product": {
+      "productId": 506,
+      "productName": "Bluetooth Speaker",
+      "type": "Audio",
+      "brand": "SoundWave",
+      "color": "Red",
+      "notes": "Portable speaker with deep bass and long battery life."
+    }
+  },
+  {
+    "postId": 107,
+    "publishDate": "2025-04-15",
+    "category": 2,
+    "price": 850.00,
+    "product": {
+      "productId": 507,
+      "productName": "Laptop",
+      "type": "Computers",
+      "brand": "CompTech",
+      "color": "Silver",
+      "notes": "Lightweight laptop with powerful performance."
+    }
+  },
+  {
+    "postId": 108,
+    "publishDate": "2025-04-11",
+    "category": 3,
+    "price": 199.99,
+    "product": {
+      "productId": 508,
+      "productName": "Tablet",
+      "type": "Electronics",
+      "brand": "TabWorld",
+      "color": "Gold",
+      "notes": "10-inch display with customizable app profiles."
+    }
+  },
+  {
+    "postId": 109,
+    "publishDate": "2023-09-09",
+    "category": 4,
+    "price": 39.99,
+    "product": {
+      "productId": 509,
+      "productName": "Wireless Charger",
+      "type": "Accessories",
+      "brand": "ChargePlus",
+      "color": "White",
+      "notes": "Fast wireless charger compatible with all devices."
+    }
+  },
+  {
+    "postId": 110,
+    "publishDate": "2023-09-10",
+    "category": 5,
+    "price": 59.99,
+    "product": {
+      "productId": 510,
+      "productName": "Smartwatch",
+      "type": "Wearables",
+      "brand": "TimeTech",
+      "color": "Black",
+      "notes": "Advanced smartwatch with health tracking features."
+    }
+  },
+  {
+    "postId": 111,
+    "publishDate": "2023-09-11",
+    "category": 1,
+    "price": 14.99,
+    "product": {
+      "productId": 511,
+      "productName": "Phone Case",
+      "type": "Accessories",
+      "brand": "CasePro",
+      "color": "Transparent",
+      "notes": "Shock-absorbing, scratch-resistant phone case."
+    }
+  },
+  {
+    "postId": 112,
+    "publishDate": "2023-09-12",
+    "category": 2,
+    "price": 129.99,
+    "product": {
+      "productId": 512,
+      "productName": "E-Reader",
+      "type": "Electronics",
+      "brand": "ReadTech",
+      "color": "Gray",
+      "notes": "Lightweight e-reader with adjustable backlight."
+    }
+  },
+  {
+    "postId": 113,
+    "publishDate": "2023-09-13",
+    "category": 3,
+    "price": 24.99,
+    "product": {
+      "productId": 513,
+      "productName": "USB-C Hub",
+      "type": "Accessories",
+      "brand": "HubLink",
+      "color": "Black",
+      "notes": "Multi-port USB-C hub for expansion and connectivity."
+    }
+  },
+  {
+    "postId": 114,
+    "publishDate": "2023-09-14",
+    "category": 4,
+    "price": 399.99,
+    "product": {
+      "productId": 514,
+      "productName": "Drone",
+      "type": "Electronics",
+      "brand": "FlightMaster",
+      "color": "White",
+      "notes": "Drone with 4K camera and 2-kilometer range."
+    }
+  },
+  {
+    "postId": 115,
+    "publishDate": "2023-09-15",
+    "category": 5,
+    "price": 99.99,
+    "product": {
+      "productId": 515,
+      "productName": "VR Headset",
+      "type": "Gaming",
+      "brand": "VirtualPlay",
+      "color": "Black",
+      "notes": "Immersive VR experience with adjustable headbands."
+    }
+  },
+  {
+    "postId": 116,
+    "publishDate": "2023-09-16",
+    "category": 1,
+    "price": 79.99,
+    "product": {
+      "productId": 516,
+      "productName": "Smart Thermostat",
+      "type": "Home Automation",
+      "brand": "ClimateControl",
+      "color": "Silver",
+      "notes": "Energy-saving thermostat with remote access."
+    }
+  },
+  {
+    "postId": 117,
+    "publishDate": "2023-09-17",
+    "category": 2,
+    "price": 249.99,
+    "product": {
+      "productId": 517,
+      "productName": "Security Camera",
+      "type": "Security",
+      "brand": "SecureView",
+      "color": "Black",
+      "notes": "1080p security camera with night vision and motion detection."
+    }
+  },
+  {
+    "postId": 118,
+    "publishDate": "2023-09-18",
+    "category": 3,
+    "price": 39.99,
+    "product": {
+      "productId": 518,
+      "productName": "Bluetooth Earbuds",
+      "type": "Audio",
+      "brand": "SoundPods",
+      "color": "White",
+      "notes": "True wireless earbuds with noise cancellation."
+    }
+  },
+  {
+    "postId": 119,
+    "publishDate": "2023-09-19",
+    "category": 4,
+    "price": 129.99,
+    "product": {
+      "productId": 519,
+      "productName": "Fitness Tracker",
+      "type": "Wearables",
+      "brand": "FitLife",
+      "color": "Black",
+      "notes": "Fitness tracker with heart rate monitoring and sleep tracking."
+    }
+  },
+  {
+    "postId": 120,
+    "publishDate": "2023-09-20",
+    "category": 5,
+    "price": 259.99,
+    "product": {
+      "productId": 520,
+      "productName": "Digital SLR Camera",
+      "type": "Cameras",
+      "brand": "Photogenix",
+      "color": "Black",
+      "notes": "DSLR camera with multiple lens options."
+    }
+  },
+  {
+    "postId": 121,
+    "publishDate": "2023-09-21",
+    "category": 1,
+    "price": 59.99,
+    "product": {
+      "productId": 521,
+      "productName": "Portable SSD",
+      "type": "Storage",
+      "brand": "DataStore",
+      "color": "Gray",
+      "notes": "High-speed portable SSD with 1TB capacity."
+    }
+  },
+  {
+    "postId": 122,
+    "publishDate": "2023-09-22",
+    "category": 2,
+    "price": 349.99,
+    "product": {
+      "productId": 522,
+      "productName": "Home Theater System",
+      "type": "Audio",
+      "brand": "HomeAudio",
+      "color": "Black",
+      "notes": "Complete home theater system with surround sound."
+    }
+  },
+  {
+    "postId": 123,
+    "publishDate": "2023-09-23",
+    "category": 3,
+    "price": 89.99,
+    "product": {
+      "productId": 523,
+      "productName": "Action Camera",
+      "type": "Cameras",
+      "brand": "CapturePro",
+      "color": "Silver",
+      "notes": "Compact camera with waterproof casing and 4K recording."
+    }
+  },
+  {
+    "postId": 124,
+    "publishDate": "2023-09-24",
+    "category": 4,
+    "price": 44.99,
+    "product": {
+      "productId": 524,
+      "productName": "Streaming Stick",
+      "type": "Electronics",
+      "brand": "StreamOnline",
+      "color": "Black",
+      "notes": "Streaming stick with access to multiple services."
+    }
+  },
+  {
+    "postId": 125,
+    "publishDate": "2023-09-25",
+    "category": 5,
+    "price": 169.99,
+    "product": {
+      "productId": 525,
+      "productName": "Gaming Console",
+      "type": "Gaming",
+      "brand": "PlayZone",
+      "color": "White",
+      "notes": "Next-gen gaming console with immersive graphics."
+    }
+  },
+  {
+    "postId": 126,
+    "publishDate": "2023-09-26",
+    "category": 1,
+    "price": 249.99,
+    "product": {
+      "productId": 526,
+      "productName": "Smart Lock",
+      "type": "Home Automation",
+      "brand": "SecureHome",
+      "color": "Brushed Nickel",
+      "notes": "Advanced smart lock with phone app control."
+    }
+  },
+  {
+    "postId": 127,
+    "publishDate": "2023-09-27",
+    "category": 2,
+    "price": 49.99,
+    "product": {
+      "productId": 527,
+      "productName": "Electric Kettle",
+      "type": "Kitchen",
+      "brand": "QuickHeat",
+      "color": "Stainless Steel",
+      "notes": "Fast-heating electric kettle with auto shut-off."
+    }
+  },
+  {
+    "postId": 128,
+    "publishDate": "2023-09-28",
+    "category": 3,
+    "price": 249.99,
+    "product": {
+      "productId": 528,
+      "productName": "Wireless Headphones",
+      "type": "Audio",
+      "brand": "ListenHear",
+      "color": "Navy",
+      "notes": "Over-ear headphones with noise cancellation and Bluetooth."
+    }
+  },
+  {
+    "postId": 129,
+    "publishDate": "2023-09-29",
+    "category": 4,
+    "price": 89.99,
+    "product": {
+      "productId": 529,
+      "productName": "Coffee Maker",
+      "type": "Kitchen",
+      "brand": "BrewMaster",
+      "color": "Black",
+      "notes": "Programmable coffee maker with thermal carafe."
+    }
+  },
+  {
+    "postId": 130,
+    "publishDate": "2023-09-30",
+    "category": 5,
+    "price": 24.99,
+    "product": {
+      "productId": 530,
+      "productName": "Fitness Band",
+      "type": "Wearables",
+      "brand": "FitTrack",
+      "color": "Blue",
+      "notes": "Water-resistant fitness band with step and calorie trackers."
+    }
+  }
+]
