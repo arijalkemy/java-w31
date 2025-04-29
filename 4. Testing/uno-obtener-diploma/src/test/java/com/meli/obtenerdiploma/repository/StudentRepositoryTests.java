@@ -17,8 +17,7 @@ public class StudentRepositoryTests {
     IStudentRepository studentRepo;
     IStudentDAO studentDAO;
 
-    @BeforeEach
-    @AfterEach
+    @BeforeEach @AfterEach
     public void setUp() {
         TestUtilsGenerator.emptyUsersFile();
 

@@ -5,9 +5,9 @@ import com.meli.obtenerdiploma.model.StudentDTO;
 import java.util.Set;
 
 public interface IStudentService {
-    StudentDTO create(StudentDTO stu);
+    void create(StudentDTO stu);
     StudentDTO read(Long id);
-    StudentDTO update(StudentDTO stu);
+    void update(StudentDTO stu);
     void delete(Long id);
     Set<StudentDTO> getAll();
 }

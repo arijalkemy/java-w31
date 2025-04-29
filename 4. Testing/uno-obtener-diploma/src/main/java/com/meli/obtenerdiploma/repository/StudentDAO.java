@@ -38,7 +38,7 @@ public class StudentDAO implements IStudentDAO {
     }
 
     @Override
-    public StudentDTO save(StudentDTO stu) {
+    public void save(StudentDTO stu) {
         boolean removed = this.delete(stu.getId());
 
         if (!removed) stu.setId(++idsCounter);
@@ -46,7 +46,6 @@ public class StudentDAO implements IStudentDAO {
         students.add(stu);
 
         this.saveData();
-        return stu;
     }
 
     @Override

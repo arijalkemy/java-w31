@@ -43,18 +43,26 @@ public class TestUtilsGenerator {
 
     public static Set<StudentDTO> getStudentsSet(){
         return new HashSet<StudentDTO>() {{
-            new StudentDTO(1L, "Mario",
-                    List.of(new SubjectDTO("Italian", 2D),
-                            new SubjectDTO("English", 9D)
-                    ));
-            new StudentDTO(2L, "Carlos",
-                    List.of(new SubjectDTO("Italian", 5D),
-                            new SubjectDTO("English", 8D)
-                    ));
-            new StudentDTO(3L, "Marta",
-                    List.of(new SubjectDTO("Italian", 6D),
-                            new SubjectDTO("English", 10D)
-                    ));
+            createStudentWithThreeSubjectsHighScores("Laura");
+            createStudentWithThreeSubjectsHighScores("Carlos");
+            createStudentWithThreeSubjectsLowScores("Marta");
+            createStudentWithThreeSubjectsLowScores("Mario");
         }};
+    }
+
+    public static StudentDTO createStudentWithThreeSubjectsHighScores(String name) {
+        return new StudentDTO(null, name,
+                List.of(new SubjectDTO("Italian", 9.5D),
+                        new SubjectDTO("English", 9D),
+                        new SubjectDTO("Spanish", 10D)
+                ));
+    }
+
+    public static StudentDTO createStudentWithThreeSubjectsLowScores(String name) {
+        return new StudentDTO(null, name,
+                List.of(new SubjectDTO("Italian", 3D),
+                        new SubjectDTO("English", 4D),
+                        new SubjectDTO("Spanish", 1D)
+                ));
     }
 }

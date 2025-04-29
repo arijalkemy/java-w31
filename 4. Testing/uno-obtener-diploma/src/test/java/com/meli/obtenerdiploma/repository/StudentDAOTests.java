@@ -12,51 +12,56 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.*;
+
 @SpringBootTest
 public class StudentDAOTests {
-    StudentDAO studentDAO = new StudentDAO();
+    StudentDAO studentDAO;
+
+    @BeforeEach @AfterEach
+    public void setUp() {
+        TestUtilsGenerator.emptyUsersFile();
+       studentDAO  = new StudentDAO();
+    }
 
     @Test
     public void givenStudent_whenSaveStudent_thenExists() {
         // Arrange - Given
-        StudentDTO studentDTO = new StudentDTO(0L, "Laura",
-                List.of(new SubjectDTO("Italian", 10D),
-                        new SubjectDTO("English", 10D)));
+        StudentDTO studentDTO = TestUtilsGenerator.createStudentWithThreeSubjectsHighScores("Laura");
+        Long expectedId = 1L;
 
         // Act - When
-        StudentDTO savedStudent = studentDAO.save(studentDTO);
-        boolean exists = studentDAO.exists(savedStudent);
+        studentDAO.save(studentDTO);
 
         // Assert - Then
-        Assertions.assertTrue(exists);
+        assertNotNull(studentDTO.getId());
+        assertEquals(expectedId, studentDTO.getId());
     }
 
     @Test
     public void givenExistingIdAndDifferentData_whenSaveStudent_thenUpdatesStudent() {
         // Arrange - Given
-        StudentDTO studentDTO = new StudentDTO(3L, "Laura",
+        StudentDTO studentDTO = new StudentDTO(1L, "Laura",
                 List.of(new SubjectDTO("Italian", 7D),
                         new SubjectDTO("English", 9D),
                         new SubjectDTO("Spanish", 10D)
                 ));
+        long expectedId = 1L;
 
         // Act - When
-        StudentDTO savedStudent = studentDAO.save(studentDTO);
+        studentDAO.save(studentDTO);
 
         // Assert - Then
-        Assertions.assertEquals(savedStudent.getId(), studentDTO.getId());
+        assertEquals(expectedId, studentDTO.getId());
     }
 
     @Test
     public void givenExistingId_whenDeleteStudent_thenReturnsTrue() {
         // Arrange - Given
-        StudentDTO studentDTO = new StudentDTO(10L, "Juan",
-                List.of(new SubjectDTO("Matemática", 9D),
-                        new SubjectDTO("Física", 7D),
-                        new SubjectDTO("Química", 6D)
-                ));
+        StudentDTO studentDTO = TestUtilsGenerator.createStudentWithThreeSubjectsHighScores("Juan");
 
-        long studentId = studentDAO.save(studentDTO).getId();
+        studentDAO.save(studentDTO);
+        long studentId = studentDTO.getId();
 
         // Act - When
         boolean removed = studentDAO.delete(studentId);
@@ -80,17 +85,15 @@ public class StudentDAOTests {
     @Test
     public void givenExistingId_whenFindById_thenReturnStudent() {
         // Arrange - Given
-        StudentDTO expectedStudentDTO = new StudentDTO(3L, "Laura",
-                List.of(new SubjectDTO("Italian", 7D),
-                        new SubjectDTO("English", 9D),
-                        new SubjectDTO("Spanish", 10D)
-                ));
+        StudentDTO expectedStudentDTO = TestUtilsGenerator.createStudentWithThreeSubjectsHighScores("Marco");
+        studentDAO.save(expectedStudentDTO);
+        long studentId = expectedStudentDTO.getId();
 
         // Act - When
-        StudentDTO foundStudentDTO = studentDAO.findById(expectedStudentDTO.getId());
+        StudentDTO foundStudentDTO = studentDAO.findById(studentId);
 
         // Assert - Then
-        Assertions.assertEquals(expectedStudentDTO, foundStudentDTO);
+        assertEquals(expectedStudentDTO, foundStudentDTO);
     }
 
     @Test
@@ -105,8 +108,8 @@ public class StudentDAOTests {
     @Test
     public void givenExistingId_whenExists_thenReturnsTrue() {
         // Arrange - Given
-        StudentDTO studentDTO = new StudentDTO(3L, "Laura",
-                List.of(new SubjectDTO("Italian", 10D), new SubjectDTO("English", 10D)));
+        StudentDTO studentDTO = TestUtilsGenerator.createStudentWithThreeSubjectsLowScores("Marco");
+        studentDAO.save(studentDTO);
 
         // Act - When
         boolean exists = studentDAO.exists(studentDTO);
@@ -118,8 +121,7 @@ public class StudentDAOTests {
     @Test
     public void givenNotExistingId_whenExists_thenReturnsFalse() {
         // Arrange - Given
-        StudentDTO studentDTO = new StudentDTO(100L, "Laura",
-                List.of(new SubjectDTO("Italian", 10D), new SubjectDTO("English", 10D)));
+        StudentDTO studentDTO = TestUtilsGenerator.createStudentWithThreeSubjectsLowScores("Marta");
 
         // Act - When
         boolean exists = studentDAO.exists(studentDTO);
