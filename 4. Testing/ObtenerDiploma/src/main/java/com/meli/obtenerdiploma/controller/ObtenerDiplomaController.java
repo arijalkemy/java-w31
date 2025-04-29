@@ -1,6 +1,6 @@
 package com.meli.obtenerdiploma.controller;
 
-import com.meli.obtenerdiploma.model.StudentDTO;
+import com.meli.obtenerdiploma.dto.StudentDTO;
 import com.meli.obtenerdiploma.service.IObtenerDiplomaService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
