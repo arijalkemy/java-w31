@@ -4,11 +4,9 @@ import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
-
-@Getter
 @Setter
-@AllArgsConstructor
-@EqualsAndHashCode
+@Getter
+@EqualsAndHashCode(callSuper = true)
 public class HouseResponseDTO extends HouseDTO {
   private Integer squareFeet;
   private Integer price;
@@ -21,29 +19,5 @@ public class HouseResponseDTO extends HouseDTO {
     this.setName(house.getName());
     this.setAddress(house.getAddress());
     this.setRooms(house.getRooms());
-  }
-
-  public Integer getSquareFeet() {
-    return squareFeet;
-  }
-
-  public void setSquareFeet(Integer squareFeet) {
-    this.squareFeet = squareFeet;
-  }
-
-  public Integer getPrice() {
-    return price;
-  }
-
-  public void setPrice(Integer price) {
-    this.price = price;
-  }
-
-  public RoomDTO getBiggest() {
-    return biggest;
-  }
-
-  public void setBiggest(RoomDTO biggest) {
-    this.biggest = biggest;
   }
 }

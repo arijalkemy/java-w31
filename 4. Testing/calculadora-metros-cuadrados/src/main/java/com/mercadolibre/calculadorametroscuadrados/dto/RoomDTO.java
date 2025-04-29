@@ -2,16 +2,33 @@ package com.mercadolibre.calculadorametroscuadrados.dto;
 
 import lombok.*;
 
-@Getter
-@Setter
-@AllArgsConstructor
-@EqualsAndHashCode
+import java.util.Objects;
+
 public class RoomDTO {
   private String name;
   private Integer width;
   private Integer length;
+  private Integer squareFeet;
 
   public RoomDTO() {
+  }
+
+  public RoomDTO(String name, Integer width, Integer length) {
+    this.name = name;
+    this.width = width;
+    this.length = length;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (o == null || getClass() != o.getClass()) return false;
+    RoomDTO roomDTO = (RoomDTO) o;
+    return Objects.equals(name, roomDTO.name) && Objects.equals(width, roomDTO.width) && Objects.equals(length, roomDTO.length);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(name, width, length);
   }
 
   public String getName() {

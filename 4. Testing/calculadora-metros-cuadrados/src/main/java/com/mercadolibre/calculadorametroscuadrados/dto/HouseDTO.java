@@ -6,10 +6,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.util.List;
-@Getter
-@Setter
-@AllArgsConstructor
-@EqualsAndHashCode
+import java.util.Objects;
+
 public class HouseDTO {
   private String name;
   private String address;
@@ -17,6 +15,24 @@ public class HouseDTO {
 
   public HouseDTO() {
 
+  }
+
+  public HouseDTO(String name, String address, List<RoomDTO> rooms) {
+    this.name = name;
+    this.address = address;
+    this.rooms = rooms;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (o == null || getClass() != o.getClass()) return false;
+    HouseDTO houseDTO = (HouseDTO) o;
+    return Objects.equals(name, houseDTO.name) && Objects.equals(address, houseDTO.address) && Objects.equals(rooms, houseDTO.rooms);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(name, address, rooms);
   }
 
   public String getName() {

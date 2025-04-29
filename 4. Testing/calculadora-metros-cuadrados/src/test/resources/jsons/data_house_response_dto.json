@@ -1,0 +1,26 @@
+{
+  "name": "La casa de barbie",
+  "address": "barbieland 123",
+  "rooms": [
+    {
+      "name": "Baño",
+      "width": 130,
+      "length": 150,
+      "squareFeet": 19500
+    },
+    {
+      "name": "Habitacion",
+      "width": 400,
+      "length": 400,
+      "squareFeet": 160000
+    }
+  ],
+  "squareFeet": 179500,
+  "price": 1436000,
+  "biggest": {
+    "name": "Habitacion",
+    "width": 400,
+    "length": 400,
+    "squareFeet": 160000
+  }
+}

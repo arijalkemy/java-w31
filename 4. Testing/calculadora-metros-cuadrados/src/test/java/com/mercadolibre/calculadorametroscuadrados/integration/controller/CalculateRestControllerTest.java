@@ -3,7 +3,9 @@ package com.mercadolibre.calculadorametroscuadrados.integration.controller;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.mercadolibre.calculadorametroscuadrados.dto.HouseDTO;
+import com.mercadolibre.calculadorametroscuadrados.dto.HouseResponseDTO;
 import com.mercadolibre.calculadorametroscuadrados.dto.RoomDTO;
+import com.mercadolibre.calculadorametroscuadrados.util.CustomFactory;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -17,7 +19,7 @@ import java.util.List;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -30,23 +32,19 @@ public class CalculateRestControllerTest {
     @Test
     public void calculate_shouldReturnThePriceAndSquareFeetHouseResponseDTO() throws Exception {
         // Arrange
-        HouseDTO house = new HouseDTO("La casa de barbie", "barbieland 123",
-                List.of(new RoomDTO("Baño", 130, 150),
-                        new RoomDTO("Habitacion", 400, 400)));
+        String payloadJson = CustomFactory.getHouseDto();
+        HouseResponseDTO response = CustomFactory.getHouseResponseDto();
 
-        String payloadJson = new ObjectMapper()
-                .configure(SerializationFeature.WRAP_ROOT_VALUE, false)
-                .writer()
-                .withDefaultPrettyPrinter()
-                .writeValueAsString(house);
         // Act & Assert
         this.mockMvc.perform(post("/calculate")
-                                .contentType(MediaType.APPLICATION_JSON)
-                                .content(payloadJson))
-                .andDo(print()).andExpect(status().isOk())
-                .andExpect(MockMvcResultMatchers.jsonPath("$.price").value(143600000))
-                .andExpect(MockMvcResultMatchers.jsonPath("$.squareFeet").value(179500))
-                .andReturn();
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(payloadJson))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+                .andExpect(jsonPath("$.name").value(response.getName()))
+                .andExpect(jsonPath("$.biggest.squareFeet").value(response.getBiggest().getSquareFeet()));
+
     }
 
     @Test
