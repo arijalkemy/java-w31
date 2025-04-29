@@ -1,0 +1,214 @@
+[
+  {
+    "promotionId": 1,
+    "discount": 10.0,
+    "initialDate": "2024-01-01",
+    "expirationDate": "2024-02-01",
+    "publicationId": 101
+  },
+  {
+    "promotionId": 2,
+    "discount": 12.5,
+    "initialDate": "2024-03-10",
+    "expirationDate": "2024-04-10",
+    "publicationId": 101
+  },
+  {
+    "promotionId": 3,
+    "discount": 8.0,
+    "initialDate": "2025-04-15",
+    "expirationDate": "2025-05-15",
+    "publicationId": 101
+  },
+  {
+    "promotionId": 4,
+    "discount": 5.0,
+    "initialDate": "2024-05-01",
+    "expirationDate": "2024-06-01",
+    "publicationId": 102
+  },
+  {
+    "promotionId": 5,
+    "discount": 7.5,
+    "initialDate": "2025-04-10",
+    "expirationDate": "2025-05-10",
+    "publicationId": 102
+  },
+  {
+    "promotionId": 6,
+    "discount": 20.0,
+    "initialDate": "2023-07-01",
+    "expirationDate": "2023-08-01",
+    "publicationId": 103
+  },
+  {
+    "promotionId": 7,
+    "discount": 22.0,
+    "initialDate": "2023-10-01",
+    "expirationDate": "2023-11-01",
+    "publicationId": 103
+  },
+  {
+    "promotionId": 8,
+    "discount": 18.0,
+    "initialDate": "2025-04-20",
+    "expirationDate": "2025-05-20",
+    "publicationId": 103
+  },
+  {
+    "promotionId": 9,
+    "discount": 14.0,
+    "initialDate": "2024-09-01",
+    "expirationDate": "2024-10-01",
+    "publicationId": 104
+  },
+  {
+    "promotionId": 10,
+    "discount": 9.0,
+    "initialDate": "2025-04-01",
+    "expirationDate": "2025-04-30",
+    "publicationId": 104
+  },
+  {
+    "promotionId": 11,
+    "discount": 16.0,
+    "initialDate": "2025-03-01",
+    "expirationDate": "2025-03-31",
+    "publicationId": 105
+  },
+  {
+    "promotionId": 12,
+    "discount": 11.5,
+    "initialDate": "2024-01-15",
+    "expirationDate": "2024-02-15",
+    "publicationId": 105
+  },
+  {
+    "promotionId": 13,
+    "discount": 6.5,
+    "initialDate": "2024-07-01",
+    "expirationDate": "2024-07-31",
+    "publicationId": 106
+  },
+  {
+    "promotionId": 14,
+    "discount": 13.0,
+    "initialDate": "2025-04-25",
+    "expirationDate": "2025-05-25",
+    "publicationId": 106
+  },
+  {
+    "promotionId": 15,
+    "discount": 7.0,
+    "initialDate": "2024-02-01",
+    "expirationDate": "2024-03-01",
+    "publicationId": 107
+  },
+  {
+    "promotionId": 16,
+    "discount": 15.0,
+    "initialDate": "2025-04-15",
+    "expirationDate": "2025-05-15",
+    "publicationId": 107
+  },
+  {
+    "promotionId": 17,
+    "discount": 12.0,
+    "initialDate": "2023-12-01",
+    "expirationDate": "2024-01-01",
+    "publicationId": 108
+  },
+  {
+    "promotionId": 18,
+    "discount": 18.0,
+    "initialDate": "2025-04-10",
+    "expirationDate": "2025-05-10",
+    "publicationId": 108
+  },
+  {
+    "promotionId": 19,
+    "discount": 9.5,
+    "initialDate": "2024-06-01",
+    "expirationDate": "2024-07-01",
+    "publicationId": 109
+  },
+  {
+    "promotionId": 20,
+    "discount": 5.5,
+    "initialDate": "2025-03-10",
+    "expirationDate": "2025-04-10",
+    "publicationId": 109
+  },
+  {
+    "promotionId": 21,
+    "discount": 10.0,
+    "initialDate": "2025-04-05",
+    "expirationDate": "2025-05-05",
+    "publicationId": 110
+  },
+  {
+    "promotionId": 22,
+    "discount": 6.0,
+    "initialDate": "2024-04-01",
+    "expirationDate": "2024-04-30",
+    "publicationId": 110
+  },
+  {
+    "promotionId": 23,
+    "discount": 13.5,
+    "initialDate": "2023-09-01",
+    "expirationDate": "2023-10-01",
+    "publicationId": 110
+  },
+  {
+    "promotionId": 24,
+    "discount": 21.0,
+    "initialDate": "2025-04-01",
+    "expirationDate": "2025-04-30",
+    "publicationId": 106
+  },
+  {
+    "promotionId": 25,
+    "discount": 10.0,
+    "initialDate": "2024-03-01",
+    "expirationDate": "2024-04-01",
+    "publicationId": 107
+  },
+  {
+    "promotionId": 26,
+    "discount": 17.0,
+    "initialDate": "2023-11-01",
+    "expirationDate": "2023-12-01",
+    "publicationId": 105
+  },
+  {
+    "promotionId": 27,
+    "discount": 14.0,
+    "initialDate": "2025-04-01",
+    "expirationDate": "2025-05-01",
+    "publicationId": 103
+  },
+  {
+    "promotionId": 28,
+    "discount": 19.0,
+    "initialDate": "2024-08-01",
+    "expirationDate": "2024-09-01",
+    "publicationId": 102
+  },
+  {
+    "promotionId": 29,
+    "discount": 8.5,
+    "initialDate": "2023-06-01",
+    "expirationDate": "2023-07-01",
+    "publicationId": 104
+  },
+  {
+    "promotionId": 30,
+    "discount": 15.0,
+    "initialDate": "2025-04-20",
+    "expirationDate": "2025-05-20",
+    "publicationId": 109
+  }
+]
+
+
