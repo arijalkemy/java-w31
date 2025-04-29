@@ -11,8 +11,8 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Post {
-    private int postId;
-    private int userId;
+    private int post_id;
+    private int user_id;
     private LocalDate date;
     private Product product;
     private int category;

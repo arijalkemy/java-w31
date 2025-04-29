@@ -6,14 +6,9 @@ import java.util.List;
 
 public interface IPostRepository {
     void savePost(Post post);
-
     List<Post> findAllPosts();
-  
-    //US0010
     void newPostPromo(Post post);
-
-    List<Post> getPromoPost(int userId);
-
+    List<Post> getPromoPost(int user_id);
     void deletePost(Post post);
 
 }

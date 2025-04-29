@@ -15,10 +15,10 @@ import lombok.Setter;
 public class ProductDto {
     @NotNull(message = "El ID del producto es obligatorio")
     @Positive(message = "El ID del producto debe ser positivo")
-    private int productId;
+    private int product_id;
 
     @NotBlank(message = "El nombre del producto es obligatorio")
-    private String productName;
+    private String product_name;
 
     private String type;
     private String brand;

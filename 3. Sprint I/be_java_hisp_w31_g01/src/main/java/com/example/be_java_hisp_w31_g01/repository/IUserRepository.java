@@ -10,7 +10,7 @@ public interface IUserRepository {
     List<Seller> findAllSellers();
     Seller findSellerById (int id);
     Customer findCustomerById(int id);
-    List<Customer> getAllFollowersById(int userId);
-    List<Seller> getAllFollowedById(int userId);
+    List<Customer> getAllFollowersById(int user_id);
+    List<Seller> getAllFollowedById(int user_id);
     void unfollow(int customerId, int sellerId);
 }

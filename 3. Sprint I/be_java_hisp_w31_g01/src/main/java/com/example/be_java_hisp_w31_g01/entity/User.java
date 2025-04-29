@@ -10,6 +10,6 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public abstract class User {
-    private int userId;
-    private String userName;
+    private int user_id;
+    private String user_name;
 }

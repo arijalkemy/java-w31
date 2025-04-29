@@ -22,13 +22,6 @@ public class ProductController {
         return new ResponseEntity<>("Publicación creada con éxito",HttpStatus.OK);
     }
 
-    //US0010
-    @PostMapping("/products/promo-post")
-    public ResponseEntity<?> newProductPromo(@Valid @RequestBody PostPromoDto postPromoDto){
-        postService.newPostPromo(postPromoDto);
-        return new ResponseEntity<>("Publicación creada con éxito",HttpStatus.OK);
-    }
-
     // US0006
     // US0009
     @GetMapping("/products/followed/{userId}/list")
@@ -37,6 +30,14 @@ public class ProductController {
         return ResponseEntity.ok(response);
     }
 
+    //US0010
+    @PostMapping("/products/promo-post")
+    public ResponseEntity<?> newProductPromo(@Valid @RequestBody PostPromoDto postPromoDto){
+        postService.newPostPromo(postPromoDto);
+        return new ResponseEntity<>("Publicación creada con éxito",HttpStatus.OK);
+    }
+
+    //US0011
     @GetMapping("/products/promo-post/count")
     public ResponseEntity<?> getPromoPostCount(@RequestParam int user_id) {
         return new ResponseEntity<>(postService.getPromoPostCount(user_id), HttpStatus.OK);
@@ -49,9 +50,9 @@ public class ProductController {
     }
 
     //US0013
-    @DeleteMapping("/products/post/{userId}/{postId}")
-    public ResponseEntity<?> deletePost(@PathVariable int userId, @PathVariable int postId) {
-        postService.deletePost(userId, postId);
-        return new ResponseEntity<>("Se eliminó correctamente la publicación con ID " + postId + " del usuario " + userId + ".",HttpStatus.OK);
+    @DeleteMapping("/products/post/{userId}/{post_id}")
+    public ResponseEntity<?> deletePost(@PathVariable int userId, @PathVariable int post_id) {
+        postService.deletePost(userId, post_id);
+        return new ResponseEntity<>("Se eliminó correctamente la publicación con ID " + post_id + " del usuario " + userId+ ".",HttpStatus.OK);
     }
 }

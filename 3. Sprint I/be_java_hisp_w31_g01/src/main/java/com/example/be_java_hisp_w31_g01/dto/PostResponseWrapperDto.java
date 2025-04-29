@@ -13,6 +13,6 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class PostResponseWrapperDto {
-    private int userId;
+    private int user_id;
     private List<PostResponseDto> posts;
 }

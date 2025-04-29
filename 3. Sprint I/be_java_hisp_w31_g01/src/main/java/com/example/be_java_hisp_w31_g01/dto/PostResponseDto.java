@@ -14,8 +14,8 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class PostResponseDto {
-    private int postId;
-    private int userId;
+    private int post_id;
+    private int user_id;
     private LocalDate date;
     private ProductDto product;
     private int category;

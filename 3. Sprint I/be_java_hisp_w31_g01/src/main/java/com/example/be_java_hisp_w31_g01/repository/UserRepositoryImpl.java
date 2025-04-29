@@ -18,7 +18,6 @@ public class UserRepositoryImpl implements IUserRepository {
     private List<Customer> customers = new ArrayList<>();
     private List<Seller> sellers = new ArrayList<>();
 
-
     public UserRepositoryImpl() throws IOException {
         loadData();
     }
@@ -47,7 +46,7 @@ public class UserRepositoryImpl implements IUserRepository {
     @Override
     public Seller findSellerById(int id) {
         return sellers.stream()
-                .filter(seller -> seller.getUserId() == id)
+                .filter(seller -> seller.getUser_id() == id)
                 .findFirst()
                 .orElse(null);
     }
@@ -55,21 +54,21 @@ public class UserRepositoryImpl implements IUserRepository {
     @Override
     public Customer findCustomerById(int id) {
         return customers.stream()
-                .filter(customer -> customer.getUserId() == id)
+                .filter(customer -> customer.getUser_id() == id)
                 .findFirst()
                 .orElse(null);
     }
 
     @Override
-    public List<Customer> getAllFollowersById(int userId) {
-        return Optional.ofNullable(findSellerById(userId))
+    public List<Customer> getAllFollowersById(int user_id) {
+        return Optional.ofNullable(findSellerById(user_id))
                 .map(Seller::getFollowers)
                 .orElse(Collections.emptyList());
     }
 
     @Override
-    public List<Seller> getAllFollowedById(int userId) {
-        return Optional.ofNullable(findCustomerById(userId))
+    public List<Seller> getAllFollowedById(int user_id) {
+        return Optional.ofNullable(findCustomerById(user_id))
                 .map(Customer::getFollowed)
                 .orElse(Collections.emptyList());
     }
@@ -81,8 +80,8 @@ public class UserRepositoryImpl implements IUserRepository {
 
         if ((Objects.isNull(customer)) || (Objects.isNull(seller))) return;
 
-        customer.getFollowed().removeIf(user -> user.getUserId() == sellerId);
-        seller.getFollowers().removeIf(user -> user.getUserId() == customerId);
+        customer.getFollowed().removeIf(user -> user.getUser_id() == sellerId);
+        seller.getFollowers().removeIf(user -> user.getUser_id() == customerId);
     }
 }
 

@@ -1,7 +1,6 @@
 package com.example.be_java_hisp_w31_g01.controller;
 
 import com.example.be_java_hisp_w31_g01.dto.SellerDto;
-import com.example.be_java_hisp_w31_g01.entity.Customer;
 import com.example.be_java_hisp_w31_g01.service.UserServiceImpl;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,10 +13,20 @@ public class UserController {
 
     public UserController(UserServiceImpl userService) {this.userService = userService;}
 
+    //US0001
     @PostMapping("/users/{userId}/follow/{userIdToFollow}")
     public ResponseEntity<?> followSeller(@PathVariable int userId, @PathVariable int userIdToFollow) {
         userService.followSeller(userId, userIdToFollow);
         return new ResponseEntity<>("Vendedor seguido con éxito",HttpStatus.OK);
+    }
+
+    //US0002
+    @GetMapping("/users/{userId}/followers/count")
+    public ResponseEntity<?> countFollowers(@PathVariable int userId){
+        long count = userService.countFollowers(userId);
+        String user_name = userService.user_nameSeller(userId);
+        SellerDto dto = new SellerDto(userId, user_name ,count);
+        return new ResponseEntity<>(dto, HttpStatus.OK);
     }
 
     //US0003-List_followers
@@ -40,12 +49,5 @@ public class UserController {
         userService.unfollowSeller(userId, userIdToUnfollow);
         return new ResponseEntity<>("Se ha dejado de seguir al vendedor con éxito",HttpStatus.OK);
     }
-    //US0002
-    @GetMapping("/users/{userId}/followers/count")
-    public ResponseEntity<?> countFollowers(@PathVariable int userId){
-        long count = userService.countFollowers(userId);
-        String userName = userService.userNameSeller(userId);
-        SellerDto dto = new SellerDto(userId, userName ,count);
-        return new ResponseEntity<>(dto, HttpStatus.OK);
-    }
+
 }

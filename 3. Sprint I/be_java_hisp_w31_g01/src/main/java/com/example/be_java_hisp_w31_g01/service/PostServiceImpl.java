@@ -16,7 +16,6 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.*;
-import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 @Service
@@ -28,6 +27,7 @@ public class PostServiceImpl implements IPostService{
     @Autowired
     private IUserRepository userRepository;
 
+    //US005
     @Override
     public void createPost(PostRequestDto postRequestDto) {
         ObjectMapper objectMapper = new ObjectMapper();
@@ -40,18 +40,18 @@ public class PostServiceImpl implements IPostService{
     // US0006
     // US0009
     @Override
-    public PostResponseWrapperDto getFollowedSellerPostsInLastTwoWeeks(int userId, String order) {
-        Customer customer = Optional.ofNullable(userRepository.findCustomerById(userId))
-                .orElseThrow(() -> new NotFoundException("Comprador con ID " + userId + " no encontrado."));
+    public PostResponseWrapperDto getFollowedSellerPostsInLastTwoWeeks(int user_id, String order) {
+        Customer customer = Optional.ofNullable(userRepository.findCustomerById(user_id))
+                .orElseThrow(() -> new NotFoundException("Comprador con ID " + user_id + " no encontrado."));
 
         List<Seller> followed = Optional.ofNullable(customer.getFollowed()).orElse(Collections.emptyList());
 
         if (followed.isEmpty()) {
-            throw new NotFoundException("Comprador con ID " + userId + " no sigue a ningún vendedor.");
+            throw new NotFoundException("Comprador con ID " + user_id + " no sigue a ningún vendedor.");
         }
 
         List<Integer> followedIds = followed.stream()
-                .map(Seller::getUserId)
+                .map(Seller::getUser_id)
                 .toList();
 
         LocalDate twoWeeksAgo = LocalDate.now().minusWeeks(2);
@@ -74,7 +74,7 @@ public class PostServiceImpl implements IPostService{
         }
 
         Stream<Post> postStream = postRepository.findAllPosts().stream()
-                .filter(post -> followedIds.contains(post.getUserId()) &&
+                .filter(post -> followedIds.contains(post.getUser_id()) &&
                         !post.getDate().isBefore(twoWeeksAgo));
 
         if (comparator != null) {
@@ -85,7 +85,7 @@ public class PostServiceImpl implements IPostService{
                 .map(post -> objectMapper.convertValue(post, PostResponseDto.class))
                 .toList();
 
-        return new PostResponseWrapperDto(userId, postDtos);
+        return new PostResponseWrapperDto(user_id, postDtos);
     }
 
     //US0010
@@ -98,14 +98,15 @@ public class PostServiceImpl implements IPostService{
         postRepository.newPostPromo(mapper.convertValue(postPromoDto, Post.class));
     }
 
+    //US0011
     @Override
-    public PostPromoCountDto getPromoPostCount(int userId) {
-        Seller sellerPromo = userRepository.findSellerById(userId);
+    public PostPromoCountDto getPromoPostCount(int user_id) {
+        Seller sellerPromo = userRepository.findSellerById(user_id);
         if (Objects.isNull(sellerPromo)) {
-            throw new NotFoundException("Vendedor con id: " + userId + " no encontrado.");
+            throw new NotFoundException("Vendedor con id: " + user_id + " no encontrado.");
         }
-        int countPostPromo = postRepository.getPromoPost(userId).size();
-        return new PostPromoCountDto(userId, sellerPromo.getUserName(), countPostPromo);
+        int countPostPromo = postRepository.getPromoPost(user_id).size();
+        return new PostPromoCountDto(user_id, sellerPromo.getUser_name(), countPostPromo);
     }
 
     //US0012
@@ -120,24 +121,24 @@ public class PostServiceImpl implements IPostService{
             throw new NotFoundException("Usuario con id: " + user_id + " no se encontró.");
         }
 
-        String userName = sellerById.getUserName();
+        String user_name = sellerById.getUser_name();
 
         List<PostPromoDto> promoDtoList = postRepository.getPromoPost(user_id).stream().map(post -> objectMapper.convertValue(post, PostPromoDto.class)).toList();
         if (promoDtoList.isEmpty()) {
             throw new NotFoundException("Vendedor con id: " + user_id + " no tiene productos con promo.");
         }
 
-        return new PostPromoWrapperDto(user_id, userName,promoDtoList);
+        return new PostPromoWrapperDto(user_id, user_name,promoDtoList);
     }
 
     //US0013
     @Override
-    public void deletePost(int userId, int postId) {
+    public void deletePost(int user_id, int post_id) {
         Post postToDelete = postRepository.findAllPosts().stream()
-                .filter(p -> p.getPostId() == postId && p.getUserId() == userId)
+                .filter(p -> p.getPost_id() == post_id && p.getUser_id() == user_id)
                 .findFirst()
                 .orElseThrow(() -> new NotFoundException(
-                        "No se encontró una publicación con ID " + postId + " para el usuario " + userId));
+                        "No se encontró una publicación con ID " + post_id + " para el usuario " + user_id));
 
         postRepository.deletePost(postToDelete);
     }

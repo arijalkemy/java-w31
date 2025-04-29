@@ -18,14 +18,14 @@ import java.time.LocalDate;
 public class PostRequestDto {
     @NotNull(message = "El ID de usuario es obligatorio")
     @Positive(message = "El ID de usuario debe ser un número positivo")
-    private int userId;
+    private int user_id;
 
     @NotNull(message = "La fecha es obligatoria")
     @PastOrPresent(message = "No puede ser una fecha futura")
     private LocalDate date;
 
     @NotNull(message = "El producto es obligatorio")
-    @Valid // Para que también se validen los campos de ProductDto
+    @Valid
     private ProductDto product;
 
     @NotNull(message = "La categoría es obligatoria")

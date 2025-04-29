@@ -1,44 +1,44 @@
 [
   {
-    "userId": 1,
-    "userName": "seller01",
+    "user_id": 1,
+    "user_name": "seller01",
     "followers": [
-      { "userId": 101, "userName": "customer01" },
-      { "userId": 102, "userName": "customer02" }
+      { "user_id": 101, "user_name": "customer01" },
+      { "user_id": 102, "user_name": "customer02" }
     ]
   },
   {
-    "userId": 2,
-    "userName": "seller02",
+    "user_id": 2,
+    "user_name": "seller02",
     "followers": [
-      { "userId": 102, "userName": "customer02" },
-      { "userId": 103, "userName": "customer03" },
-      { "userId": 104, "userName": "customer04" }
+      { "user_id": 102, "user_name": "customer02" },
+      { "user_id": 103, "user_name": "customer03" },
+      { "user_id": 104, "user_name": "customer04" }
     ]
   },
   {
-    "userId": 3,
-    "userName": "seller03",
+    "user_id": 3,
+    "user_name": "seller03",
     "followers": [
-      { "userId": 105, "userName": "customer05" }
+      { "user_id": 105, "user_name": "customer05" }
     ]
   },
   {
-    "userId": 4,
-    "userName": "seller04",
+    "user_id": 4,
+    "user_name": "seller04",
     "followers": [
-      { "userId": 106, "userName": "customer06" },
-      { "userId": 101, "userName": "customer01" }
+      { "user_id": 106, "user_name": "customer06" },
+      { "user_id": 101, "user_name": "customer01" }
     ]
   },
   {
-    "userId": 5,
-    "userName": "seller05",
+    "user_id": 5,
+    "user_name": "seller05",
     "followers": [
-      { "userId": 107, "userName": "customer07" },
-      { "userId": 108, "userName": "customer08" },
-      { "userId": 109, "userName": "customer09" },
-      { "userId": 110, "userName": "customer10" }
+      { "user_id": 107, "user_name": "customer07" },
+      { "user_id": 108, "user_name": "customer08" },
+      { "user_id": 109, "user_name": "customer09" },
+      { "user_id": 110, "user_name": "customer10" }
     ]
   }
 ]

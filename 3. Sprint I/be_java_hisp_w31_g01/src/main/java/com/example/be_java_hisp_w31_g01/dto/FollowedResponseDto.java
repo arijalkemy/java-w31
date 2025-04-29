@@ -1,5 +1,6 @@
 package com.example.be_java_hisp_w31_g01.dto;
 
+import com.example.be_java_hisp_w31_g01.entity.Seller;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,9 +12,8 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class PostPromoWrapperDto {
+public class FollowedResponseDto {
     private int user_id;
     private String user_name;
-    private List<PostPromoDto> posts;
-
+    private List<Seller> followed;
 }

@@ -19,9 +19,9 @@ import java.time.LocalDate;
 public class PostPromoDto {
     @NotNull(message = "El ID de usuario es obligatorio")
     @Positive(message = "El ID de usuario debe ser un número positivo")
-    private int userId;
+    private int user_id;
 
-    private int postId;
+    private int post_id;
 
     @NotNull(message = "La fecha es obligatoria")
     @PastOrPresent(message = "No puede ser una fecha futura")
