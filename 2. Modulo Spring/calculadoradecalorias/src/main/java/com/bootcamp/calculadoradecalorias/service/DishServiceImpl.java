@@ -23,7 +23,7 @@ public class DishServiceImpl implements DishService{
         dishReq.getIngredient().forEach(ingrediente -> {
             ing.add(ingredientRepository.findIngredient(ingrediente.getName()));
         });
-        
+
         DishDto dishInfo = Mapper.toDishDto(ing);
         return dishInfo;
     }

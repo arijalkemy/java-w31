@@ -9,10 +9,7 @@ import com.bootcamp.ejerciciodeportistas.service.PersonService;
 import com.bootcamp.ejerciciodeportistas.service.SportService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -36,8 +33,8 @@ public class SportController {
         return new ResponseEntity<>(sportService.allSports(), HttpStatus.OK);
     }
 
-    @GetMapping("/findSport/{name}")
-    public ResponseEntity<SportDto> findSport(@PathVariable String name){
+    @GetMapping("/findSport")
+    public ResponseEntity<SportDto> findSport(@RequestParam String name){
         return new ResponseEntity<>(sportService.findSport(name), HttpStatus.OK);
     }
 
