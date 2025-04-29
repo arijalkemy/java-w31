@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "studentName": "Michell",
+        "message": "Testing",
+        "averageScore": 70.0,
+        "subjects": [
+            {
+                "name": "Math",
+                "score": 100.0
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "studentName": "Michell",
+        "message": "Testing",
+        "averageScore": 70.0,
+        "subjects": [
+            {
+                "name": "Math",
+                "score": 100.0
+            }
+        ]
+    },
+    {
+        "id": 5,
+        "studentName": "Michell",
+        "message": "Testing",
+        "averageScore": 70.0,
+        "subjects": [
+            {
+                "name": "Math",
+                "score": 100.0
+            }
+        ]
+    }
+]
