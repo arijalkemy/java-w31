@@ -4,6 +4,7 @@ public class RoomDTO {
   private String name;
   private Integer width;
   private Integer length;
+  private Integer squareFeet;
 
   public RoomDTO() {
   }
