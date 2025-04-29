@@ -82,7 +82,7 @@ public class ObtenerDiplomaServiceTest {
     }
 
     @Test
-    public void testAnalyzeScores_emptySubjects_throwsException() {
+    public void testAnalyzeScores_emptySubjects() {
         // Arrange
         Long id = 3L;
         StudentDTO stu = new StudentDTO(id, "Ana", null, null, new ArrayList<>());
