@@ -1,9 +1,11 @@
 package com.mercadolibre.starwars;
 
 import com.mercadolibre.starwars.dto.CharacterDTO;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 
+@NoArgsConstructor
 public class UtilTest {
     public static List<CharacterDTO> getCharacters() {
         CharacterDTO character1 = new CharacterDTO();
