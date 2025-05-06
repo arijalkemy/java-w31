@@ -30,15 +30,6 @@ public class VehicleServiceTest {
     @InjectMocks
     private VehicleServiceImpl vehicleService;
 
-    @BeforeEach
-    void setup() {
-        vehicleRepository.clearAll();
-        vehicleRepository.save(VehicleFactory.vehicle1);
-        vehicleRepository.save(VehicleFactory.vehicle2);
-        vehicleRepository.save(VehicleFactory.vehicle3);
-        vehicleRepository.save(VehicleFactory.vehicle4);
-    }
-
     /* Punto 1 */
 
     @Test
