@@ -1,10 +1,5 @@
 package com.mercadolibre.calculadorametroscuadrados.integration.controller;
-
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.SerializationFeature;
-import com.mercadolibre.calculadorametroscuadrados.dto.HouseDTO;
 import com.mercadolibre.calculadorametroscuadrados.dto.HouseResponseDTO;
-import com.mercadolibre.calculadorametroscuadrados.dto.RoomDTO;
 import com.mercadolibre.calculadorametroscuadrados.util.CustomFactory;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,10 +7,6 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
-import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
-
-import java.util.List;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;

@@ -7,9 +7,7 @@ import com.mercadolibre.calculadorametroscuadrados.dto.RoomDTO;
 import com.mercadolibre.calculadorametroscuadrados.service.CalculateService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.util.Assert;
 
 import java.util.List;
 

@@ -18,11 +18,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CustomFactory {
-    private static final ObjectMapper mapper = new ObjectMapper();
+    private static final ObjectMapper mapper = new ObjectMapper(); // JSON A DTOS
 
-    private static final ObjectWriter writer = mapper.configure(SerializationFeature.WRAP_ROOT_VALUE, false).writer();
+    private static final ObjectWriter writer = mapper.configure(SerializationFeature.WRAP_ROOT_VALUE, false).writer(); // DTOS A JSON
 
-    private static final String HOUSE_RESPONSE_DTO_PATH = "jsons/data_house_response_dto.json";
+    private static final String HOUSE_RESPONSE_DTO_PATH = "jsons/data_house_response_dto.json"; // RUTA
 
     /*
      * Lee un archivo JSON desde la carpeta de recursos
