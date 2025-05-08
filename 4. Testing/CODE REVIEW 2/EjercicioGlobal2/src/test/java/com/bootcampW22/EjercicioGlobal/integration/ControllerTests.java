@@ -45,7 +45,7 @@ class ControllerTests {
 
     @Test
     @DisplayName("[SUCCESS] Integration test: Get vehicles by year and color")
-    void testGetVehiclesByColorAndYear() throws Exception {
+    void getVehiclesByColorAndYear_ShouldReturnList_WhenColorAndYearMatch() throws Exception {
         String path = "/vehicles/color/{color}/year/{year}";
 
         // Arrange
@@ -62,7 +62,7 @@ class ControllerTests {
 
     @Test
     @DisplayName("[ERROR 404] Integration test: Get vehicles by year and color - Not found")
-    void testSearchVehiclesByYearAndColorNotFound() throws Exception {
+    void getVehiclesByColorAndYear_ShouldReturnError_WhenColorAndYearDontMatch() throws Exception {
         String path = "/vehicles/color/{color}/year/{year}";
 
         // Act & Assert
@@ -81,7 +81,7 @@ class ControllerTests {
 
     @Test
     @DisplayName("[SUCCESS] Integration test: Get vehicles by brand and range of year")
-    void testSearchVehiclesByBrandAndRangeOfYear() throws Exception {
+    void getVehiclesByBrandAndRangeOfYear_ShouldReturnList_WhenBrandAndYearsMatch() throws Exception {
         String path = "/vehicles/brand/{brand}/between/{start_year}/{end_year}";
 
         // Arrange
@@ -98,7 +98,7 @@ class ControllerTests {
 
     @Test
     @DisplayName("[ERROR 404] Integration test: Get vehicles by brand and range of year - Not found")
-    void testSearchVehiclesByBrandAndRangeOfYearNotFound() throws Exception {
+    void getVehiclesByBrandAndRangeOfYear_ShouldReturnError_WhenBrandAndYearsDontMatch() throws Exception {
         String path = "/vehicles/brand/{brand}/between/{start_year}/{end_year}";
 
         // Act & Assert
@@ -117,7 +117,7 @@ class ControllerTests {
 
     @Test
     @DisplayName("[SUCCESS] Integration test: Get average speed by brand")
-    void testGetAverageSpeedByBrand() throws Exception {
+    void getAverageSpeedByBrand_ShouldReturnAvgSpeed_WhenBrandHasVehicles() throws Exception {
         String path = "/vehicles/average_speed/brand/{brand}";
 
         // Arrange
@@ -134,7 +134,7 @@ class ControllerTests {
 
     @Test
     @DisplayName("[ERROR 404] Integration test: Get average speed by brand - Not found")
-    void testGetAverageSpeedByBrandNotFound() throws Exception {
+    void getAverageSpeedByBrand_ShouldReturnError_WhenBrandHasNoVehicles() throws Exception {
         String path = "/vehicles/average_speed/brand/{brand}";
 
         // Act & Assert
@@ -153,7 +153,7 @@ class ControllerTests {
 
     @Test
     @DisplayName("[SUCCESS] Integration test: Get average capacity by brand")
-    void testGetAverageCapacityByBrand() throws Exception {
+    void getAverageCapacityByBrand_ShouldReturnAvgSpeed_WhenBrandHasVehicles() throws Exception {
         String path = "/vehicles/average_capacity/brand/{brand}";
 
         // Arrange
@@ -170,7 +170,7 @@ class ControllerTests {
 
     @Test
     @DisplayName("[ERROR 404] Integration test: Get average capacity by brand - Not found")
-    void testGetAverageCapacityByBrandNotFound() throws Exception {
+    void getAverageCapacityByBrand_ShouldReturnError_WhenBrandHasNoVehicles() throws Exception {
         String path = "/vehicles/average_capacity/brand/{brand}";
 
         // Act & Assert
@@ -189,7 +189,7 @@ class ControllerTests {
 
     @Test
     @DisplayName("[SUCCESS] Integration test: Get vehicles by range of weight")
-    void testGetVehiclesByRangeOfWeight() throws Exception {
+    void getVehiclesByRangeOfWeight_ShouldReturnList_WhenThereAreVehiclesInTheWeightRange() throws Exception {
         String path = "/vehicles/weight";
 
         // Arrange
@@ -209,7 +209,7 @@ class ControllerTests {
 
     @Test
     @DisplayName("[ERROR 404] Integration test: Get vehicles by range of weight - Not found")
-    void testGetVehiclesByRangeOfWeightNotFound() throws Exception {
+    void getVehiclesByRangeOfWeight_ShouldReturnError_WhenThereAreNoVehiclesInTheWeightRange() throws Exception {
         String path = "/vehicles/weight";
 
         // Act & Assert
