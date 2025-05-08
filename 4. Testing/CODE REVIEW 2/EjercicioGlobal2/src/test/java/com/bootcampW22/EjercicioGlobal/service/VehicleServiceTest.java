@@ -7,6 +7,7 @@ import com.bootcampW22.EjercicioGlobal.entity.Vehicle;
 import com.bootcampW22.EjercicioGlobal.exception.NotFoundException;
 import com.bootcampW22.EjercicioGlobal.repository.VehicleRepositoryImpl;
 import com.bootcampW22.EjercicioGlobal.utils.VehicleFactory;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -29,6 +30,19 @@ class VehicleServiceTest {
     @InjectMocks
     private VehicleServiceImpl vehicleService;
 
+    private Vehicle vehicle1;
+    private Vehicle vehicle2;
+    private Vehicle vehicle3;
+    private Vehicle vehicle4;
+
+    @BeforeEach
+    void setup() {
+        vehicle1 = VehicleFactory.vehicle1;
+        vehicle2 = VehicleFactory.vehicle2;
+        vehicle3 = VehicleFactory.vehicle3;
+        vehicle4 = VehicleFactory.vehicle4;
+    }
+
     /* Punto 1 */
 
     @Test
@@ -38,8 +52,8 @@ class VehicleServiceTest {
         int year = 2005;
 
         // Arrange
-        List<Vehicle> vehicleList = List.of(VehicleFactory.vehicle1);
-        List<VehicleDto> expectedResult = List.of(VehicleFactory.convertToVehicleDto(VehicleFactory.vehicle1));
+        List<Vehicle> vehicleList = List.of(vehicle1);
+        List<VehicleDto> expectedResult = List.of(VehicleFactory.convertToVehicleDto(vehicle1));
         when(vehicleRepository.findVehiclesByYearAndColor(color, year)).thenReturn(vehicleList);
 
         // Act
@@ -91,8 +105,8 @@ class VehicleServiceTest {
         int endYear = 2006;
 
         // Arrange
-        List<Vehicle> vehicleList = List.of(VehicleFactory.vehicle3);
-        List<VehicleDto> expectedResult = List.of(VehicleFactory.convertToVehicleDto(VehicleFactory.vehicle3));
+        List<Vehicle> vehicleList = List.of(vehicle3);
+        List<VehicleDto> expectedResult = List.of(VehicleFactory.convertToVehicleDto(vehicle3));
         when(vehicleRepository.findVehiclesByBrandAndRangeOfYear(brand, startYear, endYear)).thenReturn(vehicleList);
 
         // Act
@@ -144,8 +158,6 @@ class VehicleServiceTest {
         double expectedAvgSpeed = 134.5D;
 
         // Arrange
-        Vehicle vehicle2 = VehicleFactory.vehicle2;
-        Vehicle vehicle4 = VehicleFactory.vehicle4;
         List<Vehicle> vehicleList = List.of(vehicle2, vehicle4);
         VehicleAvgSpeedByBrandDto expected = new VehicleAvgSpeedByBrandDto(expectedAvgSpeed);
 
@@ -194,8 +206,6 @@ class VehicleServiceTest {
         double expectedAvgCapacity = 4.0D;
 
         // Arrange
-        Vehicle vehicle2 = VehicleFactory.vehicle2;
-        Vehicle vehicle4 = VehicleFactory.vehicle4;
         List<Vehicle> vehicleList = List.of(vehicle2, vehicle4);
         VehicleAvgCapacityByBrandDto expected = new VehicleAvgCapacityByBrandDto(expectedAvgCapacity);
 
@@ -244,7 +254,6 @@ class VehicleServiceTest {
         double weightMax = 168.6D;
 
         // Arrange
-        Vehicle vehicle2 = VehicleFactory.vehicle2;
         List<Vehicle> vehicleList = List.of(vehicle2);
         List<VehicleDto> expectedResult = List.of(VehicleFactory.convertToVehicleDto(vehicle2));
 

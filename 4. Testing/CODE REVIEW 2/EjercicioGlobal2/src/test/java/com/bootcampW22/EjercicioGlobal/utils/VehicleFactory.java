@@ -12,14 +12,6 @@ public final class VehicleFactory {
     public static Vehicle vehicle3 = new Vehicle(31L, "Toyota", "Camry", "126", "Crimson", 2000, "250", 3, "biodiesel", "automatic", 52.66, 137.35, 160.76);
     public static Vehicle vehicle4 = new Vehicle(382L, "Lexus", "IS", "4","Yellow", 2009, "110", 5, "biodiesel", "automatic", 176.45, 170.04,169.23);
 
-//    public static Vehicle createVehicle() {
-//        return new Vehicle();
-//    }
-//
-//    public static VehicleDto createVehicleDto() {
-//        return new VehicleDto();
-//    }
-
     public static VehicleDto convertToVehicleDto(Vehicle vehicle) {
         return mapper.convertValue(vehicle, VehicleDto.class);
     }
