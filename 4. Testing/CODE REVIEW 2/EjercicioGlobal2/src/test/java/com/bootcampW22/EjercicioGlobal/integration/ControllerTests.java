@@ -2,6 +2,7 @@ package com.bootcampW22.EjercicioGlobal.integration;
 
 import com.bootcampW22.EjercicioGlobal.dto.VehicleAvgCapacityByBrandDto;
 import com.bootcampW22.EjercicioGlobal.dto.VehicleAvgSpeedByBrandDto;
+import com.bootcampW22.EjercicioGlobal.entity.Vehicle;
 import com.bootcampW22.EjercicioGlobal.repository.VehicleRepositoryImpl;
 import com.bootcampW22.EjercicioGlobal.utils.JsonUtils;
 import com.bootcampW22.EjercicioGlobal.utils.VehicleFactory;
@@ -32,13 +33,23 @@ class ControllerTests {
     @Autowired
     private VehicleRepositoryImpl vehicleRepository;
 
+    private Vehicle vehicle1;
+    private Vehicle vehicle2;
+    private Vehicle vehicle3;
+    private Vehicle vehicle4;
+
     @BeforeEach
     void setup() {
+        vehicle1 = VehicleFactory.vehicle1;
+        vehicle2 = VehicleFactory.vehicle2;
+        vehicle3 = VehicleFactory.vehicle3;
+        vehicle4 = VehicleFactory.vehicle4;
+
         vehicleRepository.clearAll();
-        vehicleRepository.save(VehicleFactory.vehicle1);
-        vehicleRepository.save(VehicleFactory.vehicle2);
-        vehicleRepository.save(VehicleFactory.vehicle3);
-        vehicleRepository.save(VehicleFactory.vehicle4);
+        vehicleRepository.save(vehicle1);
+        vehicleRepository.save(vehicle2);
+        vehicleRepository.save(vehicle3);
+        vehicleRepository.save(vehicle4);
     }
 
     /* Punto 1 */
@@ -47,12 +58,14 @@ class ControllerTests {
     @DisplayName("[SUCCESS] Integration test: Get vehicles by year and color")
     void getVehiclesByColorAndYear_ShouldReturnList_WhenColorAndYearMatch() throws Exception {
         String path = "/vehicles/color/{color}/year/{year}";
+        String color = "green";
+        int year = 2005;
 
         // Arrange
-        String expected = JsonUtils.generateFromObject(List.of(VehicleFactory.vehicle1));
+        String expected = JsonUtils.generateFromObject(List.of(vehicle1));
 
         // Act & Assert
-        mockMvc.perform(get(path, "green", 2005))
+        mockMvc.perform(get(path, color, year))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andDo(print())
@@ -64,9 +77,11 @@ class ControllerTests {
     @DisplayName("[ERROR 404] Integration test: Get vehicles by year and color - Not found")
     void getVehiclesByColorAndYear_ShouldReturnError_WhenColorAndYearDontMatch() throws Exception {
         String path = "/vehicles/color/{color}/year/{year}";
+        String color = "blue";
+        int year = 2019;
 
         // Act & Assert
-        mockMvc.perform(get(path, "blue", 2019))
+        mockMvc.perform(get(path, color, year))
                 .andExpect(status().isNotFound())
                 .andExpect(result ->
                     assertEquals(
@@ -83,12 +98,15 @@ class ControllerTests {
     @DisplayName("[SUCCESS] Integration test: Get vehicles by brand and range of year")
     void getVehiclesByBrandAndRangeOfYear_ShouldReturnList_WhenBrandAndYearsMatch() throws Exception {
         String path = "/vehicles/brand/{brand}/between/{start_year}/{end_year}";
+        String brand = "toyota";
+        int startYear = 2000;
+        int endYear = 2006;
 
         // Arrange
-        String expected = JsonUtils.generateFromObject(List.of(VehicleFactory.vehicle3));
+        String expected = JsonUtils.generateFromObject(List.of(vehicle3));
 
         // Act & Assert
-        mockMvc.perform(get(path, "toyota", 2000, 2006))
+        mockMvc.perform(get(path, brand, startYear, endYear))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andDo(print())
@@ -100,9 +118,12 @@ class ControllerTests {
     @DisplayName("[ERROR 404] Integration test: Get vehicles by brand and range of year - Not found")
     void getVehiclesByBrandAndRangeOfYear_ShouldReturnError_WhenBrandAndYearsDontMatch() throws Exception {
         String path = "/vehicles/brand/{brand}/between/{start_year}/{end_year}";
+        String brand = "bmw";
+        int startYear = 2015;
+        int endYear = 2019;
 
         // Act & Assert
-        mockMvc.perform(get(path, "bmw", 2015, 2019))
+        mockMvc.perform(get(path, brand, startYear, endYear))
                 .andExpect(status().isNotFound())
                 .andExpect(result ->
                         assertEquals(
@@ -119,13 +140,15 @@ class ControllerTests {
     @DisplayName("[SUCCESS] Integration test: Get average speed by brand")
     void getAverageSpeedByBrand_ShouldReturnAvgSpeed_WhenBrandHasVehicles() throws Exception {
         String path = "/vehicles/average_speed/brand/{brand}";
+        String brand = "lexus";
+        double expectedAvgSpeed = 134.5D;
 
         // Arrange
-        VehicleAvgSpeedByBrandDto expectedObj = new VehicleAvgSpeedByBrandDto(134.5D);
+        VehicleAvgSpeedByBrandDto expectedObj = new VehicleAvgSpeedByBrandDto(expectedAvgSpeed);
         String expected = JsonUtils.generateFromObject(expectedObj);
 
         // Act & Assert
-        mockMvc.perform(get(path, "lexus"))
+        mockMvc.perform(get(path, brand))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andDo(print())
@@ -136,9 +159,10 @@ class ControllerTests {
     @DisplayName("[ERROR 404] Integration test: Get average speed by brand - Not found")
     void getAverageSpeedByBrand_ShouldReturnError_WhenBrandHasNoVehicles() throws Exception {
         String path = "/vehicles/average_speed/brand/{brand}";
+        String brand = "bmw";
 
         // Act & Assert
-        mockMvc.perform(get(path, "bmw"))
+        mockMvc.perform(get(path, brand))
                 .andExpect(status().isNotFound())
                 .andExpect(result ->
                         assertEquals(
@@ -155,13 +179,15 @@ class ControllerTests {
     @DisplayName("[SUCCESS] Integration test: Get average capacity by brand")
     void getAverageCapacityByBrand_ShouldReturnAvgSpeed_WhenBrandHasVehicles() throws Exception {
         String path = "/vehicles/average_capacity/brand/{brand}";
+        String brand = "lexus";
+        double expectedAvgCapacity = 4.0D;
 
         // Arrange
-        VehicleAvgCapacityByBrandDto expectedObj = new VehicleAvgCapacityByBrandDto(4.0D);
+        VehicleAvgCapacityByBrandDto expectedObj = new VehicleAvgCapacityByBrandDto(expectedAvgCapacity);
         String expected = JsonUtils.generateFromObject(expectedObj);
 
         // Act & Assert
-        mockMvc.perform(get(path, "lexus"))
+        mockMvc.perform(get(path, brand))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andDo(print())
@@ -172,9 +198,10 @@ class ControllerTests {
     @DisplayName("[ERROR 404] Integration test: Get average capacity by brand - Not found")
     void getAverageCapacityByBrand_ShouldReturnError_WhenBrandHasNoVehicles() throws Exception {
         String path = "/vehicles/average_capacity/brand/{brand}";
+        String brand = "bmw";
 
         // Act & Assert
-        mockMvc.perform(get(path, "bmw"))
+        mockMvc.perform(get(path, brand))
                 .andExpect(status().isNotFound())
                 .andExpect(result ->
                         assertEquals(
@@ -191,14 +218,16 @@ class ControllerTests {
     @DisplayName("[SUCCESS] Integration test: Get vehicles by range of weight")
     void getVehiclesByRangeOfWeight_ShouldReturnList_WhenThereAreVehiclesInTheWeightRange() throws Exception {
         String path = "/vehicles/weight";
+        String weightMin = "168.0";
+        String weightMax = "168.6";
 
         // Arrange
-        String expected = JsonUtils.generateFromObject(List.of(VehicleFactory.vehicle2));
+        String expected = JsonUtils.generateFromObject(List.of(vehicle2));
 
         // Act & Assert
         mockMvc.perform(get(path)
-                        .param("min", "168.0")
-                        .param("max", "168.6")
+                        .param("min", weightMin)
+                        .param("max", weightMax)
                 )
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
@@ -211,11 +240,13 @@ class ControllerTests {
     @DisplayName("[ERROR 404] Integration test: Get vehicles by range of weight - Not found")
     void getVehiclesByRangeOfWeight_ShouldReturnError_WhenThereAreNoVehiclesInTheWeightRange() throws Exception {
         String path = "/vehicles/weight";
+        String weightMin = "200.0";
+        String weightMax = "210.6";
 
         // Act & Assert
         mockMvc.perform(get(path)
-                        .param("min", "200")
-                        .param("max", "210")
+                        .param("min", weightMin)
+                        .param("max", weightMax)
                 )
                 .andExpect(status().isNotFound())
                 .andExpect(result ->
