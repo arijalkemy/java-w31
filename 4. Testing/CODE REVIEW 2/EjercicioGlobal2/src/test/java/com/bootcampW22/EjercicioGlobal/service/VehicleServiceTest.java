@@ -72,9 +72,9 @@ class VehicleServiceTest {
 
         // Assert
         assertAll(
-                ()-> assertEquals("No se encontraron vehículos con esos criterios."
+                () -> assertEquals("No se encontraron vehículos con esos criterios."
                         ,notFoundException.getMessage()),
-                ()-> assertNotNull(notFoundException)
+                () -> assertNotNull(notFoundException)
         );
 
         verify(vehicleRepository).findVehiclesByYearAndColor(color, year);
@@ -103,6 +103,9 @@ class VehicleServiceTest {
                 () -> assertEquals(1, result.size()),
                 () -> assertEquals(expectedResult.getFirst(), result.getFirst())
         );
+
+        verify(vehicleRepository).findVehiclesByBrandAndRangeOfYear(brand, startYear, endYear);
+        verifyNoMoreInteractions(vehicleRepository);
     }
 
     @Test
@@ -123,10 +126,13 @@ class VehicleServiceTest {
 
         // Assert
         assertAll(
-                ()-> assertEquals("No se encontraron vehículos con esos criterios."
+                () -> assertEquals("No se encontraron vehículos con esos criterios."
                         ,notFoundException.getMessage()),
-                ()-> assertNotNull(notFoundException)
+                () -> assertNotNull(notFoundException)
         );
+
+        verify(vehicleRepository).findVehiclesByBrandAndRangeOfYear(brand, startYear, endYear);
+        verifyNoMoreInteractions(vehicleRepository);
     }
 
     /* Punto 3 */
@@ -150,6 +156,9 @@ class VehicleServiceTest {
 
         // Assert
         assertEquals(expected, result);
+
+        verify(vehicleRepository).findVehiclesByBrand(brand);
+        verifyNoMoreInteractions(vehicleRepository);
     }
 
     @Test
@@ -158,8 +167,7 @@ class VehicleServiceTest {
         String brand = "bmw";
 
         // Arrange
-        when(vehicleRepository.findVehiclesByBrand(brand))
-                .thenReturn(Collections.emptyList());
+        when(vehicleRepository.findVehiclesByBrand(brand)).thenReturn(Collections.emptyList());
 
         // Act
         NotFoundException notFoundException = assertThrows(NotFoundException.class, () ->
@@ -168,10 +176,13 @@ class VehicleServiceTest {
 
         // Assert
         assertAll(
-                ()-> assertEquals("No se encontraron vehículos de esa marca."
+                () -> assertEquals("No se encontraron vehículos de esa marca."
                         ,notFoundException.getMessage()),
-                ()-> assertNotNull(notFoundException)
+                () -> assertNotNull(notFoundException)
         );
+
+        verify(vehicleRepository).findVehiclesByBrand(brand);
+        verifyNoMoreInteractions(vehicleRepository);
     }
 
     /* Punto 4 */
@@ -195,6 +206,9 @@ class VehicleServiceTest {
 
         // Assert
         assertEquals(expected, result);
+
+        verify(vehicleRepository).findVehiclesByBrand(brand);
+        verifyNoMoreInteractions(vehicleRepository);
     }
 
     @Test
@@ -203,8 +217,7 @@ class VehicleServiceTest {
         String brand = "bmw";
 
         // Arrange
-        when(vehicleRepository.findVehiclesByBrand(brand))
-                .thenReturn(Collections.emptyList());
+        when(vehicleRepository.findVehiclesByBrand(brand)).thenReturn(Collections.emptyList());
 
         // Act
         NotFoundException notFoundException = assertThrows(NotFoundException.class, () ->
@@ -213,10 +226,13 @@ class VehicleServiceTest {
 
         // Assert
         assertAll(
-                ()-> assertEquals("No se encontraron vehículos de esa marca."
+                () -> assertEquals("No se encontraron vehículos de esa marca."
                         ,notFoundException.getMessage()),
-                ()-> assertNotNull(notFoundException)
+                () -> assertNotNull(notFoundException)
         );
+
+        verify(vehicleRepository).findVehiclesByBrand(brand);
+        verifyNoMoreInteractions(vehicleRepository);
     }
 
     /* Punto 5 */
@@ -242,6 +258,10 @@ class VehicleServiceTest {
                 () -> assertEquals(1, result.size()),
                 () -> assertEquals(expectedResult.getFirst(), result.getFirst())
         );
+
+        verify(vehicleRepository).findVehiclesByRangeOfWeight(weightMin, weightMax);
+        verifyNoMoreInteractions(vehicleRepository);
+
     }
 
     @Test
@@ -251,8 +271,7 @@ class VehicleServiceTest {
         double weightMax = 210.0D;
 
         // Arrange
-        when(vehicleRepository.findVehiclesByRangeOfWeight(weightMin, weightMax))
-                .thenReturn(Collections.emptyList());
+        when(vehicleRepository.findVehiclesByRangeOfWeight(weightMin, weightMax)).thenReturn(Collections.emptyList());
 
         // Act
         NotFoundException notFoundException = assertThrows(NotFoundException.class, () ->
@@ -261,9 +280,12 @@ class VehicleServiceTest {
 
         // Assert
         assertAll(
-                ()-> assertEquals("No se encontraron vehículos en ese rango de peso."
+                () -> assertEquals("No se encontraron vehículos en ese rango de peso."
                         ,notFoundException.getMessage()),
-                ()-> assertNotNull(notFoundException)
+                () -> assertNotNull(notFoundException)
         );
+
+        verify(vehicleRepository).findVehiclesByRangeOfWeight(weightMin, weightMax);
+        verifyNoMoreInteractions(vehicleRepository);
     }
 }
