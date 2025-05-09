@@ -1,0 +1,26 @@
+{
+  "name": "Casa Blanca",
+  "address": "Calle 8",
+  "rooms": [
+    {
+      "name": "Lulo",
+      "width": 10,
+      "length": 5,
+      "squareFeet": 50
+    },
+    {
+      "name": "Palta",
+      "width": 20,
+      "length": 15,
+      "squareFeet": 300
+    }
+  ],
+  "squareFeet": 179500,
+  "price": 280000,
+  "biggest": {
+    "name": "Palta",
+    "width": 20,
+    "length": 15,
+    "squareFeet": 350
+  }
+}
