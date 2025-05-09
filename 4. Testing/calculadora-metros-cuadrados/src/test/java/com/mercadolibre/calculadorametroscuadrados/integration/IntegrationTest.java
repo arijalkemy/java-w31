@@ -97,6 +97,5 @@ public class IntegrationTest {
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.rooms[0].squareFeet").value(response.getRooms().get(0).getSquareFeet()))
                 .andExpect(jsonPath("$.rooms[1].squareFeet").value(response.getRooms().get(1).getSquareFeet()));
-
     }
 }
