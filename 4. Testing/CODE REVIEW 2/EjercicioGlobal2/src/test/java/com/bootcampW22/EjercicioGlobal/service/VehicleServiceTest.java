@@ -61,7 +61,7 @@ class VehicleServiceTest {
 
         // Assert
         assertAll(
-                () -> assertEquals(1, result.size()),
+                () -> assertEquals(expectedResult.size(), result.size()),
                 () -> assertEquals(expectedResult.getFirst(), result.getFirst())
         );
 
@@ -114,7 +114,7 @@ class VehicleServiceTest {
 
         // Assert
         assertAll(
-                () -> assertEquals(1, result.size()),
+                () -> assertEquals(expectedResult.size(), result.size()),
                 () -> assertEquals(expectedResult.getFirst(), result.getFirst())
         );
 
@@ -155,13 +155,15 @@ class VehicleServiceTest {
     @DisplayName("[SUCCESS] Unit test: Get average speed by brand")
     void calculateAvgSpeedByBrand_ShouldReturnAvgSpeed_WhenBrandHasVehicles() {
         String brand = "lexus";
-        double expectedAvgSpeed = 134.5D;
 
         // Arrange
         List<Vehicle> vehicleList = List.of(vehicle2, vehicle4);
-        VehicleAvgSpeedByBrandDto expected = new VehicleAvgSpeedByBrandDto(expectedAvgSpeed);
-
         when(vehicleRepository.findVehiclesByBrand(brand)).thenReturn(vehicleList);
+
+        Double maxSpeed2 = Double.valueOf(vehicle2.getMax_speed());
+        Double maxSpeed4 = Double.valueOf(vehicle3.getMax_speed());
+        double expectedAvgSpeed = (maxSpeed2 + maxSpeed4) / 2;
+        VehicleAvgSpeedByBrandDto expected = new VehicleAvgSpeedByBrandDto(expectedAvgSpeed);
 
         // Act
         VehicleAvgSpeedByBrandDto result = vehicleService.calculateAvgSpeedByBrand(brand);
@@ -203,13 +205,15 @@ class VehicleServiceTest {
     @DisplayName("[SUCCESS] Unit test: Get average capacity by brand")
     void calculateAvgCapacityByBrand_ShouldReturnAvgSpeed_WhenBrandHasVehicles() {
         String brand = "lexus";
-        double expectedAvgCapacity = 4.0D;
 
         // Arrange
         List<Vehicle> vehicleList = List.of(vehicle2, vehicle4);
-        VehicleAvgCapacityByBrandDto expected = new VehicleAvgCapacityByBrandDto(expectedAvgCapacity);
-
         when(vehicleRepository.findVehiclesByBrand(brand)).thenReturn(vehicleList);
+
+        double passengers2 = vehicle2.getPassengers();
+        double passengers4 = vehicle4.getPassengers();
+        double expectedAvgCapacity = (passengers2 + passengers4) / 2;
+        VehicleAvgCapacityByBrandDto expected = new VehicleAvgCapacityByBrandDto(expectedAvgCapacity);
 
         // Act
         VehicleAvgCapacityByBrandDto result = vehicleService.calculateAvgCapacityByBrand(brand);
@@ -270,7 +274,6 @@ class VehicleServiceTest {
 
         verify(vehicleRepository).findVehiclesByRangeOfWeight(weightMin, weightMax);
         verifyNoMoreInteractions(vehicleRepository);
-
     }
 
     @Test
