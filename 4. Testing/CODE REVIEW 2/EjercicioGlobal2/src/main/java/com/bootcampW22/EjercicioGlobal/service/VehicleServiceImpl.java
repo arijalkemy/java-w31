@@ -32,6 +32,8 @@ public class VehicleServiceImpl implements IVehicleService{
                 .collect(Collectors.toList());
     }
 
+    /* Punto 1 */
+
     @Override
     public List<VehicleDto> searchVehiclesByYearAndColor(String color, int year) {
         ObjectMapper mapper = new ObjectMapper();
@@ -44,6 +46,8 @@ public class VehicleServiceImpl implements IVehicleService{
                 .toList();
     }
 
+    /* Punto 2 */
+
     @Override
     public List<VehicleDto> searchVehiclesByBrandAndRangeOfYear(String brand, int start_year, int end_year) {
         ObjectMapper mapper = new ObjectMapper();
@@ -55,6 +59,8 @@ public class VehicleServiceImpl implements IVehicleService{
                 .map(vehicle -> mapper.convertValue(vehicle,VehicleDto.class))
                 .toList();
     }
+
+    /* Punto 3 */
 
     @Override
     public VehicleAvgSpeedByBrandDto calculateAvgSpeedByBrand(String brand) {
@@ -71,6 +77,8 @@ public class VehicleServiceImpl implements IVehicleService{
         return new VehicleAvgSpeedByBrandDto(Math.round(avg_speed * 100.0)/100.0);
     }
 
+    /* Punto 4 */
+
     @Override
     public VehicleAvgCapacityByBrandDto calculateAvgCapacityByBrand(String brand) {
         List<Vehicle> vehicleFilteredList = vehicleRepository.findVehiclesByBrand(brand);
@@ -84,6 +92,8 @@ public class VehicleServiceImpl implements IVehicleService{
         return new VehicleAvgCapacityByBrandDto(Math.round(avg_capacity * 100.0)/100.0);
     }
 
+    /* Punto 5 */
+
     @Override
     public List<VehicleDto> searchVehiclesByRangeOfWeight(double weight_min, double weight_max) {
         ObjectMapper mapper = new ObjectMapper();
@@ -95,6 +105,5 @@ public class VehicleServiceImpl implements IVehicleService{
                 .map(vehicle -> mapper.convertValue(vehicle,VehicleDto.class))
                 .toList();
     }
-
 
 }

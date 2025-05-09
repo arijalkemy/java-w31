@@ -85,11 +85,7 @@ class VehicleServiceTest {
         );
 
         // Assert
-        assertAll(
-                () -> assertEquals("No se encontraron vehículos con esos criterios."
-                        ,notFoundException.getMessage()),
-                () -> assertNotNull(notFoundException)
-        );
+        assertEquals("No se encontraron vehículos con esos criterios.", notFoundException.getMessage());
 
         verify(vehicleRepository).findVehiclesByYearAndColor(color, year);
         verifyNoMoreInteractions(vehicleRepository);
@@ -139,11 +135,7 @@ class VehicleServiceTest {
         );
 
         // Assert
-        assertAll(
-                () -> assertEquals("No se encontraron vehículos con esos criterios."
-                        ,notFoundException.getMessage()),
-                () -> assertNotNull(notFoundException)
-        );
+        assertEquals("No se encontraron vehículos con esos criterios.", notFoundException.getMessage());
 
         verify(vehicleRepository).findVehiclesByBrandAndRangeOfYear(brand, startYear, endYear);
         verifyNoMoreInteractions(vehicleRepository);
@@ -189,11 +181,7 @@ class VehicleServiceTest {
         );
 
         // Assert
-        assertAll(
-                () -> assertEquals("No se encontraron vehículos de esa marca."
-                        ,notFoundException.getMessage()),
-                () -> assertNotNull(notFoundException)
-        );
+        assertEquals("No se encontraron vehículos de esa marca.", notFoundException.getMessage());
 
         verify(vehicleRepository).findVehiclesByBrand(brand);
         verifyNoMoreInteractions(vehicleRepository);
@@ -239,11 +227,7 @@ class VehicleServiceTest {
         );
 
         // Assert
-        assertAll(
-                () -> assertEquals("No se encontraron vehículos de esa marca."
-                        ,notFoundException.getMessage()),
-                () -> assertNotNull(notFoundException)
-        );
+        assertEquals("No se encontraron vehículos de esa marca.", notFoundException.getMessage());
 
         verify(vehicleRepository).findVehiclesByBrand(brand);
         verifyNoMoreInteractions(vehicleRepository);
@@ -268,7 +252,7 @@ class VehicleServiceTest {
 
         // Assert
         assertAll(
-                () -> assertEquals(1, result.size()),
+                () -> assertEquals(expectedResult.size(), result.size()),
                 () -> assertEquals(expectedResult.getFirst(), result.getFirst())
         );
 
@@ -291,11 +275,7 @@ class VehicleServiceTest {
         );
 
         // Assert
-        assertAll(
-                () -> assertEquals("No se encontraron vehículos en ese rango de peso."
-                        ,notFoundException.getMessage()),
-                () -> assertNotNull(notFoundException)
-        );
+        assertEquals("No se encontraron vehículos en ese rango de peso.", notFoundException.getMessage());
 
         verify(vehicleRepository).findVehiclesByRangeOfWeight(weightMin, weightMax);
         verifyNoMoreInteractions(vehicleRepository);

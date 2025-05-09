@@ -54,6 +54,8 @@ class ControllerTests {
 
     /* Punto 1 */
 
+
+
     @Test
     @DisplayName("[SUCCESS] Integration test: Get vehicles by year and color")
     void getVehiclesByColorAndYear_ShouldReturnList_WhenColorAndYearMatch() throws Exception {
