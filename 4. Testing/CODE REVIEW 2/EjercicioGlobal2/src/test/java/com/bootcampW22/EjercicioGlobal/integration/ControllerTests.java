@@ -141,7 +141,9 @@ class ControllerTests {
     void getAverageSpeedByBrand_ShouldReturnAvgSpeed_WhenBrandHasVehicles() throws Exception {
         String path = "/vehicles/average_speed/brand/{brand}";
         String brand = "lexus";
-        double expectedAvgSpeed = 134.5D;
+        Double maxSpeed2 = Double.valueOf(vehicle2.getMax_speed());
+        Double maxSpeed4 = Double.valueOf(vehicle4.getMax_speed());
+        double expectedAvgSpeed = (maxSpeed2 + maxSpeed4) / 2;
 
         // Arrange
         VehicleAvgSpeedByBrandDto expectedObj = new VehicleAvgSpeedByBrandDto(expectedAvgSpeed);

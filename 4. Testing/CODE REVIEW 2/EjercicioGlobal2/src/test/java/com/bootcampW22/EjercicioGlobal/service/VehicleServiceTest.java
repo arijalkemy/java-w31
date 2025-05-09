@@ -161,7 +161,7 @@ class VehicleServiceTest {
         when(vehicleRepository.findVehiclesByBrand(brand)).thenReturn(vehicleList);
 
         Double maxSpeed2 = Double.valueOf(vehicle2.getMax_speed());
-        Double maxSpeed4 = Double.valueOf(vehicle3.getMax_speed());
+        Double maxSpeed4 = Double.valueOf(vehicle4.getMax_speed());
         double expectedAvgSpeed = (maxSpeed2 + maxSpeed4) / 2;
         VehicleAvgSpeedByBrandDto expected = new VehicleAvgSpeedByBrandDto(expectedAvgSpeed);
 
