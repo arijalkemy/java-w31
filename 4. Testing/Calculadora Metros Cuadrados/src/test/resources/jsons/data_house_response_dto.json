@@ -1,0 +1,26 @@
+{
+  "name": "House",
+  "address": "123 Street, City",
+  "rooms": [
+    {
+      "name": "Living Room",
+      "width": 12,
+      "length": 15,
+      "squareFeet": 180
+    },
+    {
+      "name": "Kitchen",
+      "width": 10,
+      "length": 10,
+      "squareFeet": 100
+    }
+  ],
+  "squareFeet": 280,
+  "price": 224000,
+  "biggest": {
+    "name": "Living Room",
+    "width": 12,
+    "length": 15,
+    "squareFeet": 180
+  }
+}
