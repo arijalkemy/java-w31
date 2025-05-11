@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>UserService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">be_java_hisp_w31_g3</a> &gt; <a href="index.source.html" class="el_package">com.mercadolibre.be_java_hisp_w31_g3.service</a> &gt; <span class="el_source">UserService.java</span></div><h1>UserService.java</h1><pre class="source lang-java linenums">package com.mercadolibre.be_java_hisp_w31_g3.service;
+
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.mercadolibre.be_java_hisp_w31_g3.dto.UserDto;
+import com.mercadolibre.be_java_hisp_w31_g3.exception.BadRequestException;
+import com.mercadolibre.be_java_hisp_w31_g3.exception.NotFoundException;
+import com.mercadolibre.be_java_hisp_w31_g3.model.User;
+import com.mercadolibre.be_java_hisp_w31_g3.repository.IUserRepository;
+import com.mercadolibre.be_java_hisp_w31_g3.util.UserMapper;
+import org.springframework.stereotype.Service;
+import org.springframework.util.ResourceUtils;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
+
+@Service
+public class UserService implements IUserService {
+
+    private final IUserRepository userRepository;
+    private final ObjectMapper mapper;
+
+<span class="fc" id="L27">    public UserService(IUserRepository userRepository, ObjectMapper mapper) {</span>
+<span class="fc" id="L28">        this.userRepository = userRepository;</span>
+<span class="fc" id="L29">        this.mapper = mapper;</span>
+<span class="fc" id="L30">        loadDataBase();</span>
+<span class="fc" id="L31">    }</span>
+
+    @Override
+    public List&lt;UserDto&gt; getUsers() {
+<span class="fc" id="L35">        List&lt;User&gt; userList = userRepository.getAll();</span>
+<span class="fc bfc" id="L36" title="All 2 branches covered.">        if (userList.isEmpty()) {</span>
+<span class="fc" id="L37">            throw new NotFoundException(&quot;No hay usuarios para mostrar&quot;);</span>
+        }
+
+<span class="fc" id="L40">        return userList.stream()</span>
+<span class="fc" id="L41">                .map(UserMapper::getUserDto)</span>
+<span class="fc" id="L42">                .toList();</span>
+    }
+
+    @Override
+    public void addFollower(Long userId, Long userToFollow) {
+<span class="fc bfc" id="L47" title="All 4 branches covered.">        if (userId == null || userToFollow == null) {</span>
+<span class="fc" id="L48">            throw new BadRequestException(&quot;Los ids de los usuarios no deben ser nulos.&quot;);</span>
+        }
+<span class="fc bfc" id="L50" title="All 2 branches covered.">        if (Objects.equals(userId, userToFollow)) {</span>
+<span class="fc" id="L51">            throw new BadRequestException(&quot;Un usuario no puede seguirse a sí mismo.&quot;);</span>
+        }
+
+<span class="fc" id="L54">        Optional&lt;User&gt; userFollower = userRepository.getById(userId);</span>
+<span class="fc" id="L55">        Optional&lt;User&gt; userFollowed = userRepository.getById(userToFollow);</span>
+
+<span class="fc bfc" id="L57" title="All 4 branches covered.">        if (userFollower.isEmpty() || userFollowed.isEmpty()) {</span>
+<span class="fc" id="L58">            throw new NotFoundException(&quot;Alguno de los usuarios no existe.&quot;);</span>
+        }
+
+<span class="fc bfc" id="L61" title="All 2 branches covered.">        if (userFollowed.get().getFollowers().stream().anyMatch(follower -&gt; follower.getUserId().equals(userId))</span>
+<span class="fc bfc" id="L62" title="All 2 branches covered.">        || userFollower.get().getFollowed().stream().anyMatch(followed -&gt; followed.getUserId().equals(userToFollow))) {</span>
+<span class="fc" id="L63">            throw new BadRequestException(&quot;El usuario ya sigue a este usuario.&quot;);</span>
+        }
+
+<span class="fc" id="L66">        userRepository.addFollower(userId, userToFollow);</span>
+<span class="fc" id="L67">    }</span>
+
+    @Override
+    public UserDto getFollowersCount(Long userId) {
+<span class="fc" id="L71">        checkUserExists(userId);</span>
+
+<span class="fc" id="L73">        User user = userRepository.getById(userId).get();</span>
+<span class="fc" id="L74">        Long followersCount = (long) user.getFollowers().size();</span>
+<span class="fc" id="L75">        return UserDto.builder()</span>
+<span class="fc" id="L76">                .userId(user.getUserId())</span>
+<span class="fc" id="L77">                .userName(user.getUserName())</span>
+<span class="fc" id="L78">                .followersCount(followersCount)</span>
+<span class="fc" id="L79">                .build();</span>
+    }
+
+    @Override
+    public UserDto getFollowersById(Long id, String order) {
+<span class="fc" id="L84">        checkUserExists(id);</span>
+
+<span class="fc" id="L86">        User user = userRepository.getById(id).get();</span>
+<span class="fc" id="L87">        List&lt;User&gt; orderedFollowers = getUserListOrderedByName(order, user.getFollowers());</span>
+<span class="fc" id="L88">        List&lt;UserDto&gt; orderedFollowersDtos = orderedFollowers.stream().map(</span>
+<span class="fc" id="L89">                        u -&gt; UserDto.builder()</span>
+<span class="fc" id="L90">                                .userId(u.getUserId())</span>
+<span class="fc" id="L91">                                .userName(u.getUserName())</span>
+<span class="fc" id="L92">                                .build())</span>
+<span class="fc" id="L93">                .toList();</span>
+
+<span class="fc" id="L95">        return UserDto.builder()</span>
+<span class="fc" id="L96">                .userId(user.getUserId())</span>
+<span class="fc" id="L97">                .userName(user.getUserName())</span>
+<span class="fc" id="L98">                .followers(orderedFollowersDtos)</span>
+<span class="fc" id="L99">                .build();</span>
+    }
+
+    @Override
+    public UserDto getFollowedList(Long id, String order) {
+<span class="fc" id="L104">        checkUserExists(id);</span>
+
+<span class="fc" id="L106">        Optional&lt;User&gt; user = userRepository.getById(id);</span>
+<span class="fc" id="L107">        List&lt;User&gt; orderedFollowed = getUserListOrderedByName(order, user.get().getFollowed());</span>
+<span class="fc" id="L108">        List&lt;UserDto&gt; userList = orderedFollowed.stream().map(</span>
+<span class="fc" id="L109">                u -&gt; UserDto.builder()</span>
+<span class="fc" id="L110">                        .userId(u.getUserId())</span>
+<span class="fc" id="L111">                        .userName(u.getUserName()).build()</span>
+<span class="fc" id="L112">        ).toList();</span>
+
+<span class="fc" id="L114">        return UserDto.builder()</span>
+<span class="fc" id="L115">                .userId(user.get().getUserId())</span>
+<span class="fc" id="L116">                .userName(user.get().getUserName())</span>
+<span class="fc" id="L117">                .followed(userList)</span>
+<span class="fc" id="L118">                .build();</span>
+    }
+
+    @Override
+    public void unfollowUser(Long userId, Long userIdToUnfollow) {
+<span class="fc" id="L123">        checkUserExists(userId);</span>
+<span class="fc" id="L124">        checkUserExists(userIdToUnfollow);</span>
+
+<span class="fc" id="L126">        userRepository.unfollowUser(userId, userIdToUnfollow);</span>
+<span class="fc" id="L127">    }</span>
+
+    private List&lt;User&gt; getUserListOrderedByName(String order, List&lt;User&gt; userList) {
+<span class="fc bfc" id="L130" title="All 3 branches covered.">        switch (order) {</span>
+            case &quot;name_asc&quot;:
+<span class="fc" id="L132">                userList = userList.stream().sorted(Comparator.comparing(User::getUserName)).toList();</span>
+<span class="fc" id="L133">                break;</span>
+            case &quot;name_desc&quot;:
+<span class="fc" id="L135">                userList = userList.stream().sorted(Comparator.comparing(User::getUserName).reversed()).toList();</span>
+<span class="fc" id="L136">                break;</span>
+            default:
+<span class="fc" id="L138">                throw new NotFoundException(&quot;Debe ingresar un tipo de orden correcto.&quot;);</span>
+        }
+<span class="fc" id="L140">        return userList;</span>
+    }
+
+    private void checkUserExists(Long userId) {
+<span class="fc bfc" id="L144" title="All 2 branches covered.">        if (!userRepository.isAnyMatch(user -&gt; user.getUserId().equals(userId))) {</span>
+<span class="fc" id="L145">            throw new NotFoundException(&quot;No se encontró el usuario con el id ingresado&quot;);</span>
+        }
+<span class="fc" id="L147">    }</span>
+
+    private void loadDataBase() {
+        try {
+<span class="fc" id="L151">            File file = ResourceUtils.getFile(&quot;classpath:users.json&quot;);</span>
+<span class="fc" id="L152">            this.userRepository.addAll(mapper.readValue(file, new TypeReference&lt;List&lt;User&gt;&gt;() {</span>
+            }));
+<span class="nc" id="L154">        } catch (IOException e) {</span>
+<span class="nc" id="L155">            e.printStackTrace();</span>
+<span class="fc" id="L156">        }</span>
+<span class="fc" id="L157">    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>

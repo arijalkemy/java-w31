@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PostService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">be_java_hisp_w31_g3</a> &gt; <a href="index.source.html" class="el_package">com.mercadolibre.be_java_hisp_w31_g3.service</a> &gt; <span class="el_source">PostService.java</span></div><h1>PostService.java</h1><pre class="source lang-java linenums">package com.mercadolibre.be_java_hisp_w31_g3.service;
+
+import com.mercadolibre.be_java_hisp_w31_g3.dto.PostDto;
+import com.mercadolibre.be_java_hisp_w31_g3.dto.ProductDto;
+import com.mercadolibre.be_java_hisp_w31_g3.dto.UserDto;
+import com.mercadolibre.be_java_hisp_w31_g3.exception.BadRequestException;
+import com.mercadolibre.be_java_hisp_w31_g3.exception.ConflictException;
+import com.mercadolibre.be_java_hisp_w31_g3.exception.NotFoundException;
+import com.mercadolibre.be_java_hisp_w31_g3.model.Post;
+import com.mercadolibre.be_java_hisp_w31_g3.model.Product;
+import com.mercadolibre.be_java_hisp_w31_g3.model.User;
+import com.mercadolibre.be_java_hisp_w31_g3.repository.IUserRepository;
+import com.mercadolibre.be_java_hisp_w31_g3.util.PostMapper;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
+
+import java.time.DateTimeException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.function.Predicate;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Optional;
+
+@Service
+@RequiredArgsConstructor
+public class PostService implements IPostService {
+    private final IUserRepository userRepository;
+
+    @Override
+    public UserDto getPostFollowed(Long id, String order) {
+<span class="fc" id="L32">        checkUserExists(id);</span>
+
+<span class="fc" id="L34">        LocalDate date = LocalDate.now().minusWeeks(2);</span>
+<span class="fc" id="L35">        Optional&lt;User&gt; user = userRepository.getById(id);</span>
+
+<span class="fc" id="L37">        List&lt;PostDto&gt; posts = user.get().getFollowed().stream()</span>
+<span class="fc" id="L38">                .flatMap(u -&gt; u.getPosts().stream()</span>
+<span class="fc" id="L39">                        .filter(post -&gt; post.getDate().isAfter(date))</span>
+<span class="fc" id="L40">                        .map(PostMapper::convertToPostDto))</span>
+<span class="fc" id="L41">                .toList();</span>
+
+<span class="fc" id="L43">        return UserDto.builder().userId(id).posts(getPostListOrderedByDate(order, posts)).build();</span>
+    }
+
+    @Override
+    public void addPost(PostDto postDto) {
+<span class="fc" id="L48">        checkUserExists(postDto.getUserId());</span>
+<span class="fc" id="L49">        checkProductUniqueness(postDto);</span>
+
+<span class="fc" id="L51">        ProductDto productDto = postDto.getProduct();</span>
+<span class="fc" id="L52">        Post post = createPost(postDto, productDto);</span>
+
+<span class="fc" id="L54">        userRepository.addPost(postDto.getUserId(), post);</span>
+<span class="fc" id="L55">    }</span>
+
+
+    @Override
+    public UserDto getPromoPostByUserId(Long userId) {
+<span class="fc" id="L60">        checkUserExists(userId);</span>
+
+<span class="fc" id="L62">        User user = userRepository.getById(userId).get();</span>
+<span class="fc" id="L63">        List&lt;PostDto&gt; promoPosts = user.getPosts().stream()</span>
+<span class="fc" id="L64">                .filter(Post::getHasPromo)</span>
+<span class="fc" id="L65">                .map(PostMapper::convertToPostDto)</span>
+<span class="fc" id="L66">                .toList();</span>
+
+<span class="fc bfc" id="L68" title="All 2 branches covered.">        if (promoPosts.isEmpty()) {</span>
+<span class="fc" id="L69">            throw new NotFoundException(&quot;No hay Productos en promoción&quot;);</span>
+        }
+
+<span class="fc" id="L72">        return UserDto.builder()</span>
+<span class="fc" id="L73">                .userId(user.getUserId())</span>
+<span class="fc" id="L74">                .userName(user.getUserName())</span>
+<span class="fc" id="L75">                .posts(promoPosts).build();</span>
+    }
+
+    @Override
+    public List&lt;PostDto&gt; getPostList(){
+<span class="fc" id="L80">        return userRepository.getAll().stream()</span>
+<span class="fc" id="L81">                .flatMap(user -&gt; user.getPosts().stream())</span>
+<span class="fc" id="L82">                .map(PostMapper::convertToPostDto).toList();</span>
+    }
+
+    @Override
+    public UserDto getPromoPostCount(Long userId) {
+<span class="fc" id="L87">        checkUserExists(userId);</span>
+
+<span class="fc" id="L89">        User user = userRepository.getById(userId).get();</span>
+<span class="fc" id="L90">        Long postWithPromoCount = user.getPosts().stream().filter(Post::getHasPromo).count();</span>
+
+<span class="fc" id="L92">        return UserDto.builder()</span>
+<span class="fc" id="L93">                .userId(user.getUserId())</span>
+<span class="fc" id="L94">                .userName(user.getUserName())</span>
+<span class="fc" id="L95">                .promoProductsCount(postWithPromoCount).build();</span>
+    }
+
+    @Override
+    public List&lt;PostDto&gt; getPostsByFilter(Double discount, Long categoryId, String color, Boolean hasPromo) {
+<span class="pc bpc" id="L100" title="3 of 8 branches missed.">        if (discount == null &amp;&amp; categoryId == null &amp;&amp; color.isEmpty() &amp;&amp; hasPromo == null) {</span>
+<span class="fc" id="L101">            return getPostList();</span>
+        }
+
+<span class="fc" id="L104">        Predicate&lt;PostDto&gt; postPredicate = createPostFilterPredicate(discount, categoryId, color, hasPromo);</span>
+
+<span class="fc" id="L106">        List&lt;PostDto&gt; postDtos = getPostList().stream()</span>
+<span class="fc" id="L107">                                .filter(postPredicate)</span>
+<span class="fc" id="L108">                                .toList();</span>
+
+<span class="fc bfc" id="L110" title="All 2 branches covered.">        if (postDtos.isEmpty()) {</span>
+<span class="fc" id="L111">            throw new NotFoundException(&quot;No se encontraron publicaciones con el filtro proporcionado.&quot;);</span>
+        }
+
+<span class="fc" id="L114">        return postDtos;</span>
+    }
+
+    private List&lt;PostDto&gt; getPostListOrderedByDate(String order, List&lt;PostDto&gt; postList) {
+<span class="fc bfc" id="L118" title="All 3 branches covered.">        switch (order) {</span>
+            case &quot;date_asc&quot;:
+<span class="fc" id="L120">                postList = postList.stream().sorted(Comparator.comparing(PostDto::getDate)).toList();</span>
+<span class="fc" id="L121">                break;</span>
+            case &quot;date_desc&quot;:
+<span class="fc" id="L123">                postList = postList.stream().sorted(Comparator.comparing(PostDto::getDate).reversed()).toList();</span>
+<span class="fc" id="L124">                break;</span>
+            default:
+<span class="fc" id="L126">                throw new NotFoundException(&quot;No se encontró el tipo de ordenamiento solicitado&quot;);</span>
+        }
+<span class="fc" id="L128">        return postList;</span>
+    }
+
+    private void checkUserExists(Long userId) {
+<span class="fc bfc" id="L132" title="All 2 branches covered.">        if (!userRepository.isAnyMatch(user -&gt; user.getUserId().equals(userId))) {</span>
+<span class="fc" id="L133">            throw new NotFoundException(&quot;No se encontró el usuario con el id ingresado&quot;);</span>
+        }
+<span class="fc" id="L135">    }</span>
+
+    private void checkProductUniqueness(PostDto postDto) {
+<span class="fc" id="L138">        Predicate&lt;PostDto&gt; postDtoPredicate = post -&gt; post.getProduct().getProductName()</span>
+<span class="fc bfc" id="L139" title="All 2 branches covered.">                .equals(postDto.getProduct().getProductName())</span>
+<span class="pc bpc" id="L140" title="1 of 2 branches missed.">                &amp;&amp; post.getProduct().getBrand().equals(postDto.getProduct().getBrand())</span>
+<span class="pc bpc" id="L141" title="1 of 2 branches missed.">                &amp;&amp; post.getProduct().getType().equals(postDto.getProduct().getType())</span>
+<span class="pc bpc" id="L142" title="1 of 2 branches missed.">                &amp;&amp; post.getProduct().getColor().equals(postDto.getProduct().getColor())</span>
+<span class="pc bpc" id="L143" title="1 of 2 branches missed.">                &amp;&amp; post.getProduct().getNotes().equals(postDto.getProduct().getNotes());</span>
+
+<span class="fc" id="L145">        Optional&lt;PostDto&gt; exactMatch = getPostList().stream()</span>
+<span class="fc" id="L146">                .filter(postDtoPredicate</span>
+<span class="pc bpc" id="L147" title="1 of 2 branches missed.">                        .and(post -&gt; !post.getProduct().getProductId().equals(postDto.getProduct().getProductId())))</span>
+<span class="fc" id="L148">                .findFirst();</span>
+
+<span class="fc bfc" id="L150" title="All 2 branches covered.">        if (exactMatch.isPresent()) {</span>
+<span class="fc" id="L151">            throw new ConflictException(&quot;Un producto con las mismas características ya existe, id: &quot;</span>
+<span class="fc" id="L152">                    + exactMatch.get().getProduct().getProductId());</span>
+        }
+
+<span class="fc" id="L155">        boolean hasProductWithDifferentCharacteristics = getPostList().stream()</span>
+<span class="fc bfc" id="L156" title="All 2 branches covered.">                .anyMatch(post -&gt; post.getProduct().getProductId().equals(postDto.getProduct().getProductId()))</span>
+<span class="pc bpc" id="L157" title="1 of 2 branches missed.">                &amp;&amp; getPostList().stream().noneMatch(postDtoPredicate);</span>
+
+<span class="fc bfc" id="L159" title="All 2 branches covered.">        if (hasProductWithDifferentCharacteristics) {</span>
+<span class="fc" id="L160">            throw new ConflictException(</span>
+                    &quot;Un producto con el id ingresado con diferentes características ya existe. Ingrese un id diferente.&quot;);
+        }
+<span class="fc" id="L163">    }</span>
+
+    private Post createPost(PostDto postDto, ProductDto productDto) {
+<span class="fc" id="L166">        LocalDate formattedDate = LocalDate.parse(postDto.getDate(), DateTimeFormatter.ofPattern(&quot;dd-MM-yyyy&quot;));</span>
+<span class="fc" id="L167">        Product product = Product.builder()</span>
+<span class="fc" id="L168">                .productId(productDto.getProductId())</span>
+<span class="fc" id="L169">                .productName(productDto.getProductName())</span>
+<span class="fc" id="L170">                .type(productDto.getType())</span>
+<span class="fc" id="L171">                .brand(productDto.getBrand())</span>
+<span class="fc" id="L172">                .color(productDto.getColor())</span>
+<span class="fc" id="L173">                .notes(productDto.getNotes())</span>
+<span class="fc" id="L174">                .build();</span>
+
+<span class="fc" id="L176">        return Post.builder()</span>
+<span class="fc" id="L177">                .postId(Post.getGeneratedId())</span>
+<span class="fc" id="L178">                .price(postDto.getPrice())</span>
+<span class="fc" id="L179">                .date(formattedDate)</span>
+<span class="fc" id="L180">                .categoryId(postDto.getCategoryId())</span>
+<span class="fc" id="L181">                .userId(postDto.getUserId())</span>
+<span class="fc" id="L182">                .product(product)</span>
+<span class="fc" id="L183">                .hasPromo(postDto.getHasPromo())</span>
+<span class="fc" id="L184">                .discount(postDto.getDiscount())</span>
+<span class="fc" id="L185">                .build();</span>
+    }
+
+    private static Predicate&lt;PostDto&gt; createPostFilterPredicate(Double discount, Long categoryId, String color, Boolean hasPromo) {
+<span class="pc" id="L189">        Predicate&lt;PostDto&gt; postPredicate = p -&gt; true;</span>
+
+<span class="fc bfc" id="L191" title="All 2 branches covered.">        if (hasPromo != null) {</span>
+<span class="fc" id="L192">            postPredicate = p -&gt; p.getHasPromo().equals(hasPromo);</span>
+        }
+<span class="pc bpc" id="L194" title="2 of 4 branches missed.">        Boolean hasDiscount = discount != null &amp;&amp; discount != 0;</span>
+<span class="pc bpc" id="L195" title="1 of 4 branches missed.">        Boolean isValidDiscount = discount &gt; 0 &amp;&amp; discount &lt;= 1;</span>
+<span class="pc bpc" id="L196" title="1 of 4 branches missed.">        if (!hasDiscount || !isValidDiscount) {</span>
+<span class="fc" id="L197">            throw new BadRequestException(&quot;El valor del descuento no es válido&quot;);</span>
+        }
+<span class="pc bpc" id="L199" title="2 of 4 branches missed.">        if (hasDiscount &amp;&amp; isValidDiscount) {</span>
+<span class="fc" id="L200">            postPredicate = postPredicate.and(p -&gt; p.getDiscount().equals(discount));</span>
+        }
+
+<span class="pc bpc" id="L203" title="3 of 4 branches missed.">        if (categoryId != null &amp;&amp; categoryId != 0) {</span>
+<span class="nc" id="L204">            postPredicate = postPredicate.and(p -&gt; p.getCategoryId().equals(categoryId));</span>
+        }
+
+<span class="pc bpc" id="L207" title="1 of 2 branches missed.">        if (!color.isEmpty()) {</span>
+<span class="fc" id="L208">            postPredicate = postPredicate.and(p -&gt; p.getProduct().getColor().toLowerCase()</span>
+<span class="fc" id="L209">                    .contains(color.toLowerCase()));</span>
+        }
+<span class="fc" id="L211">        return postPredicate;</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>

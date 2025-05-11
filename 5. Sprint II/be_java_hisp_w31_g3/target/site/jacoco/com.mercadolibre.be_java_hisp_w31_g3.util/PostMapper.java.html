@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PostMapper.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">be_java_hisp_w31_g3</a> &gt; <a href="index.source.html" class="el_package">com.mercadolibre.be_java_hisp_w31_g3.util</a> &gt; <span class="el_source">PostMapper.java</span></div><h1>PostMapper.java</h1><pre class="source lang-java linenums">package com.mercadolibre.be_java_hisp_w31_g3.util;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.mercadolibre.be_java_hisp_w31_g3.dto.PostDto;
+import com.mercadolibre.be_java_hisp_w31_g3.dto.ProductDto;
+import com.mercadolibre.be_java_hisp_w31_g3.model.Post;
+
+import java.time.format.DateTimeFormatter;
+import java.util.List;
+
+<span class="nc" id="L11">public class PostMapper {</span>
+
+<span class="fc" id="L13">    private static final ObjectMapper mapper = new ObjectMapper();</span>
+
+    public static List&lt;PostDto&gt; convertPostsToDtos(List&lt;Post&gt; posts){
+<span class="fc" id="L16">        return posts.stream().map(PostMapper::convertToPostDto).toList();</span>
+    }
+
+    public static PostDto convertToPostDto(Post post){
+<span class="fc" id="L20">        DateTimeFormatter formatter = DateTimeFormatter.ofPattern(&quot;dd-MM-yyyy&quot;);</span>
+
+<span class="fc" id="L22">        return PostDto.builder()</span>
+<span class="fc" id="L23">                .postId(post.getPostId())</span>
+<span class="fc" id="L24">                .userId(post.getUserId())</span>
+<span class="fc" id="L25">                .date(post.getDate().format(formatter))</span>
+<span class="fc" id="L26">                .product(mapper.convertValue(post.getProduct(), ProductDto.class))</span>
+<span class="fc" id="L27">                .categoryId(post.getCategoryId())</span>
+<span class="fc" id="L28">                .price(post.getPrice())</span>
+<span class="fc" id="L29">                .hasPromo(post.getHasPromo())</span>
+<span class="fc" id="L30">                .discount(post.getDiscount())</span>
+<span class="fc" id="L31">                .build();</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>

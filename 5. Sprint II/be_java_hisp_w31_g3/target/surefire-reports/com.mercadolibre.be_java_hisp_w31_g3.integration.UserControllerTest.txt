@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.mercadolibre.be_java_hisp_w31_g3.integration.UserControllerTest
+-------------------------------------------------------------------------------
+Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.799 s -- in com.mercadolibre.be_java_hisp_w31_g3.integration.UserControllerTest

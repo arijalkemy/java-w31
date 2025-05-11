@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>UserController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">be_java_hisp_w31_g3</a> &gt; <a href="index.source.html" class="el_package">com.mercadolibre.be_java_hisp_w31_g3.controller</a> &gt; <span class="el_source">UserController.java</span></div><h1>UserController.java</h1><pre class="source lang-java linenums">package com.mercadolibre.be_java_hisp_w31_g3.controller;
+
+import com.mercadolibre.be_java_hisp_w31_g3.dto.UserDto;
+import com.mercadolibre.be_java_hisp_w31_g3.service.IUserService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@RequestMapping(&quot;/users&quot;)
+@RequiredArgsConstructor
+public class UserController {
+
+    private final IUserService userService;
+
+    @GetMapping()
+    public ResponseEntity&lt;List&lt;UserDto&gt;&gt; getUsers(){
+<span class="nc" id="L21">        return new ResponseEntity&lt;&gt;(userService.getUsers(), HttpStatus.OK);</span>
+    }
+
+    @GetMapping(&quot;/{userId}/followers/count&quot;)
+    public ResponseEntity&lt;UserDto&gt; getFollowersCount(@PathVariable Long userId) {
+<span class="fc" id="L26">        return new ResponseEntity&lt;&gt;(userService.getFollowersCount(userId), HttpStatus.OK);</span>
+    }
+
+    @PostMapping(&quot;/{userId}/follow/{userIdToFollow}&quot;)
+    public ResponseEntity&lt;Void&gt; addFollower(@PathVariable Long userId, @PathVariable Long userIdToFollow){
+<span class="fc" id="L31">        userService.addFollower(userId, userIdToFollow);</span>
+<span class="fc" id="L32">        return new ResponseEntity&lt;&gt;(HttpStatus.OK);</span>
+    }
+
+    @GetMapping(&quot;/{userId}/followers/list&quot;)
+    public ResponseEntity&lt;UserDto&gt; getFollowersByUserId(@PathVariable Long userId,
+                                                        @RequestParam(required = false, defaultValue = &quot;&quot;) String order) {
+<span class="fc" id="L38">        return new ResponseEntity&lt;&gt;(userService.getFollowersById(userId, order), HttpStatus.OK);</span>
+    }
+
+    @GetMapping(&quot;/{userId}/followed/list&quot;)
+    public ResponseEntity&lt;UserDto&gt; getFollowedByUserId(@PathVariable Long userId,
+                                                        @RequestParam(required = false, defaultValue = &quot;&quot;) String order) {
+<span class="fc" id="L44">        return new ResponseEntity&lt;&gt;(userService.getFollowedList(userId, order), HttpStatus.OK);</span>
+    }
+
+    @PutMapping(&quot;/{userId}/unfollow/{userIdToUnfollow}&quot;)
+    public ResponseEntity&lt;Void&gt; unfollowUser(@PathVariable Long userId, @PathVariable Long userIdToUnfollow){
+<span class="fc" id="L49">        userService.unfollowUser(userId, userIdToUnfollow);</span>
+<span class="fc" id="L50">        return new ResponseEntity&lt;&gt;(HttpStatus.OK);</span>
+    }
+
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>
