@@ -1,0 +1,11 @@
+nombre,apellido,id_plan,velocidad,precio,descuento
+Mario,Ramírez,5,500,79.99,15.00
+Luis,Fernández,5,500,79.99,15.00
+Ana,López,4,300,59.99,10.00
+Elena,Torres,4,300,59.99,10.00
+Pedro,Martínez,3,200,49.99,7.50
+Diego,Sánchez,3,200,49.99,7.50
+María,González,2,100,39.99,5.00
+Sofía,García,2,100,39.99,5.00
+Juan,Pérez,1,50,29.99,0.00
+Laura,Díaz,1,50,29.99,0.00
