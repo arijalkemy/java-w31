@@ -1,0 +1,42 @@
+**¿Cuáles serían las entidades de este sistema?**
+
+- Cliente
+- Pedido
+- Producto
+
+**¿Qué atributos se determinarán para cada entidad?**
+
+Cliente
+- DNI
+- Nombre
+- Apellido
+- Correo
+- Teléfono
+
+Pedido
+- Número
+- Fecha
+- Valor
+- DNI del cliente
+
+Producto
+- Código
+- Nombre
+- Cantidad
+- Precio unitario
+
+Pedido-Producto
+- Identificador
+- Número de pedido
+- Código de producto
+- Cantidad de productos
+
+**¿Cómo se conformarán las relaciones entre entidades? ¿Cuáles serían las cardinalidades?**
+
+Un cliente hace varios pedidos, uno a muchos
+
+Varios pedidos tienen varios productos, muchos a muchos (Tabla Pedido-Producto)
+- Un pedido está en varios registros de Pedido-Producto, uno a muchos
+- Un producto está en varios registros de Pedido-Producto, uno a muchos
+
+**Realizar un DER para modelar el escenario planteado.**
