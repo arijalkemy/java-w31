@@ -1,0 +1,10 @@
+com/mercadolibre/socialmeli/repository/ProductRepositoryImplTest.class
+com/mercadolibre/socialmeli/integration/UserControllerIntegrationTest.class
+com/mercadolibre/socialmeli/integration/ProductControllerIntegrationTest.class
+com/mercadolibre/socialmeli/repository/UserRepositoryImplTest.class
+com/mercadolibre/socialmeli/controller/UserControllerTest.class
+com/mercadolibre/socialmeli/factory/TestFactory.class
+com/mercadolibre/socialmeli/SocialmeliApplicationTests.class
+com/mercadolibre/socialmeli/service/UserServiceImplTest.class
+com/mercadolibre/socialmeli/service/ProductServiceImplTest.class
+com/mercadolibre/socialmeli/controller/ProductControllerTest.class
