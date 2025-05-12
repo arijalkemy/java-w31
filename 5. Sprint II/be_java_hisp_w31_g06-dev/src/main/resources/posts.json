@@ -1,0 +1,19 @@
+[
+  {
+    "userId": 1,
+    "postId": 101,
+    "date": "2025-04-15",
+    "product": {
+      "productId": 501,
+      "productName": "Sneakers",
+      "type": "Footwear",
+      "brand": "Nike",
+      "color": "Red",
+      "notes": "Limited edition"
+    },
+    "category": 10,
+    "price": 199.99,
+    "hasPromo": false,
+    "discount": 0.0
+  }
+]
