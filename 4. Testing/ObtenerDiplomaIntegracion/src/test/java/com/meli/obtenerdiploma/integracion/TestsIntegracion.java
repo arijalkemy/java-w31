@@ -40,18 +40,12 @@ public class TestsIntegracion {
     @Autowired
     private ObjectMapper objectMapper;
 
-    @Autowired
-    private StudentDAO studentDAO;
-
-    private StudentDTO testStudent;
-
     @BeforeEach
     void setUp() throws IOException {
         File originalFile = new File(ORIGINAL_JSON_FILE);
         if(!originalFile.exists()) {
             Files.copy(Paths.get(TEST_JSON_FILE), Paths.get(ORIGINAL_JSON_FILE), StandardCopyOption.REPLACE_EXISTING);
         }
-        studentDAO = new StudentDAO();
     }
 
     @AfterEach
