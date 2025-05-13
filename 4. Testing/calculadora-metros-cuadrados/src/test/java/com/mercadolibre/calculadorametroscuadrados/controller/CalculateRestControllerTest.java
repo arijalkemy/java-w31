@@ -19,6 +19,7 @@ import java.util.List;
 
 import static com.mercadolibre.calculadorametroscuadrados.util.CalculatorUtil.getHouse;
 import static com.mercadolibre.calculadorametroscuadrados.util.CalculatorUtil.getRoom;
+import static org.hamcrest.collection.IsIterableContainingInAnyOrder.containsInAnyOrder;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
@@ -44,6 +45,25 @@ class CalculateRestControllerTest {
                 getRoom("Cocina", 3, 3),
                 getRoom("Baño", 2, 1)
         );
+    }
+
+    //Testeamos el dto
+    @Test
+    void calculateHouseBrokenDto() throws Exception {
+        HouseDTO house = getHouse(List.of(
+                getRoom("Espacio abierto", 5, 5)
+        ));
+
+        house.setName("");
+        house.setAddress("Monroe 800");
+
+        performPost(house)
+                .andExpect(status().isBadRequest())
+                .andExpect(jsonPath("$", containsInAnyOrder(
+                        "name: must not be blank",
+                        "name: length must be between 3 and 20",
+                        "address: Address must follow the format 'Street Name 123, City, Country'"
+                )));
     }
 
     @Test
