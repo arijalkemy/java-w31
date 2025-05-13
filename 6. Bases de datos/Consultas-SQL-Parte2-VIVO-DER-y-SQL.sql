@@ -40,10 +40,11 @@ La relación entre tablas es de uno a uno, un cliente puede tener un plan.
 En la tabla Cliente debería haber Foreign Key.
 Por lo tanto la tabla Cliente tiene un campo que se llama id plan, la cual es FK de la tabla Plan.
 
+DROP TABLE  IF EXISTS empresa_internet;
 CREATE DATABASE empresa_internet;
-
 USE empresa_internet;
 
+DROP TABLE IF EXISTS plan_de_internet;
 CREATE TABLE plan_de_internet(
         id VARCHAR(6) PRIMARY KEY,
         megas INTEGER,
@@ -51,6 +52,7 @@ CREATE TABLE plan_de_internet(
         descuento DECIMAL(10,2)
 );
 
+DROP TABLE IF EXISTS cliente;
 CREATE TABLE cliente (
         dni VARCHAR(20) PRIMARY KEY,
         nombre VARCHAR(100),  
