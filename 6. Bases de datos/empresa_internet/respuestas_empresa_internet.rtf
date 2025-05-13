@@ -1,0 +1,25 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2822
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 ArialMT;\f1\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red83\green83\blue83;\red255\green255\blue255;
+\red42\green49\blue64;\red14\green18\blue29;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;\cssrgb\c40000\c40000\c40000;\cssrgb\c100000\c100000\c100000;
+\cssrgb\c21569\c25490\c31765;\cssrgb\c6667\c9412\c15294;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh11240\viewkind0
+\deftab720
+\pard\pardeftab720\li567\fi-568\qj\partightenfactor0
+
+\f0\fs22 \cf2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec3 a.\'a0\'bfCu\'e1l es la primary key para la tabla de clientes? Justificar respuesta\
+La primary key de la tabal clientes es id_cliente, dado que es un valor \'fanico y no repetido que identificara de manera exclusiva a cada cliente, permitiendo diferenciar de forma inequivoca cada registro. \strokec2 \
+\
+\strokec3 b. \'bfCu\'e1l es la primary key para la tabla de planes de internet? Justificar respuesta.\
+La primary key de la tabla planes_internet es id_plan ya que identifica de forma \'fanica y exclusiva cada plan, asegurando que sea \'fanico y no se duplique. \strokec2 \
+\
+\strokec3 c.\'a0\'bfC\'f3mo ser\'edan las relaciones entre tablas? \'bfEn qu\'e9 tabla deber\'eda haber foreign key? \'bfA qu\'e9 campo de qu\'e9 tabla hace referencia dicha foreign key? Justificar respuesta.\strokec2 \
+\pard\pardeftab720\sa400\partightenfactor0
+\cf2 \cb4 \strokec5 Existe una relaci\'f3n de \strokec6 muchos a uno\strokec5  (N:1) entre clientes y planes de internet, \strokec6 muchos clientes\strokec5 \'a0pueden tener\'a0\strokec6 el mismo plan\strokec5 , pero\'a0\strokec6 cada cliente solo puede tener un plan\strokec5 .\
+La clave for\'e1nea debe estar en la tabla \strokec6 clientes\strokec5 , ya que es \'93el cliente\'94 quien elige un plan, no al rev\'e9s.\
+El campo \strokec6 id_plan\strokec5  en la tabla \strokec6 clientes\strokec5  es una \strokec6 foreign key\strokec5  que hace referencia al campo \strokec6 id_plan\strokec5  de la tabla \strokec6 planes_internet\strokec5 .\
+De esta manera, podemos vincular a cada cliente con el plan que tiene contratado, asegurando la integridad de los datos (que cada cliente tenga asociado un plan v\'e1lido que exista en la tabla de planes).
+\f1\fs32 \cf5 \
+}
