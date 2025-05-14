@@ -1,0 +1,12 @@
+com/mercadolibre/socialmeli/service/UserServiceTests.class
+com/mercadolibre/socialmeli/repository/UserRepositoryTests.class
+com/mercadolibre/socialmeli/repository/ProductRepositoryTests.class
+com/mercadolibre/socialmeli/integration/IntegrationTests.class
+com/mercadolibre/socialmeli/controller/ProductsControllerTests.class
+com/mercadolibre/socialmeli/util/TestDataFactory$FakeProductRepositoryImpl.class
+com/mercadolibre/socialmeli/BeJavaHispW31G06ApplicationTests.class
+com/mercadolibre/socialmeli/util/TestDataFactory$FakeUserRepositoryImpl.class
+com/mercadolibre/socialmeli/controller/UsersControllerTests.class
+com/mercadolibre/socialmeli/service/ProductServiceTest.class
+com/mercadolibre/socialmeli/util/TestDataFactory$1.class
+com/mercadolibre/socialmeli/util/TestDataFactory.class

@@ -1,0 +1,12 @@
+-------------------------------------------------------------------------------
+Test set: com.mercadolibre.socialmeli.service.ProductServiceTest
+-------------------------------------------------------------------------------
+Tests run: 28, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.248 s <<< FAILURE! -- in com.mercadolibre.socialmeli.service.ProductServiceTest
+com.mercadolibre.socialmeli.service.ProductServiceTest.getRecentSellerPostsForUser_ShouldReturnSellerPostsFromLastTwoWeeks_WhenGivenValidUser -- Time elapsed: 0.005 s <<< ERROR!
+com.mercadolibre.socialmeli.exception.NotFoundException: No se encontraron publicaciones de las últimas 2 semanas para los seguidos del usuario con ID: 100
+	at com.mercadolibre.socialmeli.service.ProductServiceImpl.getRecentSellerPostsForUser(ProductServiceImpl.java:120)
+	at com.mercadolibre.socialmeli.service.ProductServiceTest.getRecentSellerPostsForUser_ShouldReturnSellerPostsFromLastTwoWeeks_WhenGivenValidUser(ProductServiceTest.java:361)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+
