@@ -39,8 +39,9 @@ INSERT INTO empleado (cod_emp, nombre, apellido, puesto, fecha_alta, salario, co
 ('E-0006', 'Mito', 'Barchuk', 'Presidente', '2014-06-05', 190000, 0, 'D-000-3'),
 ('E-0007', 'Emilio', 'Galarza', 'Desarrollador', '2014-08-02', 60000, 0, 'D-000-1');
 
-# Seleccionar el nombre, el puesto y la localidad de los departamentos donde trabajan los vendedores.
-SELECT e.nombre, e.puesto, d.localidad
+# Seleccionar el nombre, el puesto y la localidad de los 
+# departamentos donde trabajan los vendedores.
+SELECT d.nombre_depto, e.puesto, d.localidad
 FROM empleado e
 INNER JOIN departamento d on e.depto_nro = d.depto_nro
 WHERE e.puesto = "Vendedor";
@@ -56,7 +57,7 @@ HAVING total_empleados > 5;
 SELECT e.nombre, e.salario, d.nombre_depto
 FROM empleado e
 INNER JOIN departamento d on e.depto_nro = d.depto_nro
-WHERE e.puesto = (SELECT puest FROM empleado WHERE nombre = 'Mito' AND apellido = 'Barchuk');
+WHERE e.puesto = (SELECT puesto FROM empleado WHERE nombre = 'Mito' AND apellido = 'Barchuk');
 
 # Mostrar los datos de los empleados que trabajan en el departamento de contabilidad, ordenados por nombre.
 SELECT e.nombre, e.apellido, e.puesto, e.salario

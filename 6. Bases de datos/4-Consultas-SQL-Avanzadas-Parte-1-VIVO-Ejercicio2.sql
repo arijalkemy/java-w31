@@ -54,7 +54,7 @@ INSERT INTO libro VALUES
 (1, 'Introducción a SQL', 'McGraw-Hill', 'Bases de Datos'),
 (2, 'Estructuras de Datos', 'Pearson', 'Programación'),
 (3, 'Fundamentos de Redes', 'Alfaomega', 'Redes'),
-(4, 'Programación en Python', 'Anaya', 'Programación'),
+(4, 'Programación en Python', 'Anaya', 'Internet'),
 (5, 'Cálculo Diferencial', 'Trillas', 'Matemáticas');
 
 -- AUTOR
@@ -78,7 +78,7 @@ INSERT INTO libroautor VALUES
 -- ESTUDIANTE
 INSERT INTO ESTUDIANTE VALUES
 (100, 'Filippo', 'Galli', 'Calle 123', 'Informática', 21),
-(101, 'Pedro', 'Ramírez', 'Avenida 45', 'Matemáticas', 22),
+(101, 'Gabriel', 'Ramírez', 'Avenida 45', 'Matemáticas', 22),
 (102, 'Andrea', 'López', 'Cra 45 #12', 'Ingeniería Electrónica', 20),
 (103, 'Carlos', 'Díaz', 'Calle 89 #21', 'Física', 23),
 (104, 'Valeria', 'Suárez', 'Av. Siempre Viva 742', 'Matemáticas', 22),
@@ -114,7 +114,7 @@ WHERE nacionalidad IN ("Francesa", "Italiana");
 # ¿Qué libros no son del área de internet?
 SELECT *
 FROM libro
-WHERE area IN ("Programación");
+WHERE area NOT IN ("Internet");
 
 # Listar los libros de la editorial Salamandra.
 SELECT *
@@ -129,10 +129,10 @@ WHERE edad > (SELECT AVG(edad) from estudiante);
 # Listar los nombres de los estudiantes cuyo apellido comience con la letra G.
 SELECT *
 FROM estudiante
-WHERE nombre LIKE "G%";
+WHERE apellido LIKE "G%";
 
 # Listar los autores del libro “El Universo: Guía de viaje”. 
-SELECT *
+SELECT a.idAutor, a.Nombre, a.Nacionalidad
 FROM autor a
 INNER JOIN libroautor la on a.idAutor = la.idAutor
 INNER JOIN libro l on l.idLibro = la.idLibro
@@ -148,7 +148,8 @@ WHERE e.nombre = "Filippo" AND e.apellido = "Galli";
 # Listar el nombre del estudiante de menor edad.
 SELECT *
 FROM estudiante
-WHERE edad < 18;
+ORDER BY edad
+LIMIT 1;
 
 # Listar nombres de los estudiantes a los que se prestaron libros de Base de Datos.
 SELECT e.nombre, e.apellido
@@ -169,3 +170,4 @@ SELECT *
 FROM libro l
 INNER JOIN prestamo p ON l.idLibro = p.idLibro
 WHERE fechaDevolucion = "2021-07-16";
+
