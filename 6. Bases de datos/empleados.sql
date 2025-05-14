@@ -1,7 +1,8 @@
 # Seleccionar el nombre, el puesto y la localidad de los departamentos donde trabajan los vendedores.
 select e.nombre, e.puesto, d.localidad
 from empleado e
-join departamento d on e.depto_nro = e.depto_nro;
+join departamento d on e.depto_nro = e.depto_nro
+where e.puesto = "Vendedor";
 
 # Visualizar los departamentos con más de cinco empleados.
 select d.*
