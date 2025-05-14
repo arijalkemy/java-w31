@@ -1,0 +1,11 @@
+**¿Cuál es la primary key para la tabla de clientes?**
+
+El DNI porque identifica de forma unequívoca a un cliente y no pueden haber dos clientes con el valor
+
+**¿Cuál es la primary key para la tabla de planes de internet?**
+
+La identificación del plan, porque debe servir para diferenciar unequívocamente un plan de otro
+
+**¿Cómo serían las relaciones entre tablas? ¿En qué tabla debería haber foreign key? ¿A qué campo de qué tabla hace referencia dicha foreign key?**
+
+Se puede establecer una relacion uno a muchos entre la tabla de clientes y la tabla de planes, según la cual un cliente podría contratar uno o más planes de internet. En ese caso la tabla de planes debería tener una llave foranea que referencia el DNI del cliente al que le pertenece el plan.
