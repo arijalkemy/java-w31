@@ -358,3 +358,71 @@ UNLOCK TABLES;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2017-06-12 10:09:28
+
+-- crear una tabla temporal llamada “TWD” y guardar en la misma los episodios de todas las temporadas de “The Walking Dead”.
+DROP TABLE TWD;
+CREATE TEMPORARY TABLE TWD
+SELECT e.title episode, e.number episode_num, e.rating episode_rating, ss.title season, ss.number season_num
+FROM series s
+INNER JOIN seasons ss ON s.id = ss.serie_id
+INNER JOIN episodes e ON ss.id = e.season_id
+WHERE s.title = 'The Walking Dead';
+
+-- Realizar una consulta a la tabla temporal para ver los episodios de la primera temporada.
+SELECT * FROM TWD WHERE season_num = 1;
+
+-- seleccionar una tabla donde crear un índice y luego chequear la creación del mismo.
+CREATE INDEX movies_length_idx ON movies (length);
+
+SHOW INDEX FROM movies;
+
+EXPLAIN SELECT *
+FROM movies
+WHERE length = 120;
+
+-- Agregar una película a la tabla movies.
+INSERT INTO movies (title, rating, awards, release_date, length, genre_id) VALUES ('El Pepe', 9.8, 1, '2025-05-13', 120, 14);
+
+-- Agregar un género a la tabla genres.
+INSERT INTO genres (name, ranking, active) VALUES ('Random', 45, 1);
+
+-- Asociar a la película del punto 1. genre el género creado en el punto 2.
+SELECT * FROM genres WHERE name = 'Random';
+SELECT * FROM genres;
+
+-- Modificar la tabla actors para que al menos un actor tenga como favorita la película agregada en el punto 1.
+SELECT * FROM actors;
+SELECT * FROM movies;
+UPDATE actors SET favorite_movie_id = (SELECT id FROM movies WHERE title = 'El Pepe') WHERE id = 3;
+
+-- Crear una tabla temporal copia de la tabla movies.
+CREATE TEMPORARY TABLE movies_copy
+SELECT * FROM movies;
+
+SELECT * FROM movies_copy;
+
+-- Eliminar de esa tabla temporal todas las películas que hayan ganado menos de 5 awards.
+SET SQL_SAFE_UPDATES = 0;
+DELETE FROM movies_copy WHERE awards < 5;
+
+-- Obtener la lista de todos los géneros que tengan al menos una película.
+SELECT m.genre_id, g.name, COUNT(m.id) movies_count
+FROM movies m
+INNER JOIN genres g ON g.id = m.genre_id
+GROUP BY m.genre_id
+HAVING movies_count >= 1;
+
+-- Obtener la lista de actores cuya película favorita haya ganado más de 3 awards.
+SELECT a.first_name, a.last_name, a.favorite_movie_id, m.title, m.awards
+FROM actors a
+INNER JOIN movies m ON m.id = a.favorite_movie_id
+WHERE awards > 3;
+
+-- Crear un índice sobre el nombre en la tabla movies.
+EXPLAIN SELECT * FROM movies WHERE title LIKE 'titanic';
+SELECT * FROM movies WHERE title LIKE 'titanic';
+
+CREATE INDEX movies_title_idx ON movies (title);
+
+-- Chequee que el índice fue creado correctamente.
+SHOW INDEX FROM movies;
