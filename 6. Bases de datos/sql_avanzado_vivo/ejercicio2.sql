@@ -19,7 +19,7 @@ WHERE nacionalidad IN ('francesa', 'italiana');
 -- 5
 SELECT *
 FROM Libros
-WHERE area != 'internet'; -- O WHERE area <> 'internet';
+WHERE area != 'internet';
 
 -- 6
 SELECT *
