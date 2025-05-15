@@ -1,0 +1,279 @@
+{
+	"info": {
+		"_postman_id": "aabb2cc1-d317-48a9-9d9b-e54933e07a91",
+		"name": "ElasticSearch-Zapatillas deportivas",
+		"description": "Base de datos - Productos: zapatillas deportivas\n\n- Se solicita crear un índice (BBDD) en Elasticsearch, de zapatillas deportivas, donde se guardará información relacionada a estos productos.\n    \n- Guardar 20 registros en la base de datos creada, considerando los campos que crea necesarios.\n    \n- Comprobar con consultas los registros insertados en la nueva base de datos.\n    \n- Utilizar como cliente API Rest, la consola Dev Tools de Kibana o Postman para realizar las operaciones.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "43290559"
+	},
+	"item": [
+		{
+			"name": "Create index",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"mappings\": {\n      \"properties\": {\n        \"marca\": {\n            \"type\": \"keyword\"\n        },\n        \"modelo\": {\n            \"type\": \"text\"\n        },\n        \"precio\": {\n            \"type\": \"float\"\n        },\n        \"talla_disponible\": {\n            \"type\": \"integer\"\n        },\n        \"color\": {\n            \"type\": \"keyword\"\n        },\n        \"genero\": {\n            \"type\": \"keyword\"\n        },\n        \"categoria\": {\n            \"type\": \"keyword\" \n        },\n        \"descripcion\": {\n            \"type\": \"text\"\n        },\n        \"fecha_lanzamiento\": {\n            \"type\": \"date\"\n        },\n        \"disponibilidad\": {\n            \"type\": \"boolean\"\n        }\n    }\n  }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9200/zapatillas_deportivas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"zapatillas_deportivas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Check indices",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9200/_cat/indices",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"_cat",
+						"indices"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-ndjson",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"index\": {} }\n{ \"marca\": \"Nike\", \"modelo\": \"Air Max 90\", \"precio\": 120.0, \"talla_disponible\": 42, \"color\": \"Blanco\", \"genero\": \"Unisex\", \"categoria\": \"Running\", \"descripcion\": \"Zapatillas cómodas para correr\", \"fecha_lanzamiento\": \"2023-03-10\", \"disponibilidad\": true }\n{ \"index\": {} }\n{ \"marca\": \"Adidas\", \"modelo\": \"Ultraboost 22\", \"precio\": 150.0, \"talla_disponible\": 40, \"color\": \"Negro\", \"genero\": \"Mujer\", \"categoria\": \"Running\", \"descripcion\": \"Zapatillas con amortiguación Boost\", \"fecha_lanzamiento\": \"2022-11-05\", \"disponibilidad\": true }\n{ \"index\": {} }\n{ \"marca\": \"Puma\", \"modelo\": \"RS-X\", \"precio\": 100.0, \"talla_disponible\": 43, \"color\": \"Rojo\", \"genero\": \"Hombre\", \"categoria\": \"Urbano\", \"descripcion\": \"Diseño retro para uso diario\", \"fecha_lanzamiento\": \"2023-06-20\", \"disponibilidad\": true }\n{ \"index\": {} }\n{ \"marca\": \"Reebok\", \"modelo\": \"Nano X2\", \"precio\": 130.0, \"talla_disponible\": 41, \"color\": \"Azul\", \"genero\": \"Unisex\", \"categoria\": \"Training\", \"descripcion\": \"Para entrenamiento funcional\", \"fecha_lanzamiento\": \"2022-09-01\", \"disponibilidad\": true }\n{ \"index\": {} }\n{ \"marca\": \"New Balance\", \"modelo\": \"Fresh Foam 1080\", \"precio\": 140.0, \"talla_disponible\": 42, \"color\": \"Gris\", \"genero\": \"Hombre\", \"categoria\": \"Running\", \"descripcion\": \"Zapatilla premium para correr\", \"fecha_lanzamiento\": \"2023-01-12\", \"disponibilidad\": true }\n{ \"index\": {} }\n{ \"marca\": \"Nike\", \"modelo\": \"Air Force 1\", \"precio\": 110.0, \"talla_disponible\": 44, \"color\": \"Blanco\", \"genero\": \"Unisex\", \"categoria\": \"Urbano\", \"descripcion\": \"Clásico diseño icónico\", \"fecha_lanzamiento\": \"2021-05-15\", \"disponibilidad\": false }\n{ \"index\": {} }\n{ \"marca\": \"Adidas\", \"modelo\": \"Forum Low\", \"precio\": 95.0, \"talla_disponible\": 39, \"color\": \"Azul\", \"genero\": \"Mujer\", \"categoria\": \"Urbano\", \"descripcion\": \"Diseño clásico con estilo moderno\", \"fecha_lanzamiento\": \"2022-03-21\", \"disponibilidad\": true }\n{ \"index\": {} }\n{ \"marca\": \"Puma\", \"modelo\": \"Suede Classic\", \"precio\": 85.0, \"talla_disponible\": 41, \"color\": \"Verde\", \"genero\": \"Hombre\", \"categoria\": \"Urbano\", \"descripcion\": \"Zapatillas de ante clásicas\", \"fecha_lanzamiento\": \"2023-02-10\", \"disponibilidad\": true }\n{ \"index\": {} }\n{ \"marca\": \"Reebok\", \"modelo\": \"Classic Leather\", \"precio\": 90.0, \"talla_disponible\": 40, \"color\": \"Blanco\", \"genero\": \"Mujer\", \"categoria\": \"Casual\", \"descripcion\": \"Estilo vintage para el día a día\", \"fecha_lanzamiento\": \"2022-07-08\", \"disponibilidad\": false }\n{ \"index\": {} }\n{ \"marca\": \"New Balance\", \"modelo\": \"327\", \"precio\": 110.0, \"talla_disponible\": 42, \"color\": \"Beige\", \"genero\": \"Unisex\", \"categoria\": \"Casual\", \"descripcion\": \"Estética retro y versátil\", \"fecha_lanzamiento\": \"2023-04-18\", \"disponibilidad\": true }\n{ \"index\": {} }\n{ \"marca\": \"Nike\", \"modelo\": \"ZoomX Vaporfly\", \"precio\": 250.0, \"talla_disponible\": 43, \"color\": \"Naranja\", \"genero\": \"Hombre\", \"categoria\": \"Competencia\", \"descripcion\": \"Zapatillas para corredores de élite\", \"fecha_lanzamiento\": \"2024-01-01\", \"disponibilidad\": true }\n{ \"index\": {} }\n{ \"marca\": \"Adidas\", \"modelo\": \"Adizero Pro\", \"precio\": 200.0, \"talla_disponible\": 41, \"color\": \"Rosa\", \"genero\": \"Mujer\", \"categoria\": \"Competencia\", \"descripcion\": \"Ultraligeras para velocidad\", \"fecha_lanzamiento\": \"2023-08-09\", \"disponibilidad\": true }\n{ \"index\": {} }\n{ \"marca\": \"Puma\", \"modelo\": \"Liberate Nitro\", \"precio\": 130.0, \"talla_disponible\": 42, \"color\": \"Negro\", \"genero\": \"Unisex\", \"categoria\": \"Running\", \"descripcion\": \"Ligereza y amortiguación\", \"fecha_lanzamiento\": \"2023-09-12\", \"disponibilidad\": true }\n{ \"index\": {} }\n{ \"marca\": \"Reebok\", \"modelo\": \"Floatride Energy\", \"precio\": 120.0, \"talla_disponible\": 40, \"color\": \"Gris\", \"genero\": \"Hombre\", \"categoria\": \"Running\", \"descripcion\": \"Buena relación peso-amortiguación\", \"fecha_lanzamiento\": \"2022-12-25\", \"disponibilidad\": true }\n{ \"index\": {} }\n{ \"marca\": \"New Balance\", \"modelo\": \"FuelCell Rebel\", \"precio\": 130.0, \"talla_disponible\": 44, \"color\": \"Blanco\", \"genero\": \"Mujer\", \"categoria\": \"Running\", \"descripcion\": \"Para velocidad en entrenos\", \"fecha_lanzamiento\": \"2023-05-07\", \"disponibilidad\": true }\n{ \"index\": {} }\n{ \"marca\": \"Nike\", \"modelo\": \"Pegasus Trail\", \"precio\": 140.0, \"talla_disponible\": 43, \"color\": \"Marrón\", \"genero\": \"Unisex\", \"categoria\": \"Trail\", \"descripcion\": \"Zapatillas resistentes para montaña\", \"fecha_lanzamiento\": \"2023-10-01\", \"disponibilidad\": true }\n{ \"index\": {} }\n{ \"marca\": \"Adidas\", \"modelo\": \"Terrex Agravic\", \"precio\": 135.0, \"talla_disponible\": 42, \"color\": \"Verde\", \"genero\": \"Hombre\", \"categoria\": \"Trail\", \"descripcion\": \"Para senderismo y trail running\", \"fecha_lanzamiento\": \"2023-07-01\", \"disponibilidad\": true }\n{ \"index\": {} }\n{ \"marca\": \"Puma\", \"modelo\": \"Voyage Nitro\", \"precio\": 125.0, \"talla_disponible\": 41, \"color\": \"Azul\", \"genero\": \"Mujer\", \"categoria\": \"Trail\", \"descripcion\": \"Agarre y confort en terrenos difíciles\", \"fecha_lanzamiento\": \"2023-11-15\", \"disponibilidad\": true }\n",
+					"options": {
+						"raw": {
+							"language": "text"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9200/zapatillas_deportivas/_bulk",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"zapatillas_deportivas",
+						"_bulk"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Check inserted items by marca",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"query\": {\n    \"match\": {\n      \"marca\": \"Nike\"\n    }\n  }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9200/zapatillas_deportivas/_search",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"zapatillas_deportivas",
+						"_search"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Check count of inserted items",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9200/zapatillas_deportivas/_count",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"zapatillas_deportivas",
+						"_count"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get dashboards - kibana",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "kbn-xsrf",
+						"value": "true",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:5601/api/saved_objects/_find?type=dashboard",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5601",
+					"path": [
+						"api",
+						"saved_objects",
+						"_find"
+					],
+					"query": [
+						{
+							"key": "type",
+							"value": "dashboard"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get a specific dashboard - kibana",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "kbn-xsrf",
+						"value": "true",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:5601/api/saved_objects/dashboard/a9d4ebf0-319f-11f0-bd56-bfe6bdeaa368?kbn-xsrf=true",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5601",
+					"path": [
+						"api",
+						"saved_objects",
+						"dashboard",
+						"a9d4ebf0-319f-11f0-bd56-bfe6bdeaa368"
+					],
+					"query": [
+						{
+							"key": "kbn-xsrf",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Export a specific dashboard - kibana",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "kbn-xsrf",
+						"value": "true",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"type\": [\"dashboard\"]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5601/api/saved_objects/_export",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5601",
+					"path": [
+						"api",
+						"saved_objects",
+						"_export"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

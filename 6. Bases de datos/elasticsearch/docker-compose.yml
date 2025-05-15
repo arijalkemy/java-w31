@@ -1,0 +1,49 @@
+version: '3.7'
+
+services:
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.17.4
+    container_name: elastic
+    environment:
+      - discovery.type=single-node
+      - xpack.security.enabled=false
+    ports:
+      - 9200:9200  # Puerto HTTP
+      - 9300:9300  # Puerto de transporte interno
+    networks:
+      - elastic
+
+  kibana:
+    image: docker.elastic.co/kibana/kibana:7.17.4
+    container_name: kibana
+    environment:
+      - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
+    ports:
+      - 5601:5601  # Interfaz web de Kibana
+    depends_on:
+      - elasticsearch
+    networks:
+      - elastic
+
+networks:
+  elastic:
+    driver: bridge
+
+# ==============================
+# 🧪 ¿Cómo usar este archivo?
+# ==============================
+# 1. Guardá este contenido en un archivo llamado `docker-compose.yml`.
+# 2. Abrí una terminal y navegá a la carpeta donde está el archivo.
+# 3. Asegurate de tener Colima corriendo:
+#      colima start
+# 4. Levantá los servicios:
+#      docker-compose up -d
+
+#
+# Accedé a:
+# - Elasticsearch: http://localhost:9200
+# - Kibana:        http://localhost:5601
+#
+# Para detener los servicios:
+#      docker-compose down
+# ==============================
