@@ -1,0 +1,57 @@
+{
+	"info": {
+		"_postman_id": "80d7d9c8-e363-419a-b5cc-bbe3478da8ab",
+		"name": "ElasticSearch",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "43327266"
+	},
+	"item": [
+		{
+			"name": "Creación de un index",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"mappings\":{\n        \"properties\" : {\n            \"nombre\": {\"type\": \"keyword\"},\n            \"marca\": {\"type\": \"keyword\"},\n            \"color\": {\"type\": \"text\"},\n            \"price\": {\"type\": \"integer\"}\n        }\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:9200/shoes"
+			},
+			"response": []
+		},
+		{
+			"name": "Insertamos 20 registros",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": "http://localhost:9200/shoes/_bulk"
+			},
+			"response": []
+		},
+		{
+			"name": "Consultamos sobre los 20 registros",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "cuantos registros tiene shoes",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
