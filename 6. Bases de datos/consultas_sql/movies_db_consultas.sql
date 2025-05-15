@@ -6,7 +6,7 @@ select title, rating,awards from movies where rating>7.5 and awards>2;
 select title from movies LIMIT 3;
 select title, rating from movies order by rating desc LIMIT 5;
 select first_name, last_name from actors limit 10;
-select title, rating from movies where title LIKE "Toy Story%";
+select title, rating from movies where title = "Toy Story";
 select first_name, last_name from actors where first_name LIKE 'Sam%';
 select title from movies where YEAR(release_date) BETWEEN 2004 AND 2008;
 select title from movies where rating>3 and awards>1 and YEAR(release_date) BETWEEN 1988 and 2009 order by rating desc;

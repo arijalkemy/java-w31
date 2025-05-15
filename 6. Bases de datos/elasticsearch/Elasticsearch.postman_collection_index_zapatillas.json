@@ -1,0 +1,106 @@
+{
+	"info": {
+		"_postman_id": "4feab567-cb94-4af6-afb2-63522ff86503",
+		"name": "Elasticsearch",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "43763204"
+	},
+	"item": [
+		{
+			"name": "index-zapatillas",
+			"item": [
+				{
+					"name": "crear-index",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"mappings\": {\n    \"properties\": {\n      \"marca\": {\n        \"type\": \"text\"\n      },\n      \"modelo\": {\n        \"type\": \"text\"\n      },\n      \"talla\": {\n        \"type\": \"integer\"\n      },\n      \"precio\": {\n        \"type\": \"float\"\n      },\n      \"color\": {\n        \"type\": \"text\"\n      },\n      \"disponible\": {\n        \"type\": \"boolean\"\n      }\n    }\n  }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9200/zapatillas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9200",
+							"path": [
+								"zapatillas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "crear-datos-index-varios",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \"index\": { \"_index\": \"zapatillas\" } }\n{ \"marca\": \"Adidas\", \"modelo\": \"Ultraboost 21\", \"talla\": 40, \"precio\": 130.50, \"color\": \"Negro\", \"disponible\": true }\n{ \"index\": { \"_index\": \"zapatillas\" } }\n{ \"marca\": \"Puma\", \"modelo\": \"Velocity Nitro\", \"talla\": 43, \"precio\": 99.99, \"color\": \"Azul\", \"disponible\": false }\n{ \"index\": { \"_index\": \"zapatillas\" } }\n{ \"marca\": \"Reebok\", \"modelo\": \"Nano X1\", \"talla\": 41, \"precio\": 89.99, \"color\": \"Gris\", \"disponible\": true }\n{ \"index\": { \"_index\": \"zapatillas\" } }\n{ \"marca\": \"Asics\", \"modelo\": \"Gel-Kayano 28\", \"talla\": 44, \"precio\": 140.00, \"color\": \"Rojo\", \"disponible\": true }\n{ \"index\": { \"_index\": \"zapatillas\" } }\n{ \"marca\": \"New Balance\", \"modelo\": \"Fresh Foam 1080v11\", \"talla\": 42, \"precio\": 110.00, \"color\": \"Verde\", \"disponible\": false }\n{ \"index\": { \"_index\": \"zapatillas\" } }\n{ \"marca\": \"Mizuno\", \"modelo\": \"Wave Rider 25\", \"talla\": 41, \"precio\": 125.00, \"color\": \"Naranja\", \"disponible\": true }\n{ \"index\": { \"_index\": \"zapatillas\" } }\n{ \"marca\": \"Under Armour\", \"modelo\": \"HOVR Sonic 4\", \"talla\": 40, \"precio\": 95.00, \"color\": \"Blanco\", \"disponible\": false }\n{ \"index\": { \"_index\": \"zapatillas\" } }\n{ \"marca\": \"Salomon\", \"modelo\": \"Speedcross 5\", \"talla\": 44, \"precio\": 150.00, \"color\": \"Negro\", \"disponible\": true }\n{ \"index\": { \"_index\": \"zapatillas\" } }\n{ \"marca\": \"Brooks\", \"modelo\": \"Ghost 14\", \"talla\": 43, \"precio\": 100.00, \"color\": \"Azul\", \"disponible\": true }\n{ \"index\": { \"_index\": \"zapatillas\" } }\n{ \"marca\": \"Nike\", \"modelo\": \"React Infinity Run\", \"talla\": 42, \"precio\": 145.99, \"color\": \"Gris\", \"disponible\": false }\n{ \"index\": { \"_index\": \"zapatillas\" } }\n{ \"marca\": \"Adidas\", \"modelo\": \"Solar Glide 4\", \"talla\": 41, \"precio\": 135.99, \"color\": \"Verde\", \"disponible\": true }\n{ \"index\": { \"_index\": \"zapatillas\" } }\n{ \"marca\": \"Puma\", \"modelo\": \"Deviate Nitro\", \"talla\": 44, \"precio\": 119.99, \"color\": \"Rojo\", \"disponible\": false }\n{ \"index\": { \"_index\": \"zapatillas\" } }\n{ \"marca\": \"Reebok\", \"modelo\": \"Floatride Energy 3\", \"talla\": 40, \"precio\": 75.00, \"color\": \"Azul\", \"disponible\": true }\n{ \"index\": { \"_index\": \"zapatillas\" } }\n{ \"marca\": \"Asics\", \"modelo\": \"GT-2000 9\", \"talla\": 43, \"precio\": 90.00, \"color\": \"Blanco\", \"disponible\": true }\n{ \"index\": { \"_index\": \"zapatillas\" } }\n{ \"marca\": \"New Balance\", \"modelo\": \"860v11\", \"talla\": 42, \"precio\": 115.50, \"color\": \"Gris\", \"disponible\": false }\n{ \"index\": { \"_index\": \"zapatillas\" } }\n{ \"marca\": \"Hoka\", \"modelo\": \"Clifton 8\", \"talla\": 42, \"precio\": 140.50, \"color\": \"Azul\", \"disponible\": true }\n{ \"index\": { \"_index\": \"zapatillas\" } }\n{ \"marca\": \"Nike\", \"modelo\": \"Air Max 270\", \"talla\": 43, \"precio\": 150.00, \"color\": \"Negro\", \"disponible\": true }\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9200/_bulk",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9200",
+							"path": [
+								"_bulk"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "crear-dato-index-individual",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"marca\": \"Nike\",\n  \"modelo\": \"Air Zoom Pegasus\",\n  \"talla\": 42,\n  \"precio\": 120.99,\n  \"color\": \"Blanco\",\n  \"disponible\": true\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9200/zapatillas/_doc",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9200",
+							"path": [
+								"zapatillas",
+								"_doc"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
