@@ -1,0 +1,145 @@
+{
+	"info": {
+		"_postman_id": "a4e1ada8-21f7-4fc7-b880-72d1c959d563",
+		"name": "ElasticSearch",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "43308452",
+		"_collection_link": "https://bootcamp-3415.postman.co/workspace/bootcamp-Workspace~299db663-a3dc-4cc8-8c54-677b99b26555/collection/43308452-a4e1ada8-21f7-4fc7-b880-72d1c959d563?action=share&source=collection_link&creator=43308452"
+	},
+	"item": [
+		{
+			"name": "Put Zapatillas",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \n  \"mappings\": {\n  \"properties\":{\n    \"descripcion\": {\n      \"type\":\"keyword\"\n    },\n    \"marca\":{\n      \"type\": \"keyword\"\n    },\n        \"precio\":{\n      \"type\": \"keyword\"\n    }\n  }\n}\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:9200/zapatillas"
+			},
+			"response": []
+		},
+		{
+			"name": "GetAll Zapatillas",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"size\": 100\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:9200/zapatillas/_search"
+			},
+			"response": []
+		},
+		{
+			"name": "Crear Zapatillas",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"descripcion\": \"Zapatillas Mountain\",\n    \"marca\": \"Under Armour\",\n    \"precio\": 22355.5\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:9200/zapatillas/_doc"
+			},
+			"response": []
+		},
+		{
+			"name": "Bulk Objects IMPORTANT - NEW FINAL LINE",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-ndjson",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"index\": {} }\n{ \"descripcion\": \"Zapatillas running\", \"marca\": \"Nike\", \"precio\": 2355.5 }\n{ \"index\": {} }\n{ \"descripcion\": \"Zapatillas entrenamiento\", \"marca\": \"Adidas\", \"precio\": 2150.0 }\n{ \"index\": {} }\n{ \"descripcion\": \"Zapatillas urbanas\", \"marca\": \"Puma\", \"precio\": 1899.99 }\n{ \"index\": {} }\n{ \"descripcion\": \"Zapatillas trail\", \"marca\": \"Salomon\", \"precio\": 3250.0 }\n{ \"index\": {} }\n{ \"descripcion\": \"Zapatillas de gimnasio\", \"marca\": \"Reebok\", \"precio\": 1980.0 }\n{ \"index\": {} }\n{ \"descripcion\": \"Zapatillas running\", \"marca\": \"Nike\", \"precio\": 2355.5 }\n{ \"index\": {} }\n{ \"descripcion\": \"Zapatillas entrenamiento\", \"marca\": \"Adidas\", \"precio\": 2150.0 }\n{ \"index\": {} }\n{ \"descripcion\": \"Zapatillas urbanas\", \"marca\": \"Puma\", \"precio\": 1899.99 }\n{ \"index\": {} }\n{ \"descripcion\": \"Zapatillas trail\", \"marca\": \"Salomon\", \"precio\": 3250.0 }\n{ \"index\": {} }\n{ \"descripcion\": \"Zapatillas de gimnasio\", \"marca\": \"Reebok\", \"precio\": 1980.0 }\n",
+					"options": {
+						"raw": {
+							"language": "text"
+						}
+					}
+				},
+				"url": "http://localhost:9200/zapatillas/_bulk"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Estructure",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"script\": {\n    \"source\": \"ctx._source.remove('id')\",\n    \"lang\": \"painless\"\n  },\n  \"query\": {\n    \"exists\": { \"field\": \"id\" }\n  }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:9200/zapatillas/_update_by_query"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Zapatilla",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"query\": {\n        \"match\": {\n            \"marca\": \"Nike\"\n        }\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:9200/zapatillas/_search"
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "http://localhost:9200/zapatillas"
+			},
+			"response": []
+		}
+	]
+}
