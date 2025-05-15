@@ -1,0 +1,20 @@
+**¿A qué se denomina JOIN en una base de datos y para qué se utiliza?**
+Es una operación que permite consultar datos de más de una tabla siempre y cuando que esten relacionados por uno o más campos
+
+**Explicar dos tipos de JOIN.**
+Inner join permite traer los registros que tengan en común las tablas según el campo indicado
+El right join devuelve todas las filas de la tabla derecha y solo las filas de la tabla izquierda que tengan coincidencias con el campo indicado. Left join funciona de la misma forma pero con la tabla izquierda.
+
+**¿Para qué se utiliza el GROUP BY?**
+Para agrupar las filas según un criterio dado para las columnas indicadas. Genera una registro para cada grupo de filas que compartan el criterio.
+
+**¿Para qué se utiliza el HAVING?**
+Para filtrar grupos de filas que surgieron a partir de una consulta con Group By
+
+**Escribir una consulta genérica cada uno de los diagramas:**
+
+SELECT movies.*, actors.first_name, actors.last_name
+FROM movies INNER JOIN actors
+ON movies.id = actors.favorite_movie_id;
+
+SELECT * FROM movies mo LEFT JOIN actors ac ON mo.id = ac.favorite_movie_id;
