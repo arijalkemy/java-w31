@@ -1,0 +1,150 @@
+{
+	"info": {
+		"_postman_id": "27e0b7ed-0bb2-4fd1-bc97-13196fb5bac0",
+		"name": "Elasticsearch",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "43763919",
+		"_collection_link": "https://gold-shuttle-2364172.postman.co/workspace/Andr%C3%A9s-O%C3%B1ate's-Workspace~189f7ea7-4c62-4bde-8196-43d47933007f/collection/43763919-27e0b7ed-0bb2-4fd1-bc97-13196fb5bac0?action=share&source=collection_link&creator=43763919"
+	},
+	"item": [
+		{
+			"name": "All Indices",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true,
+				"disabledSystemHeaders": {
+					"content-type": true,
+					"content-length": true,
+					"host": true,
+					"user-agent": true,
+					"accept": true,
+					"connection": true,
+					"accept-encoding": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 501,\n    \"brand\": \"Audi\",\n    \"model\": \"A4\",\n    \"registration\": \"03\",\n    \"color\": \"Blue\",\n    \"year\": 2020,\n    \"max_speed\": \"150\",\n    \"passengers\": 5,\n    \"fuel_type\": \"diesel\",\n    \"transmission\": \"automatic\",\n    \"height\": 121.50,\n    \"width\": 180.00,\n    \"weight\": 60.50\n}"
+				},
+				"url": {
+					"raw": "http://localhost:9200/_cat/indices?v",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"_cat",
+						"indices"
+					],
+					"query": [
+						{
+							"key": "v",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Index",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-length": true,
+					"host": true,
+					"user-agent": true,
+					"accept": true,
+					"accept-encoding": true,
+					"connection": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"settings\": {\n    \"number_of_shards\": 1,\n    \"number_of_replicas\": 1\n  },\n  \"mappings\": {\n    \"properties\": {\n      \"marca\": { \"type\": \"text\" },\n      \"modelo\": { \"type\": \"text\" },\n      \"precio\": { \"type\": \"float\" },\n      \"talla\": { \"type\": \"keyword\" },\n      \"color\": { \"type\": \"keyword\" },\n      \"disponibilidad\": { \"type\": \"boolean\" },\n      \"fecha_lanzamiento\": { \"type\": \"date\" }\n    }\n  }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9200/zapatillas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"zapatillas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Data",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true,
+					"accept-encoding": true,
+					"connection": true,
+					"user-agent": true,
+					"host": true,
+					"content-length": true,
+					"content-type": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"index\": { \"_index\": \"zapatillas\" } }\n{ \"marca\": \"Nike\", \"modelo\": \"Air Max 90\", \"precio\": 120.0, \"talla\": \"42\", \"color\": \"negro\", \"disponibilidad\": true, \"fecha_lanzamiento\": \"2022-03-01\" }\n{ \"index\": { \"_index\": \"zapatillas\" } }\n{ \"marca\": \"Adidas\", \"modelo\": \"Ultraboost\", \"precio\": 150.0, \"talla\": \"41\", \"color\": \"blanco\", \"disponibilidad\": true, \"fecha_lanzamiento\": \"2023-01-10\" }\n{ \"index\": { \"_index\": \"zapatillas\" } }\n{ \"marca\": \"Puma\", \"modelo\": \"RS-X\", \"precio\": 110.0, \"talla\": \"43\", \"color\": \"rojo\", \"disponibilidad\": false, \"fecha_lanzamiento\": \"2021-05-20\" }\n{ \"index\": { \"_index\": \"zapatillas\" } }\n{ \"marca\": \"Reebok\", \"modelo\": \"Classic\", \"precio\": 90.0, \"talla\": \"42\", \"color\": \"azul\", \"disponibilidad\": true, \"fecha_lanzamiento\": \"2020-09-15\" }\n{ \"index\": { \"_index\": \"zapatillas\" } }\n{ \"marca\": \"New Balance\", \"modelo\": \"574\", \"precio\": 95.0, \"talla\": \"44\", \"color\": \"gris\", \"disponibilidad\": true, \"fecha_lanzamiento\": \"2022-06-05\" }\n{ \"index\": { \"_index\": \"zapatillas\" } }\n{ \"marca\": \"Nike\", \"modelo\": \"Air Force 1\", \"precio\": 130.0, \"talla\": \"41\", \"color\": \"blanco\", \"disponibilidad\": false, \"fecha_lanzamiento\": \"2023-07-12\" }\n{ \"index\": { \"_index\": \"zapatillas\" } }\n{ \"marca\": \"Adidas\", \"modelo\": \"NMD R1\", \"precio\": 140.0, \"talla\": \"42\", \"color\": \"negro\", \"disponibilidad\": true, \"fecha_lanzamiento\": \"2021-11-20\" }\n{ \"index\": { \"_index\": \"zapatillas\" } }\n{ \"marca\": \"Puma\", \"modelo\": \"Suede Classic\", \"precio\": 80.0, \"talla\": \"40\", \"color\": \"verde\", \"disponibilidad\": true, \"fecha_lanzamiento\": \"2020-02-01\" }\n{ \"index\": { \"_index\": \"zapatillas\" } }\n{ \"marca\": \"Asics\", \"modelo\": \"Gel-Kayano\", \"precio\": 160.0, \"talla\": \"44\", \"color\": \"gris\", \"disponibilidad\": false, \"fecha_lanzamiento\": \"2023-03-22\" }\n{ \"index\": { \"_index\": \"zapatillas\" } }\n{ \"marca\": \"Nike\", \"modelo\": \"Zoom Pegasus\", \"precio\": 125.0, \"talla\": \"43\", \"color\": \"naranja\", \"disponibilidad\": true, \"fecha_lanzamiento\": \"2022-08-15\" }\n{ \"index\": { \"_index\": \"zapatillas\" } }\n{ \"marca\": \"Adidas\", \"modelo\": \"Gazelle\", \"precio\": 100.0, \"talla\": \"41\", \"color\": \"azul\", \"disponibilidad\": true, \"fecha_lanzamiento\": \"2021-04-11\" }\n{ \"index\": { \"_index\": \"zapatillas\" } }\n{ \"marca\": \"Reebok\", \"modelo\": \"Nano X\", \"precio\": 110.0, \"talla\": \"42\", \"color\": \"rojo\", \"disponibilidad\": false, \"fecha_lanzamiento\": \"2022-01-18\" }\n{ \"index\": { \"_index\": \"zapatillas\" } }\n{ \"marca\": \"New Balance\", \"modelo\": \"Fresh Foam\", \"precio\": 135.0, \"talla\": \"43\", \"color\": \"negro\", \"disponibilidad\": true, \"fecha_lanzamiento\": \"2022-12-01\" }\n{ \"index\": { \"_index\": \"zapatillas\" } }\n{ \"marca\": \"Nike\", \"modelo\": \"React Infinity\", \"precio\": 145.0, \"talla\": \"44\", \"color\": \"amarillo\", \"disponibilidad\": true, \"fecha_lanzamiento\": \"2023-02-28\" }\n{ \"index\": { \"_index\": \"zapatillas\" } }\n{ \"marca\": \"Puma\", \"modelo\": \"Hybrid Rocket\", \"precio\": 100.0, \"talla\": \"40\", \"color\": \"blanco\", \"disponibilidad\": false, \"fecha_lanzamiento\": \"2021-10-10\" }\n{ \"index\": { \"_index\": \"zapatillas\" } }\n{ \"marca\": \"Asics\", \"modelo\": \"GT-2000\", \"precio\": 120.0, \"talla\": \"41\", \"color\": \"azul\", \"disponibilidad\": true, \"fecha_lanzamiento\": \"2022-05-09\" }\n{ \"index\": { \"_index\": \"zapatillas\" } }\n{ \"marca\": \"Reebok\", \"modelo\": \"Floatride\", \"precio\": 115.0, \"talla\": \"42\", \"color\": \"verde\", \"disponibilidad\": true, \"fecha_lanzamiento\": \"2023-06-30\" }\n",
+					"options": {
+						"raw": {
+							"language": "text"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9200/_bulk",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"_bulk"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
