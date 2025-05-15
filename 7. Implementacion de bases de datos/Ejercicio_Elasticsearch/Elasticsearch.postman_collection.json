@@ -96,15 +96,7 @@
 		{
 			"name": "Create Data",
 			"protocolProfileBehavior": {
-				"disabledSystemHeaders": {
-					"accept": true,
-					"accept-encoding": true,
-					"connection": true,
-					"user-agent": true,
-					"host": true,
-					"content-length": true,
-					"content-type": true
-				}
+				"disabledSystemHeaders": {}
 			},
 			"request": {
 				"method": "POST",
@@ -112,7 +104,8 @@
 					{
 						"key": "Content-Type",
 						"value": "application/json",
-						"type": "text"
+						"type": "text",
+						"disabled": true
 					}
 				],
 				"body": {
@@ -120,7 +113,7 @@
 					"raw": "{ \"index\": { \"_index\": \"zapatillas\" } }\n{ \"marca\": \"Nike\", \"modelo\": \"Air Max 90\", \"precio\": 120.0, \"talla\": \"42\", \"color\": \"negro\", \"disponibilidad\": true, \"fecha_lanzamiento\": \"2022-03-01\" }\n{ \"index\": { \"_index\": \"zapatillas\" } }\n{ \"marca\": \"Adidas\", \"modelo\": \"Ultraboost\", \"precio\": 150.0, \"talla\": \"41\", \"color\": \"blanco\", \"disponibilidad\": true, \"fecha_lanzamiento\": \"2023-01-10\" }\n{ \"index\": { \"_index\": \"zapatillas\" } }\n{ \"marca\": \"Puma\", \"modelo\": \"RS-X\", \"precio\": 110.0, \"talla\": \"43\", \"color\": \"rojo\", \"disponibilidad\": false, \"fecha_lanzamiento\": \"2021-05-20\" }\n{ \"index\": { \"_index\": \"zapatillas\" } }\n{ \"marca\": \"Reebok\", \"modelo\": \"Classic\", \"precio\": 90.0, \"talla\": \"42\", \"color\": \"azul\", \"disponibilidad\": true, \"fecha_lanzamiento\": \"2020-09-15\" }\n{ \"index\": { \"_index\": \"zapatillas\" } }\n{ \"marca\": \"New Balance\", \"modelo\": \"574\", \"precio\": 95.0, \"talla\": \"44\", \"color\": \"gris\", \"disponibilidad\": true, \"fecha_lanzamiento\": \"2022-06-05\" }\n{ \"index\": { \"_index\": \"zapatillas\" } }\n{ \"marca\": \"Nike\", \"modelo\": \"Air Force 1\", \"precio\": 130.0, \"talla\": \"41\", \"color\": \"blanco\", \"disponibilidad\": false, \"fecha_lanzamiento\": \"2023-07-12\" }\n{ \"index\": { \"_index\": \"zapatillas\" } }\n{ \"marca\": \"Adidas\", \"modelo\": \"NMD R1\", \"precio\": 140.0, \"talla\": \"42\", \"color\": \"negro\", \"disponibilidad\": true, \"fecha_lanzamiento\": \"2021-11-20\" }\n{ \"index\": { \"_index\": \"zapatillas\" } }\n{ \"marca\": \"Puma\", \"modelo\": \"Suede Classic\", \"precio\": 80.0, \"talla\": \"40\", \"color\": \"verde\", \"disponibilidad\": true, \"fecha_lanzamiento\": \"2020-02-01\" }\n{ \"index\": { \"_index\": \"zapatillas\" } }\n{ \"marca\": \"Asics\", \"modelo\": \"Gel-Kayano\", \"precio\": 160.0, \"talla\": \"44\", \"color\": \"gris\", \"disponibilidad\": false, \"fecha_lanzamiento\": \"2023-03-22\" }\n{ \"index\": { \"_index\": \"zapatillas\" } }\n{ \"marca\": \"Nike\", \"modelo\": \"Zoom Pegasus\", \"precio\": 125.0, \"talla\": \"43\", \"color\": \"naranja\", \"disponibilidad\": true, \"fecha_lanzamiento\": \"2022-08-15\" }\n{ \"index\": { \"_index\": \"zapatillas\" } }\n{ \"marca\": \"Adidas\", \"modelo\": \"Gazelle\", \"precio\": 100.0, \"talla\": \"41\", \"color\": \"azul\", \"disponibilidad\": true, \"fecha_lanzamiento\": \"2021-04-11\" }\n{ \"index\": { \"_index\": \"zapatillas\" } }\n{ \"marca\": \"Reebok\", \"modelo\": \"Nano X\", \"precio\": 110.0, \"talla\": \"42\", \"color\": \"rojo\", \"disponibilidad\": false, \"fecha_lanzamiento\": \"2022-01-18\" }\n{ \"index\": { \"_index\": \"zapatillas\" } }\n{ \"marca\": \"New Balance\", \"modelo\": \"Fresh Foam\", \"precio\": 135.0, \"talla\": \"43\", \"color\": \"negro\", \"disponibilidad\": true, \"fecha_lanzamiento\": \"2022-12-01\" }\n{ \"index\": { \"_index\": \"zapatillas\" } }\n{ \"marca\": \"Nike\", \"modelo\": \"React Infinity\", \"precio\": 145.0, \"talla\": \"44\", \"color\": \"amarillo\", \"disponibilidad\": true, \"fecha_lanzamiento\": \"2023-02-28\" }\n{ \"index\": { \"_index\": \"zapatillas\" } }\n{ \"marca\": \"Puma\", \"modelo\": \"Hybrid Rocket\", \"precio\": 100.0, \"talla\": \"40\", \"color\": \"blanco\", \"disponibilidad\": false, \"fecha_lanzamiento\": \"2021-10-10\" }\n{ \"index\": { \"_index\": \"zapatillas\" } }\n{ \"marca\": \"Asics\", \"modelo\": \"GT-2000\", \"precio\": 120.0, \"talla\": \"41\", \"color\": \"azul\", \"disponibilidad\": true, \"fecha_lanzamiento\": \"2022-05-09\" }\n{ \"index\": { \"_index\": \"zapatillas\" } }\n{ \"marca\": \"Reebok\", \"modelo\": \"Floatride\", \"precio\": 115.0, \"talla\": \"42\", \"color\": \"verde\", \"disponibilidad\": true, \"fecha_lanzamiento\": \"2023-06-30\" }\n",
 					"options": {
 						"raw": {
-							"language": "text"
+							"language": "json"
 						}
 					}
 				},
@@ -142,7 +135,19 @@
 			"name": "New Request",
 			"request": {
 				"method": "GET",
-				"header": []
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9200/zapatillas/_search",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"zapatillas",
+						"_search"
+					]
+				}
 			},
 			"response": []
 		}
