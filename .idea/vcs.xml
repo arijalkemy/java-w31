@@ -2,9 +2,5 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/otros/BaseCR" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/otros/CR-AT2" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/otros/CR-AT3" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/otros/CodeReview" vcs="Git" />
   </component>
 </project>
