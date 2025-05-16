@@ -1,0 +1,162 @@
+{
+	"info": {
+		"_postman_id": "09535ece-cb95-45dc-84b0-29cf7d91ecd2",
+		"name": "ElasticSearch",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "44127038"
+	},
+	"item": [
+		{
+			"name": "View Status",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Create Index",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"mappings\": {\n        \"properties\": {\n            \"marca\": {\n                \"type\": \"text\"\n            },\n            \"moodelo\": {\n                \"type\": \"text\"\n            },\n            \"año\": {\n                \"type\": \"integer\"\n            },\n            \"talla\": {\n                \"type\": \"float\"\n            }\n        }\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9200/zapatillas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"zapatillas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "VIew Index",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "elastic",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "SLxeH8Qf",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9200/_cat/indices",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"_cat",
+						"indices"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"marca\": \"Adidas\",\n    \"modelo\": \"Samba\",\n    \"año\": 2024,\n    \"talla\": 8.5\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9200/zapatillas/_doc",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"zapatillas",
+						"_doc"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "View Registers",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Create a Registers",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "elastic",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "SLxeH8Qf",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"index\": {} }\n{ \"marca\": \"Nike\", \"modelo\": \"Air Max\", \"año\": 2023, \"talla\": 9 }\n{ \"index\": {} }\n{ \"marca\": \"Puma\", \"modelo\": \"Suede\", \"año\": 2022, \"talla\": 7.5 }\n{ \"index\": {} }\n{ \"marca\": \"Reebok\", \"modelo\": \"Club C\", \"año\": 2021, \"talla\": 8 }\n{ \"index\": {} }\n{ \"marca\": \"New Balance\", \"modelo\": \"991\", \"año\": 2023, \"talla\": 9.5 }\n{ \"index\": {} }\n{ \"marca\": \"Asics\", \"modelo\": \"Gel-Lyte\", \"año\": 2022, \"talla\": 8 }\n{ \"index\": {} }\n{ \"marca\": \"Vans\", \"modelo\": \"Old Skool\", \"año\": 2023, \"talla\": 9 }\n{ \"index\": {} }\n{ \"marca\": \"Converse\", \"modelo\": \"Chuck Taylor\", \"año\": 2024, \"talla\": 10 }\n{ \"index\": {} }\n{ \"marca\": \"Under Armour\", \"modelo\": \"Curry\", \"año\": 2024, \"talla\": 11 }\n{ \"index\": {} }\n{ \"marca\": \"Jordan\", \"modelo\": \"Air Jordan 1\", \"año\": 2023, \"talla\": 9 }\n{ \"index\": {} }\n{ \"marca\": \"Brooks\", \"modelo\": \"Ghost\", \"año\": 2022, \"talla\": 8 }\n{ \"index\": {} }\n{ \"marca\": \"Saucony\", \"modelo\": \"Jazz\", \"año\": 2021, \"talla\": 7.5 }\n{ \"index\": {} }\n{ \"marca\": \"Mizuno\", \"modelo\": \"Wave Rider\", \"año\": 2023, \"talla\": 8 }\n{ \"index\": {} }\n{ \"marca\": \"Hoka One One\", \"modelo\": \"Clifton\", \"año\": 2024, \"talla\": 9 }\n{ \"index\": {} }\n{ \"marca\": \"Salomon\", \"modelo\": \"Speedcross\", \"año\": 2022, \"talla\": 8 }\n{ \"index\": {} }\n{ \"marca\": \"Fila\", \"modelo\": \"Disruptor\", \"año\": 2023, \"talla\": 8.5 }\n{ \"index\": {} }\n{ \"marca\": \"K-Swiss\", \"modelo\": \"Classic\", \"año\": 2021, \"talla\": 9 }\n{ \"index\": {} }\n{ \"marca\": \"Skechers\", \"modelo\": \"D'Lites\", \"año\": 2024, \"talla\": 9.5 }\n{ \"index\": {} }\n{ \"marca\": \"Altra\", \"modelo\": \"Lone Peak\", \"año\": 2023, \"talla\": 8 }\n{ \"index\": {} }\n{ \"marca\": \"On\", \"modelo\": \"Cloud\", \"año\": 2024, \"talla\": 8.5 }\n{ \"index\": {} }\n{ \"marca\": \"Merrell\", \"modelo\": \"Moab\", \"año\": 2022, \"talla\": 9 }\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9200/zapatillas/_bulk",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"zapatillas",
+						"_bulk"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
