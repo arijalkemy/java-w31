@@ -1,0 +1,234 @@
+{
+	"info": {
+		"_postman_id": "e9a8e6f1-87b3-49d2-85e3-f3f8f708c1f3",
+		"name": "TestCase",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "43763919",
+		"_collection_link": "https://gold-shuttle-2364172.postman.co/workspace/Andr%C3%A9s-O%C3%B1ate's-Workspace~189f7ea7-4c62-4bde-8196-43d47933007f/collection/43763919-e9a8e6f1-87b3-49d2-85e3-f3f8f708c1f3?action=share&source=collection_link&creator=43763919"
+	},
+	"item": [
+		{
+			"name": "Get All",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"Anillo de Diamantes\",\n  \"material\": \"gold\",\n  \"weight\": 5.2,\n  \"feature\": \"Tiene un diamante central\",\n  \"hasStone\": true,\n  \"forSale\": true\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/testcases",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"testcases"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Copy",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"Anillo de Diamantes\",\n  \"material\": \"gold\",\n  \"weight\": 5.2,\n  \"feature\": \"Tiene un diamante central\",\n  \"hasStone\": true,\n  \"forSale\": true\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/testcases?last_update=01/03/2025",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"testcases"
+					],
+					"query": [
+						{
+							"key": "last_update",
+							"value": "01/03/2025"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"description\": \"Prueba Back\",\n  \"tested\": true,\n  \"passed\": false,\n  \"numberOfTries\": 2,\n  \"lastUpdate\": \"2025-04-01\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/testcases/new",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"testcases",
+						"new"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Copy",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"description\": \"Prueba de integración para login\",\n  \"tested\": true,\n  \"passed\": false,\n  \"numberOfTries\": 2,\n  \"lastUpdate\": \"2025-05-16\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/testcases",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"testcases"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get By Id",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"description\": \"Prueba de integración para login\",\n  \"tested\": true,\n  \"passed\": false,\n  \"numberOfTries\": 2,\n  \"lastUpdate\": \"2025-05-16\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/testcases/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"testcases",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"description\": \"Prueba de integración para login\",\n  \"tested\": true,\n  \"passed\": true,\n  \"numberOfTries\": 2,\n  \"lastUpdate\": \"2025-05-16\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/testcases/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"testcases",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"description\": \"Prueba de integración para login\",\n  \"tested\": true,\n  \"passed\": false,\n  \"numberOfTries\": 2,\n  \"lastUpdate\": \"2025-05-16\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/testcases/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"testcases",
+						"2"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
