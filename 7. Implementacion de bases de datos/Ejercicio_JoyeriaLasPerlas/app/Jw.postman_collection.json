@@ -1,0 +1,94 @@
+{
+	"info": {
+		"_postman_id": "4a40c9f5-95bc-4edf-b0e4-161d47791dca",
+		"name": "Jw",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "43763919",
+		"_collection_link": "https://gold-shuttle-2364172.postman.co/workspace/Andr%25C3%25A9s-O%25C3%25B1ate's-Workspace~189f7ea7-4c62-4bde-8196-43d47933007f/collection/43763919-4a40c9f5-95bc-4edf-b0e4-161d47791dca?action=share&source=collection_link&creator=43763919"
+	},
+	"item": [
+		{
+			"name": "New Request",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/jewelry",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"jewelry"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Jewel",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"Anillo de Diamantes\",\n  \"material\": \"gold\",\n  \"weight\": 5.2,\n  \"feature\": \"Tiene un diamante central\",\n  \"hasStone\": true,\n  \"forSale\": true\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/jewelry/new",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"jewelry",
+						"new"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/jewelry/update/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"jewelry",
+						"update",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
