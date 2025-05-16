@@ -11,9 +11,12 @@ import org.springframework.stereotype.Controller;
 
 import com.bootcamp.joyerialasperlas.dto.JoyaDto;
 import com.bootcamp.joyerialasperlas.service.IJoyaService;
+
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -35,7 +38,7 @@ public class JoyaController {
         return new ResponseEntity<>(service.getJoyas(), HttpStatus.OK);
     }
 
-    @PostMapping("/delete/{id}")
+    @DeleteMapping("/delete/{id}")
     public ResponseEntity<String> deleteJoya(@PathVariable Long id) {
         service.deleteJoya(id);
         return new ResponseEntity<>("Joya eliminada con éxito", HttpStatus.OK);
@@ -46,7 +49,7 @@ public class JoyaController {
         return new ResponseEntity<>(service.findJoya(id), HttpStatus.OK);
     }
 
-    @PostMapping("/update/{idModificar}")
+    @PutMapping("/update/{idModificar}")
     public ResponseEntity<JoyaDto> updateJoya(@Valid @PathVariable Long idModificar, @RequestBody JoyaDto joyaDto) {
         return new ResponseEntity<>(service.updateJoya(idModificar, joyaDto), HttpStatus.OK);
     }
