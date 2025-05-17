@@ -1,0 +1,11 @@
+services:
+  mysql:
+    restart: on-failure
+    image: 'mysql:latest'
+    environment:
+      - 'MYSQL_DATABASE=joyeria_las_perlas_db'
+      - 'MYSQL_PASSWORD=joyerialasperlaspassword'
+      - 'MYSQL_ROOT_PASSWORD=secret'
+      - 'MYSQL_USER=joyerialasperlasuser'
+    ports:
+      - '3306:3306'
