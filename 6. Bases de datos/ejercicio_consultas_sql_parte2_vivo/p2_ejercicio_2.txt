@@ -1,0 +1,8 @@
+a. ¿Cuál es la primary key para la tabla de clientes? Justificar respuesta
+La llave primaria para los clientes es id_client, el dni es un campo candidato, pero es posible que se presenten duplicidades.
+
+b. ¿Cuál es la primary key para la tabla de planes de internet? Justificar respuesta.
+La llave primaria para los planes es id_plan, en este caso se tomaría como la identificación del plan
+
+c. ¿Cómo serían las relaciones entre tablas? ¿En qué tabla debería haber foreign key? ¿A qué campo de qué tabla hace referencia dicha foreign key? Justificar respuesta.
+Las tablas tienen una relación del muchos a muchos ya que un cliente puede tener muchos planes y un plan puede pertenecer a muchos cliente, de tal manera que se relacional por medio de una tabla intermedia llamada contrato, la cual tiene una FK para cliente y una FK para plan
