@@ -1,0 +1,16 @@
+SELECT * FROM autor;
+SELECT nombre, edad, carrera FROM estudiante;
+SELECT * FROM estudiante
+WHERE carrera = 'informatica';
+SELECT * FROM autor
+WHERE nacionalidad = 'francesa' OR nacionalidad = 'italiana';
+SELECT * FROM libro
+WHERE area != 'internet';
+SELECT * FROM libro
+WHERE editorial = 'salamandra';
+SELECT * FROM estudiante
+WHERE edad > (
+	SELECT AVG(edad) FROM estudiante
+);
+SELECT * FROM estudiante
+WHERE apellido LIKE 'g%';

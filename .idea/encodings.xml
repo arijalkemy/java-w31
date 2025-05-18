@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/1. Modulo Java/agencia/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/1. Modulo Java/agencia/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/1. Modulo Java/carrera_selva/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/1. Modulo Java/carrera_selva/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/1. Modulo Java/garaje/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/1. Modulo Java/garaje/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/1. Modulo Java/guardaRopa/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/1. Modulo Java/guardaRopa/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/1. Modulo Java/imc/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/1. Modulo Java/imc/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/1. Modulo Java/practica_excepciones/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/1. Modulo Java/practica_excepciones/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/1. Modulo Java/temperaturas/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/1. Modulo Java/temperaturas/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/1. Modulo Java/transacciones/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/1. Modulo Java/transacciones/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/2. Modulo Spring/blog/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/2. Modulo Spring/code_morse/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/2. Modulo Spring/edad/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/2. Modulo Spring/link/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/2. Modulo Spring/star-war-names/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/4. Testing/ObtenerDiplomaUnitarias/src/main/java" charset="UTF-8" />
+  </component>
+</project>

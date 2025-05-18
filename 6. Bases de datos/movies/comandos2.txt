@@ -1,0 +1,42 @@
+-- 1. Listar todos los clientes
+SELECT * FROM cliente;
+
+-- 2. Ver todos los planes de internet contratados
+SELECT * FROM plan;
+
+-- 3. Mostrar nombre, apellido y ciudad de los clientes
+SELECT nombre, apellido, ciudad FROM cliente;
+
+-- 4. Ver los planes con velocidad mayor a 100 Mbps
+SELECT * FROM plan WHERE velocidad > 100;
+
+-- 5. Mostrar clientes junto con los planes que contrataron
+SELECT c.nombre, c.apellido, p.velocidad, p.precio
+FROM cliente c
+JOIN plan p ON c.id = p.id_cliente;
+
+-- 6. Contar cuántos clientes hay por ciudad
+SELECT ciudad, COUNT(*) AS cantidad_clientes
+FROM cliente
+GROUP BY ciudad;
+
+-- 7. Listar clientes que tienen un plan con descuento mayor al 10%
+SELECT c.nombre, c.apellido, p.descuento
+FROM cliente c
+JOIN plan p ON c.id = p.id_cliente
+WHERE p.descuento > 10;
+
+-- 8. Mostrar el total a pagar de cada cliente (precio - descuento aplicado)
+SELECT c.nombre, c.apellido, 
+       p.precio, p.descuento,
+       (p.precio - (p.precio * p.descuento / 100)) AS total_a_pagar
+FROM cliente c
+JOIN plan p ON c.id = p.id_cliente;
+
+-- 9. Obtener el promedio de velocidad de los planes contratados
+SELECT AVG(velocidad) AS velocidad_promedio FROM plan;
+
+-- 10. Ver los clientes que aún no tienen ningún plan asociado
+SELECT * FROM cliente
+WHERE id NOT IN (SELECT id_cliente FROM plan);
+

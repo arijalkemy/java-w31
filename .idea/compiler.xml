@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="guardaRopa" />
+        <module name="carrera_selva" />
+        <module name="temperaturas" />
+        <module name="transacciones" />
+        <module name="garaje" />
+        <module name="practica_excepciones" />
+        <module name="edad" />
+        <module name="imc" />
+        <module name="agencia" />
+      </profile>
+      <profile name="Annotation profile for code_morse" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.38/lombok-1.18.38.jar" />
+        </processorPath>
+        <module name="code_morse" />
+      </profile>
+      <profile name="Annotation profile for star-war-names" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.36/lombok-1.18.36.jar" />
+        </processorPath>
+        <module name="link" />
+        <module name="blog" />
+        <module name="star-war-names" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="obtenerdiploma" target="11" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="blog" options="-parameters" />
+      <module name="code_morse" options="-parameters" />
+      <module name="edad" options="-parameters" />
+      <module name="link" options="-parameters" />
+      <module name="obtenerdiploma" options="-parameters" />
+      <module name="star-war-names" options="-parameters" />
+    </option>
+  </component>
+</project>

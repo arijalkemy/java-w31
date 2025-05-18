@@ -1,0 +1,23 @@
+SELECT * FROM departamento;
+SELECT dep.nombre_depto, COUNT(emp.cod_emp) AS emp_cant FROM departamento dep
+INNER JOIN empleado emp ON emp.depto_nro = dep.depto_nro
+GROUP BY dep.depto_nro, dep.nombre_depto
+HAVING emp_cant > 5;
+SELECT emp.nombre, emp.salario, dep.nombre_depto FROM empleado emp
+INNER JOIN departamento dep ON emp.depto_nro = dep.depto_nro
+WHERE emp.puesto = (
+	SELECT puesto FROM empleado 
+    WHERE cod_emp = 'E-0006'
+);
+SELECT * FROM empleado emp
+INNER JOIN departamento dep ON emp.depto_nro = dep.depto_nro
+WHERE dep.depto_nro = 'D-000-3'
+ORDER BY emp.nombre ASC;
+SELECT emp.nombre FROM empleado emp
+ORDER BY emp.salario ASC
+LIMIT 1;
+SELECT * FROM empleado emp
+INNER JOIN departamento dep ON emp.depto_nro = dep.depto_nro
+WHERE dep.nombre_depto = 'Ventas'
+ORDER BY emp.salario DESC
+LIMIT 1;

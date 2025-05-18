@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/4. Testing/ObtenerDiplomaUnitarias/pom.xml" />
+        <option value="$PROJECT_DIR$/1. Modulo Java/imc/pom.xml" />
+        <option value="$PROJECT_DIR$/1. Modulo Java/garaje/pom.xml" />
+        <option value="$PROJECT_DIR$/1. Modulo Java/agencia/pom.xml" />
+        <option value="$PROJECT_DIR$/1. Modulo Java/guardaRopa/pom.xml" />
+        <option value="$PROJECT_DIR$/1. Modulo Java/temperaturas/pom.xml" />
+        <option value="$PROJECT_DIR$/1. Modulo Java/carrera_selva/pom.xml" />
+        <option value="$PROJECT_DIR$/1. Modulo Java/transacciones/pom.xml" />
+        <option value="$PROJECT_DIR$/1. Modulo Java/practica_excepciones/pom.xml" />
+        <option value="$PROJECT_DIR$/2. Modulo Spring/blog/pom.xml" />
+        <option value="$PROJECT_DIR$/2. Modulo Spring/edad/pom.xml" />
+        <option value="$PROJECT_DIR$/2. Modulo Spring/link/pom.xml" />
+        <option value="$PROJECT_DIR$/2. Modulo Spring/code_morse/pom.xml" />
+        <option value="$PROJECT_DIR$/2. Modulo Spring/star-war-names/pom.xml" />
+      </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/4. Testing/ObtenerDiplomaUnitarias/pom.xml" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_24" default="true" project-jdk-name="openjdk-24" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+</project>

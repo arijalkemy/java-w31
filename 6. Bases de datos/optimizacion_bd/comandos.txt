@@ -1,0 +1,13 @@
+CREATE TEMPORARY TABLE TWD2 AS
+SELECT *
+FROM episodes
+WHERE title = 'The Walking Dead';
+
+SELECT *
+FROM TWD2
+WHERE season_id = 1;
+
+CREATE INDEX idx_title ON movies(title);
+SHOW INDEX FROM movies;
+
+Nota: Se considera crear el indice en la columna 'title' ya que se consultaría de forma frecuente una película por su nombre, esto optimizaría el where al momento de filtrar
