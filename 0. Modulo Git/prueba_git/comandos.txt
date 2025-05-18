@@ -1,3 +1,9 @@
-git clone "....."
-git pull
-//Faltan los demas comandos
+git init
+git config user.name "Atompopez"
+git config user.email "johanandrey0210@gmail.com"
+touch lorem.txt
+git add lorem.txt
+git commit -m "add lorem.txt file"
+git remote add origin https://github.com/JohanLopez0210/bootcamp.git
+git status
+git push origin main
