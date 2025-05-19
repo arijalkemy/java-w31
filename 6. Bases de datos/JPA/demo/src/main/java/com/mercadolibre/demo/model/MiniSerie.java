@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.Set;
+
 @Entity
 @Getter
 @Setter
@@ -18,4 +20,7 @@ public class MiniSerie {
     private Double raiting;
     @Column(name = "amount_of_awards", length = 50)
     private int amountOfAwards;
+    @OneToMany(mappedBy = "miniSerie", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Set<Capitulo> capitulos;
+
 }
