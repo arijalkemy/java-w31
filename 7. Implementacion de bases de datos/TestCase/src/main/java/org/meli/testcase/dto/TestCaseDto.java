@@ -1,11 +1,13 @@
 package org.meli.testcase.dto;
 
 import jakarta.validation.constraints.*;
+import lombok.Builder;
 import lombok.Data;
 
 import java.time.LocalDate;
 
 @Data
+@Builder
 public class TestCaseDto {
     private Long idCase;
     @NotBlank(message = "La descripción es obligatoria.")

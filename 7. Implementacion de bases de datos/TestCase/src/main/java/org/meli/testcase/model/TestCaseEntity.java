@@ -1,12 +1,17 @@
 package org.meli.testcase.model;
 
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
 
 import java.time.LocalDate;
 
-@Data
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
+@Builder
+@Table(name = "testCase")
 public class TestCaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,4 +27,7 @@ public class TestCaseEntity {
     private Integer numberOfTries;
     @Column(nullable = false)
     private LocalDate lastUpdate;
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "tester_id", nullable = false)
+    private TesterEntity tester;
 }

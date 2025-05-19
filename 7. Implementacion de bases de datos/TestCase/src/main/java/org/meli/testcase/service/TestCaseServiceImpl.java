@@ -30,8 +30,16 @@ public class TestCaseServiceImpl implements ITestCaseService {
         if (testCasesList.isEmpty()) {
             throw new NotFoundException("No se encontraron casos de prueba.");
         }
+
         return testCasesList.stream()
-                .map(test -> mapper.convertValue(test, TestCaseDto.class))
+                .map(t -> TestCaseDto.builder()
+                        .idCase(t.getIdCase())
+                        .description(t.getDescription())
+                        .tested(t.getTested())
+                        .passed(t.getPassed())
+                        .numberOfTries(t.getNumberOfTries())
+                        .lastUpdate(t.getLastUpdate())
+                        .build())
                 .toList();
     }
 
