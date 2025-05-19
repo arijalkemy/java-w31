@@ -1,20 +1,18 @@
 package com.example.QATesters.dto;
 
-import lombok.Getter;
-import lombok.Setter;
-
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+import lombok.Data;
 import java.time.LocalDate;
 
-@Getter
-@Setter
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class TestCaseDTO {
-    private Long id;
+    private Long idCase;
     private String description;
-    private Boolean tested;
-    private Boolean passed;
+    private boolean tested;
+    private boolean passed;
     private int numberOfTries;
     private LocalDate lastUpdate;
-
-    public TestCaseDTO(Object o, String loginTest, boolean b, boolean b1, int i, LocalDate now) {
-    }
 }

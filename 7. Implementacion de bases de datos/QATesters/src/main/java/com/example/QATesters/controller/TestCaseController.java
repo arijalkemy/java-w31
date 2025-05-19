@@ -1,6 +1,7 @@
 package com.example.QATesters.controller;
 
 import com.example.QATesters.dto.TestCaseDTO;
+import com.example.QATesters.model.TestCase;
 import com.example.QATesters.service.TestCaseService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -18,8 +19,9 @@ public class TestCaseController {
 
     // Crear un nuevo caso de prueba
     @PostMapping("/new")
-    public ResponseEntity<TestCaseDTO> createTestCase(@RequestBody TestCaseDTO dto) {
-        return ResponseEntity.ok(service.createTestCase(dto));
+    public ResponseEntity<TestCase> createTestCase(@RequestBody TestCase testCase) {
+        TestCase createdTestCase = service.createTestCase(testCase);
+        return ResponseEntity.ok(createdTestCase);
     }
 
     // Devolver todos los casos de prueba

@@ -8,10 +8,10 @@ import java.time.LocalDate;
 public class TestCaseMapper {
     public static TestCaseDTO toDTO(TestCase testCase) {
         TestCaseDTO dto = new TestCaseDTO();
-        dto.setId(testCase.getId());
+        dto.setIdCase(testCase.getIdCase());
         dto.setDescription(testCase.getDescription());
-        dto.setTested(testCase.getTested());
-        dto.setPassed(testCase.getPassed());
+        dto.setTested(testCase.isTested());
+        dto.setPassed(testCase.isPassed());
         dto.setNumberOfTries(testCase.getNumberOfTries());
         dto.setLastUpdate(testCase.getLastUpdate());
         return dto;
@@ -19,10 +19,10 @@ public class TestCaseMapper {
 
     public static TestCase toEntity(TestCaseDTO dto) {
         TestCase testCase = new TestCase();
-        testCase.setId(dto.getId());
+        testCase.setIdCase(dto.getIdCase());
         testCase.setDescription(dto.getDescription());
-        testCase.setTested(dto.getTested());
-        testCase.setPassed(dto.getPassed());
+        testCase.setTested(dto.isTested());
+        testCase.setPassed(dto.isPassed());
         testCase.setNumberOfTries(dto.getNumberOfTries());
         testCase.setLastUpdate(dto.getLastUpdate());
         return testCase;

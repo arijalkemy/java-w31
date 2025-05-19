@@ -3,7 +3,10 @@ package com.example.QATesters.service;
 import com.example.QATesters.dto.TestCaseDTO;
 import com.example.QATesters.mapper.TestCaseMapper;
 import com.example.QATesters.model.TestCase;
+import com.example.QATesters.model.TestResult;
 import com.example.QATesters.repository.TestCaseRepository;
+import com.example.QATesters.repository.TestResultRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -14,14 +17,21 @@ import java.util.stream.Collectors;
 @Service
 public class TestCaseService {
     private final TestCaseRepository repository;
+    private final TestResultRepository testResultRepository;
 
-    public TestCaseService(TestCaseRepository repository) {
-        this.repository = repository;
+    @Autowired
+    public TestCaseService(TestCaseRepository testCaseRepository, TestResultRepository testResultRepository) {
+        this.repository = testCaseRepository;
+        this.testResultRepository = testResultRepository;
     }
 
-    public TestCaseDTO createTestCase(TestCaseDTO dto) {
-        TestCase testCase = TestCaseMapper.toEntity(dto);
-        return TestCaseMapper.toDTO(repository.save(testCase));
+    public TestCase createTestCase(TestCase testCase) {
+        // Guarda el objeto TestResult primero si no es nulo
+        if (testCase.getTestResult() != null) {
+            TestResult savedResult = testResultRepository.save(testCase.getTestResult());
+            testCase.setTestResult(savedResult);
+        }
+        return repository.save(testCase);
     }
 
     public List<TestCaseDTO> getAllTestCases() {
@@ -38,8 +48,8 @@ public class TestCaseService {
         if (existingTestCase.isPresent()) {
             TestCase updated = existingTestCase.get();
             updated.setDescription(dto.getDescription());
-            updated.setTested(dto.getTested());
-            updated.setPassed(dto.getPassed());
+            updated.setTested(dto.isTested());
+            updated.setPassed(dto.isPassed());
             updated.setNumberOfTries(dto.getNumberOfTries());
             return TestCaseMapper.toDTO(repository.save(updated));
         }
