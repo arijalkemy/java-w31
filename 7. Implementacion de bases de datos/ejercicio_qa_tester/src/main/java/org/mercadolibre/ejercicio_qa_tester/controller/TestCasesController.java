@@ -37,6 +37,7 @@ public class TestCasesController {
         return service.updateTestCase(id, testCase);
     }
 
+    // delete
     @DeleteMapping("{id}")
     public String deleteTestCase(@PathVariable Long id) {
         return service.deleteTestCase(id);
