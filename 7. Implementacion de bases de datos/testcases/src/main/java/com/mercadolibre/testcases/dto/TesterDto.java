@@ -9,12 +9,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class TestCaseDto {
+public class TesterDto {
     private Long id;
-    private String description;
-    private Boolean tested;
-    private Boolean passed;
-    private Integer numberOfTries;
-    private String lastUpdate;
-    private Long testerId;
+    private String name;
+    private String email;
 }

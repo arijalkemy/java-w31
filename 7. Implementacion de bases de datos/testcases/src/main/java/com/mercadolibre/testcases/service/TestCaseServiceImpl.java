@@ -2,7 +2,9 @@ package com.mercadolibre.testcases.service;
 
 import com.mercadolibre.testcases.dto.TestCaseDto;
 import com.mercadolibre.testcases.model.TestCase;
+import com.mercadolibre.testcases.model.Tester;
 import com.mercadolibre.testcases.repository.ITestCaseRepository;
+import com.mercadolibre.testcases.repository.ITesterRepository;
 import com.mercadolibre.testcases.util.TestCaseMapper;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -14,14 +16,21 @@ import java.util.List;
 @Service
 public class TestCaseServiceImpl implements ITestCaseService {
     private final ITestCaseRepository testCaseRepository;
+    private final ITesterRepository testerRepository;
+    private final TestCaseMapper testCaseMapper;
 
-    public TestCaseServiceImpl(ITestCaseRepository testCaseRepository) {
+    public TestCaseServiceImpl(ITestCaseRepository testCaseRepository, ITesterRepository testerRepository, TestCaseMapper testCaseMapper) {
         this.testCaseRepository = testCaseRepository;
+        this.testerRepository = testerRepository;
+        this.testCaseMapper = testCaseMapper;
     }
 
     @Override
     public TestCaseDto save(TestCaseDto testCaseDto) {
-        TestCase testCase = testCaseRepository.save(TestCaseMapper.toTestCase(testCaseDto));
+        Tester tester = testerRepository.findById(testCaseDto.getTesterId())
+                .orElseThrow(() -> new RuntimeException("Tester not found"));
+        testCaseDto.setId(tester.getId());
+        TestCase testCase = testCaseRepository.save(testCaseMapper.toTestCase(testCaseDto));
         return TestCaseMapper.toTestCaseDto(testCase);
     }
 
@@ -41,11 +50,13 @@ public class TestCaseServiceImpl implements ITestCaseService {
     public TestCaseDto update(TestCaseDto testCaseDto) {
         TestCase testCase = testCaseRepository.findById(testCaseDto.getId()).orElse(null);
         if (testCase != null) {
-            testCase.setDescription(testCaseDto.getDescription());
-            testCase.setPassed(testCaseDto.getPassed());
-            testCase.setTested(testCaseDto.getTested());
-            testCase.setNumberOfTries(testCaseDto.getNumberOfTries());
+            testCase.setDescription(testCaseDto.getDescription() != null ? testCaseDto.getDescription() : testCase.getDescription());
+            testCase.setPassed(testCaseDto.getPassed() != null ? testCaseDto.getPassed() : testCase.getPassed());
+            testCase.setTested(testCaseDto.getTested() != null ? testCaseDto.getTested() : testCase.getTested());
+            testCase.setNumberOfTries(testCaseDto.getNumberOfTries() != null ? testCaseDto.getNumberOfTries() : testCase.getNumberOfTries());
             testCase.setLastUpdate(LocalDate.now());
+            testCase.setTester(testerRepository.findById(testCaseDto.getTesterId())
+                    .orElseThrow(() -> new RuntimeException("Tester not found")));
             TestCase savedTestCase = testCaseRepository.save(testCase);
             return TestCaseMapper.toTestCaseDto(savedTestCase);
         }

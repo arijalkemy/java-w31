@@ -22,6 +22,10 @@ public class TestCase {
     private Integer numberOfTries;
     private LocalDate lastUpdate;
 
+    @ManyToOne
+    @JoinColumn(name = "tester_id")
+    private Tester tester;
+
     public TestCase(String description, Boolean tested, Boolean passed, Integer numberOfTries, LocalDate lastUpdate) {
         this.description = description;
         this.tested = tested;
