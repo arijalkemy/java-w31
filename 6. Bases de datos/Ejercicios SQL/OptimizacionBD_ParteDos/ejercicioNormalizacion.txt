@@ -1,0 +1,62 @@
+-- Primera Forma Normal (1FN)
+En la tabla original, todos los campos son atómicos y no tienen valores repetitivos o grupos de datos.
+
+-- Segunda Forma Normal (2FN)
+Para llegar a la 2FN, es necesario eliminar las dependencias parciales. 
+Esto implica identificar atributos que dependen únicamente de una parte de la clave primaria 
+si existiera una clave compuesta) y dividir las entidades que están en la tabla:
+
+- Entidad de Factura:
+  - Atributos: `id_factura`, `fecha_factura`, `forma_pago`, `IVA`, `id_cliente` (FK)
+
+- Entidad de Cliente:
+  - Atributos: `id_cliente`, `nombre_cliente`, `apellido_cliente`, `direccion_cliente`
+
+- Entidad de Artículo:
+  - Atributos: `id_articulo`, `descripcion_articulo`
+
+- Entidad de Detalle:
+  - Atributos: `id_factura` (FK), `id_articulo` (FK), `cantidad`, `importe`
+
+
+-- Tercera Forma Normal (3FN)
+Para alcanzar la 3FN, debemos eliminar las dependencias transitivas. 
+Esto significa que los atributos no deben depender de otros atributos 
+que no sean de la clave primaria.
+
+- En la tabla Factura, aseguramos que los atributos dependen solo de `id_factura`: 
+  - `factura(id_factura, fecha_factura, forma_pago, IVA, id_cliente)`
+
+- En la tabla Cliente, todos los atributos dependen de `id_cliente`: 
+  - `cliente(id_cliente, nombre_cliente, apellido_cliente, direccion_cliente)`
+
+- En la tabla Artículo, lo mismo con `id_articulo`: 
+  - `articulo(id_articulo, descripcion_articulo)`
+
+- En la tabla Línea de Factura, los atributos dependen de una clave compuesta:
+  - `linea_factura(id_factura, id_articulo, cantidad, importe)`
+
+-- Diagrama Entidad-Relación (DER) FINAL
+
+- Tabla Factura:
+  - `id_factura` (PK)
+  - `fecha_factura`
+  - `forma_pago`
+  - `IVA`
+  - `id_cliente` (FK)
+
+- Tabla Cliente:
+  - `id_cliente` (PK)
+  - `nombre_cliente`
+  - `apellido_cliente`
+  - `direccion_cliente`
+
+- Tabla Artículo:
+  - `id_articulo` (PK)
+  - `descripcion_articulo`
+
+- Tabla Línea de Factura:
+  - `id_factura` (FK)
+  - `id_articulo` (FK)
+  - `cantidad`
+  - `importe`
