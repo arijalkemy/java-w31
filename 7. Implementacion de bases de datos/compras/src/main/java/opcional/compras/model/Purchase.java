@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
+import java.util.Set;
 
 @Entity
 @Table(name = "purchases")
@@ -21,4 +22,8 @@ public class Purchase {
     private Double totalWithoutDiscount;
     private Double discount;
     private Double totalDiscountsApplied;
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "client_id")
+    @JoinColumn(name = "date_id")
+    private Set<Item> items;
 }

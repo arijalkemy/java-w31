@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
+import java.util.Set;
 
 @Data
 @AllArgsConstructor
@@ -15,4 +16,5 @@ public class PurchaseDto {
     private Double totalWithoutDiscount;
     private Double discount;
     private Double totalDiscountsApplied;
+    private Set<ItemDto> items;
 }
