@@ -2,8 +2,6 @@ package com.mercadolibre.clave.compuesta.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,7 +15,7 @@ import java.util.Objects;
 @NoArgsConstructor
 @AllArgsConstructor
 @Embeddable
-public class Compra {
+public class CompraClienteId {
 
     @Column(name = "cliente_id")
     private Long clientId;
@@ -29,7 +27,7 @@ public class Compra {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Compra that = (Compra) o;
+        CompraClienteId that = (CompraClienteId) o;
         return Objects.equals(clientId, that.clientId) && Objects.equals(date, that.date);
     }
 
