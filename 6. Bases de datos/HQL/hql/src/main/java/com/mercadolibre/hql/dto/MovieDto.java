@@ -1,9 +1,13 @@
 package com.mercadolibre.hql.dto;
 
+import com.mercadolibre.hql.model.Actor;
+import com.mercadolibre.hql.model.ActorMovie;
+import com.mercadolibre.hql.model.Genre;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
+import java.util.Set;
 
 @Getter @Setter
 public class MovieDto {
@@ -15,5 +19,7 @@ public class MovieDto {
     Integer awards;
     LocalDateTime releaseDate;
     Integer length;
-    Integer genre_id;
+    private Genre genre;
+    private Set<Actor> actors;
+    private Set<ActorMovie> actorMovies;
 }

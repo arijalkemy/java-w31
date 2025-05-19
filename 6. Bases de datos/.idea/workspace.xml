@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="f008a046-3f54-4244-9984-d3606d06a729" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/HQL/hql/src/main/java/com/mercadolibre/hql/config/JacksonConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HQL/hql/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/HQL/hql/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HQL/hql/src/main/java/com/mercadolibre/hql/controller/MovieController.java" beforeDir="false" afterPath="$PROJECT_DIR$/HQL/hql/src/main/java/com/mercadolibre/hql/controller/MovieController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HQL/hql/src/main/java/com/mercadolibre/hql/dto/ActorDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/HQL/hql/src/main/java/com/mercadolibre/hql/dto/ActorDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HQL/hql/src/main/java/com/mercadolibre/hql/dto/EpisodeDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/HQL/hql/src/main/java/com/mercadolibre/hql/dto/EpisodeDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HQL/hql/src/main/java/com/mercadolibre/hql/dto/GenreDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/HQL/hql/src/main/java/com/mercadolibre/hql/dto/GenreDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HQL/hql/src/main/java/com/mercadolibre/hql/dto/MovieDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/HQL/hql/src/main/java/com/mercadolibre/hql/dto/MovieDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HQL/hql/src/main/java/com/mercadolibre/hql/dto/SeasonDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/HQL/hql/src/main/java/com/mercadolibre/hql/dto/SeasonDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HQL/hql/src/main/java/com/mercadolibre/hql/dto/SerieDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/HQL/hql/src/main/java/com/mercadolibre/hql/dto/SerieDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HQL/hql/src/main/java/com/mercadolibre/hql/model/Actor.java" beforeDir="false" afterPath="$PROJECT_DIR$/HQL/hql/src/main/java/com/mercadolibre/hql/model/Actor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HQL/hql/src/main/java/com/mercadolibre/hql/model/ActorEpisode.java" beforeDir="false" afterPath="$PROJECT_DIR$/HQL/hql/src/main/java/com/mercadolibre/hql/model/ActorEpisode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HQL/hql/src/main/java/com/mercadolibre/hql/model/ActorMovie.java" beforeDir="false" afterPath="$PROJECT_DIR$/HQL/hql/src/main/java/com/mercadolibre/hql/model/ActorMovie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HQL/hql/src/main/java/com/mercadolibre/hql/model/Episode.java" beforeDir="false" afterPath="$PROJECT_DIR$/HQL/hql/src/main/java/com/mercadolibre/hql/model/Episode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HQL/hql/src/main/java/com/mercadolibre/hql/model/Genre.java" beforeDir="false" afterPath="$PROJECT_DIR$/HQL/hql/src/main/java/com/mercadolibre/hql/model/Genre.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HQL/hql/src/main/java/com/mercadolibre/hql/model/Movie.java" beforeDir="false" afterPath="$PROJECT_DIR$/HQL/hql/src/main/java/com/mercadolibre/hql/model/Movie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HQL/hql/src/main/java/com/mercadolibre/hql/model/Season.java" beforeDir="false" afterPath="$PROJECT_DIR$/HQL/hql/src/main/java/com/mercadolibre/hql/model/Season.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HQL/hql/src/main/java/com/mercadolibre/hql/model/Serie.java" beforeDir="false" afterPath="$PROJECT_DIR$/HQL/hql/src/main/java/com/mercadolibre/hql/model/Serie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HQL/hql/src/main/java/com/mercadolibre/hql/service/ActorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/HQL/hql/src/main/java/com/mercadolibre/hql/service/ActorService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HQL/hql/src/main/java/com/mercadolibre/hql/service/EpisodeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/HQL/hql/src/main/java/com/mercadolibre/hql/service/EpisodeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HQL/hql/src/main/java/com/mercadolibre/hql/service/MovieService.java" beforeDir="false" afterPath="$PROJECT_DIR$/HQL/hql/src/main/java/com/mercadolibre/hql/service/MovieService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HQL/hql/src/main/java/com/mercadolibre/hql/service/SerieService.java" beforeDir="false" afterPath="$PROJECT_DIR$/HQL/hql/src/main/java/com/mercadolibre/hql/service/SerieService.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 8
+}]]></component>
+  <component name="ProjectId" id="2xKQ79ZnqJ1jS1GNyAIXr2OmMOe" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "alonso__reyes__ornella",
+    "last_opened_file_path": "/Users/oalonso/Documents/GitHub/java-w31/6. Bases de datos",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-fbdcb00ec9e3-intellij.indexing.shared.core-IU-251.23774.435" />
+        <option value="bundled-js-predefined-d6986cc7102b-f27c65a3e318-JavaScript-IU-251.23774.435" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f008a046-3f54-4244-9984-d3606d06a729" name="Changes" comment="" />
+      <created>1747684114300</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1747684114300</updated>
+      <workItem from="1747684115345" duration="2000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

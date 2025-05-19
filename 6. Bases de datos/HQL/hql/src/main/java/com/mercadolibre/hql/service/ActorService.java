@@ -12,20 +12,18 @@ import java.util.List;
 public class ActorService implements IActorService{
     @Autowired
     IActorRepository actorRepository;
-
+    @Autowired
+    ObjectMapper mapper;
     public List<ActorDto> getActorsWithFavoriteMovie() {
-        ObjectMapper mapper = new ObjectMapper();
         return actorRepository.findActorsWithFavoriteMovie().stream()
                 .map(a -> mapper.convertValue(a, ActorDto.class)).toList();
     }
     public List<ActorDto> getActorsWithRatingGreaterThan(Double rating) {
-        ObjectMapper mapper = new ObjectMapper();
         return actorRepository.findActorsWithRatingGreaterThan(rating).stream()
                 .map(a -> mapper.convertValue(a, ActorDto.class)).toList();
     }
 
     public List<ActorDto> getActorsByMovieId(Long movieId) {
-        ObjectMapper mapper = new ObjectMapper();
         return actorRepository.findActorsByMovieId(movieId).stream()
                 .map(a -> mapper.convertValue(a, ActorDto.class)).toList();
     }

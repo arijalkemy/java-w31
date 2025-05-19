@@ -1,5 +1,7 @@
 package com.mercadolibre.hql.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -24,9 +26,11 @@ public class Episode {
     @Column(name = "release_date")
     LocalDateTime releaseDate;
     Double rating;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "season_id", nullable = false)
+    @JsonBackReference("season-episode")
     private Season season;
-    @OneToMany(mappedBy = "episode")
+    @OneToMany(mappedBy = "episode", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonManagedReference
     private Set<ActorEpisode> actors_episodes;
 }

@@ -12,9 +12,9 @@ import java.util.List;
 public class EpisodeService implements IEpisodeService{
     @Autowired
     IEpisodeRepository episodeRepository;
-
+    @Autowired
+    ObjectMapper mapper;
     public List<EpisodeDto> getEpisodesByActorId(Integer actorId) {
-        ObjectMapper mapper = new ObjectMapper();
         return episodeRepository.findEpisodesByActorId(actorId).stream()
                 .map(e -> mapper.convertValue(e, EpisodeDto.class)).toList();
     }

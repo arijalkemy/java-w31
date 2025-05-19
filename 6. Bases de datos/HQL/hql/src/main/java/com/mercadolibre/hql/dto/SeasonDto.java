@@ -1,10 +1,13 @@
 package com.mercadolibre.hql.dto;
 
+import com.mercadolibre.hql.model.Episode;
+import com.mercadolibre.hql.model.Serie;
 import jakarta.persistence.Column;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
+import java.util.Set;
 
 @Getter @Setter
 public class SeasonDto {
@@ -15,5 +18,6 @@ public class SeasonDto {
     Integer number;
     LocalDateTime releaseDate;
     LocalDateTime endDate;
-    Integer serie_id;
+    private Serie serie;
+    private Set<Episode> episodes;
 }

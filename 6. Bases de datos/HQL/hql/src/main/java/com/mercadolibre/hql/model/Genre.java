@@ -1,5 +1,8 @@
 package com.mercadolibre.hql.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -22,8 +25,11 @@ public class Genre {
     String name;
     Integer ranking;
     Integer active;
-    @OneToMany(mappedBy = "genre")
+    @OneToMany(mappedBy = "genre" , cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonManagedReference
     private Set<Serie> series;
-    @OneToMany(mappedBy = "genre")
+
+    @OneToMany(mappedBy = "genre", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonManagedReference
     private Set<Movie> movies;
 }

@@ -1,9 +1,12 @@
 package com.mercadolibre.hql.dto;
 
+import com.mercadolibre.hql.model.Genre;
+import com.mercadolibre.hql.model.Season;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
+import java.util.Set;
 
 @Getter @Setter
 public class SerieDto {
@@ -13,5 +16,6 @@ public class SerieDto {
     String title;
     LocalDateTime releaseDate;
     LocalDateTime endDate;
-    Integer genre_id;
+    private Genre genre;
+    private Set<Season> seasons;
 }

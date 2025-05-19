@@ -12,9 +12,9 @@ import java.util.List;
 public class SerieService implements ISerieService {
     @Autowired
     ISerieRepository serieRepository;
-
+    @Autowired
+    ObjectMapper mapper;
     public List<SerieDto> getSeriesWithMoreThanXSeasons(Long cantidad) {
-        ObjectMapper mapper = new ObjectMapper();
         return serieRepository.findSeriesWithMoreThanXSeasons(cantidad).stream()
                 .map(s -> mapper.convertValue(s, SerieDto.class)).toList();
     }
