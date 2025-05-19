@@ -1,0 +1,70 @@
+PUT /zapatillas
+{
+  "mappings": {
+    "properties": {
+      "marca": { "type": "text" },
+      "modelo": { "type": "text" },
+      "talla": { "type": "float" },
+      "color": { "type": "text" },
+      "precio": { "type": "float" },
+      "disponibilidad": { "type": "boolean" },
+      "fecha_lanzamiento": { "type": "date" }
+    }
+  }
+}
+
+
+POST /zapatillas/_bulk
+{ "index": { } }
+{ "marca": "Nike", "modelo": "Air Max", "talla": 42, "color": "Negro", "precio": 120.50, "disponibilidad": true, "fecha_lanzamiento": "2022-01-15" }
+{ "index": { } }
+{ "marca": "Adidas", "modelo": "Ultraboost", "talla": 41, "color": "Blanco", "precio": 180.00, "disponibilidad": true, "fecha_lanzamiento": "2021-09-10" }
+{ "index": { } }
+{ "marca": "Puma", "modelo": "RS-X", "talla": 43, "color": "Rojo", "precio": 110.00, "disponibilidad": false, "fecha_lanzamiento": "2022-07-20" }
+{ "index": { } }
+{ "marca": "Reebok", "modelo": "Classic", "talla": 40, "color": "Azul", "precio": 85.00, "disponibilidad": true, "fecha_lanzamiento": "2021-05-30" }
+{ "index": { } }
+{ "marca": "New Balance", "modelo": "997", "talla": 39, "color": "Gris", "precio": 140.00, "disponibilidad": true, "fecha_lanzamiento": "2020-03-22" }
+{ "index": { } }
+{ "marca": "Asics", "modelo": "Gel-Kayano", "talla": 44, "color": "Negro", "precio": 160.00, "disponibilidad": true, "fecha_lanzamiento": "2022-06-15" }
+{ "index": { } }
+{ "marca": "Nike", "modelo": "React Infinity", "talla": 42, "color": "Verde", "precio": 150.00, "disponibilidad": true, "fecha_lanzamiento": "2023-01-10" }
+{ "index": { } }
+{ "marca": "Adidas", "modelo": "NMD", "talla": 41, "color": "Negro", "precio": 170.00, "disponibilidad": true, "fecha_lanzamiento": "2021-02-28" }
+{ "index": { } }
+{ "marca": "Puma", "modelo": "Clyde", "talla": 43, "color": "Blanco", "precio": 95.00, "disponibilidad": true, "fecha_lanzamiento": "2020-12-12" }
+{ "index": { } }
+{ "marca": "Reebok", "modelo": "Nano", "talla": 40, "color": "Naranja", "precio": 120.00, "disponibilidad": false, "fecha_lanzamiento": "2022-08-08" }
+{ "index": { } }
+{ "marca": "New Balance", "modelo": "Fresh Foam", "talla": 39, "color": "Azul", "precio": 130.00, "disponibilidad": true, "fecha_lanzamiento": "2023-05-01" }
+{ "index": { } }
+{ "marca": "Asics", "modelo": "GEL-Quantum", "talla": 44, "color": "Negro", "precio": 110.00, "disponibilidad": true, "fecha_lanzamiento": "2021-07-15" }
+{ "index": { } }
+{ "marca": "Nike", "modelo": "Air Force 1", "talla": 42, "color": "Blanco", "precio": 90.00, "disponibilidad": true, "fecha_lanzamiento": "2022-03-05" }
+{ "index": { } }
+{ "marca": "Adidas", "modelo": "Stan Smith", "talla": 41, "color": "Verde", "precio": 80.00, "disponibilidad": true, "fecha_lanzamiento": "2020-11-05" }
+{ "index": { } }
+{ "marca": "Puma", "modelo": "Suede", "talla": 43, "color": "Negro", "precio": 85.00, "disponibilidad": true, "fecha_lanzamiento": "2021-04-22" }
+{ "index": { } }
+{ "marca": "Reebok", "modelo": "Zig Kinetica", "talla": 40, "color": "Verde", "precio": 135.00, "disponibilidad": false, "fecha_lanzamiento": "2023-03-25" }
+{ "index": { } }
+{ "marca": "New Balance", "modelo": "840", "talla": 39, "color": "Gris", "precio": 160.00, "disponibilidad": true, "fecha_lanzamiento": "2021-08-30" }
+{ "index": { } }
+{ "marca": "Asics", "modelo": "Gel-Nimbus", "talla": 44, "color": "Blanco", "precio": 150.00, "disponibilidad": true, "fecha_lanzamiento": "2022-10-10" }
+
+
+GET /zapatillas/_search
+{
+  "query": {
+    "match_all": {}
+  }
+}
+
+GET /zapatillas/_search
+{
+  "query": {
+    "match": {
+      "marca": "Nike"
+    }
+  }
+}
