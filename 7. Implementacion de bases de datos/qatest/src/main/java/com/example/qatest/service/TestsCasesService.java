@@ -2,65 +2,117 @@ package com.example.qatest.service;
 
 import com.example.qatest.model.dto.TestDTO;
 import com.example.qatest.model.entity.TestCase;
+import com.example.qatest.model.entity.TestExecutionResult;
+import com.example.qatest.model.request.AddTestResultRequest;
 import com.example.qatest.model.request.NewTestRequest;
 import com.example.qatest.repository.TestCasesRepository;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.example.qatest.repository.TestExecutionResultRepository;
 import lombok.AllArgsConstructor;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @AllArgsConstructor
-public class TestsCasesService implements ITestsCasesService {
+public class TestsCasesService {
 
-    TestCasesRepository repository;
-    ObjectMapper mapper;
+    private final TestCasesRepository testCasesRepository;
+    private final TestExecutionResultRepository testExecutionResultRepository;
 
-    @Override
+    private TestDTO mapTestCaseToTestDTO(TestCase testCase) {
+        TestDTO dto = new TestDTO();
+        dto.setId(testCase.getId());
+        dto.setDescription(testCase.getDescription());
+
+        List<TestExecutionResult> results = testCase.getExecutionResults();
+        if (results != null && !results.isEmpty()) {
+            dto.setTested(true);
+            dto.setNumberOfTries(results.size());
+            Optional<TestExecutionResult> latestResultOpt = results.stream()
+                    .sorted(Comparator.comparing(TestExecutionResult::getExecutionTimestamp).reversed())
+                    .findFirst();
+
+            latestResultOpt.ifPresent(latestResult -> {
+                dto.setPassed(latestResult.isPassed());
+                dto.setLastUpdate(latestResult.getExecutionTimestamp());
+            });
+        } else {
+            dto.setTested(false);
+            dto.setNumberOfTries(0);
+            dto.setPassed(false);
+            dto.setLastUpdate(null);
+        }
+
+        return dto;
+    }
+
+    @Transactional // Good practice for write operations
     public TestDTO createTest(NewTestRequest newTest) {
-        TestCase test = mapper.convertValue(newTest, TestCase.class);
-        TestCase saved = repository.save(test);
-        return mapper.convertValue(saved, TestDTO.class);
+        TestCase testCase = new TestCase();
+        testCase.setDescription(newTest.getDescription());
+
+        TestCase saved = testCasesRepository.save(testCase);
+        return mapTestCaseToTestDTO(saved);
     }
 
-    @Override
     public List<TestDTO> getAllTests() {
-        return repository.findAll().stream().map(t -> mapper.convertValue(t, TestDTO.class)).toList();
+        List<TestCase> testCases = testCasesRepository.findAll();
+
+        return testCases.stream()
+                .map(this::mapTestCaseToTestDTO)
+                .toList();
     }
 
-    @Override
     public TestDTO getTestById(Long id) {
-        return repository.findById(id).map(t -> mapper.convertValue(t, TestDTO.class)).orElseThrow();
+        Optional<TestCase> testCaseOpt = testCasesRepository.findById(id);
+
+        return testCaseOpt
+                .map(this::mapTestCaseToTestDTO) // Use the helper method if found
+                .orElseThrow(() -> new RuntimeException("Test Case not found with id: " + id));
     }
 
-    @Override
+    @Transactional
     public TestDTO updateTestById(Long id, NewTestRequest updatedTest) {
-        return repository.findById(id).map(
-                testCase -> {
-                    testCase.setDescription(updatedTest.getDescription());
-                    testCase.setLast_update(updatedTest.getLast_update());
-                    testCase.setTested(updatedTest.getTested());
-                    testCase.setPassed(updatedTest.getPassed());
-                    testCase.setNumber_of_tries(updatedTest.getNumber_of_tries());
-                    return mapper.convertValue(testCase, TestDTO.class);
-                }
-        ).orElseThrow();
+        Optional<TestCase> optionalTestCase = testCasesRepository.findById(id);
+
+        if (optionalTestCase.isPresent()) {
+            TestCase testCase = optionalTestCase.get();
+            testCase.setDescription(updatedTest.getDescription());
+            TestCase saved = testCasesRepository.save(testCase);
+            return mapTestCaseToTestDTO(saved);
+        } else {
+            throw new RuntimeException("Test Case not found with id: " + id);
+        }
     }
 
-    @Override
+    @Transactional
     public void deleteTestCaseByID(Long id) {
-        repository.deleteById(id);
+        testCasesRepository.deleteById(id);
     }
 
-    @Override
-    public List<TestDTO> getTestCasesAfter(LocalDate lastUpdate) {
-        List<TestCase> testCaseList = repository.findAll()
-                .stream()
-                .filter(testCase -> testCase.getLast_update().isAfter(lastUpdate)).toList();
+    public List<TestDTO> getTestCasesAfter(LocalDate date) {
+        LocalDateTime startOfDay = date.atStartOfDay();
+        List<TestCase> testCaseList = testCasesRepository.findTestCasesWithExecutionAfter(startOfDay);
+        return testCaseList.stream()
+                .map(this::mapTestCaseToTestDTO)
+                .toList();
+    }
 
-        return testCaseList.stream().map(t -> mapper.convertValue(t, TestDTO.class)).toList();
+    @Transactional
+    public TestExecutionResult createTestExecutionResult(AddTestResultRequest request) {
+        TestCase testCase = testCasesRepository.findById(request.getTestID())
+                .orElseThrow(() -> new RuntimeException("Test Case not found with id: " + request.getTestID()));
+
+        TestExecutionResult result = new TestExecutionResult();
+        result.setTestCase(testCase);
+        result.setPassed(request.isPassed());
+        result.setExecutionTimestamp(LocalDateTime.now());
+
+        return testExecutionResultRepository.save(result);
     }
 }
