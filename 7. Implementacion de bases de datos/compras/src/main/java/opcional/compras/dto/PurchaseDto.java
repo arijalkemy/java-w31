@@ -13,8 +13,6 @@ import java.util.Set;
 public class PurchaseDto {
     private Long clientId;
     private Date date;
-    private Double totalWithoutDiscount;
-    private Double discount;
-    private Double totalDiscountsApplied;
     private Set<ItemDto> items;
+    private ReceiptDto receipt;
 }
