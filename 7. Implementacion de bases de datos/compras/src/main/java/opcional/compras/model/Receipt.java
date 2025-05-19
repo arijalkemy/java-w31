@@ -16,7 +16,6 @@ public class Receipt {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
     private String type;
-    private Double total;
     private Boolean approved;
     private String paymentMethod;
     private Double totalWithoutDiscount;
