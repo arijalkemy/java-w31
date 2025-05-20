@@ -5,7 +5,6 @@ import books.elasticsearchbooks.dto.BookDto;
 import books.elasticsearchbooks.repository.IBookRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Limit;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
