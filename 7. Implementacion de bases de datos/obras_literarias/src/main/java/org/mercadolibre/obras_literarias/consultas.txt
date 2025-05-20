@@ -1,0 +1,64 @@
+Retornar las obras de un determinado autor. Por ejemplo, todas las obras de “Garcia Marquez”
+
+GET /obra-literaria/_search
+{
+  "query": {
+    "match": {
+      "autor": "Gabriel García Márquez"
+    }
+  }
+}
+
+----------------------------------------------------------------------------------------------------------------------------------
+Retornar las obras que contengan palabras claves en sus títulos. Por ejemplo: que contengan la palabra “quijote”
+
+GET /obra-literaria/_search
+{
+    "query": {
+        "match": {
+          "nombre": "Quijote"
+        }
+    }
+}
+
+----------------------------------------------------------------------------------------------------------------------------------
+Retornar el top 5 de las obras literarias con más cantidad de páginas. Ordenar el resultado de mayor a menor.
+
+GET /obra-literaria/_search
+{
+  "size": 5,
+  "sort": [
+    {
+      "cantPaginas": {
+        "order": "desc"
+      }
+    }
+  ]
+}
+
+----------------------------------------------------------------------------------------------------------------------------------
+Retornar las obras que fueron publicadas antes de un determinado año. Por ejemplo: Antes de 1998.
+
+GET /obra-literaria/_search
+{
+  "query": {
+    "range": {
+      "anioPublicacion": {
+        "lt": 1998
+      }
+    }
+  }
+}
+
+----------------------------------------------------------------------------------------------------------------------------------
+Retornar todas las obras de una determinada editorial. Por ejemplo: Todas las obras de la editorial “Sudamericana”
+
+
+GET /obra-literaria/_search
+{
+  "query": {
+    "match": {
+      "editorial": "Sudamericana"
+    }
+  }
+}
