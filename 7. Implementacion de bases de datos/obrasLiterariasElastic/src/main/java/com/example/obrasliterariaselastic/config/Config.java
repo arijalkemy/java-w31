@@ -1,4 +1,4 @@
-package com.example.ejercitacionelastic.config;
+package com.example.obrasliterariaselastic.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.elasticsearch.client.ClientConfiguration;
@@ -16,3 +16,4 @@ public class Config extends ElasticsearchConfiguration {
     }
 
 }
+
