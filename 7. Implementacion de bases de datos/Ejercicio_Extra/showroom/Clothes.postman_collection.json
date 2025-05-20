@@ -1,0 +1,360 @@
+{
+	"info": {
+		"_postman_id": "3697a595-359a-4742-81c9-17c1a406fda2",
+		"name": "Clothes",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "43763919",
+		"_collection_link": "https://gold-shuttle-2364172.postman.co/workspace/Andr%C3%A9s-O%C3%B1ate's-Workspace~189f7ea7-4c62-4bde-8196-43d47933007f/collection/43763919-3697a595-359a-4742-81c9-17c1a406fda2?action=share&source=collection_link&creator=43763919"
+	},
+	"item": [
+		{
+			"name": "Get all",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/clothes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"clothes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear una nueva prenda.",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"Basic T-shirt\",\n  \"type\": \"shirt\",\n  \"brand\": \"H&M\",\n  \"color\": \"white\",\n  \"size\": \"M\",\n  \"quantity\": 50,\n  \"salePrice\": 15.99\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/clothes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"clothes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Devolver una prenda en particular",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/clothes/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"clothes",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar una prenda en particular",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"Basic T-shirt\",\n  \"type\": \"shirt\",\n  \"brand\": \"H&M\",\n  \"color\": \"white\",\n  \"size\": \"M\",\n  \"quantity\": 50,\n  \"salePrice\": 16.99\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/clothes/11",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"clothes",
+						"11"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar una prenda en particular",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/clothes/11",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"clothes",
+						"11"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Traer todas las prendas de un determinado talle",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/clothes/size/M",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"clothes",
+						"size",
+						"M"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar todas las prendas en cuyo nombre aparezca la palabra “remera”. No se tienen en cuenta ni mayúsculas ni minúsculas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/clothes?name=hoodie",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"clothes"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "hoodie"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Sales",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/sale",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"sale"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Sale",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"date\": \"2024-05-19\",\n  \"total\": 150.00,\n  \"paymentMethod\": \"CREDIT_CARD\",\n  \"clothingItems\": [\n    {\n      \"code\": 1,\n      \"name\": \"T-shirt\",\n      \"type\": \"Shirt\",\n      \"brand\": \"Nike\",\n      \"color\": \"White\",\n      \"size\": \"M\",\n      \"quantity\": 10,\n      \"salePrice\": 50.0\n    },\n    {\n      \"code\": 2,\n      \"name\": \"Jeans\",\n      \"type\": \"Pants\",\n      \"brand\": \"Levis\",\n      \"color\": \"Blue\",\n      \"size\": \"32\",\n      \"quantity\": 5,\n      \"salePrice\": 100.0\n    }\n  ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/sale",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"sale"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Devolver una venta en particular",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"date\": \"2024-05-19\",\n  \"total\": 150.00,\n  \"paymentMethod\": \"CREDIT_CARD\",\n  \"clothingItems\": [\n    {\n      \"code\": 1,\n      \"name\": \"T-shirt\",\n      \"type\": \"Shirt\",\n      \"brand\": \"Nike\",\n      \"color\": \"White\",\n      \"size\": \"M\",\n      \"quantity\": 10,\n      \"salePrice\": 50.0\n    },\n    {\n      \"code\": 2,\n      \"name\": \"Jeans\",\n      \"type\": \"Pants\",\n      \"brand\": \"Levis\",\n      \"color\": \"Blue\",\n      \"size\": \"32\",\n      \"quantity\": 5,\n      \"salePrice\": 100.0\n    }\n  ]\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/sale/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"sale",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar una venta en particular",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"date\": \"2024-05-19\",\n  \"total\": 152.00,\n  \"paymentMethod\": \"CREDIT_CARD\",\n  \"clothingItems\": [\n    {\n      \"code\": 1,\n      \"name\": \"T-shirt\",\n      \"type\": \"Shirt\",\n      \"brand\": \"Nike\",\n      \"color\": \"White\",\n      \"size\": \"M\",\n      \"quantity\": 10,\n      \"salePrice\": 50.0\n    }\n  ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/sale/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"sale",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar una venta en particular",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"date\": \"2024-05-19\",\n  \"total\": 152.00,\n  \"paymentMethod\": \"CREDIT_CARD\",\n  \"clothingItems\": [\n    {\n      \"code\": 1,\n      \"name\": \"T-shirt\",\n      \"type\": \"Shirt\",\n      \"brand\": \"Nike\",\n      \"color\": \"White\",\n      \"size\": \"M\",\n      \"quantity\": 10,\n      \"salePrice\": 50.0\n    }\n  ]\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/sale/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"sale",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Traer todas las prendas de una determinada fecha",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/sale?date=11/05/2024",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"sale"
+					],
+					"query": [
+						{
+							"key": "date",
+							"value": "11/05/2024"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Traer la lista completa de prendas de una determinada venta.",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/sale/clothes/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"sale",
+						"clothes",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
