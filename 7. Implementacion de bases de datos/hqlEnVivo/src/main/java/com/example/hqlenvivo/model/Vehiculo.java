@@ -3,6 +3,7 @@ package com.example.hqlenvivo.model;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -17,4 +18,7 @@ public class Vehiculo {
     private String model;
     private String year;
     private Integer wheels;
+
+    @OneToMany(mappedBy = "vehiculo", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Siniestro> siniestros = new ArrayList<>();
 }

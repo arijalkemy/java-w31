@@ -1,9 +1,12 @@
 package com.example.hqlenvivo.model;
 
 import jakarta.persistence.*;
+import lombok.Data;
 
 import java.time.LocalDate;
 
+@Entity
+@Data
 public class Siniestro {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -12,5 +15,6 @@ public class Siniestro {
     private LocalDate date;
     private Double monetaryLoss;
     @ManyToOne(fetch = FetchType.LAZY)
-    private Vehiculo vehicle;
+    @JoinColumn(name = "vehiculo_id")
+    private Vehiculo vehiculo;
 }
