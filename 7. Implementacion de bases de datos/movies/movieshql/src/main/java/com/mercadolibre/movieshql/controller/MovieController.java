@@ -19,13 +19,11 @@ public class MovieController {
         this.movieService = movieService;
     }
 
-    // Get all movies
     @GetMapping
     public List<Movie> getAllMovies() {
         return movieService.getAllMovies();
     }
 
-    // Check
     @GetMapping("/actors-rating")
     public List<Movie> moviesWithActorsRating(@RequestParam double rating) {
         return movieService.getMoviesWithActorsRatingGreaterThan(rating);

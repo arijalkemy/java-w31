@@ -1,5 +1,6 @@
 package com.mercadolibre.movieshql.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -26,7 +27,8 @@ public class Genre {
 
     private Boolean active;
 
-    @OneToMany(mappedBy = "genre")
+    @OneToMany(mappedBy = "genre", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JsonBackReference
     private Set<Movie> movies = new HashSet<>();
 
     // Getters y setters

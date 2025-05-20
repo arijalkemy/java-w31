@@ -19,12 +19,11 @@ public class ActorController {
         this.actorService = actorService;
     }
 
-    //get all
     @GetMapping
     public List<Actor> getAllActors() {
         return actorService.getAllActors();
     }
-    
+
     @GetMapping("/favorite")
     public List<Actor> actorsWithFavoriteMovie() {
         return actorService.getActorsWithFavoriteMovie();

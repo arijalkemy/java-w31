@@ -1,7 +1,7 @@
 package com.mercadolibre.movieshql.model;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -20,19 +20,22 @@ public class Actor {
     private String lastName;
     private BigDecimal rating;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "favorite_movie_id")
-    @JsonIgnore
     private Movie favoriteMovie;
 
-    @ManyToMany(mappedBy = "actors",
-            fetch = FetchType.LAZY)
-    @JsonBackReference
+    @JsonManagedReference
+    @ManyToMany
+    @JoinTable(
+            name = "actor_movie",
+            joinColumns = @JoinColumn(name = "actor_id"),
+            inverseJoinColumns = @JoinColumn(name = "movie_id")
+    )
+    @JsonIgnore
     private Set<Movie> movies = new HashSet<>();
 
-    @ManyToMany(mappedBy = "actors",
-            fetch = FetchType.LAZY)
-    @JsonBackReference
+    @ManyToMany(mappedBy = "actors")
+    @JsonIgnore
     private Set<Episode> episodes = new HashSet<>();
 }
 

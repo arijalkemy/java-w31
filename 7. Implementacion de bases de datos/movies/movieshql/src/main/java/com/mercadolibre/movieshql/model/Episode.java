@@ -1,7 +1,6 @@
 package com.mercadolibre.movieshql.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -42,6 +41,6 @@ public class Episode {
             joinColumns = @JoinColumn(name = "episode_id"),
             inverseJoinColumns = @JoinColumn(name = "actor_id")
     )
-    @JsonManagedReference
+    @JsonIgnore
     private Set<Actor> actors = new HashSet<>();
 }

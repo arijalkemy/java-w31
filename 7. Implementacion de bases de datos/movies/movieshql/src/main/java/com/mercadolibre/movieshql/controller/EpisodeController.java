@@ -19,7 +19,6 @@ public class EpisodeController {
         this.episodeService = episodeService;
     }
 
-    // Check
     @GetMapping("/actor")
     public List<Episode> episodesByActor(@RequestParam String actorName) {
         return episodeService.getEpisodesByActorName(actorName);

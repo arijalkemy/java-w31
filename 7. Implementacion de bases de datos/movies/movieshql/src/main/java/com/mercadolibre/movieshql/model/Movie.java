@@ -1,7 +1,6 @@
 package com.mercadolibre.movieshql.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -32,17 +31,11 @@ public class Movie {
 
     private Integer length;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "genre_id")
-    @JsonIgnore
     private Genre genre;
 
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(
-            name = "actor_movie",
-            joinColumns = @JoinColumn(name = "movie_id"),
-            inverseJoinColumns = @JoinColumn(name = "actor_id")
-    )
-    @JsonManagedReference
+    @JsonBackReference
+    @ManyToMany(mappedBy = "movies")
     private Set<Actor> actors = new HashSet<>();
 }

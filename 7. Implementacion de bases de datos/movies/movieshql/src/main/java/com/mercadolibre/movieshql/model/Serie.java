@@ -35,6 +35,7 @@ public class Serie {
     private Genre genre;
 
     @OneToMany(mappedBy = "serie")
+    @JsonIgnore
     private Set<Season> seasons = new HashSet<>();
 
 }
