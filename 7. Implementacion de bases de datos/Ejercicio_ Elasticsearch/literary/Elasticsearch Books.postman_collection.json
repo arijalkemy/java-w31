@@ -1,0 +1,244 @@
+{
+	"info": {
+		"_postman_id": "eb010c98-640f-41e8-9336-e8364419c064",
+		"name": "Elasticsearch Books",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "43763919",
+		"_collection_link": "https://gold-shuttle-2364172.postman.co/workspace/Andr%C3%A9s-O%C3%B1ate's-Workspace~189f7ea7-4c62-4bde-8196-43d47933007f/collection/43763919-eb010c98-640f-41e8-9336-e8364419c064?action=share&source=collection_link&creator=43763919"
+	},
+	"item": [
+		{
+			"name": "All Indices",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true,
+				"disabledSystemHeaders": {
+					"content-type": true,
+					"content-length": true,
+					"host": true,
+					"user-agent": true,
+					"accept": true,
+					"connection": true,
+					"accept-encoding": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 501,\n    \"brand\": \"Audi\",\n    \"model\": \"A4\",\n    \"registration\": \"03\",\n    \"color\": \"Blue\",\n    \"year\": 2020,\n    \"max_speed\": \"150\",\n    \"passengers\": 5,\n    \"fuel_type\": \"diesel\",\n    \"transmission\": \"automatic\",\n    \"height\": 121.50,\n    \"width\": 180.00,\n    \"weight\": 60.50\n}"
+				},
+				"url": {
+					"raw": "http://localhost:9200/_cat/indices?v",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"_cat",
+						"indices"
+					],
+					"query": [
+						{
+							"key": "v",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Data",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"index\": { \"_id\": \"1\" } }\n{ \"title\": \"Cien Años de Soledad\", \"author\": \"Gabriel Garcia Marquez\", \"pageCount\": 417, \"publisher\": \"Sudamericana\", \"publishedYear\": 1967 }\n\n{ \"index\": { \"_id\": \"2\" } }\n{ \"title\": \"El Amor en los Tiempos del Cólera\", \"author\": \"Gabriel Garcia Marquez\", \"pageCount\": 348, \"publisher\": \"Santillana\", \"publishedYear\": 1985 }\n\n{ \"index\": { \"_id\": \"3\" } }\n{ \"title\": \"Don Quijote de la Mancha\", \"author\": \"Miguel de Cervantes\", \"pageCount\": 863, \"publisher\": \"Santillana\", \"publishedYear\": 1605 }\n\n{ \"index\": { \"_id\": \"4\" } }\n{ \"title\": \"La Sombra del Viento\", \"author\": \"Carlos Ruiz Zafón\", \"pageCount\": 565, \"publisher\": \"Planeta\", \"publishedYear\": 2001 }\n\n{ \"index\": { \"_id\": \"5\" } }\n{ \"title\": \"Crónica de una Muerte Anunciada\", \"author\": \"Gabriel Garcia Marquez\", \"pageCount\": 122, \"publisher\": \"Santillana\", \"publishedYear\": 1981 }\n\n{ \"index\": { \"_id\": \"6\" } }\n{ \"title\": \"El Quijote Ilustrado\", \"author\": \"Miguel de Cervantes\", \"pageCount\": 900, \"publisher\": \"Alfaguara\", \"publishedYear\": 1995 }\n\n{ \"index\": { \"_id\": \"7\" } }\n{ \"title\": \"El Otoño del Patriarca\", \"author\": \"Gabriel Garcia Marquez\", \"pageCount\": 255, \"publisher\": \"Santillana\", \"publishedYear\": 1975 }\n\n{ \"index\": { \"_id\": \"8\" } }\n{ \"title\": \"Pedro Páramo\", \"author\": \"Juan Rulfo\", \"pageCount\": 124, \"publisher\": \"Fondo de Cultura Económica\", \"publishedYear\": 1955 }\n\n{ \"index\": { \"_id\": \"9\" } }\n{ \"title\": \"Rayuela\", \"author\": \"Julio Cortázar\", \"pageCount\": 666, \"publisher\": \"Sudamericana\", \"publishedYear\": 1963 }\n\n{ \"index\": { \"_id\": \"10\" } }\n{ \"title\": \"El Coronel no Tiene Quien le Escriba\", \"author\": \"Gabriel Garcia Marquez\", \"pageCount\": 140, \"publisher\": \"Santillana\", \"publishedYear\": 1961 }\n\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9200/book/_bulk",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"book",
+						"_bulk"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9200/zapatillas/_search",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"zapatillas",
+						"_search"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Retornar las obras de un determinado autor",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/books/author?name=Garcia Marquez",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"books",
+						"author"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Garcia Marquez"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Retornar las obras que contengan palabras claves en sus títulos.",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/books/title?keyword=cien",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"books",
+						"title"
+					],
+					"query": [
+						{
+							"key": "keyword",
+							"value": "cien"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Retornar el top 5 de las obras literarias con más cantidad de páginas.",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/books/top5-pages",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"books",
+						"top5-pages"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Retornar el top 5 de las obras literarias con más cantidad de páginas. Copy",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/books/published-before?year=1980",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"books",
+						"published-before"
+					],
+					"query": [
+						{
+							"key": "year",
+							"value": "1980"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Retornar todas las obras de una determinada editorial.",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/books/publisher?name=Santillana",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"books",
+						"publisher"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Santillana"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
