@@ -1,0 +1,11 @@
+/Users/jcaparros/Desktop/Proyectos/ejercicio-qa/src/main/java/com/qa_tester/ejercicio_qa/EjercicioQaApplication.java
+/Users/jcaparros/Desktop/Proyectos/ejercicio-qa/src/main/java/com/qa_tester/ejercicio_qa/controller/TestCaseController.java
+/Users/jcaparros/Desktop/Proyectos/ejercicio-qa/src/main/java/com/qa_tester/ejercicio_qa/dto/ExceptionDto.java
+/Users/jcaparros/Desktop/Proyectos/ejercicio-qa/src/main/java/com/qa_tester/ejercicio_qa/dto/TestCaseDto.java
+/Users/jcaparros/Desktop/Proyectos/ejercicio-qa/src/main/java/com/qa_tester/ejercicio_qa/exception/BadRequest.java
+/Users/jcaparros/Desktop/Proyectos/ejercicio-qa/src/main/java/com/qa_tester/ejercicio_qa/exception/ExceptionGlobalHandler.java
+/Users/jcaparros/Desktop/Proyectos/ejercicio-qa/src/main/java/com/qa_tester/ejercicio_qa/model/TestCase.java
+/Users/jcaparros/Desktop/Proyectos/ejercicio-qa/src/main/java/com/qa_tester/ejercicio_qa/repository/TestCaseRepository.java
+/Users/jcaparros/Desktop/Proyectos/ejercicio-qa/src/main/java/com/qa_tester/ejercicio_qa/service/ITestCaseService.java
+/Users/jcaparros/Desktop/Proyectos/ejercicio-qa/src/main/java/com/qa_tester/ejercicio_qa/service/TestCaseService.java
+/Users/jcaparros/Desktop/Proyectos/ejercicio-qa/src/main/java/com/qa_tester/ejercicio_qa/utils/GlobalMapping.java

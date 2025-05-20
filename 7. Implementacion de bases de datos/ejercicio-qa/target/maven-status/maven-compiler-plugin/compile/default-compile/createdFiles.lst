@@ -1,0 +1,11 @@
+com/qa_tester/ejercicio_qa/model/TestCase.class
+com/qa_tester/ejercicio_qa/dto/ExceptionDto.class
+com/qa_tester/ejercicio_qa/service/TestCaseService.class
+com/qa_tester/ejercicio_qa/dto/TestCaseDto.class
+com/qa_tester/ejercicio_qa/controller/TestCaseController.class
+com/qa_tester/ejercicio_qa/repository/TestCaseRepository.class
+com/qa_tester/ejercicio_qa/exception/ExceptionGlobalHandler.class
+com/qa_tester/ejercicio_qa/utils/GlobalMapping.class
+com/qa_tester/ejercicio_qa/service/ITestCaseService.class
+com/qa_tester/ejercicio_qa/exception/BadRequest.class
+com/qa_tester/ejercicio_qa/EjercicioQaApplication.class
