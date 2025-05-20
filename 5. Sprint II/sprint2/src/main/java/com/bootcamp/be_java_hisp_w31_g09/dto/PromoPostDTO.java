@@ -1,0 +1,30 @@
+package com.bootcamp.be_java_hisp_w31_g09.dto;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.time.LocalDate;
+
+@AllArgsConstructor
+@Data
+@NoArgsConstructor
+public class PromoPostDTO {
+    @JsonProperty("user_id")
+    private Integer userId;
+    @JsonProperty("post_id")
+    private Integer id;
+    @JsonProperty("date")
+    private LocalDate date;
+    @JsonProperty("product")
+    private ProductDTO product;
+    @JsonProperty("category")
+    private Integer category;
+    @JsonProperty("price")
+    private Double price;
+    @JsonProperty("has_promo")
+    private Boolean hasPromo;
+    @JsonProperty("discount")
+    private Double discount;
+}

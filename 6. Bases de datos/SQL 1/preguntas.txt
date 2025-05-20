@@ -1,0 +1,5 @@
+1. Se podría usar el DNI como clave primaria ya que debería ser un identificador único aunque acá en Argentina hay casos de DNI repetidos por lo que yo opte por agregarle un campo ID para usar como clave primaria.
+
+2. El campo identificación del plan ya que este identifica únicamente a cada registro de la tabla.
+
+3. Hay una uncía relacional en el modelo que es la asociación del cliente con el plan que tiene contratado, hay una FK en cliente con un identificador de plan, es una relación de uno a muchos ya que un tipo de plan puede ser contratado por varios clientes.

@@ -1,0 +1,698 @@
+{
+	"info": {
+		"name": "TP-Spring-Sprint-1",
+		"description": "Funcionalidades con casos validos, NOT FOUND e INVALID ORDER, IDs: Sellers 1-9 / Buyers 10-13.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "1. Follow Seller",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/users/11/follow/1",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8080",
+					"path": ["users", "11", "follow", "1"]
+				}
+			}
+		},
+		{
+			"name": "1. Follow Seller - NOT FOUND",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/users/999/follow/1",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8080",
+					"path": ["users", "999", "follow", "1"]
+				}
+			}
+		},
+
+		{
+			"name": "2. Get Follower Count",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/users/1/followers/count",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8080",
+					"path": ["users", "1", "followers", "count"]
+				}
+			}
+		},
+		{
+			"name": "2. Get Follower Count - NOT FOUND",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/users/999/followers/count",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8080",
+					"path": ["users", "999", "followers", "count"]
+				}
+			}
+		},
+
+		{
+			"name": "3. Get Followers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/users/1/followers/list",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8080",
+					"path": ["users", "1", "followers", "list"]
+				}
+			}
+		},
+		{
+			"name": "3. Get Followers - NOT FOUND",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/users/999/followers/list",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8080",
+					"path": ["users", "999", "followers", "list"]
+				}
+			}
+		},
+
+		{
+			"name": "4. Get Followed",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/users/10/followed/list",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8080",
+					"path": ["users", "10", "followed", "list"]
+				}
+			}
+		},
+		{
+			"name": "4. Get Followed - NOT FOUND",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/users/999/followed/list",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8080",
+					"path": ["users", "999", "followed", "list"]
+				}
+			}
+		},
+
+		{
+			"name": "5. Create New Post",
+			"request": {
+				"method": "POST",
+				"header": [{"key": "Content-Type", "value": "application/json"}],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"user_id\": 1,\n    \"date\": \"19-04-2025\",\n    \"product\": {\n        \"product_id\": 11,\n        \"product_name\": \"Cargador Inalámbrico\",\n        \"type\": \"Accesorios\",\n        \"brand\": \"Anker\",\n        \"color\": \"Negro\",\n        \"notes\": \"Carga rápida\"\n    },\n    \"category\": 110,\n    \"price\": 39.99\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/products/post",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8080",
+					"path": ["products", "post"]
+				}
+			}
+		},
+		{
+			"name": "5. Create New Post - NOT FOUND",
+			"request": {
+				"method": "POST",
+				"header": [{"key": "Content-Type", "value": "application/json"}],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"user_id\": 999,\n    \"date\": \"19-04-2025\",\n    \"product\": {\n        \"product_id\": 11,\n        \"product_name\": \"Cargador Inalámbrico\",\n        \"type\": \"Accesorios\",\n        \"brand\": \"Anker\",\n        \"color\": \"Negro\",\n        \"notes\": \"Carga rápida\"\n    },\n    \"category\": 110,\n    \"price\": 39.99\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/products/post",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8080",
+					"path": ["products", "post"]
+				}
+			}
+		},
+
+		{
+			"name": "6. Get Posts from Sellers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/products/followed/10/list",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8080",
+					"path": ["products", "followed", "10", "list"]
+				}
+			}
+		},
+		{
+			"name": "6. Get Posts from Sellers - NOT FOUND",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/products/followed/999/list",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8080",
+					"path": ["products", "followed", "999", "list"]
+				}
+			}
+		},
+
+		{
+			"name": "7. Unfollow Seller",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/users/10/unfollow/1",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8080",
+					"path": ["users", "10", "unfollow", "1"]
+				}
+			}
+		},
+		{
+			"name": "7. Unfollow Seller - NOT FOUND",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/users/999/unfollow/1",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8080",
+					"path": ["users", "999", "unfollow", "1"]
+				}
+			}
+		},
+
+		{
+			"name": "8a. Get Followers (name ASC)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/users/1/followers/list?order=name_asc",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8080",
+					"path": ["users", "1", "followers", "list"],
+					"query": [{ "key": "order", "value": "name_asc" }]
+				}
+			}
+		},
+		{
+			"name": "8a. Get Followers (name ASC) - NOT FOUND",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/users/999/followers/list?order=name_asc",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8080",
+					"path": ["users", "999", "followers", "list"],
+					"query": [{ "key": "order", "value": "name_asc" }]
+				}
+			}
+		},
+		{
+			"name": "8a. Get Followers (name ASC) - INVALID ORDER",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/users/1/followers/list?order=invalid_order",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8080",
+					"path": ["users", "1", "followers", "list"],
+					"query": [{ "key": "order", "value": "invalid_order" }]
+				}
+			}
+		},
+
+		{
+			"name": "8b. Get Followers (name DESC)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/users/1/followers/list?order=name_desc",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8080",
+					"path": ["users", "1", "followers", "list"],
+					"query": [{ "key": "order", "value": "name_desc" }]
+				}
+			}
+		},
+		{
+			"name": "8b. Get Followers (name DESC) - NOT FOUND",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/users/999/followers/list?order=name_desc",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8080",
+					"path": ["users", "999", "followers", "list"],
+					"query": [{ "key": "order", "value": "name_desc" }]
+				}
+			}
+		},
+		{
+			"name": "8b. Get Followers (name DESC) - INVALID ORDER",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/users/1/followers/list?order=invalid_order",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8080",
+					"path": ["users", "1", "followers", "list"],
+					"query": [{ "key": "order", "value": "invalid_order" }]
+				}
+			}
+		},
+
+		{
+			"name": "8c. Get Followed (name ASC)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/users/10/followed/list?order=name_asc",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8080",
+					"path": ["users", "10", "followed", "list"],
+					"query": [{ "key": "order", "value": "name_asc" }]
+				}
+			}
+		},
+		{
+			"name": "8c. Get Followed (name ASC) - NOT FOUND",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/users/999/followed/list?order=name_asc",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8080",
+					"path": ["users", "999", "followed", "list"],
+					"query": [{ "key": "order", "value": "name_asc" }]
+				}
+			}
+		},
+		{
+			"name": "8c. Get Followed (name ASC) - INVALID ORDER",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/users/10/followed/list?order=invalid_order",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8080",
+					"path": ["users", "10", "followed", "list"],
+					"query": [{ "key": "order", "value": "invalid_order" }]
+				}
+			}
+		},
+
+		{
+			"name": "8d. Get Followed (name DESC)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/users/10/followed/list?order=name_desc",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8080",
+					"path": ["users", "10", "followed", "list"],
+					"query": [{ "key": "order", "value": "name_desc" }]
+				}
+			}
+		},
+		{
+			"name": "8d. Get Followed (name DESC) - NOT FOUND",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/users/999/followed/list?order=name_desc",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8080",
+					"path": ["users", "999", "followed", "list"],
+					"query": [{ "key": "order", "value": "name_desc" }]
+				}
+			}
+		},
+		{
+			"name": "8d. Get Followed (name DESC) - INVALID ORDER",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/users/10/followed/list?order=invalid_order",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8080",
+					"path": ["users", "10", "followed", "list"],
+					"query": [{ "key": "order", "value": "invalid_order" }]
+				}
+			}
+		},
+
+
+		{
+			"name": "9a. Get Followed Posts (date ASC)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/products/followed/10/list?order=date_asc",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8080",
+					"path": ["products", "followed", "10", "list"],
+					"query": [{ "key": "order", "value": "date_asc" }]
+				}
+			}
+		},
+		{
+			"name": "9a. Get Followed Posts (date ASC) - NOT FOUND",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/products/followed/999/list?order=date_asc",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8080",
+					"path": ["products", "followed", "999", "list"],
+					"query": [{ "key": "order", "value": "date_asc" }]
+				}
+			}
+		},
+		{
+			"name": "9a. Get Followed Posts (date ASC) - INVALID ORDER",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/products/followed/10/list?order=invalid_order",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8080",
+					"path": ["products", "followed", "10", "list"],
+					"query": [{ "key": "order", "value": "invalid_order" }]
+				}
+			}
+		},
+
+		{
+			"name": "9b. Get Followed Posts (date DESC)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/products/followed/10/list?order=date_desc",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8080",
+					"path": ["products", "followed", "10", "list"],
+					"query": [{ "key": "order", "value": "date_desc" }]
+				}
+			}
+		},
+		{
+			"name": "9b. Get Followed Posts (date DESC) - NOT FOUND",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/products/followed/999/list?order=date_desc",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8080",
+					"path": ["products", "followed", "999", "list"],
+					"query": [{ "key": "order", "value": "date_desc" }]
+				}
+			}
+		},
+		{
+			"name": "9b. Get Followed Posts (date DESC) - INVALID ORDER",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/products/followed/10/list?order=invalid_order",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8080",
+					"path": ["products", "followed", "10", "list"],
+					"query": [{ "key": "order", "value": "invalid_order" }]
+				}
+			}
+		},
+
+		{
+			"name": "10. Create Promo Post",
+			"request": {
+				"method": "POST",
+				"header": [{"key": "Content-Type", "value": "application/json"}],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"user_id\": 1,\n    \"date\": \"29-04-2023\",\n    \"product\": {\n        \"product_id\": 7,\n        \"product_name\": \"Cámara Digital\",\n        \"type\": \"Fotografía\",\n        \"brand\": \"Canon\",\n        \"color\": \"Negra\",\n        \"notes\": \"EOS Rebel T7\"\n    },\n    \"category\": 400,\n    \"price\": 699.99,\n    \"has_promo\": true,\n    \"discount\": 0.10\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/products/promo-post",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8080",
+					"path": ["products", "promo-post"]
+				}
+			}
+		},
+		{
+			"name": "10. Create Promo Post - NOT FOUND",
+			"request": {
+				"method": "POST",
+				"header": [{"key": "Content-Type", "value": "application/json"}],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"user_id\": 999,\n    \"date\": \"29-04-2023\",\n    \"product\": {\n        \"product_id\": 7,\n        \"product_name\": \"Cámara Digital\",\n        \"type\": \"Fotografía\",\n        \"brand\": \"Canon\",\n        \"color\": \"Negra\",\n        \"notes\": \"EOS Rebel T7\"\n    },\n    \"category\": 400,\n    \"price\": 699.99,\n    \"has_promo\": true,\n    \"discount\": 0.10\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/products/promo-post",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8080",
+					"path": ["products", "promo-post"]
+				}
+			}
+		},
+
+		{
+			"name": "11. Get Promo Product Count",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/products/promo-post/count?user_id=1",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8080",
+					"path": ["products", "promo-post", "count"],
+					"query": [{ "key": "user_id", "value": "1" }]
+				}
+			}
+		},
+		{
+			"name": "11. Get Promo Product Count - NOT FOUND",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/products/promo-post/count?user_id=999",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8080",
+					"path": ["products", "promo-post", "count"],
+					"query": [{ "key": "user_id", "value": "999" }]
+				}
+			}
+		},
+		{
+			"name": "12. Get Promo Posts List",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/products/promo-post/list?user_id=1",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8080",
+					"path": ["products", "promo-post", "list"],
+					"query": [
+						{ "key": "user_id", "value": "1" }
+					]
+				}
+			}
+		},
+		{
+			"name": "12. Get Promo Posts List - NOT FOUND",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/products/promo-post/list?user_id=999",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8080",
+					"path": ["products", "promo-post", "list"],
+					"query": [
+						{ "key": "user_id", "value": "999" }
+					]
+				}
+			}
+		},
+		{
+			"name": "13a. Get sellers ranked by followers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/users/followers/seller/ranking",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8080",
+					"path": ["users","followers","seller","ranking"]
+				}
+			}
+		},
+		{
+			"name": "13a. Get sellers ranked by followers - INVALID ORDER",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/users/followers/seller/ranking?order=invalid_order",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8080",
+					"path": ["users","followers","seller","ranking"],
+					"query": [
+						{"key":"order", "value":"invalid_order"}
+					]
+				}
+			}
+		},
+
+		{
+			"name": "13b. Get sellers ranked by followers ASC",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/users/followers/seller/ranking?order=date_asc",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8080",
+					"path": ["users","followers","seller","ranking"],
+					"query": [
+						{"key":"order", "value":"date_asc"}
+					]
+				}
+			}
+		},
+		{
+			"name": "13b. Get sellers ranked by followers ASC - INVALID ORDER",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/users/followers/seller/ranking?order=invalid_order",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8080",
+					"path": ["users","followers","seller","ranking"],
+					"query": [
+						{"key":"order", "value":"invalid_order"}
+					]
+				}
+			}
+		},
+		{
+			"name": "13b. Get sellers ranked by followers DESC",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/users/followers/seller/ranking?order=date_desc",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8080",
+					"path": ["users","followers","seller","ranking"],
+					"query": [
+						{"key":"order", "value":"date_desc"}
+					]
+				}
+			}
+		},
+		{
+			"name": "13b. Get sellers ranked by followers DESC - INVALID ORDER",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/users/followers/seller/ranking?order=invalid_order",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8080",
+					"path": ["users","followers","seller","ranking"],
+					"query": [
+						{"key":"order", "value":"invalid_order"}
+					]
+				}
+			}
+		}
+	]
+}
