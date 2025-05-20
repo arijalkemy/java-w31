@@ -35,4 +35,9 @@ public class VehicleController {
     public ResponseEntity<List<VehicleDto>> findByWheelsGreaterThan4AndCurrentYear() {
         return new ResponseEntity<>(vehicleService.findByWheelsGreaterThan4AndCurrentYear(), HttpStatus.OK);
     }
+
+    @GetMapping("/find-by-claims-cost-of-money-greater-than-10000")
+    public ResponseEntity<List<VehicleDto>> findDistinctByClaimsCostOfDamageGreaterThanEqual() {
+        return new ResponseEntity<>(vehicleService.findDistinctByClaimsCostOfDamageGreaterThanEqual(), HttpStatus.OK);
+    }
 }

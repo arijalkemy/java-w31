@@ -9,4 +9,5 @@ public interface IVehicleService {
     VehicleDto save(VehicleDto vehicleDto);
     List<VehicleDto> findAllOrderByYear();
     List<VehicleDto> findByWheelsGreaterThan4AndCurrentYear();
+    List<VehicleDto> findDistinctByClaimsCostOfDamageGreaterThanEqual();
 }

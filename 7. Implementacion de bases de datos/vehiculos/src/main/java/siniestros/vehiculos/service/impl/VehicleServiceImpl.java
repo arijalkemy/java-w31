@@ -47,4 +47,13 @@ public class VehicleServiceImpl implements IVehicleService {
                 .map(v -> mapper.convertValue(v, VehicleDto.class))
                 .toList();
     }
+
+    @Override
+    public List<VehicleDto> findDistinctByClaimsCostOfDamageGreaterThanEqual() {
+        List<Vehicle> result = vehicleRepository.findDistinctByClaimsCostOfDamageGreaterThanEqual(10000D);
+        return result.stream()
+                .map(v -> mapper.convertValue(v, VehicleDto.class))
+                .toList();
+    }
+
 }
