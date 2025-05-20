@@ -1,0 +1,16 @@
+2025-05-16 12:10:57.281078-03:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "HTE_MINI_SERIE" ya existe
+Table "HTE_MINI_SERIE" already exists; SQL statement:
+create global temporary table HTE_mini_serie(amount_of_awards integer, rn_ integer not null, id bigint, rating float(53), name varchar(255), primary key (rn_)) TRANSACTIONAL [42101-232]
+2025-05-16 12:10:59.687433-03:00 jdbc[23]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "HTE_MINI_SERIE" ya existe
+Table "HTE_MINI_SERIE" already exists; SQL statement:
+create global temporary table HTE_mini_serie(amount_of_awards integer, rn_ integer not null, id bigint, rating float(53), name varchar(255), primary key (rn_)) TRANSACTIONAL [42101-232]
+2025-05-16 12:36:16.228169-03:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "HTE_MINI_SERIE" ya existe
+Table "HTE_MINI_SERIE" already exists; SQL statement:
+create global temporary table HTE_mini_serie(amount_of_awards integer, rn_ integer not null, id bigint, rating float(53), name varchar(255), primary key (rn_)) TRANSACTIONAL [42101-232]
+2025-05-16 12:36:18.516380-03:00 jdbc[23]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "HTE_MINI_SERIE" ya existe
+Table "HTE_MINI_SERIE" already exists; SQL statement:
+create global temporary table HTE_mini_serie(amount_of_awards integer, rn_ integer not null, id bigint, rating float(53), name varchar(255), primary key (rn_)) TRANSACTIONAL [42101-232]
