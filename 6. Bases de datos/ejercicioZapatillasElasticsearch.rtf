@@ -1,0 +1,69 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2822
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 Ejercicio zapatillas Kibana\
+\
+PUT /zapatillas_deportivas\
+\{\
+  "mappings": \{\
+    "properties": \{\
+      "nombre": \{ "type": "text" \},\
+      "marca": \{ "type": "keyword" \},\
+      "precio": \{ "type": "float" \},\
+      "tama\'f1o": \{ "type": "integer" \},\
+      "color": \{ "type": "keyword" \}\
+    \}\
+  \}\
+\}\
+\
+POST /zapatillas_deportivas/_doc\
+\{\
+  "nombre": "Zapatilla Deportiva X",\
+  "marca": "Marca X",\
+  "precio": 99.99,\
+  "tama\'f1o": 42,\
+  "color": "rojo"\
+\}\
+\
+POST /_bulk\
+\{ "index": \{ "_index": "zapatillas_deportivas" \} \}\
+\{ "nombre": "Zapatilla Deportiva A", "marca": "Marca A", "precio": 89.99, "tama\'f1o": 40, "color": "negro" \}\
+\{ "index": \{ "_index": "zapatillas_deportivas" \} \}\
+\{ "nombre": "Zapatilla Deportiva B", "marca": "Marca B", "precio": 79.99, "tama\'f1o": 41, "color": "blanco" \}\
+\{ "index": \{ "_index": "zapatillas_deportivas" \} \}\
+\{ "nombre": "Zapatilla Deportiva C", "marca": "Marca C", "precio": 120.00, "tama\'f1o": 43, "color": "azul" \}\
+\{ "index": \{ "_index": "zapatillas_deportivas" \} \}\
+\{ "nombre": "Zapatilla Deportiva D", "marca": "Marca D", "precio": 110.00, "tama\'f1o": 39, "color": "verde" \}\
+\{ "index": \{ "_index": "zapatillas_deportivas" \} \}\
+\{ "nombre": "Zapatilla Deportiva E", "marca": "Marca E", "precio": 95.50, "tama\'f1o": 44, "color": "amarillo" \}\
+\{ "index": \{ "_index": "zapatillas_deportivas" \} \}\
+\{ "nombre": "Zapatilla Deportiva F", "marca": "Marca F", "precio": 85.75, "tama\'f1o": 38, "color": "gris" \}\
+\{ "index": \{ "_index": "zapatillas_deportivas" \} \}\
+\{ "nombre": "Zapatilla Deportiva G", "marca": "Marca G", "precio": 99.99, "tama\'f1o": 42, "color": "naranja" \}\
+\{ "index": \{ "_index": "zapatillas_deportivas" \} \}\
+\{ "nombre": "Zapatilla Deportiva H", "marca": "Marca H", "precio": 130.00, "tama\'f1o": 45, "color": "morado" \}\
+\{ "index": \{ "_index": "zapatillas_deportivas" \} \}\
+\{ "nombre": "Zapatilla Deportiva I", "marca": "Marca I", "precio": 75.00, "tama\'f1o": 37, "color": "rosado" \}\
+\{ "index": \{ "_index": "zapatillas_deportivas" \} \}\
+\{ "nombre": "Zapatilla Deportiva J", "marca": "Marca J", "precio": 65.99, "tama\'f1o": 39, "color": "ovellana" \}\
+\{ "index": \{ "_index": "zapatillas_deportivas" \} \}\
+\{ "nombre": "Zapatilla Deportiva K", "marca": "Marca K", "precio": 110.50, "tama\'f1o": 41, "color": "turquesa" \}\
+\{ "index": \{ "_index": "zapatillas_deportivas" \} \}\
+\{ "nombre": "Zapatilla Deportiva L", "marca": "Marca L", "precio": 99.00, "tama\'f1o": 44, "color": "verde oliva" \}\
+\{ "index": \{ "_index": "zapatillas_deportivas" \} \}\
+\{ "nombre": "Zapatilla Deportiva M", "marca": "Marca M", "precio": 92.99, "tama\'f1o": 36, "color": "burdeos" \}\
+\{ "index": \{ "_index": "zapatillas_deportivas" \} \}\
+\{ "nombre": "Zapatilla Deportiva N", "marca": "Marca N", "precio": 115.00, "tama\'f1o": 43, "color": "azul marino" \}\
+\
+GET /zapatillas_deportivas/_search\
+\{\
+  "query": \{\
+    "match_all": \{\}\
+  \},\
+  "size": 65 \
+\}\
+}
