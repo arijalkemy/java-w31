@@ -1,0 +1,8 @@
+/Users/frcastro/Desktop/java_bc/java-w31/7. Implementacion de bases de datos/3-Relaciones-JPA-Example/src/main/java/com/example/demo/DemoApplication.java
+/Users/frcastro/Desktop/java_bc/java-w31/7. Implementacion de bases de datos/3-Relaciones-JPA-Example/src/main/java/com/example/demo/controller/TestCaseController.java
+/Users/frcastro/Desktop/java_bc/java-w31/7. Implementacion de bases de datos/3-Relaciones-JPA-Example/src/main/java/com/example/demo/dto/TestCaseDto.java
+/Users/frcastro/Desktop/java_bc/java-w31/7. Implementacion de bases de datos/3-Relaciones-JPA-Example/src/main/java/com/example/demo/model/BenchMarks.java
+/Users/frcastro/Desktop/java_bc/java-w31/7. Implementacion de bases de datos/3-Relaciones-JPA-Example/src/main/java/com/example/demo/model/TestCase.java
+/Users/frcastro/Desktop/java_bc/java-w31/7. Implementacion de bases de datos/3-Relaciones-JPA-Example/src/main/java/com/example/demo/repository/ITestCaseRepository.java
+/Users/frcastro/Desktop/java_bc/java-w31/7. Implementacion de bases de datos/3-Relaciones-JPA-Example/src/main/java/com/example/demo/service/ITestCaseService.java
+/Users/frcastro/Desktop/java_bc/java-w31/7. Implementacion de bases de datos/3-Relaciones-JPA-Example/src/main/java/com/example/demo/service/TestCaseService.java
