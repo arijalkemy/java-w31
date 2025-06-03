@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="deea08c2-c009-480e-adaa-6002fbea1d0f" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../../3. Sprint I/be_java_hisp_w31_g01-develop/.gitattributes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../3. Sprint I/be_java_hisp_w31_g01-develop/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../3. Sprint I/be_java_hisp_w31_g01-develop/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../3. Sprint I/be_java_hisp_w31_g01-develop/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../3. Sprint I/be_java_hisp_w31_g01-develop/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../3. Sprint I/be_java_hisp_w31_g01-develop/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../3. Sprint I/be_java_hisp_w31_g01-develop/src/main/java/com/example/be_java_hisp_w31_g01/BeJavaHispW31G01Application.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../3. Sprint I/be_java_hisp_w31_g01-develop/src/main/java/com/example/be_java_hisp_w31_g01/controller/ProductController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../3. Sprint I/be_java_hisp_w31_g01-develop/src/main/java/com/example/be_java_hisp_w31_g01/controller/UserController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../3. Sprint I/be_java_hisp_w31_g01-develop/src/main/java/com/example/be_java_hisp_w31_g01/dto/ExceptionDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../3. Sprint I/be_java_hisp_w31_g01-develop/src/main/java/com/example/be_java_hisp_w31_g01/dto/FollowedResponseDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../3. Sprint I/be_java_hisp_w31_g01-develop/src/main/java/com/example/be_java_hisp_w31_g01/dto/FollowerResponseDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../3. Sprint I/be_java_hisp_w31_g01-develop/src/main/java/com/example/be_java_hisp_w31_g01/dto/PostPromoCountDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../3. Sprint I/be_java_hisp_w31_g01-develop/src/main/java/com/example/be_java_hisp_w31_g01/dto/PostPromoDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../3. Sprint I/be_java_hisp_w31_g01-develop/src/main/java/com/example/be_java_hisp_w31_g01/dto/PostPromoWrapperDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../3. Sprint I/be_java_hisp_w31_g01-develop/src/main/java/com/example/be_java_hisp_w31_g01/dto/PostRequestDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../3. Sprint I/be_java_hisp_w31_g01-develop/src/main/java/com/example/be_java_hisp_w31_g01/dto/PostResponseDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../3. Sprint I/be_java_hisp_w31_g01-develop/src/main/java/com/example/be_java_hisp_w31_g01/dto/PostResponseWrapperDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../3. Sprint I/be_java_hisp_w31_g01-develop/src/main/java/com/example/be_java_hisp_w31_g01/dto/ProductDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../3. Sprint I/be_java_hisp_w31_g01-develop/src/main/java/com/example/be_java_hisp_w31_g01/dto/SellerDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../3. Sprint I/be_java_hisp_w31_g01-develop/src/main/java/com/example/be_java_hisp_w31_g01/entity/Customer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../3. Sprint I/be_java_hisp_w31_g01-develop/src/main/java/com/example/be_java_hisp_w31_g01/entity/Post.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../3. Sprint I/be_java_hisp_w31_g01-develop/src/main/java/com/example/be_java_hisp_w31_g01/entity/Product.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../3. Sprint I/be_java_hisp_w31_g01-develop/src/main/java/com/example/be_java_hisp_w31_g01/entity/Seller.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../3. Sprint I/be_java_hisp_w31_g01-develop/src/main/java/com/example/be_java_hisp_w31_g01/entity/User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../3. Sprint I/be_java_hisp_w31_g01-develop/src/main/java/com/example/be_java_hisp_w31_g01/exception/BadRequestException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../3. Sprint I/be_java_hisp_w31_g01-develop/src/main/java/com/example/be_java_hisp_w31_g01/exception/ConflictException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../3. Sprint I/be_java_hisp_w31_g01-develop/src/main/java/com/example/be_java_hisp_w31_g01/exception/ExceptionController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../3. Sprint I/be_java_hisp_w31_g01-develop/src/main/java/com/example/be_java_hisp_w31_g01/exception/NotFoundException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../3. Sprint I/be_java_hisp_w31_g01-develop/src/main/java/com/example/be_java_hisp_w31_g01/repository/IPostRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../3. Sprint I/be_java_hisp_w31_g01-develop/src/main/java/com/example/be_java_hisp_w31_g01/repository/IUserRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../3. Sprint I/be_java_hisp_w31_g01-develop/src/main/java/com/example/be_java_hisp_w31_g01/repository/PostRepositoryImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../3. Sprint I/be_java_hisp_w31_g01-develop/src/main/java/com/example/be_java_hisp_w31_g01/repository/UserRepositoryImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../3. Sprint I/be_java_hisp_w31_g01-develop/src/main/java/com/example/be_java_hisp_w31_g01/service/IPostService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../3. Sprint I/be_java_hisp_w31_g01-develop/src/main/java/com/example/be_java_hisp_w31_g01/service/IUserService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../3. Sprint I/be_java_hisp_w31_g01-develop/src/main/java/com/example/be_java_hisp_w31_g01/service/PostServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../3. Sprint I/be_java_hisp_w31_g01-develop/src/main/java/com/example/be_java_hisp_w31_g01/service/UserServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../3. Sprint I/be_java_hisp_w31_g01-develop/src/main/resources/Sprint - 01.postman_collection.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../3. Sprint I/be_java_hisp_w31_g01-develop/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../3. Sprint I/be_java_hisp_w31_g01-develop/src/main/resources/customers.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../3. Sprint I/be_java_hisp_w31_g01-develop/src/main/resources/posts.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../3. Sprint I/be_java_hisp_w31_g01-develop/src/main/resources/products.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../3. Sprint I/be_java_hisp_w31_g01-develop/src/main/resources/sellers.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../3. Sprint I/be_java_hisp_w31_g01-develop/src/test/java/com/example/be_java_hisp_w31_g01/BeJavaHispW31G01ApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4. Testing/ObtenerDiploma/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4. Testing/ObtenerDiploma/.mvn/wrapper/MavenWrapperDownloader.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4. Testing/ObtenerDiploma/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4. Testing/ObtenerDiploma/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4. Testing/ObtenerDiploma/ObtenerDiploma.postman_collection.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4. Testing/ObtenerDiploma/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4. Testing/ObtenerDiploma/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4. Testing/ObtenerDiploma/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4. Testing/ObtenerDiploma/src/main/java/com/meli/obtenerdiploma/ObtenerDiplomaApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4. Testing/ObtenerDiploma/src/main/java/com/meli/obtenerdiploma/controller/ObtenerDiplomaController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4. Testing/ObtenerDiploma/src/main/java/com/meli/obtenerdiploma/controller/ObtenerDiplomaExceptionController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4. Testing/ObtenerDiploma/src/main/java/com/meli/obtenerdiploma/controller/StudentController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4. Testing/ObtenerDiploma/src/main/java/com/meli/obtenerdiploma/exception/ObtenerDiplomaException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4. Testing/ObtenerDiploma/src/main/java/com/meli/obtenerdiploma/exception/StudentNotFoundException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4. Testing/ObtenerDiploma/src/main/java/com/meli/obtenerdiploma/model/ErrorDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4. Testing/ObtenerDiploma/src/main/java/com/meli/obtenerdiploma/model/StudentDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4. Testing/ObtenerDiploma/src/main/java/com/meli/obtenerdiploma/model/SubjectDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4. Testing/ObtenerDiploma/src/main/java/com/meli/obtenerdiploma/repository/IStudentDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4. Testing/ObtenerDiploma/src/main/java/com/meli/obtenerdiploma/repository/IStudentRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4. Testing/ObtenerDiploma/src/main/java/com/meli/obtenerdiploma/repository/StudentDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4. Testing/ObtenerDiploma/src/main/java/com/meli/obtenerdiploma/repository/StudentRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4. Testing/ObtenerDiploma/src/main/java/com/meli/obtenerdiploma/service/IObtenerDiplomaService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4. Testing/ObtenerDiploma/src/main/java/com/meli/obtenerdiploma/service/IStudentService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4. Testing/ObtenerDiploma/src/main/java/com/meli/obtenerdiploma/service/ObtenerDiplomaService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4. Testing/ObtenerDiploma/src/main/java/com/meli/obtenerdiploma/service/StudentService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4. Testing/ObtenerDiploma/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4. Testing/ObtenerDiploma/src/main/resources/users.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4. Testing/ObtenerDiploma/src/test/java/com/meli/obtenerdiploma/ObtenerDiplomaApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4. Testing/ObtenerDiploma/src/test/java/com/meli/obtenerdiploma/repository/StrudentDAOTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4. Testing/ObtenerDiploma/src/test/java/com/meli/obtenerdiploma/repository/StudentRepositoryTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4. Testing/starwars/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4. Testing/starwars/.mvn/wrapper/MavenWrapperDownloader.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4. Testing/starwars/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4. Testing/starwars/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4. Testing/starwars/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4. Testing/starwars/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4. Testing/starwars/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4. Testing/starwars/src/main/java/com/mercadolibre/starwars/StarWarsApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4. Testing/starwars/src/main/java/com/mercadolibre/starwars/controller/FindController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4. Testing/starwars/src/main/java/com/mercadolibre/starwars/dto/CharacterDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4. Testing/starwars/src/main/java/com/mercadolibre/starwars/repositories/CharacterRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4. Testing/starwars/src/main/java/com/mercadolibre/starwars/repositories/CharacterRepositoryImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4. Testing/starwars/src/main/java/com/mercadolibre/starwars/service/FindService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4. Testing/starwars/src/main/resources/Base_starwars.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4. Testing/starwars/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4. Testing/starwars/src/main/resources/starwars_characters.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4. Testing/starwars/src/test/java/com/mercadolibre/starwars/Controller/FindControllerTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4. Testing/starwars/src/test/java/com/mercadolibre/starwars/Repositories/CharacterRepositoryImplTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4. Testing/starwars/src/test/java/com/mercadolibre/starwars/Service/FindServiceTest.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 3
+}]]></component>
+  <component name="ProjectId" id="2xKCT1P4TWyGDLjOGXn5djaq0ZU" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "beltran__josefina",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/josefbeltran/Documents/Bootcamp2025/java-w31/6. Bases de datos/ImplementacionBD",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-a94e463ab2e7-intellij.indexing.shared.core-IU-243.26053.27" />
+        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-IU-243.26053.27" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="deea08c2-c009-480e-adaa-6002fbea1d0f" name="Changes" comment="" />
+      <created>1747677381181</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1747677381181</updated>
+      <workItem from="1747677382281" duration="95000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
