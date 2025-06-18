@@ -1,0 +1,26 @@
+spring:
+  security:
+    enabled: false  # Desactiva la seguridad para pruebas
+  jpa:
+    hibernate:
+      ddl-auto: create-drop  # Correcto para tests
+    database-platform: org.hibernate.dialect.H2Dialect
+    generate-ddl: true
+    properties:
+      hibernate:
+        default_schema: frescosG9
+        format_sql: true
+    show-sql: true   # Actívalo para depurar en tests
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE;INIT=CREATE SCHEMA IF NOT EXISTS frescosG9
+    username: admin
+    password: admin
+  h2:
+    console:
+      enabled: true
+
+logging:
+  level:
+    com.mercadolibre.meli_frescos_g9_w31: INFO
+    org.hibernate.SQL: DEBUG
