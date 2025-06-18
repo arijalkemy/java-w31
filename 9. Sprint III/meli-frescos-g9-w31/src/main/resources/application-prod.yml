@@ -1,0 +1,18 @@
+# "prod" suffix properties file. Scopes name samples: "prod", "web-prod", "api-prod", etc.
+# Overrides application.yml default propertiesß
+spring:
+  datasource:
+    hikari:
+      maximum-pool-size: 5
+    url: jdbc:mysql://${DB_MYSQL_DESAENV10_MFRESCOSG9_MFRESCOSG9_ENDPOINT}/mfrescosg9?useSSL=true&serverTimezone=UTC&characterEncoding=UTF-8
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: ${SECRET_DB_MYSQL_DESAENV10_MFRESCOSG9_MFRESCOSG9_WPROD_USER}
+    password: ${SECRET_DB_MYSQL_DESAENV10_MFRESCOSG9_MFRESCOSG9_WPROD}
+  jpa:
+    show-sql: false
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    defer-datasource-initialization: true
+    hibernate:
+      ddl-auto: validate
+
+jwt.secret: "2bd6b31a06e1db686c105b9e223e253b99497360a217a7a0f4039734c9ebcd2e"

@@ -1,0 +1,27 @@
+# "test" suffix properties file. Scopes name samples: "test", "web-test", "api-test", etc.
+# Overrides application.yml default properties
+
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    database-platform: org.hibernate.dialect.H2Dialect
+    generate-ddl: true
+    properties:
+      hibernate:
+        default_schema: frescosG9
+        format_sql: true
+    show-sql: false
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE;INIT=CREATE SCHEMA IF NOT EXISTS frescosG9
+    username: admin
+    password: admin
+  h2:
+    console:
+      enabled: true
+
+logging:
+  level:
+    com.mercadolibre.meli_frescos_g9_w31: INFO
+    org.hibernate.SQL: DEBUG
